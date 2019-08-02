@@ -1,0 +1,50 @@
+spring:
+  # Druid连接池配置，官方配置参考：https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
+  datasource:
+    druid:
+      url: jdbc:mysql://116.62.51.135:3306/transaction?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+      username: root
+      password: 123456
+      initial-size: 5
+      max-active: 20
+      min-idle: 10
+      max-wait: 10
+      filters: stat
+      filter:
+        stat:
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 2000
+      # Druid WebStatFilter配置，说明请参考Druid Wiki，配置_配置WebStatFilter
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: '*.gif,*.png,*.jpg,*.html,*.js,*.css,*.ico,/druid/*'
+      # Druid StatViewServlet配置，说明请参考Druid Wiki，配置_StatViewServlet配置
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: true
+        login-username: user
+        login-password: user
+        allow:
+        deny:
+  # Jpa配置
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        jdbc:
+          batch_size: 1000
+          batch_versioned_data: true
+  transaction:
+    rollback-on-commit-failure: true
+
+
+server:
+  port: 18080
