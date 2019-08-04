@@ -1,4 +1,4 @@
-package com.transaction.entity;
+package com.transaction.core.entity;
 
 public class Account {
     private String currency; // 币种

@@ -1,6 +1,6 @@
-package com.transaction.exchange.pubinterface;
+package com.transaction.core.exchange.pubinterface;
 
-import com.transaction.entity.Account;
+import com.transaction.core.entity.Account;
 
 import java.util.HashMap;
 

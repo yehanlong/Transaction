@@ -1,7 +1,7 @@
-package com.transaction.exchange.zhaobi;
+package com.transaction.core.exchange.zhaobi;
 
-import com.transaction.entity.Account;
-import com.transaction.exchange.pubinterface.Exchange;
+import com.transaction.core.entity.Account;
+import com.transaction.core.exchange.pubinterface.Exchange;
 
 import java.util.HashMap;
 

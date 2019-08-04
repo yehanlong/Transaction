@@ -1,34 +1,35 @@
-package com.transaction.exchange.zhaobi;
+package com.transaction.core.exchange.zhaobi;
 
 // 例子：
-// 用ycc换比特元
-// 1.买ycc 2.ycc换比特元 3.卖比特元
-// 注意：第二步的type是卖
+// 用比特元换ycc
+// 1.买比特元 2.比特元换ycc 3.卖ycc
+// 注意：第二步的type是买
 
-import com.transaction.exchange.pubinterface.Exchange;
+import com.transaction.core.exchange.pubinterface.Exchange;
 
 import java.util.concurrent.locks.Lock;
 
-public class Moving2 extends Thread {
+public class Moving1 extends Thread {
 
     private Exchange client;
     private String sy1;
     private String sy2;
-    private static Lock lock;
+    private Lock lock;
+
+    public Lock getLock() {
+        return lock;
+    }
+
+    public void setLock(Lock lock) {
+        this.lock = lock;
+    }
+
     public Exchange getClient() {
         return client;
     }
 
     public void setClient(Exchange client) {
         this.client = client;
-    }
-
-    public static Lock getLock() {
-        return lock;
-    }
-
-    public static void setLock(Lock lock) {
-        Moving2.lock = lock;
     }
 
     public String getSy1() {
@@ -47,7 +48,7 @@ public class Moving2 extends Thread {
         this.sy2 = sy2;
     }
 
-    public Moving2(Exchange client, String sy1, String sy2) {
+    public Moving1(Exchange client, String sy1, String sy2) {
         this.client = client;
         this.sy1 = sy1;
         this.sy2 = sy2;
@@ -56,16 +57,13 @@ public class Moving2 extends Thread {
     @Override
     public void run() {
 
-        System.out.printf("moving2 start, sy1: %s, sy2: %s \n", sy1, sy2);
+        System.out.printf("moving1 start, sy1: %s, sy2: %s \n", sy1, sy2);
 
         while (true) {
             try {
                 lock.lock();
-                System.out.println(222);
+                System.out.println(sy1);
 
-
-            } catch (Exception e) {
-                e.printStackTrace();
             } finally {
                 lock.unlock();
                 try {
@@ -75,8 +73,6 @@ public class Moving2 extends Thread {
                 }
             }
         }
-
-
 
 
     }

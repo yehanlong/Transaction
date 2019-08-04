@@ -1,4 +1,4 @@
-package com.transaction.exchange.pub;
+package com.transaction.core.exchange.pub;
 
 // 交易对
 

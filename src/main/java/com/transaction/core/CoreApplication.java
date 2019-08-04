@@ -1,11 +1,9 @@
 package com.transaction.core;
 
-import com.alibaba.fastjson.JSONObject;
-import com.transaction.core.response.ResponseBean;
-import com.transaction.exchange.zhaobi.Moving1;
-import com.transaction.exchange.zhaobi.Moving2;
-import com.transaction.exchange.zhaobi.ZhaobiClient;
-import com.transaction.exchange.zhaobi.ZhaobiInit;
+import com.transaction.core.exchange.zhaobi.Moving1;
+import com.transaction.core.exchange.zhaobi.Moving2;
+import com.transaction.core.exchange.zhaobi.ZhaobiClient;
+import com.transaction.core.exchange.zhaobi.ZhaobiInit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -41,7 +39,7 @@ public class CoreApplication {
             m2.start();
         }
 
-
+//;
     }
 
     @Autowired
@@ -49,6 +47,8 @@ public class CoreApplication {
 
     public Object restTemplateDemo(){
 
+        Map map1=restTemplate.getForObject("https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=ACCESS_TOKEN",Map.class);
+        System.out.println(map1.get("errmsg"));
         String uri="http://wthrcdn.etouch.cn/weather_mini?city=";
         HttpHeaders headers = new HttpHeaders();
         //定义请求参数类型
