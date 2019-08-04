@@ -1,6 +1,6 @@
 package com.transaction.entity;
 
-public class account {
+public class Account {
     public String currency; // 币种
     public float active; // 可用余额
     public float frozen; // 冻结余额
