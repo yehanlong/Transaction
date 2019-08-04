@@ -46,9 +46,6 @@ public class CoreApplication {
     private RestTemplate restTemplate;
 
     public Object restTemplateDemo(){
-
-        Map map1=restTemplate.getForObject("https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=ACCESS_TOKEN",Map.class);
-        System.out.println(map1.get("errmsg"));
         String uri="http://wthrcdn.etouch.cn/weather_mini?city=";
         HttpHeaders headers = new HttpHeaders();
         //定义请求参数类型
