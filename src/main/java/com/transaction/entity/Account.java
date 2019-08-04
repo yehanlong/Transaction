@@ -1,9 +1,9 @@
 package com.transaction.entity;
 
 public class Account {
-    public String currency; // 币种
-    public float active; // 可用余额
-    public float frozen; // 冻结余额
+    private String currency; // 币种
+    private double active; // 可用余额
+    private double frozen; // 冻结余额
 
     public String getCurrency() {
         return currency;
@@ -13,7 +13,7 @@ public class Account {
         this.currency = currency;
     }
 
-    public float getActive() {
+    public double getActive() {
         return active;
     }
 
@@ -21,7 +21,7 @@ public class Account {
         this.active = active;
     }
 
-    public float getFrozen() {
+    public double getFrozen() {
         return frozen;
     }
 
