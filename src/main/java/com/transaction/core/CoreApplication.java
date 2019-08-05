@@ -42,24 +42,4 @@ public class CoreApplication {
 //;
     }
 
-    @Autowired
-    private RestTemplate restTemplate;
-
-    public Object restTemplateDemo(){
-        String uri="http://wthrcdn.etouch.cn/weather_mini?city=";
-        HttpHeaders headers = new HttpHeaders();
-        //定义请求参数类型
-        headers.setContentType(MediaType.TEXT_PLAIN);
-        //headers.setBearerAuth("e243dff6f8132ef254fae4e1f628e6d7966f8645");
-        headers.add("User-Agent", "curl/7.58.0");
-        //headers.add("Authorization ", "Basic YWRtaW46YWRxxxx=");
-        //RestTemplate带参传的时候要用HttpEntity<?>对象传递
-        //json参数（map）
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("userId", 1);
-        HttpEntity<Map<String, Object>> entity = new HttpEntity<Map<String, Object>>(map, headers);
-        ResponseEntity<Map> result =restTemplate.exchange(uri, HttpMethod.GET, entity, Map.class);
-        return result;
-    }
-
 }

@@ -57,12 +57,12 @@ public class Moving1 extends Thread {
     @Override
     public void run() {
 
-        System.out.printf("moving1 start, sy1: %s, sy2: %s \n", sy1, sy2);
+        //System.out.printf("moving1 start, sy1: %s, sy2: %s \n", sy1, sy2);
 
         while (true) {
             try {
                 lock.lock();
-                System.out.println(sy1);
+                //System.out.println(sy1);
 
             } finally {
                 lock.unlock();

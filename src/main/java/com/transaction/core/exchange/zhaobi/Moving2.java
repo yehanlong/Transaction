@@ -61,7 +61,7 @@ public class Moving2 extends Thread {
         while (true) {
             try {
                 lock.lock();
-                System.out.println(222);
+                //System.out.println(222);
 
 
             } catch (Exception e) {
