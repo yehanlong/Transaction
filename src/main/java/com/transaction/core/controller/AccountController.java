@@ -32,7 +32,7 @@ public class AccountController {
     private AccountService accountService;
 
     @GetMapping(value = "/account/{name}")
-    public ResponseBean restTemplateTest(@PathVariable(value = "name")String name) throws IOException {
+    public ResponseBean getAccountByName(@PathVariable(value = "name")String name) throws IOException {
         try{
             Map<String,PropertyEntity> map= accountService.getAccount();
             PropertyEntity propertyEntity = map.get(name);
@@ -43,7 +43,7 @@ public class AccountController {
     }
 
     @GetMapping(value = "account")
-    public ResponseBean getAccount() throws IOException {
+    public ResponseBean getAllAccount() throws IOException {
         try{
            return new  ResponseBean<>(ResponseBean.SUCCESS,"获取账户信息成功",accountService.getAccount());
         }catch (Exception e){

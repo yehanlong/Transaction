@@ -14,4 +14,5 @@ import java.util.Map;
 public interface AccountService {
 
     Map getAccount() throws IOException;
+
 }
