@@ -41,13 +41,18 @@ public class AccountController {
         try{
            return new  ResponseBean<>(ResponseBean.SUCCESS,"获取账户信息成功",accountService.getAccount());
         }catch (Exception e){
-            return ResponseBean.fail("获取账户信息失败"+e.getMessage());
+            return ResponseBean.fail("获取账户信息失败，"+e.getMessage());
         }
     }
 
-    @GetMapping(value = "test")
-    public List<TradeVO> getZBMarketInfo(int num, String symbol){
-        return accountService.getZBMarketInfo(num,symbol);
+    @GetMapping(value = "ZBMarker")
+    public ResponseBean getZBMarketInfo(int num, String symbol) throws Exception {
+        try{
+            List<TradeVO> list = accountService.getZBMarketInfo(num,symbol);
+            return ResponseBean.ok("查询市场行情成功",list);
+        }catch (Exception e){
+            return ResponseBean.fail("查询市场行情失败,"+e.getMessage());
+        }
     }
 
 }

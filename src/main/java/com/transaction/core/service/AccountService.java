@@ -15,5 +15,5 @@ public interface AccountService {
 
     Map getAccount() throws IOException;
 
-    List<TradeVO> getZBMarketInfo(int num, String symbol);
+    List<TradeVO> getZBMarketInfo(int num, String symbol) throws Exception;
 }
