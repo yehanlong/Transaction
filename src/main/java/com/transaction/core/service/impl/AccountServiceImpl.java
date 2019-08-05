@@ -1,8 +1,10 @@
 package com.transaction.core.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.transaction.core.entity.PropertyEntity;
+import com.transaction.core.entity.vo.PropertyVO;
+import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -14,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -44,14 +47,25 @@ public class AccountServiceImpl implements AccountService {
         String valuation = jsonData.getString("valuation");
         System.out.println("资产总数为："+valuation);
         JSONObject jsonList = jsonData.getJSONObject("list");
-        Map<String,PropertyEntity> map = new HashMap<>();
+        Map<String, PropertyVO> map = new HashMap<>();
         Set<String> keySet = jsonList.keySet();
         for(String key:keySet){
             // 获得key
             JSONObject jsonBTY = jsonList.getJSONObject(key);
-            PropertyEntity propertyEntity = JSON.parseObject(jsonBTY.toJSONString(),PropertyEntity.class);
-            map.put(key,propertyEntity);
+            PropertyVO propertyVO = JSON.parseObject(jsonBTY.toJSONString(), PropertyVO.class);
+            map.put(key, propertyVO);
         }
         return map;
+    }
+
+    @Override
+    public List<TradeVO> getZBMarketInfo(int num, String symbol) {
+        String url = "https://api.biqianbao.top/api/data/market?num=" + String.valueOf(num) + "&format=&symbol=" + symbol;
+        String result =restTemplate.exchange(url, HttpMethod.GET , null, String.class).getBody();
+        JSONObject object = JSON.parseObject(result);
+        JSONObject jsonData = object.getJSONObject("data");
+        JSONArray jsonTrade = jsonData.getJSONArray("trade");
+        List<TradeVO> list = JSONObject.parseArray(jsonTrade.toJSONString(), TradeVO.class);
+        return list;
     }
 }

@@ -1,4 +1,4 @@
-package com.transaction.core.entity;
+package com.transaction.core.entity.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-public class PropertyEntity {
+public class PropertyVO {
 
     private String name;
 

@@ -1,9 +1,9 @@
 package com.transaction.core.service;
 
-import com.transaction.core.entity.PropertyEntity;
-import org.springframework.stereotype.Service;
+import com.transaction.core.entity.vo.TradeVO;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,4 +15,5 @@ public interface AccountService {
 
     Map getAccount() throws IOException;
 
+    List<TradeVO> getZBMarketInfo(int num, String symbol);
 }
