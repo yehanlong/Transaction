@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
+import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pub.Symbol;
 import com.transaction.core.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;

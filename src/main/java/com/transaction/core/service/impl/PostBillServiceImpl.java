@@ -3,6 +3,7 @@ package com.transaction.core.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.transaction.core.entity.vo.PropertyVO;
+import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.service.PostBillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -24,11 +25,10 @@ import java.util.Set;
 @Service
 public class PostBillServiceImpl implements PostBillService {
 
-    @Autowired
-    private RestTemplate restTemplate;
 
     @Override
     public String postBill(String amount, String currency, String currency2, String price, String ty) {
+        RestTemplate restTemplate = RestTemplateStatic.restTemplate();
         String uri="https://api.biqianbao.top/api/trade/place";
         String requestText = "amount=" + amount + "&" + "currency=" + currency + "&" + "currency2=" + currency2 + "&" + "price=" + price + "&" + "ty=" + ty;
         HttpHeaders headers = new HttpHeaders();
