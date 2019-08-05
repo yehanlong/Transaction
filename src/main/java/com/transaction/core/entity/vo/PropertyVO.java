@@ -18,15 +18,15 @@ public class PropertyVO {
 
     private String name;
 
-    private String total;
+    private Double total;
 
-    private String realactive;
+    private Double realactive;
 
-    private String valuation;
+    private Double valuation;
 
-    private String poundage;
+    private Double poundage;
 
-    private String active;
+    private Double active;
 
-    private String frozen;
+    private Double frozen;
 }
