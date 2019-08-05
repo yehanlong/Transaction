@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class Order {
     private double price;
     private double count;
+    private String type;
 }

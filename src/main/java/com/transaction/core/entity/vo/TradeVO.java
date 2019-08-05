@@ -1,9 +1,12 @@
 package com.transaction.core.entity.vo;
 
+import com.transaction.core.entity.Order;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 
 /**
@@ -17,8 +20,7 @@ import lombok.NoArgsConstructor;
 @Builder(toBuilder = true)
 public class TradeVO {
 
-    private String price;
-    private String am;
-    private String time;
-    private String type;
+    private List<Order> buys;
+    private List<Order> sells;
+    private boolean success;
 }
