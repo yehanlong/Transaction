@@ -22,5 +22,5 @@ public class TradeVO {
 
     private List<Order> buys;
     private List<Order> sells;
-    private boolean success;
+    private Boolean success;
 }
