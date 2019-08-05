@@ -72,7 +72,7 @@ public class Moving1 extends Thread {
                 // usdt 买比特元
                 TradeVO sy1Market = client.getMarketInfo(sy1+"USDT");
                 double btyPrice = sy1Market.getSells().get(0).getPrice();
-                double btyNum = sy1Market.getSells().get(0).getCount();
+                double btyNum = sy1Market.getSells().get(0).getAm();
                 if(btyPrice*btyNum < 2.0 || !sy1Market.getSuccess()){
                     // 当获取失败或者金额太少，就放弃此次循环
                     Thread.sleep(5000);
@@ -83,7 +83,7 @@ public class Moving1 extends Thread {
                 // bty 买ycc
                 TradeVO sy12Market = client.getMarketInfo(sy2+sy1);
                 double ybPrice = sy12Market.getSells().get(0).getPrice();
-                double ybNum = sy12Market.getSells().get(0).getCount();
+                double ybNum = sy12Market.getSells().get(0).getAm();
                 if (ybPrice*ybNum < 2.0 || !sy12Market.getSuccess()) {
                     Thread.sleep(5000);
                     continue;
@@ -93,7 +93,7 @@ public class Moving1 extends Thread {
                 // 卖掉ycc
                 TradeVO sy2Market = client.getMarketInfo(sy2+"USDT");
                 double yccPrice = sy2Market.getBuys().get(0).getPrice();
-                double yccNum = sy2Market.getBuys().get(0).getCount();
+                double yccNum = sy2Market.getBuys().get(0).getAm();
                 double usdtcount = yccCount*yccPrice;
                 if(yccPrice*yccNum < 2.0 || !sy2Market.getSuccess()){
                     Thread.sleep(5000);
@@ -116,7 +116,7 @@ public class Moving1 extends Thread {
                     // 1.买入bty
                     TradeVO sy1Market1 = client.getMarketInfo(sy1+"USDT");
                     double btyPrice1 = sy1Market1.getSells().get(0).getPrice();
-                    double btyNum1 = sy1Market1.getSells().get(0).getCount();
+                    double btyNum1 = sy1Market1.getSells().get(0).getAm();
                     if(btyPrice1*btyNum1 < 2.0 || !sy1Market1.getSuccess()){
                         // 当获取失败或者金额太少，就放弃此次循环
                         Thread.sleep(5000);
@@ -142,7 +142,7 @@ public class Moving1 extends Thread {
                     // 2.bty换ycc
                     TradeVO sy12Market1 = client.getMarketInfo(sy2+sy1);
                     double ybPrice1 = sy12Market1.getSells().get(0).getPrice();
-                    double ybNum1 = sy12Market1.getSells().get(0).getCount();
+                    double ybNum1 = sy12Market1.getSells().get(0).getAm();
                     if (ybPrice1*ybNum1 < 2.0 || !sy12Market1.getSuccess()) {
                         Thread.sleep(5000);
                         continue;
@@ -167,7 +167,7 @@ public class Moving1 extends Thread {
                     // 卖掉ycc
                     TradeVO sy2Market1 = client.getMarketInfo(sy2+"USDT");
                     double yccPrice1 = sy2Market1.getBuys().get(0).getPrice();
-                    double yccNum1 = sy2Market1.getBuys().get(0).getCount();
+                    double yccNum1 = sy2Market1.getBuys().get(0).getAm();
 //                    double usdtcount1 = yccCount*yccPrice;
                     if(yccPrice1*yccNum1 < 2.0 || !sy2Market1.getSuccess()){
                         Thread.sleep(5000);

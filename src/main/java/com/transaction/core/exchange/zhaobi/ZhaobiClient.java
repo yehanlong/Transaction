@@ -3,26 +3,26 @@ package com.transaction.core.exchange.zhaobi;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.transaction.core.entity.Account;
+import com.transaction.core.entity.Order;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pub.Symbol;
 import com.transaction.core.exchange.pubinterface.Exchange;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class ZhaobiClient implements Exchange {
 
     RestTemplate restTemplate = RestTemplateStatic.restTemplate();
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public PropertyVO getAccount(String a) {
@@ -69,24 +69,46 @@ public class ZhaobiClient implements Exchange {
     }
 
     @Override
-    public TradeVO getMarketInfo(String symbols) throws Exception {
+    public TradeVO getMarketInfo(String symbols) {
         if(!Symbol.YCCUSDT.equals(symbols)&&!Symbol.BTYUSDT.equals(symbols)&&!Symbol.YCCBTY.equals(symbols)){
-            throw new Exception("非法交易对");
+            logger.error("非法交易对");
         }
         String url = "https://api.biqianbao.top/api/data/market?num=" + String.valueOf(10) + "&format=&symbol=" + symbols;
-        String result =restTemplate.exchange(url, HttpMethod.GET , null, String.class).getBody();
-        JSONObject object = JSON.parseObject(result);
-        JSONObject jsonData = object.getJSONObject("data");
-        JSONArray jsonTrade = jsonData.getJSONArray("trade");
-        List<TradeVO> list = JSONObject.parseArray(jsonTrade.toJSONString(), TradeVO.class);
-        return null;
+        try {
+            String result = restTemplate.exchange(url, HttpMethod.GET, null, String.class).getBody();
+            JSONObject object = JSON.parseObject(result);
+            JSONObject jsonData = object.getJSONObject("data");
+            JSONObject marketData = jsonData.getJSONObject("marketdata");
+            JSONArray buyList = marketData.getJSONArray("buy");
+            JSONArray sellList = marketData.getJSONArray("sell");
+            Order order = new Order();
+            List<Order> byList = new ArrayList<>(), selList = new ArrayList<>();
+            for (int i = 0; ; i++) {
+                if (i < buyList.size()) {
+                    String buyInfo = JSONObject.toJSONString(buyList.get(i));
+                    order = JSONObject.toJavaObject(JSONObject.parseObject(buyInfo), Order.class);
+                    byList.add(order);
+                }
+                if (i < sellList.size()) {
+                    String sellInfo = JSONObject.toJSONString(sellList.get(i));
+                    order = JSONObject.toJavaObject(JSONObject.parseObject(sellInfo), Order.class);
+                    selList.add(order);
+                }
+                if (i >= buyList.size() && i >= sellList.size())
+                    break;
+            }
+            return new TradeVO(byList,selList);
+        }catch(Exception e){
+            logger.error(e.getMessage());
+            return null;
+        }
     }
 
 
     public static void main(String[] args) throws Exception {
         ZhaobiClient zhaobiClient = new ZhaobiClient();
-        //zhaobiClient.getAccount("YCC");
-        //zhaobiClient.postBill(1,"YCC","USDT",0.013161,"SELL");
-        zhaobiClient.getMarketInfo("YCCUSDT");
+        zhaobiClient.getAccount("YCC");
+//        zhaobiClient.postBill(1,"YCC","USDT",0.013161,"SELL");
+//        zhaobiClient.getMarketInfo("YCCUSDT");
     }
 }

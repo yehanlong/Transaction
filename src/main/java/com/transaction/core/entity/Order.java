@@ -11,5 +11,21 @@ import lombok.NoArgsConstructor;
 @Builder(toBuilder = true)
 public class Order {
     private double price;
-    private double count;
+    private double am;
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getAm() {
+        return am;
+    }
+
+    public void setAm(double am) {
+        this.am = am;
+    }
 }

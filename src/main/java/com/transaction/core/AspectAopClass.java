@@ -23,7 +23,7 @@ public class AspectAopClass {
 
     private static Logger logger  = LoggerFactory.getLogger(AspectAopClass.class);
 
-    @Around("execution(* com.sqc95111.demologin.service.*.*(..))")
+    @Around("execution(* com.transaction.core.exchange.zhaobi.ZhaobiClient(..))")
     public Object myPointCut(ProceedingJoinPoint joinPoint) throws Throwable {
         String className = joinPoint.getSignature().getDeclaringTypeName();
         String methodName = joinPoint.getSignature().getName();
@@ -34,7 +34,7 @@ public class AspectAopClass {
         return result;
     }
 
-    @Pointcut("execution(* com.sqc95111.demologin.service.*.*(..))")
+    @Pointcut("execution(* com.transaction.core.exchange.zhaobi.ZhaobiClient(..))")
     public void aspectMethod(){
     }
 

@@ -14,9 +14,11 @@ public interface Exchange {
     PropertyVO getAccount(String a);
 
     // 挂单
+    // 如postBill(1,"YCC","USDT",0.013161,"SELL");数量为1的ycc卖成usdt
     boolean postBill(double amount, String currency, String currency2, double price, String ty);
 
     // 获取市场信息
-    TradeVO getMarketInfo(String symbols) throws Exception;
+    //如getMarketInfo("YCCUSDT");
+    TradeVO getMarketInfo(String symbols);
 
 }

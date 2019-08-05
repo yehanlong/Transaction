@@ -23,4 +23,34 @@ public class TradeVO {
     private List<Order> buys;
     private List<Order> sells;
     private Boolean success;
+
+    public List<Order> getBuys() {
+        return buys;
+    }
+
+    public void setBuys(List<Order> buys) {
+        this.buys = buys;
+    }
+
+    public List<Order> getSells() {
+        return sells;
+    }
+
+    public void setSells(List<Order> sells) {
+        this.sells = sells;
+    }
+
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(Boolean success) {
+        this.success = success;
+    }
+
+    public TradeVO(List<Order> buys, List<Order> sells) {
+        this.success = true;
+        this.buys = buys;
+        this.sells = sells;
+    }
 }
