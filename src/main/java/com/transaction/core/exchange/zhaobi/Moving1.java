@@ -105,7 +105,86 @@ public class Moving1 extends Thread {
                 if (usdtcount > usdt*(1+0.0035)) {
 
                     // 有盈利，开始交易
-                    if (btyPrice*)
+
+                    double everyUSDT = 2.0;
+                    double accUSDT = client.getAccount("USDT").getActive();
+                    if (accUSDT < 2.0) {
+                        System.out.println("账户 usdt 小于 4.0");
+                        continue;
+                    }
+
+                    // 1.买入bty
+                    TradeVO sy1Market1 = client.getMarketInfo(sy1+"USDT");
+                    double btyPrice1 = sy1Market1.getSells().get(0).getPrice();
+                    double btyNum1 = sy1Market1.getSells().get(0).getCount();
+                    if(btyPrice1*btyNum1 < 2.0 || !sy1Market1.getSuccess()){
+                        // 当获取失败或者金额太少，就放弃此次循环
+                        Thread.sleep(5000);
+                        continue;
+                    }
+                    if (btyPrice != btyPrice1){
+                        // 价格发生变化，立即进行下次循环
+                        continue;
+                    }
+                    double btyCount1 = everyUSDT*(1-0.001)/btyPrice1;
+                    if(btyNum1<btyCount1){
+                        btyCount1 = btyNum1;
+                    }
+                    // todo
+//                    if (btyPrice1*btyNum1 > 2.0 && btyPrice1*btyNum1 < 4.0){
+//                        btyCount1 = btyNum1;
+//                    }
+                    boolean success1 = client.postBill(btyCount1,sy1,"USDT",btyPrice1,"buy");
+                    if (!success1){
+                        break;
+                    }
+
+                    // 2.bty换ycc
+                    TradeVO sy12Market1 = client.getMarketInfo(sy2+sy1);
+                    double ybPrice1 = sy12Market1.getSells().get(0).getPrice();
+                    double ybNum1 = sy12Market1.getSells().get(0).getCount();
+                    if (ybPrice1*ybNum1 < 2.0 || !sy12Market1.getSuccess()) {
+                        Thread.sleep(5000);
+                        continue;
+                    }
+                    if (ybPrice != ybPrice1) {
+                        continue;
+                    }
+
+                    double accBTY = client.getAccount("BTY").getActive();
+                    if (accBTY < btyCount1) {
+                        btyCount1 = accBTY;
+                    }
+                    double yccCount1 = btyCount1*(1-0.001)/ybPrice;
+                    if(ybNum1 < yccCount){
+                        yccCount1 = ybNum1;
+                    }
+                    Boolean success2 = client.postBill(yccCount1,sy2,sy1,ybPrice1,"buy");
+                    if (!success2){
+                        break;
+                    }
+
+                    // 卖掉ycc
+                    TradeVO sy2Market1 = client.getMarketInfo(sy2+"USDT");
+                    double yccPrice1 = sy2Market1.getBuys().get(0).getPrice();
+                    double yccNum1 = sy2Market1.getBuys().get(0).getCount();
+//                    double usdtcount1 = yccCount*yccPrice;
+                    if(yccPrice1*yccNum1 < 2.0 || !sy2Market1.getSuccess()){
+                        Thread.sleep(5000);
+                        continue;
+                    }
+                    if(yccPrice1 != yccPrice) {
+                        continue;
+                    }
+
+                    double accYCC = client.getAccount("YCC").getActive();
+                    if (accYCC < yccCount1)  {
+                        yccCount1 = accYCC;
+                    }
+                    Boolean success3 = client.postBill(yccCount1,sy2,"USDT",yccPrice1,"sell");
+                    if (!success3){
+                        break;
+                    }
                 }
 
 
