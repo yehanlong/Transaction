@@ -21,7 +21,7 @@ public class ZhaobiInit {
 
     public Map<String,String> initSymbol2() {
         Map<String,String> symbolMap = new HashMap<>();
-        symbolMap.put("YCC","BTY");
+        symbolMap.put("BTY","YCC");
         return symbolMap;
     }
 }
