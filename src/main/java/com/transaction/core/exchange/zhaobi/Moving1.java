@@ -193,7 +193,7 @@ public class Moving1 extends Thread {
                         //continue;
                     }
 
-                    double accBTY = client.getAccount("BTY").getActive();
+                    double accBTY = client.getAccount(sy1).getActive();
                     BigDecimal accBTYB = new BigDecimal(accBTY);
                     int a9 = accBTYB.compareTo(btyCount1B);
                     if (a9 == -1) {
@@ -235,7 +235,7 @@ public class Moving1 extends Thread {
 //                        continue;
                     }
 
-                    double accYCC = client.getAccount("YCC").getActive();
+                    double accYCC = client.getAccount(sy2).getActive();
                     BigDecimal accYCCB = new BigDecimal(accYCC);
                     int a13 = accYCCB.compareTo(yccCount1B);
                     if (a13 == -1)  {

@@ -27,14 +27,14 @@ public class CoreApplication {
         //启动线程
         Map<String, String> syMap1 = zbi.initSymbol1();
         for (Map.Entry<String, String> entry : syMap1.entrySet()) {
-            Moving1 m1 = new Moving1(ZBClient, entry.getKey(), entry.getKey());
+            Moving1 m1 = new Moving1(ZBClient, entry.getKey(), entry.getValue());
             m1.setLock(lock);
             m1.start();
         }
 
         Map<String, String> syMap2 = zbi.initSymbol2();
         for (Map.Entry<String, String> entry : syMap2.entrySet()) {
-            Moving2 m2 = new Moving2(ZBClient, entry.getKey(), entry.getKey());
+            Moving2 m2 = new Moving2(ZBClient, entry.getKey(), entry.getValue());
             m2.setLock(lock);
             m2.start();
         }
