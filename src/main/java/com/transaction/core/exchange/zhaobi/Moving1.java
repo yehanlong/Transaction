@@ -97,7 +97,7 @@ public class Moving1 extends Thread {
                 double ybNum = sy12Market.getSells().get(0).getAm();
                 BigDecimal ybPriceB =new BigDecimal(ybPrice);
                 BigDecimal ybNumB = new BigDecimal(ybNum);
-                int a = (ybPriceB.multiply(ybNumB)).compareTo(new BigDecimal(2.0));
+                int a = (ybPriceB.multiply(ybNumB)).multiply(btyPriceB).compareTo(new BigDecimal(2.0));
                 if (a == -1 || !sy12Market.getSuccess()) {
                     Thread.sleep(5000);
                     continue;
@@ -232,7 +232,7 @@ public class Moving1 extends Thread {
                     int a12 = yccPrice1B.compareTo(yccPriceB);
                     if(a12 != 0) {
                         logger.warn("yccPrice1 != yccPrice 该订单已经被别人吃掉");
-                        continue;
+//                        continue;
                     }
 
                     double accYCC = client.getAccount("YCC").getActive();
