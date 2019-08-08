@@ -18,6 +18,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
 
+import static java.math.BigDecimal.ROUND_HALF_DOWN;
+
 public class Moving1 extends Thread {
 
     private Exchange client;
@@ -88,7 +90,7 @@ public class Moving1 extends Thread {
                     Thread.sleep(5000);
                     continue;
                 }
-                BigDecimal btyCountB = ((new BigDecimal(usdt)).divide(btyPriceB));
+                BigDecimal btyCountB = ((new BigDecimal(usdt)).divide(btyPriceB,25,ROUND_HALF_DOWN));
                 //double btyCount = usdt/btyPrice;
 
                 // bty 买ycc
@@ -102,7 +104,7 @@ public class Moving1 extends Thread {
                     Thread.sleep(5000);
                     continue;
                 }
-                BigDecimal yccCountB = btyCountB.divide(ybPriceB);
+                BigDecimal yccCountB = btyCountB.divide(ybPriceB,25,ROUND_HALF_DOWN);
                 //double yccCount = btyCount/ybPrice;
 
                 // 卖掉ycc
@@ -111,7 +113,7 @@ public class Moving1 extends Thread {
                 double yccNum = sy2Market.getBuys().get(0).getAm();
                 BigDecimal yccPriceB =new BigDecimal(yccPrice);
                 BigDecimal yccNumB = new BigDecimal(yccNum);
-                BigDecimal usdtCount = yccCountB.divide(yccPriceB);
+                BigDecimal usdtCount = yccCountB.divide(yccPriceB,25,ROUND_HALF_DOWN);
                 int a1 = (yccPriceB.multiply(yccNumB)).compareTo(new BigDecimal(2.0));
                 if(a1 == -1 || !sy2Market.getSuccess()){
                     Thread.sleep(5000);
@@ -156,7 +158,7 @@ public class Moving1 extends Thread {
                         continue;
                     }
                     BigDecimal btyCount1B  = (new BigDecimal(everyUSDT)).
-                            multiply(((new BigDecimal(1)).subtract(new BigDecimal(0.001)))).divide(btyPrice1B);
+                            multiply(((new BigDecimal(1)).subtract(new BigDecimal(0.001)))).divide(btyPrice1B,25,ROUND_HALF_DOWN);
                     //double btyCount1 = everyUSDT*(1-0.001)/btyPrice1;
                     int a6 = btyNum1B.compareTo(btyCount1B);
                     if(a6 == -1){
@@ -201,7 +203,7 @@ public class Moving1 extends Thread {
                         btyCount1B = accBTYB;
                     }
                     BigDecimal yccCount1B = btyCount1B.multiply((new BigDecimal(1).subtract(new BigDecimal(0.001))))
-                            .divide(ybPrice1B);
+                            .divide(ybPrice1B,25,ROUND_HALF_DOWN);
                     //double yccCount1 = btyCount1*(1-0.001)/ybPrice1;
                     int a10 = ybNum1B.compareTo(yccCount1B);
                     if(a10 == -1){

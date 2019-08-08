@@ -4,6 +4,8 @@ import com.transaction.core.exchange.zhaobi.Moving1;
 import com.transaction.core.exchange.zhaobi.Moving2;
 import com.transaction.core.exchange.zhaobi.ZhaobiClient;
 import com.transaction.core.exchange.zhaobi.ZhaobiInit;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,8 +20,11 @@ import java.util.concurrent.locks.ReentrantLock;
 @SpringBootApplication
 public class CoreApplication {
 
+    final static Logger logger = LoggerFactory.getLogger(CoreApplication.class);
+
     public static void main(String[] args) {
         SpringApplication.run(CoreApplication.class, args);
+        logger.error("测试log");
 
         ZhaobiInit zbi = new ZhaobiInit();
         ZhaobiClient ZBClient = new ZhaobiClient();

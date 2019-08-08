@@ -44,7 +44,8 @@ spring:
           batch_versioned_data: true
   transaction:
     rollback-on-commit-failure: true
-
+  application:
+    name: transaction
 
 server:
   port: 18080
