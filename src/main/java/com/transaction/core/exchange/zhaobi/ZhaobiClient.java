@@ -91,6 +91,9 @@ public class ZhaobiClient implements Exchange {
 
     @Override
     public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
+
+        amount = Deal.dealCount(amount,currency);
+        price = Deal.dealPrice(price,currency2);
         String uri="https://api.biqianbao.top/api/trade/place";
         String requestText = //"amount=" + amount + "&" + "currency=" + currency + "&" + "currency2=" + currency2 + "&" + "price=" + price + "&" + "ty=" + ty;
         "amount="+amount+"&currency="+currency+"&currency2="+currency2+"&price="+price+"&ty="+ty;
