@@ -113,7 +113,7 @@ public class Moving1 extends Thread {
                 double yccNum = sy2Market.getBuys().get(0).getAm();
                 BigDecimal yccPriceB =new BigDecimal(yccPrice);
                 BigDecimal yccNumB = new BigDecimal(yccNum);
-                BigDecimal usdtCount = yccCountB.divide(yccPriceB);
+                BigDecimal usdtCount = yccCountB.divide(yccPriceB,25,ROUND_HALF_DOWN);
                 int a1 = (yccPriceB.multiply(yccNumB)).compareTo(new BigDecimal(2.0));
                 if(a1 == -1 || !sy2Market.getSuccess()){
                     Thread.sleep(5000);
