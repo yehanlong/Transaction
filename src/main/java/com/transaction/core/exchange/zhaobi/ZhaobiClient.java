@@ -91,9 +91,8 @@ public class ZhaobiClient implements Exchange {
 
     @Override
     public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
-
-        amount = Deal.dealCount(amount,currency);
-        price = Deal.dealPrice(price,currency2);
+        amount = Double.valueOf(Deal.dealCount(amount,currency));
+        price = Double.valueOf(Deal.dealPrice(price,currency2));
         String uri="https://api.biqianbao.top/api/trade/place";
         String requestText = //"amount=" + amount + "&" + "currency=" + currency + "&" + "currency2=" + currency2 + "&" + "price=" + price + "&" + "ty=" + ty;
         "amount="+amount+"&currency="+currency+"&currency2="+currency2+"&price="+price+"&ty="+ty;
@@ -134,8 +133,9 @@ public class ZhaobiClient implements Exchange {
                     order = JSONObject.toJavaObject(JSONObject.parseObject(sellInfo), Order.class);
                     selList.add(order);
                 }
-                if (i >= buyList.size() && i >= sellList.size())
+                if (i >= buyList.size() && i >= sellList.size()){
                     break;
+                }
             }
             return new TradeVO(byList,selList);
         }catch(Exception e){
