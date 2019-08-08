@@ -91,17 +91,18 @@ public class ZhaobiClient implements Exchange {
 
     @Override
     public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
-        amount = Double.valueOf(Deal.dealCount(amount,currency));
-        price = Double.valueOf(Deal.dealPrice(price,currency2));
+        String amountStr = Deal.dealCount(amount,currency);
+        String priceStr = Deal.dealPrice(price,currency2);
         String uri="https://api.biqianbao.top/api/trade/place";
         String requestText = //"amount=" + amount + "&" + "currency=" + currency + "&" + "currency2=" + currency2 + "&" + "price=" + price + "&" + "ty=" + ty;
-        "amount="+amount+"&currency="+currency+"&currency2="+currency2+"&price="+price+"&ty="+ty;
+        "amount="+amountStr+"&currency="+currency+"&currency2="+currency2+"&price="+priceStr+"&ty="+ty;
         HttpHeaders headers = new HttpHeaders();
         //定义请求参数类型
         headers.setContentType(MediaType.valueOf(MediaType.APPLICATION_FORM_URLENCODED_VALUE));
         headers.setBearerAuth("e243dff6f8132ef254fae4e1f628e6d7966f8645");
         HttpEntity entity = new HttpEntity<>(requestText,headers);
         String result =restTemplate.exchange(uri, HttpMethod.POST, entity, String.class).getBody();
+        logger.info(result);
         JSONObject object = JSON.parseObject(result);
         return true;
 
@@ -110,7 +111,7 @@ public class ZhaobiClient implements Exchange {
     @Override
     public TradeVO getMarketInfo(String symbols) {
         if(!Symbol.YCCUSDT.equals(symbols)&&!Symbol.BTYUSDT.equals(symbols)&&!Symbol.YCCBTY.equals(symbols)){
-            logger.error("非法交易对");
+            logger.error("非法交易对：",symbols);
         }
         String url = "https://api.biqianbao.top/api/data/market?num=" + String.valueOf(10) + "&format=&symbol=" + symbols;
         try {
