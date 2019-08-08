@@ -26,6 +26,36 @@ public class ZhaobiClient implements Exchange {
 
     @Override
     public PropertyVO getAccount(String a) {
+       try {
+           for (int i = 0; i < 10; i++) {
+               PropertyVO p =  getAcc(a);
+               double active = p.getActive();
+               switch (a){
+                   case "YCC":
+                       if (active < 50.0) {
+                           Thread.sleep(1000);
+                           break;
+                       }else {
+                           return p;
+                       }
+                   case "BTY":
+                       if (active < 3.0){
+                           break;
+                       }else {
+                           return p;
+                       }
+               }
+
+           }
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+
+
+       return getAcc(a);
+    }
+
+    private PropertyVO getAcc(String a){
         String uri="https://api.biqianbao.top/api/Account/Asset";
         HttpHeaders headers = new HttpHeaders();
         //定义请求参数类型
