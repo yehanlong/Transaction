@@ -49,3 +49,7 @@ spring:
 
 server:
   port: 18080
+
+# Log配置
+logging:
+  file: /logs/${spring.application.name}/${spring.application.name}.log
