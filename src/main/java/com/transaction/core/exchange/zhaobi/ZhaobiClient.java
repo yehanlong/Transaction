@@ -44,6 +44,12 @@ public class ZhaobiClient implements Exchange {
                        }else {
                            return p;
                        }
+                   case "USDT":
+                       if (active < 1.5) {
+                           break;
+                       }else {
+                           return p;
+                       }
                }
 
            }
