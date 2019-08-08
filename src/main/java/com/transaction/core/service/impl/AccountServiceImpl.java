@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
-import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pub.Symbol;
 import com.transaction.core.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +42,7 @@ public class AccountServiceImpl implements AccountService {
         headers.setBearerAuth("e243dff6f8132ef254fae4e1f628e6d7966f8645");
         //headers.add("Authorization ", "Bearer e243dff6f8132ef254fae4e1f628e6d7966f8645");
         HttpEntity entity = new HttpEntity<>(headers);
-        String result =restTemplate.exchange(uri, HttpMethod.POST, entity, String.class).getBody();
+        String result =restTemplate.exchange(uri, HttpMethod.GET, entity, String.class).getBody();
         JSONObject object = JSON.parseObject(result);
         JSONObject jsonData = object.getJSONObject("data");
         String valuation = jsonData.getString("valuation");
@@ -63,7 +62,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public List<TradeVO> getZBMarketInfo(int num, String symbol) throws Exception {
         if(!Symbol.YCCUSDT.equals(symbol)&&!Symbol.BTYUSDT.equals(symbol)&&!Symbol.YCCBTY.equals(symbol)){
-            throw new Exception("非法交易对");
+            throw new Exception("");
         }
         String url = "https://api.biqianbao.top/api/data/market?num=" + String.valueOf(num) + "&format=&symbol=" + symbol;
         String result =restTemplate.exchange(url, HttpMethod.GET , null, String.class).getBody();
