@@ -1,4 +1,4 @@
-package com.transaction.core;
+package com.transaction.core.exchange;
 
 import com.transaction.core.exchange.zhaobi.Moving1;
 import com.transaction.core.exchange.zhaobi.ZhaobiClient;

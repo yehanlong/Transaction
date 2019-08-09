@@ -115,16 +115,18 @@ public class Moving1 extends Thread {
                 double yccNum = sy2Market.getBuys().get(0).getAm();
                 BigDecimal yccPriceB =new BigDecimal(yccPrice);
                 BigDecimal yccNumB = new BigDecimal(yccNum);
-                BigDecimal usdtCount = yccCountB.divide(yccPriceB,25,ROUND_HALF_DOWN);
+                BigDecimal usdtCountB = yccCountB.divide(yccPriceB,25,ROUND_HALF_DOWN);
                 int a1 = (yccPriceB.multiply(yccNumB)).compareTo(new BigDecimal(2.0));
                 if(a1 == -1 || !sy2Market.getSuccess()){
                     Thread.sleep(5000);
                     continue;
                 }
-                logger.debug("预计一轮usdt：",usdtCount);
+                logger.debug("预计一轮usdt：",usdtCountB);
 
                 // 判断一轮交易后的去掉手续费（3次=3*0.001），是否有盈利
-                int a2 = usdtCount.compareTo((new BigDecimal(usdt)).multiply((new BigDecimal(1)).add(new BigDecimal(0.0035))));
+                //usdtCount>usdt*(1+0.0035)
+                BigDecimal usdtUnit = (new BigDecimal(usdt)).multiply((new BigDecimal(1)).add(new BigDecimal(0.0035)));
+                int a2 = usdtCountB.compareTo(usdtUnit);
                 if (a2 == 1) {
 
                     // 有盈利，开始交易
@@ -170,7 +172,7 @@ public class Moving1 extends Thread {
 //                    if (btyPrice1*btyNum1 > 2.0 && btyPrice1*btyNum1 < 4.0){
 //                        btyCount1 = btyNum1;
 //                    }
-                    boolean success1 = client.postBill(btyCount1B.doubleValue(),sy1,"USDT",btyPrice1,"buy");
+                    boolean success1 = client.postBill(btyCount1B.doubleValue(),sy1,"USDT",btyPrice1,"BUY");
                     if (!success1){
                         logger.error("第一次交易挂单失败");
                         continue;
@@ -223,7 +225,7 @@ public class Moving1 extends Thread {
                         logger.warn("ybNum1 < yccCount1 该订单部分被别人吃掉");
                         yccCount1B = ybNum1B;
                     }
-                    Boolean success2 = client.postBill(yccCount1B.doubleValue(),sy2,sy1,ybPrice1,"buy");
+                    Boolean success2 = client.postBill(yccCount1B.doubleValue(),sy2,sy1,ybPrice1,"BUY");
                     if (!success2){
                         logger.error("第二次交易挂单失败");
                         continue;
@@ -268,7 +270,7 @@ public class Moving1 extends Thread {
                         logger.warn("accYCC < yccCount1");
                         yccCount1B = accYCCB;
                     }
-                    Boolean success3 = client.postBill(yccCount1B.doubleValue(),sy2,"USDT",yccPrice1,"sell");
+                    Boolean success3 = client.postBill(yccCount1B.doubleValue(),sy2,"USDT",yccPrice1,"SELL");
                     if (!success3){
                         logger.error("第三次交易挂单失败");
                         break;

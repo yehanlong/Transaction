@@ -75,7 +75,7 @@ public class ZhaobiClient implements Exchange {
         JSONObject object = JSON.parseObject(result);
         JSONObject jsonData = object.getJSONObject("data");
         String valuation = jsonData.getString("valuation");
-        System.out.println("资产总数为："+valuation);
+        //System.out.println("资产总数为："+valuation);
         JSONObject jsonList = jsonData.getJSONObject("list");
         Map<String, PropertyVO> map = new HashMap<>();
         Set<String> keySet = jsonList.keySet();
@@ -91,9 +91,9 @@ public class ZhaobiClient implements Exchange {
 
     @Override
     public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
-        if (1 == 1) {
-            return true;
-        }
+//        if (1 == 1) {
+//            return true;
+//        }
 
         String amountStr = Deal.dealCount(amount,currency);
         String priceStr = Deal.dealPrice(price,currency2);

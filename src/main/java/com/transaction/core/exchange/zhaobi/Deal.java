@@ -12,11 +12,11 @@ public class Deal {
         switch (sy){
             case "BTY":
                 // 保留小数点后一位
-                result = new DecimalFormat("00.0").format(count);
+                result = new DecimalFormat("0.0").format(count);
                 return result;
             case "YCC":
                 // 保留整数位
-                result = new DecimalFormat("00.0").format(count);
+                result = new DecimalFormat("0.0").format(count);
                 return result;
         }
         return result;
@@ -28,11 +28,11 @@ public class Deal {
         switch (sy){
             case "BTY":
                 // 保留小数点后6位
-                result = new DecimalFormat("00.000000").format(price);
+                result = new DecimalFormat("0.000000").format(price);
                 return result;
             case "USDT":
                 // 保留小数点后6位
-                result = new DecimalFormat("00.000000").format(price);
+                result = new DecimalFormat("0.000000").format(price);
                 return result;
         }
         return result;
