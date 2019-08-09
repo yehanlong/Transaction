@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.transaction.core.mapper.TestMapper">
+
+    <insert id="addOrder" parameterType="com.transaction.core.entity.Order">
+        insert into `order` (price,am) values (#{price},#{am})
+    </insert>
+</mapper>

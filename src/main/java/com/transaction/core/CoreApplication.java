@@ -6,13 +6,8 @@ import com.transaction.core.exchange.zhaobi.ZhaobiClient;
 import com.transaction.core.exchange.zhaobi.ZhaobiInit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.http.*;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

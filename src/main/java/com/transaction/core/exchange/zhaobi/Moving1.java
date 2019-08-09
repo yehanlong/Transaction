@@ -5,11 +5,13 @@ package com.transaction.core.exchange.zhaobi;
 // 1.买比特元 2.比特元换ycc 3.卖ycc
 // 注意：第二步的type是买
 
+import com.transaction.core.entity.Order;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.concurrent.locks.Lock;
 
 import org.apache.commons.logging.Log;
@@ -173,7 +175,18 @@ public class Moving1 extends Thread {
                         logger.error("第一次交易挂单失败");
                         continue;
                     }
-
+                    if(success1){
+                        logger.info("买入bty，该价格的挂单原始币数量"+btyNum1);
+                        logger.info("买入bty，该价格的成交币数量"+btyCount1B.doubleValue());
+                        TradeVO sy1Market2 = client.getMarketInfo(sy1+"USDT");
+                        List<Order> orders =  sy1Market2.getSells();
+                        for(Order order:orders){
+                            if(order.getPrice() == btyPrice1){
+                                logger.info("买入bty，该价格的挂单剩余币数量"+order.getAm());
+                                break;
+                            }
+                        }
+                    }
                     // 2.bty换ycc
                     TradeVO sy12Market1 = client.getMarketInfo(sy2+sy1);
                     double ybPrice1 = sy12Market1.getSells().get(0).getPrice();
@@ -215,7 +228,18 @@ public class Moving1 extends Thread {
                         logger.error("第二次交易挂单失败");
                         continue;
                     }
-
+                    if(success2){
+                        logger.info("bty换ycc，该价格的原始挂单币数量"+ybNum1);
+                        logger.info("bty换ycc，该价格的成交币数量"+yccCount1B.doubleValue());
+                        TradeVO sy1Market2 = client.getMarketInfo(sy2+sy1);
+                        List<Order> orders =  sy1Market2.getSells();
+                        for(Order order:orders){
+                            if(order.getPrice() == ybPrice1){
+                                logger.info("买入bty，该价格的挂单剩余币数量"+order.getAm());
+                                break;
+                            }
+                        }
+                    }
                     // 卖掉ycc
                     TradeVO sy2Market1 = client.getMarketInfo(sy2+"USDT");
                     double yccPrice1 = sy2Market1.getBuys().get(0).getPrice();
@@ -249,10 +273,21 @@ public class Moving1 extends Thread {
                         logger.error("第三次交易挂单失败");
                         break;
                     }
-
+                    if(success2){
+                        logger.info("卖掉ycc，该价格的原始挂单币数量"+yccNum1);
+                        logger.info("卖掉ycc，该价格的成交币数量"+yccCount1B.doubleValue());
+                        TradeVO sy1Market2 = client.getMarketInfo(sy2+"USDT");
+                        List<Order> orders =  sy1Market2.getSells();
+                        for(Order order:orders){
+                            if(order.getPrice() == yccPrice1){
+                                logger.info("买入bty，该价格的挂单剩余币数量"+order.getAm());
+                                break;
+                            }
+                        }
+                    }
                     double accUSDTEnd = client.getAccount("USDT").getActive();
-                    logger.info("最终usdt： ", accUSDTEnd);
-                    logger.info("此次盈利USDT: ", accUSDTEnd - accUSDT);
+                    logger.info("最终usdt： "+accUSDTEnd);
+                    logger.info("此次盈利USDT: "+(accUSDTEnd - accUSDT));
                 }
 
 

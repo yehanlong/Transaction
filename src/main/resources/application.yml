@@ -29,21 +29,6 @@ spring:
         login-password: user
         allow:
         deny:
-  # Jpa配置
-  jpa:
-    database: mysql
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-        format_sql: true
-        jdbc:
-          batch_size: 1000
-          batch_versioned_data: true
-  transaction:
-    rollback-on-commit-failure: true
   application:
     name: transaction
 

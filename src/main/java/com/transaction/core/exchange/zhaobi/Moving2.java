@@ -178,6 +178,10 @@ public class Moving2 extends Thread {
                         continue;
                     }
 
+                    if(success1){
+                        logger.info("买入ycc，该价格的原始挂单币数量"+yccNum1);
+                        logger.info("买入ycc，该价格的成交币数量"+yccCount1B.doubleValue());
+                    }
                     // 2.b卖掉ycc  换bty
                     TradeVO sy12Market1 = client.getMarketInfo(sy2+sy1);
                     double ybPrice1 = sy12Market1.getBuys().get(0).getPrice();
