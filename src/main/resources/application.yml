@@ -37,4 +37,5 @@ server:
 
 # Log配置
 logging:
-  file: /logs/${spring.application.name}/${spring.application.name}.log
+  #file: /logs/${spring.application.name}/${spring.application.name}.log
+  file: ./logs/${spring.application.name}/${spring.application.name}.log
