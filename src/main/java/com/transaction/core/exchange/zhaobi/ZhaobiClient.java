@@ -31,36 +31,36 @@ public class ZhaobiClient implements Exchange {
 
     @Override
     public PropertyVO getAccount(String a) {
-       try {
-           for (int i = 0; i < 10; i++) {
-               PropertyVO p =  getAcc(a);
-               double active = p.getActive();
-               switch (a){
-                   case "YCC":
-                       if (active < 50.0) {
-                           Thread.sleep(1000);
-                           break;
-                       }else {
-                           return p;
-                       }
-                   case "BTY":
-                       if (active < 3.0){
-                           break;
-                       }else {
-                           return p;
-                       }
-                   case "USDT":
-                       if (active < 1.5) {
-                           break;
-                       }else {
-                           return p;
-                       }
-               }
+//       try {
+//           for (int i = 0; i < 10; i++) {
+//               PropertyVO p =  getAcc(a);
+//               double active = p.getActive();
+//               switch (a){
+//                   case "YCC":
+//                       if (active < 50.0) {
+//                           Thread.sleep(1000);
+//                           break;
+//                       }else {
+//                           return p;
+//                       }
+//                   case "BTY":
+//                       if (active < 3.0){
+//                           break;
+//                       }else {
+//                           return p;
+//                       }
+//                   case "USDT":
+//                       if (active < 1.5) {
+//                           break;
+//                       }else {
+//                           return p;
+//                       }
+//               }
 
-           }
-       } catch (Exception e) {
-           e.printStackTrace();
-       }
+//           }
+//       } catch (Exception e) {
+//           e.printStackTrace();
+//       }
 
 
        return getAcc(a);
@@ -232,6 +232,7 @@ public class ZhaobiClient implements Exchange {
 //
             String amountStr = Deal.dealCount(amount,currency);
             String priceStr = Deal.dealPrice(price,currency2);
+            logger.info("挂单，  交易对：" + currency  + currency2  +" ,  数量： "+ amountStr +",  价格： "+ priceStr);
             String uri="https://api.biqianbao.top/api/trade/place";
             String requestText = //"amount=" + amount + "&" + "currency=" + currency + "&" + "currency2=" + currency2 + "&" + "price=" + price + "&" + "ty=" + ty;
                     "amount="+amountStr+"&currency="+currency+"&currency2="+currency2+"&price="+priceStr+"&ty="+ty;
@@ -252,19 +253,36 @@ public class ZhaobiClient implements Exchange {
 
     // 异步挂单
     // type指第二步买还是卖
+    // symbol1 永远都是bty
     public boolean syncPostBill(String symbol1, String symbol2, double amount1, double amount2,double amount3,
-                         double price1, double price2,double price3, String type){
+                         double price1, double price12,double price2, String type){
 
         CountDownLatch latch = new CountDownLatch(3);
-        PlaceOrderInnerClass t1 = new PlaceOrderInnerClass(amount1, symbol1,"USDT", price1, "BUY", latch);
-        PlaceOrderInnerClass t2 = new PlaceOrderInnerClass(amount2, symbol2,symbol1, price2, type, latch);
-        PlaceOrderInnerClass t3 = new PlaceOrderInnerClass(amount3, symbol2,"USDT", price2, "SELL", latch);
 
-        new Thread(t1).start();
-        new Thread(t2).start();
-        new Thread(t3).start();
+        if(type=="BUY"){
+            // 买bty   bty买ycc  卖ycc
+            PlaceOrderInnerClass t1 = new PlaceOrderInnerClass(amount1, symbol1,"USDT", price1, "BUY", latch);
+            PlaceOrderInnerClass t2 = new PlaceOrderInnerClass(amount2, symbol2,symbol1, price12, type, latch);
+            PlaceOrderInnerClass t3 = new PlaceOrderInnerClass(amount3, symbol2,"USDT", price2, "SELL", latch);
+            new Thread(t1).start();
+            new Thread(t2).start();
+            new Thread(t3).start();
+            return true;
+        }
 
-        return true;
+        if(type=="SELL"){
+            //  买ycc  卖ycc换bty 卖bty
+            PlaceOrderInnerClass t1 = new PlaceOrderInnerClass(amount1, symbol1,"USDT", price1, "SELL", latch);
+            PlaceOrderInnerClass t2 = new PlaceOrderInnerClass(amount2, symbol2,symbol1, price12, type, latch);
+            PlaceOrderInnerClass t3 = new PlaceOrderInnerClass(amount3, symbol2,"USDT", price2, "BUY", latch);
+            new Thread(t1).start();
+            new Thread(t2).start();
+            new Thread(t3).start();
+            return true;
+        }
+
+
+        return false;
     }
 
 

@@ -1,9 +1,6 @@
 package com.transaction.core;
 
-import com.transaction.core.exchange.zhaobi.Moving1;
-import com.transaction.core.exchange.zhaobi.Moving2;
-import com.transaction.core.exchange.zhaobi.ZhaobiClient;
-import com.transaction.core.exchange.zhaobi.ZhaobiInit;
+import com.transaction.core.exchange.zhaobi.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -27,14 +24,14 @@ public class CoreApplication {
         //启动线程
         Map<String, String> syMap1 = zbi.initSymbol1();
         for (Map.Entry<String, String> entry : syMap1.entrySet()) {
-            Moving1 m1 = new Moving1(ZBClient, entry.getKey(), entry.getValue());
+            SyncMoving1 m1 = new SyncMoving1(ZBClient, entry.getKey(), entry.getValue());
             m1.setLock(lock);
             m1.start();
         }
 
         Map<String, String> syMap2 = zbi.initSymbol2();
         for (Map.Entry<String, String> entry : syMap2.entrySet()) {
-            Moving2 m2 = new Moving2(ZBClient, entry.getKey(), entry.getValue());
+            SyncMoving2 m2 = new SyncMoving2(ZBClient, entry.getKey(), entry.getValue());
             m2.setLock(lock);
             m2.start();
         }

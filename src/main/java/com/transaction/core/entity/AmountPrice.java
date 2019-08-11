@@ -76,4 +76,17 @@ public class AmountPrice {
     public void setSy2Amount(double sy2Amount) {
         this.sy2Amount = sy2Amount;
     }
+
+    @Override
+    public String toString() {
+        return "AmountPrice{" +
+                "sy1Price=" + sy1Price +
+                ", sy1Amount=" + sy1Amount +
+                ", sy12Price=" + sy12Price +
+                ", sy12Amount=" + sy12Amount +
+                ", sy2Price=" + sy2Price +
+                ", sy2Amount=" + sy2Amount +
+                ", minUSDT=" + minUSDT +
+                '}';
+    }
 }

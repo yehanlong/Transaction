@@ -2,11 +2,21 @@ package com.transaction.core.exchange.zhaobi;
 
 
 import com.transaction.core.entity.AmountPrice;
+import com.transaction.core.entity.vo.TradeVO;
+import com.transaction.core.exchange.pub.RestTemplateStatic;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.client.RestTemplate;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
+
+import static java.math.BigDecimal.ROUND_HALF_DOWN;
 
 // 处理数量
 public class Deal {
+
 
     // 处理数量
     public static String dealCount(double count, String sy){
@@ -18,7 +28,7 @@ public class Deal {
                 return result;
             case "YCC":
                 // 保留整数位
-                result = new DecimalFormat("0.0").format(count);
+                result = new DecimalFormat("0").format(count);
                 return result;
         }
         return result;
@@ -41,7 +51,28 @@ public class Deal {
     }
 
     // p1 p2 p3 分别是第一二三步具体的usdt  type第二步是买还是卖
-    public static AmountPrice getAcuallyUSDT(AmountPrice amountPrice, double sy1, double sy12, double sy2, String type){
+    // sy1永远都是bty 代表usdt
+    public static AmountPrice getAcuallyUSDT(AmountPrice amountPrice, String type){
+
+
+        double sy1;
+        double sy12;
+        double sy2;
+
+        if (type=="BUY"){
+            // 买bty ，bty 买 ycc， 。卖掉ycc
+            sy1 = amountPrice.getSy1Amount()*amountPrice.getSy1Price();
+            // ycc数量*ycc价格
+            sy12 = amountPrice.getSy12Amount()*amountPrice.getSy12Price()*amountPrice.getSy1Price();
+            sy2 = amountPrice.getSy2Amount()*amountPrice.getSy2Price();
+        }else {
+            // 买ycc ，卖ycc 得到bty。卖掉bty
+            sy1 = amountPrice.getSy1Amount()*amountPrice.getSy1Price();
+            // 换成bty 再乘bty价格
+            sy12 = amountPrice.getSy12Amount()*amountPrice.getSy12Price()*amountPrice.getSy1Price();
+            sy2 = amountPrice.getSy2Amount()*amountPrice.getSy2Price();
+        }
+
 
         // 获取最小的
         double min = sy1;
@@ -194,6 +225,169 @@ public class Deal {
     }
 
 
+
+
+    // 模拟技计算一轮后的usdt是多少  type第二步是买还是卖
+    // 测试过，结果正确
+    public static BigDecimal getUSDTcount(AmountPrice amountPrice, String type){
+        double btyPrice = amountPrice.getSy1Price();
+        double btyNum = amountPrice.getSy1Amount();
+
+        double ybPrice = amountPrice.getSy12Price();
+        double ybNum = amountPrice.getSy12Amount();
+
+        double yccPrice = amountPrice.getSy2Price();
+        double yccNum = amountPrice.getSy2Amount();
+
+        double usdt = 5.0;
+        double minUsdt = 0.1;
+
+        if (type == "SELL"){
+            // 第一步
+            // usdt 买ycc
+            BigDecimal yccPriceB = new BigDecimal(yccPrice);
+            BigDecimal yccNumB = new BigDecimal(yccNum);
+            int a = (yccPriceB.multiply(yccNumB)).compareTo(new BigDecimal(minUsdt));
+            if (a == -1) {
+                // 当获取失败或者金额太少，就放弃此次循环
+               return new BigDecimal(0.0);
+            }
+            //double yccCount = usdt/yccPrice;
+            BigDecimal usdtB = new BigDecimal(usdt);
+            BigDecimal yccCountB = usdtB.divide(yccPriceB, 25, RoundingMode.HALF_DOWN);
+
+
+            // 第二步
+            // 卖掉ycc 换bty
+
+            BigDecimal ybPriceB = new BigDecimal(ybPrice);
+            BigDecimal ybNumB = new BigDecimal(ybNum);
+            int a1 = (ybPriceB.multiply(ybNumB).multiply(new BigDecimal(btyPrice)))
+                    .compareTo(new BigDecimal(minUsdt));
+            // bty数量*bty价格
+            if (a1 == -1) {
+                return new BigDecimal(0.0);
+            }
+            // 最终获得的bty
+            //double btyCount = yccCount*ybPrice;
+            BigDecimal btyCountB = yccCountB.multiply(ybPriceB);
+
+
+            // 第三步
+            // 卖掉BTY
+
+            BigDecimal btyPriceB = new BigDecimal(btyPrice);
+            BigDecimal btyNumB = new BigDecimal(btyNum);
+            // 最终获得的usdt
+            //double usdtcount = btyPrice*btyCount;
+            BigDecimal usdtcountB = btyPriceB.multiply(btyCountB);
+            int a2 = (btyPriceB.multiply(btyNumB)).compareTo(new BigDecimal(minUsdt));
+            if (a2 == -1) {
+                return new BigDecimal(0.0);
+            }
+            return usdtcountB;
+        }
+
+        if (type == "BUY"){
+            // usdt 买比特元
+            BigDecimal btyPriceB = new BigDecimal(btyPrice);
+            BigDecimal btyNumB = new BigDecimal(btyNum);
+            int btyB = (btyPriceB.multiply(btyNumB)).compareTo(new BigDecimal(minUsdt));
+            if(btyB == -1 ){
+                // 当获取失败或者金额太少，就放弃此次循环
+                return new BigDecimal(0.0);
+            }
+            BigDecimal btyCountB = ((new BigDecimal(usdt)).divide(btyPriceB,25,ROUND_HALF_DOWN));
+            //double btyCount = usdt/btyPrice;
+
+            // bty 买ycc
+
+            BigDecimal ybPriceB =new BigDecimal(ybPrice);
+            BigDecimal ybNumB = new BigDecimal(ybNum);
+            int a = (ybPriceB.multiply(ybNumB)).multiply(btyPriceB).compareTo(new BigDecimal(minUsdt));
+            if (a == -1) {
+                return new BigDecimal(0.0);
+            }
+            BigDecimal yccCountB = btyCountB.divide(ybPriceB,25,ROUND_HALF_DOWN);
+            //double yccCount = btyCount/ybPrice;
+
+            // 卖掉ycc
+
+            BigDecimal yccPriceB =new BigDecimal(yccPrice);
+            BigDecimal yccNumB = new BigDecimal(yccNum);
+            BigDecimal usdtCountB = yccCountB.multiply(yccPriceB);
+            int a1 = (yccPriceB.multiply(yccNumB)).compareTo(new BigDecimal(minUsdt));
+            if(a1 == -1){
+                return new BigDecimal(0.0);
+            }
+            return usdtCountB;
+        }
+
+        return new BigDecimal(0.0);
+
+    }
+
+
+    public static void main(String[] args){
+        AmountPrice a = new AmountPrice();
+
+        //time="2019-08-11T05:19:20+08:00" level=warning msg="usdtCount: 5.061817"
+        //time="2019-08-11T05:19:20+08:00" level=warning msg="amout: 338.385977, currency： YCC, currency2:  USDT, price: 0.011955, ty: SELL"
+        //价格:  0.011955
+        //数量： 338
+        //time="2019-08-11T05:19:20+08:00" level=warning msg="amout: 16.597510, currency： BTY, currency2:  USDT, price: 0.241000, ty: BUY"
+        //价格:  0.2410
+        //数量： 16.9
+        //time="2019-08-11T05:19:20+08:00" level=warning msg="amout: 338.385977, currency： YCC, currency2:  BTY, price: 0.049000, ty: BUY"
+        //价格:  0.049000
+        //数量： 338
+        // bty买ycc
+        a.setSy1Price(0.2410);
+        a.setSy1Amount(1000);
+        a.setSy12Price(0.0490000);
+        a.setSy12Amount(1000);
+        a.setSy2Price(0.011955);
+        a.setSy2Amount(1000);
+//        System.out.println(getUSDTcount1(a,"BUY"));
+
+
+        // 卖ycc换bty  正确
+        a.setSy1Price(0.2431);
+        a.setSy1Amount(1000);
+        a.setSy12Price(0.049800);
+        a.setSy12Amount(1000);
+        a.setSy2Price(0.012309);
+        a.setSy2Amount(1000);
+//        System.out.println(getUSDTcount1(a,"SELL"));
+
+        // 测试getAcuallyUSDT
+        a.setSy1Price(0.2431);
+        a.setSy1Amount(1000);
+        a.setSy12Price(0.049800);
+        a.setSy12Amount(500);
+        a.setSy2Price(0.012309);
+        a.setSy2Amount(1000);
+        System.out.println(getAcuallyUSDT(a,"SELL"));
+        System.out.println(getAcuallyUSDT(a,"BUY"));
+        a.setSy1Price(0.2431);
+        a.setSy1Amount(5);
+        a.setSy12Price(0.049800);
+        a.setSy12Amount(1000);
+        a.setSy2Price(0.019309);
+        a.setSy2Amount(1000);
+        System.out.println(getAcuallyUSDT(a,"SELL"));
+        System.out.println(getAcuallyUSDT(a,"BUY"));
+
+        a.setSy1Price(0.2431);
+        a.setSy1Amount(1000);
+        a.setSy12Price(0.049800);
+        a.setSy12Amount(1000);
+        a.setSy2Price(0.012309);
+        a.setSy2Amount(200);
+        System.out.println(getAcuallyUSDT(a,"SELL"));
+        System.out.println(getAcuallyUSDT(a,"BUY"));
+
+    }
 
 
 }
