@@ -87,11 +87,11 @@ public class Deal {
         a.setSy1Price(amountPrice.getSy1Price());
         a.setSy2Price(amountPrice.getSy2Price());
         a.setSy12Price(amountPrice.getSy12Price());
+        a.setMinUSDT(min);
 
         // 买bty ，bty 买 ycc， 。卖掉ycc
         if(type == "BUY") {
             if (min == sy1){
-                a.setMinUSDT(sy1);
                 // 以第一步为基准 可以知道多少bty
                 double bty = amountPrice.getSy1Amount();
                 a.setSy1Amount(bty);
@@ -104,7 +104,6 @@ public class Deal {
             }
 
             if (min == sy12){
-                a.setMinUSDT(sy12);
                 // 以第二步为基准  能知道第二步买入多少ycc
                 double ycc = amountPrice.getSy12Amount();
                 // 获取第一步所需要的bty数量
