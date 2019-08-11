@@ -239,7 +239,7 @@ public class Deal {
         double yccNum = amountPrice.getSy2Amount();
 
         double usdt = 5.0;
-        double minUsdt = 0.1;
+        double minUsdt = 1.5;
 
         if (type == "SELL"){
             // 第一步

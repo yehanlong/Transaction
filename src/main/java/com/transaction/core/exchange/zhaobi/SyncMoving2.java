@@ -131,7 +131,7 @@ public class SyncMoving2 extends Thread {
                 logger.info("预计一轮后的usdt：" + usdtcountB.doubleValue());
 
                 // 判断一轮交易后的去掉手续费（3次=3*0.001），是否有盈利
-                int a3 = usdtcountB.compareTo(usdtB.multiply(((new BigDecimal(1)).add(new BigDecimal(0.0065)))));
+                int a3 = usdtcountB.compareTo(usdtB.multiply(((new BigDecimal(1)).add(new BigDecimal(0.008)))));
                 if (a3 == 1) {
 
                     // 有盈利，开始交易
@@ -184,7 +184,7 @@ public class SyncMoving2 extends Thread {
                     HistoryUSDTList.add(accUSDTEnd);
                     // 可以打印下历史数据HistoryUSDTList
                 }else {
-                    Thread.sleep(5000);
+                    Thread.sleep(3000);
                 }
 
 
