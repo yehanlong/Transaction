@@ -1,4 +1,4 @@
-package com.transaction.core.alarm;
+package com.transaction.core.config;
 
 import java.io.BufferedReader;
 import java.io.IOException;
