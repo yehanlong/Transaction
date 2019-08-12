@@ -10,6 +10,7 @@ import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pub.Symbol;
 import com.transaction.core.exchange.pubinterface.Exchange;
+import com.transaction.core.utils.FontUtil;
 import com.transaction.core.utils.MailUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -20,7 +21,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -248,7 +251,7 @@ public class ZhaobiClient implements Exchange {
             JSONObject object = JSON.parseObject(result);
             String code = object.getString("code");
             if(!"200".equals(code)){
-                String message = object.getString("message");
+                String message = FontUtil.decodeUnicode(object.getString("message"));
                 MailUtil.sendEmains("挂单操作失败"+message);
             }
             return true;
