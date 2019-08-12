@@ -80,3 +80,161 @@
  预计一轮后的usdt：4.854086872281535
 2019-08-12 22:57:24.082 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHETH交易方式: SELL. 
  预计一轮后的usdt：4.878534163701068
+2019-08-12 22:59:16.543 [main] INFO  com.transaction.core.CoreApplication   - Starting CoreApplication on DESKTOP-5QIOI62 with PID 15060 (E:\Transaction\target\classes started by 北 in E:\Transaction)
+2019-08-12 22:59:16.546 [main] INFO  com.transaction.core.CoreApplication   - No active profile set, falling back to default profiles: default
+2019-08-12 22:59:17.045 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate   - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-12 22:59:17.063 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate   - Finished Spring Data repository scanning in 12ms. Found 0 repository interfaces.
+2019-08-12 22:59:17.286 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker   - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$92b0c093] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-12 22:59:17.510 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer   - Tomcat initialized with port(s): 18080 (http)
+2019-08-12 22:59:17.525 [main] INFO  org.apache.catalina.core.StandardService   - Starting service [Tomcat]
+2019-08-12 22:59:17.525 [main] INFO  org.apache.catalina.core.StandardEngine   - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-12 22:59:17.641 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2019-08-12 22:59:17.642 [main] INFO  org.springframework.web.context.ContextLoader   - Root WebApplicationContext: initialization completed in 1057 ms
+2019-08-12 22:59:17.699 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure   - Init DruidDataSource
+2019-08-12 22:59:18.277 [main] INFO  com.alibaba.druid.pool.DruidDataSource   - {dataSource-1} inited
+2019-08-12 22:59:18.362 [main] INFO  org.hibernate.jpa.internal.util.LogHelper   - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-12 22:59:18.404 [main] INFO  org.hibernate.Version   - HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-12 22:59:18.405 [main] INFO  org.hibernate.cfg.Environment   - HHH000206: hibernate.properties not found
+2019-08-12 22:59:18.497 [main] INFO  org.hibernate.annotations.common.Version   - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-12 22:59:18.597 [main] INFO  org.hibernate.dialect.Dialect   - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-12 22:59:18.711 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean   - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-12 22:59:18.850 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor   - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-12 22:59:18.875 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration   - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-12 22:59:19.078 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer   - Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-12 22:59:19.080 [main] INFO  com.transaction.core.CoreApplication   - Started CoreApplication in 2.863 seconds (JVM running for 4.019)
+2019-08-12 22:59:19.082 [main] ERROR com.transaction.core.CoreApplication   - 测试log
+2019-08-12 22:59:19.090 [Thread-10] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ moving1 start, sy1: BTC, sy2: LTC
+2019-08-12 22:59:19.091 [Thread-11] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ moving1 start, sy1: BTY, sy2: YCC
+2019-08-12 22:59:19.093 [Thread-12] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ moving1 start, sy1: ETH, sy2: YCC
+2019-08-12 22:59:19.095 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: BTC, sy2: LTC
+2019-08-12 22:59:19.096 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: BTY, sy2: YCC
+2019-08-12 22:59:19.098 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: ETH, sy2: YCC
+2019-08-12 22:59:20.365 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.966393741395136
+2019-08-12 22:59:23.758 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.880839818109925
+2019-08-12 22:59:27.130 [Thread-11] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 22:59:30.487 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 22:59:33.841 [Thread-10] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.989014549613447
+2019-08-12 22:59:37.199 [Thread-12] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.903068363984249
+2019-08-12 22:59:40.544 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.967810044171638
+2019-08-12 22:59:43.917 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.880839818109925
+2019-08-12 22:59:47.283 [Thread-11] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 22:59:50.636 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 22:59:53.992 [Thread-10] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.989014549613447
+2019-08-12 22:59:57.336 [Thread-12] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.903068363984249
+2019-08-12 23:00:00.733 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.966504958122992
+2019-08-12 23:00:04.160 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.880839818109925
+2019-08-12 23:00:07.577 [Thread-11] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:00:10.961 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 23:00:14.314 [Thread-10] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.99008899607887
+2019-08-12 23:00:17.727 [Thread-12] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.903068363984249
+2019-08-12 23:00:21.090 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.967810044171638
+2019-08-12 23:00:24.444 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.880839818109925
+2019-08-12 23:00:27.825 [Thread-11] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:00:31.211 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 23:00:34.577 [Thread-10] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.987472274004366
+2019-08-12 23:00:37.924 [Thread-12] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.903068363984249
+2019-08-12 23:00:41.312 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.967810044171638
+2019-08-12 23:00:44.664 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.878534163701068
+2019-08-12 23:00:48.049 [Thread-11] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:00:51.427 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 23:00:54.803 [Thread-10] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.987472274004366
+2019-08-12 23:00:58.158 [Thread-12] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.907005269434265
+2019-08-12 23:01:01.512 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.966256833409822
+2019-08-12 23:01:04.884 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.878534163701068
+2019-08-12 23:01:08.246 [Thread-11] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:01:11.592 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 23:01:14.958 [Thread-10] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.9906365746925
+2019-08-12 23:01:18.305 [Thread-12] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.907005269434265
+2019-08-12 23:01:21.647 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.965527405920147
+2019-08-12 23:01:25.013 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.878534163701068
+2019-08-12 23:01:28.405 [Thread-11] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:01:31.763 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 23:01:35.102 [Thread-10] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.991312414884854
+2019-08-12 23:01:38.457 [Thread-12] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.907005269434265
+2019-08-12 23:01:41.812 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.965527405920147
+2019-08-12 23:01:45.156 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.878534163701068
+2019-08-12 23:01:48.517 [Thread-11] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:01:51.861 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 23:01:55.203 [Thread-10] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.990003561491676
+2019-08-12 23:01:58.559 [Thread-12] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.907005269434265
+2019-08-12 23:02:01.925 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.9646538400642495
+2019-08-12 23:02:05.318 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.874153420324239
+2019-08-12 23:02:08.699 [Thread-11] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:02:12.044 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 23:02:15.388 [Thread-10] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.990789140015617
+2019-08-12 23:02:18.735 [Thread-12] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.907005269434265
+2019-08-12 23:02:22.115 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.9646538400642495
+2019-08-12 23:02:25.487 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.874153420324239
+2019-08-12 23:02:28.839 [Thread-11] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:02:32.230 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 23:02:35.592 [Thread-10] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.990789140015617
+2019-08-12 23:02:38.932 [Thread-12] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.907005269434265
+2019-08-12 23:02:42.279 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.9631081258604866
+2019-08-12 23:02:45.631 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.875536812969553
