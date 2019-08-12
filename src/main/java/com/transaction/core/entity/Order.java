@@ -13,12 +13,12 @@ public class Order {
     private double price;
     private double am;
 
-    public Order(){}
-
-    public Order(double price, double am) {
-        this.price = price;
-        this.am = am;
-    }
+//    public Order(){}
+//
+//    public Order(double price, double am) {
+//        this.price = price;
+//        this.am = am;
+//    }
 
     public double getPrice() {
         return price;

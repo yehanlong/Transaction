@@ -284,7 +284,7 @@ public class SyncMoving2 extends Thread {
 
 
     public void info(String msg){
-        logger.info("交易所: 找币, 交易对: " + sy1 + sy1 + "交易方式: SELL. \n " + msg);
+        logger.info("交易所: 找币, 交易对: " + sy1 + sy2 + "交易方式: SELL. \n " + msg);
     }
 
 }
