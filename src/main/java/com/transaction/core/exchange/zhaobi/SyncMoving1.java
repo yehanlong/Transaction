@@ -74,6 +74,7 @@ public class SyncMoving1 extends Thread {
     RestTemplate restTemplate = RestTemplateStatic.restTemplate();
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @Override
     public void run() {
         info("moving1 start, sy1: " + sy1 +", sy2: "+ sy2);
 
@@ -102,7 +103,7 @@ public class SyncMoving1 extends Thread {
                 int a = DoubleUtil.compareTo(accUSDT,usdt);
                 if (a == -1) {
                     info("账户usdt 小于"+ZhaobiConstant.USDT);
-                    Thread.sleep(5000);
+                    Thread.sleep(ZhaobiConstant.SLEEPTIME);
                     continue;
                 }
 
@@ -116,7 +117,7 @@ public class SyncMoving1 extends Thread {
                     // 都获取成功
                 } else {
                     info("获取市场行情失败");
-                    Thread.sleep(5000);
+                    Thread.sleep(ZhaobiConstant.SLEEPTIME);
                     continue;
                 }
 
@@ -156,8 +157,9 @@ public class SyncMoving1 extends Thread {
 
                 info("预计一轮后的usdt：" + usdtcountB.doubleValue());
 
+                Double totalFee = ZhaobiConstant.TOTALFEE;
                 // 判断一轮交易后的去掉手续费（3次=3*0.001），是否有盈利
-                int a3 = usdtcountB.compareTo(usdtB.multiply(((new BigDecimal(1)).add(new BigDecimal(0.008)))));
+                int a3 = usdtcountB.compareTo(usdtB.multiply(((new BigDecimal(1)).add(new BigDecimal(totalFee)))));
                 if (a3 == 1) {
                     in = 1;
                     // 有盈利，开始交易
