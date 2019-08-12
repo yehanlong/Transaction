@@ -85,12 +85,12 @@ public class Deal {
                 result = new DecimalFormat("0.000000").format(price);
                 return result;
             case "ETH":
-                // 保留小数点后6位
+                // 保留小数点后8位
                 result = new DecimalFormat("0.00000000").format(price);
                 return result;
             case "BTC":
-                // 保留小数点后6位
-                result = new DecimalFormat("0.000000").format(price);
+                // 保留小数点后8位
+                result = new DecimalFormat("0.00000000").format(price);
                 return result;
         }
         return result;
