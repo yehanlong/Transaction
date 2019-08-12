@@ -75,6 +75,7 @@ public class MailUtil {
         try {
             sendMail("1536161955@qq.com",msg);
             sendMail("13588208796@163.com",msg);
+            sendMail("sqc95111@163.com",msg);
 
 
         } catch (MessagingException e) {

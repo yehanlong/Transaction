@@ -227,6 +227,11 @@ public class SyncMoving2 extends Thread {
                     // 此交易对在程序运行期间的总盈利
                     allMoney = allMoney + DoubleUtil.sub(accUSDTEnd,lastUSDT);
 
+                    // 可能程序出bug  也可能是别的问题
+                    if (thisMoney < -0.5 && thisMoney > -1) {
+                        MailUtil.sendEmains("有可能出现亏损,请及时查看余额");
+//                        break;
+                    }
 
                     logger.info("初始usdt： " + lastUSDT);
                     logger.info("最终usdt： " + accUSDTEnd);
