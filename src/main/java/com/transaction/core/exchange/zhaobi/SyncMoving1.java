@@ -5,6 +5,7 @@ import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
+import com.transaction.core.utils.DoubleUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
@@ -84,7 +85,8 @@ public class SyncMoving1 extends Thread {
                 double usdt = 4.0;
 
                 double accUSDT = client.getAccount("USDT").getActive();
-                if (accUSDT < 4.0) {
+                int a = DoubleUtil.compareTo(accUSDT,usdt);
+                if (a == -1) {
                     logger.info("账户usdt 小于 4.0");
                     Thread.sleep(5000);
                     continue;
@@ -149,7 +151,9 @@ public class SyncMoving1 extends Thread {
 
                     logger.info("此次挂单可吃的usdt数量: " + ap.getMinUSDT());
 
-                    if (everyUSDT > ap.getMinUSDT()) {
+                    int a1 = DoubleUtil.compareTo(everyUSDT,ap.getMinUSDT());
+
+                    if (a1==1) {
                         // 直接吃完整个订单
                         // 一起执行3比交易
                         logger.info("直接吃完整个订单");
@@ -162,7 +166,8 @@ public class SyncMoving1 extends Thread {
                         // 如果4.0太少了，只能一步步吃
                         // 一起执行3比交易
                         logger.info("一步步吃订单");
-                        double point = everyUSDT / ap.getMinUSDT();
+                        //double point = everyUSDT / ap.getMinUSDT();
+                        double point = DoubleUtil.div(everyUSDT,ap.getMinUSDT(),25);
                         boolean b = client.syncPostBill(sy1, sy2, ap.getSy1Amount() * point, ap.getSy12Amount() * point, ap.getSy2Amount() * point,
                                 ap.getSy1Price(), ap.getSy12Price(), ap.getSy2Price(), "BUY");
                         if(!b){
@@ -173,10 +178,11 @@ public class SyncMoving1 extends Thread {
                     // 盈利统计，同时解决延迟问题
                     double lastUSDT = HistoryUSDTList.get(HistoryUSDTList.size() - 1);
                     double accUSDTEnd = client.getAccount("USDT").getActive();
-
+                    int a4 = DoubleUtil.compareTo(accUSDTEnd,accUSDT);
+                    int a5 = DoubleUtil.compareTo(DoubleUtil.sub(accUSDTEnd,accUSDT),-0.3);
                     // 相等说明挂单的价格延迟，既挂单的时候没扣钱  <-1  指卖出的钱没到账
                     for (int i= 0; i < 5; i++){
-                        if (accUSDTEnd == accUSDT  || accUSDTEnd - accUSDT < -0.3) {
+                        if (a4 == 1  || a5 == -1) {
                             // 此处需要保证不受延迟影响
                             Thread.sleep(500);
                             accUSDTEnd = client.getAccount("USDT").getActive();
@@ -186,8 +192,8 @@ public class SyncMoving1 extends Thread {
 
                     logger.info("初始usdt： " + lastUSDT);
                     logger.info("最终usdt： " + accUSDTEnd);
-                    logger.info("此次盈利USDT: " + (accUSDTEnd - lastUSDT));
-                    logger.info("USDT总盈利：" + (accUSDTEnd - HistoryUSDTList.get(0)));
+                    logger.info("此次盈利USDT: " + DoubleUtil.sub(accUSDTEnd,lastUSDT));
+                    logger.info("USDT总盈利：" + DoubleUtil.sub(accUSDTEnd,HistoryUSDTList.get(0)));
                     HistoryUSDTList.add(accUSDTEnd);
                     // 可以打印下历史数据HistoryUSDTList
                 }else {

@@ -4,6 +4,7 @@ package com.transaction.core.exchange.zhaobi;
 import com.transaction.core.entity.AmountPrice;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
+import com.transaction.core.utils.DoubleUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
@@ -195,10 +196,10 @@ public class Deal {
     // amount bty  price bty-ycc    ycc*(1-0.001)*price = bty   ycc = bty/(1-0.001)/price
     public static double getAnotherSyAmount1(double amount, double price, String type){
         if (type == "BUY"){
-            return  amount*(1-0.001)/price;
+            return  DoubleUtil.getAnotherSyAmount1Expression(amount, price);
         }
         if (type == "SELL"){
-            return  amount/(1-0.001)/price;
+            return  DoubleUtil.getAnotherSyAmount1Expression(amount, price);
         }
 
         return 0;
@@ -213,11 +214,13 @@ public class Deal {
     // bty做手续费 所有bty稍微少点
     public static double getAnotherSyAmount2(double amount, double price, String type){
         if (type == "BUY"){
-            return amount*price/(1-0.001);
+            //return amount*price/(1-0.001);
+            return DoubleUtil.getAnotherSyAmount2Expression(amount,price);
         }
 
         if (type == "SELL"){
-            return amount*price*(1-0.001);
+            //return amount*price*(1-0.001);
+            return DoubleUtil.getAnotherSyAmount2Expression(amount, price);
         }
 
         return 0;
