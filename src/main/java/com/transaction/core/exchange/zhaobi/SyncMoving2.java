@@ -240,7 +240,7 @@ public class SyncMoving2 extends Thread {
                     HistoryUSDTList.add(accUSDTEnd);
                     // 可以打印下历史数据HistoryUSDTList
                 }else {
-                    Thread.sleep(3000);
+//                    Thread.sleep(3000);
                 }
 
 
@@ -265,7 +265,7 @@ public class SyncMoving2 extends Thread {
                     // 重置邮件开关
                     emailStartMark = 0;
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(3000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

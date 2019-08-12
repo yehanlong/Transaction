@@ -238,3 +238,153 @@
  预计一轮后的usdt：4.9631081258604866
 2019-08-12 23:02:45.631  INFO 15060 --- [Thread-15] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
  预计一轮后的usdt：4.875536812969553
+2019-08-12 23:03:05.964  INFO 9108 --- [main] com.transaction.core.CoreApplication     : Starting CoreApplication on DESKTOP-5QIOI62 with PID 9108 (E:\Transaction\target\classes started by 北 in E:\Transaction)
+2019-08-12 23:03:05.967  INFO 9108 --- [main] com.transaction.core.CoreApplication     : No active profile set, falling back to default profiles: default
+2019-08-12 23:03:06.456  INFO 9108 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-12 23:03:06.474  INFO 9108 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12ms. Found 0 repository interfaces.
+2019-08-12 23:03:06.691  INFO 9108 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$da6189f9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-12 23:03:06.910  INFO 9108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18080 (http)
+2019-08-12 23:03:06.926  INFO 9108 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-12 23:03:06.926  INFO 9108 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-12 23:03:07.042  INFO 9108 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-12 23:03:07.043  INFO 9108 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1034 ms
+2019-08-12 23:03:07.101  INFO 9108 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-08-12 23:03:07.749  INFO 9108 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-08-12 23:03:07.834  INFO 9108 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-12 23:03:07.877  INFO 9108 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-12 23:03:07.878  INFO 9108 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-08-12 23:03:07.968  INFO 9108 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-12 23:03:08.069  INFO 9108 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-12 23:03:08.183  INFO 9108 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-12 23:03:08.320  INFO 9108 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-12 23:03:08.347  WARN 9108 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-12 23:03:08.553  INFO 9108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-12 23:03:08.555  INFO 9108 --- [main] com.transaction.core.CoreApplication     : Started CoreApplication in 2.932 seconds (JVM running for 4.074)
+2019-08-12 23:03:08.557 ERROR 9108 --- [main] com.transaction.core.CoreApplication     : 测试log
+2019-08-12 23:03:08.565  INFO 9108 --- [Thread-11] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ moving1 start, sy1: BTC, sy2: LTC
+2019-08-12 23:03:08.566  INFO 9108 --- [Thread-12] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ moving1 start, sy1: BTY, sy2: YCC
+2019-08-12 23:03:08.567  INFO 9108 --- [Thread-13] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ moving1 start, sy1: ETH, sy2: YCC
+2019-08-12 23:03:08.569  INFO 9108 --- [Thread-14] c.t.core.exchange.zhaobi.SyncMoving2     : moving2 start, sy1: BTC, sy2: LTC
+2019-08-12 23:03:08.571  INFO 9108 --- [Thread-15] c.t.core.exchange.zhaobi.SyncMoving2     : moving2 start, sy1: BTY, sy2: YCC
+2019-08-12 23:03:08.573  INFO 9108 --- [Thread-16] c.t.core.exchange.zhaobi.SyncMoving2     : moving2 start, sy1: ETH, sy2: YCC
+2019-08-12 23:03:09.859  INFO 9108 --- [Thread-11] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.9858070001588946
+2019-08-12 23:03:13.207  INFO 9108 --- [Thread-12] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:03:16.552  INFO 9108 --- [Thread-13] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.907005269434265
+2019-08-12 23:03:19.935  INFO 9108 --- [Thread-15] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 23:03:23.290  INFO 9108 --- [Thread-16] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.875536812969553
+2019-08-12 23:03:26.665  INFO 9108 --- [Thread-14] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.973049368892976
+2019-08-12 23:03:30.011  INFO 9108 --- [Thread-11] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.992575466832702
+2019-08-12 23:03:33.366  INFO 9108 --- [Thread-12] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:03:36.741  INFO 9108 --- [Thread-13] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.907005269434265
+2019-08-12 23:03:40.187  INFO 9108 --- [Thread-15] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 23:03:43.541  INFO 9108 --- [Thread-16] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.875536812969553
+2019-08-12 23:03:46.884  INFO 9108 --- [Thread-14] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.9707140924244175
+2019-08-12 23:03:50.248  INFO 9108 --- [Thread-11] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.9948894396794765
+2019-08-12 23:03:53.637  INFO 9108 --- [Thread-12] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:03:57.002  INFO 9108 --- [Thread-13] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.907005269434265
+2019-08-12 23:04:00.363  INFO 9108 --- [Thread-15] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.854086872281535
+2019-08-12 23:04:03.724  INFO 9108 --- [Thread-16] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.875536812969553
+2019-08-12 23:04:07.077  INFO 9108 --- [Thread-14] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.984212189229705
+2019-08-12 23:04:10.456  INFO 9108 --- [Thread-11] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.995917482173936
+2019-08-12 23:04:13.816  INFO 9108 --- [Thread-12] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:16:08.432  INFO 3388 --- [main] com.transaction.core.CoreApplication     : Starting CoreApplication on DESKTOP-5QIOI62 with PID 3388 (E:\Transaction\target\classes started by 北 in E:\Transaction)
+2019-08-12 23:16:08.436  INFO 3388 --- [main] com.transaction.core.CoreApplication     : No active profile set, falling back to default profiles: default
+2019-08-12 23:16:09.106  INFO 3388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-12 23:16:09.127  INFO 3388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 repository interfaces.
+2019-08-12 23:16:09.387  INFO 3388 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$216532a5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-12 23:16:09.632  INFO 3388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18080 (http)
+2019-08-12 23:16:09.651  INFO 3388 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-12 23:16:09.651  INFO 3388 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-12 23:16:09.780  INFO 3388 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-12 23:16:09.781  INFO 3388 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1303 ms
+2019-08-12 23:16:09.846  INFO 3388 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-08-12 23:16:10.550  INFO 3388 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-08-12 23:16:10.655  INFO 3388 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-12 23:16:10.700  INFO 3388 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-12 23:16:10.701  INFO 3388 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-08-12 23:16:10.795  INFO 3388 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-12 23:16:10.900  INFO 3388 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-12 23:16:11.019  INFO 3388 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-12 23:16:11.169  INFO 3388 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-12 23:16:11.198  WARN 3388 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-12 23:16:11.432  INFO 3388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-12 23:16:11.435  INFO 3388 --- [main] com.transaction.core.CoreApplication     : Started CoreApplication in 3.528 seconds (JVM running for 4.997)
+2019-08-12 23:16:11.437 ERROR 3388 --- [main] com.transaction.core.CoreApplication     : 测试log
+2019-08-12 23:16:11.446  INFO 3388 --- [Thread-11] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ moving1 start, sy1: BTC, sy2: LTC
+2019-08-12 23:16:11.447  INFO 3388 --- [Thread-12] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ moving1 start, sy1: BTY, sy2: YCC
+2019-08-12 23:16:11.449  INFO 3388 --- [Thread-13] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ moving1 start, sy1: ETH, sy2: YCC
+2019-08-12 23:16:11.451  INFO 3388 --- [Thread-14] c.t.core.exchange.zhaobi.SyncMoving2     : moving2 start, sy1: BTC, sy2: LTC
+2019-08-12 23:16:11.453  INFO 3388 --- [Thread-15] c.t.core.exchange.zhaobi.SyncMoving2     : moving2 start, sy1: BTY, sy2: YCC
+2019-08-12 23:16:11.455  INFO 3388 --- [Thread-16] c.t.core.exchange.zhaobi.SyncMoving2     : moving2 start, sy1: ETH, sy2: YCC
+2019-08-12 23:16:12.930  INFO 3388 --- [Thread-16] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.8801481217872675
+2019-08-12 23:16:13.299  INFO 3388 --- [Thread-13] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.894786058311718
+2019-08-12 23:16:13.673  INFO 3388 --- [Thread-12] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:16:14.037  INFO 3388 --- [Thread-14] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.976035147210447
+2019-08-12 23:16:14.379  INFO 3388 --- [Thread-11] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.987219959273847
+2019-08-12 23:16:14.748  INFO 3388 --- [Thread-15] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.859579992091737
+2019-08-12 23:16:17.676  INFO 3388 --- [Thread-13] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.894786058311718
+2019-08-12 23:16:18.054  INFO 3388 --- [Thread-12] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:16:18.407  INFO 3388 --- [Thread-16] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.8801481217872675
+2019-08-12 23:16:18.785  INFO 3388 --- [Thread-11] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.987219959273847
+2019-08-12 23:16:19.139  INFO 3388 --- [Thread-14] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.976035147210447
+2019-08-12 23:16:19.504  INFO 3388 --- [Thread-15] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.859579992091737
+2019-08-12 23:16:21.027  INFO 3388 --- [Thread-13] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.894786058311718
+2019-08-12 23:16:21.424  INFO 3388 --- [Thread-12] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:16:22.149  INFO 3388 --- [Thread-11] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.987219959273847
+2019-08-12 23:16:22.771  INFO 3388 --- [Thread-16] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.8801481217872675
+2019-08-12 23:16:23.493  INFO 3388 --- [Thread-14] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 
+ 预计一轮后的usdt：4.976035147210447
+2019-08-12 23:16:23.851  INFO 3388 --- [Thread-15] c.t.core.exchange.zhaobi.SyncMoving2     : 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 
+ 预计一轮后的usdt：4.859579992091737
+2019-08-12 23:16:24.363  INFO 3388 --- [Thread-13] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: ETHYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.894786058311718
+2019-08-12 23:16:24.784  INFO 3388 --- [Thread-12] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTYYCC交易方式: BUY. 
+ 预计一轮后的usdt：4.92504759982108
+2019-08-12 23:16:25.533  INFO 3388 --- [Thread-11] c.t.core.exchange.zhaobi.SyncMoving1     : 交易所: 找币, 交易对: BTCLTC交易方式: BUY. 
+ 预计一轮后的usdt：4.987219959273847
