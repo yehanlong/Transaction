@@ -240,9 +240,9 @@ public class SyncMoving1 extends Thread {
                     allMoney = allMoney + DoubleUtil.sub(accUSDTEnd,lastUSDT);
 
                     // 可能程序出bug  也可能是别的问题
-                    if (thisMoney < -0.5 && thisMoney > -1) {
+                    if (thisMoney < -0.2 && thisMoney > -0.5) {
                         MailUtil.sendEmains("有可能出现亏损,请及时查看余额");
-//                        break;
+                        break;
                     }
 
                     logger.info("初始usdt： " + lastUSDT);
