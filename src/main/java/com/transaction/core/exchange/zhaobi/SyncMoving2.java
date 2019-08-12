@@ -1,6 +1,7 @@
 package com.transaction.core.exchange.zhaobi;
 
 import com.transaction.core.entity.AmountPrice;
+import com.transaction.core.entity.Order;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
@@ -119,14 +120,17 @@ public class SyncMoving2 extends Thread {
                 // 获取ycc价格
                 TradeVO YCCMarket = syncMarkInfo.getTrade3();
 
-                double yccPrice = YCCMarket.getSells().get(0).getPrice();
-                double yccNum = YCCMarket.getSells().get(0).getAm();
+                Order yccO = Deal.dealSmallOrder(YCCMarket.getSells());
+                double yccPrice = yccO.getPrice();
+                double yccNum = yccO.getAm();
 
-                double ybPrice = BTYYCCMarket.getBuys().get(0).getPrice();
-                double ybNum = BTYYCCMarket.getBuys().get(0).getAm();
+                Order ybO = Deal.dealSmallOrder(BTYYCCMarket.getBuys());
+                double ybPrice = ybO.getPrice();
+                double ybNum = ybO.getAm();
 
-                double btyPrice = BTYMarket.getBuys().get(0).getPrice();
-                double btyNum = BTYMarket.getBuys().get(0).getAm();
+                Order btyO = Deal.dealSmallOrder(BTYMarket.getBuys())
+                double btyPrice = btyO.getPrice();
+                double btyNum = btyO.getAm();
 
                 AmountPrice amountPrice = new AmountPrice();
                 amountPrice.setSy1Amount(btyNum);
@@ -159,6 +163,11 @@ public class SyncMoving2 extends Thread {
                         everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),0.0);
                     }else {
                         everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),2.0);
+                    }
+
+                    // 此处是为了保证吧小单吃完
+                    if (DoubleUtil.compareTo(ap.getMinUSDT() - everyUSDT, 1.5) == -1){
+                        everyUSDT = ap.getMinUSDT();
                     }
 
                     int a1 = DoubleUtil.compareTo(everyUSDT,ap.getMinUSDT());

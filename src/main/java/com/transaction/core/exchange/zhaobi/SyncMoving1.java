@@ -2,6 +2,7 @@ package com.transaction.core.exchange.zhaobi;
 
 import com.sun.org.apache.bcel.internal.generic.GOTO;
 import com.transaction.core.entity.AmountPrice;
+import com.transaction.core.entity.Order;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
@@ -125,14 +126,17 @@ public class SyncMoving1 extends Thread {
                 // 获取ycc价格
                 TradeVO YCCMarket = syncMarkInfo.getTrade3();
 
-                double btyPrice = BTYMarket.getSells().get(0).getPrice();
-                double btyNum = BTYMarket.getSells().get(0).getAm();
+                Order btyO = Deal.dealSmallOrder(BTYMarket.getSells());
+                double btyPrice = btyO.getPrice();
+                double btyNum = btyO.getAm();
 
-                double ybPrice = BTYYCCMarket.getSells().get(0).getPrice();
-                double ybNum = BTYYCCMarket.getSells().get(0).getAm();
+                Order ybO = Deal.dealSmallOrder(BTYYCCMarket.getSells());
+                double ybPrice = ybO.getPrice();
+                double ybNum = ybO.getAm();
 
-                double yccPrice = YCCMarket.getBuys().get(0).getPrice();
-                double yccNum = YCCMarket.getBuys().get(0).getAm();
+                Order yccO = Deal.dealSmallOrder(YCCMarket.getBuys());
+                double yccPrice = yccO.getPrice();
+                double yccNum = yccO.getAm();
 
 
                 AmountPrice amountPrice = new AmountPrice();
@@ -168,7 +172,10 @@ public class SyncMoving1 extends Thread {
                     }else {
                         everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),2.0);
                     }
-
+                    // 此处是为了保证吧小单吃完
+                    if (DoubleUtil.compareTo(ap.getMinUSDT() - everyUSDT, 1.5) == -1){
+                        everyUSDT = ap.getMinUSDT();
+                    }
 
 
                     int a1 = DoubleUtil.compareTo(everyUSDT,ap.getMinUSDT());
