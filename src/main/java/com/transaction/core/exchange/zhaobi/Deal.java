@@ -2,6 +2,7 @@ package com.transaction.core.exchange.zhaobi;
 
 
 import com.transaction.core.entity.AmountPrice;
+import com.transaction.core.entity.Order;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.utils.DoubleUtil;
@@ -12,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.List;
 import java.util.Random;
 
 import static java.math.BigDecimal.ROUND_HALF_DOWN;
@@ -351,6 +353,21 @@ public class Deal {
         }
 
         return 4+r.nextDouble()*3;
+    }
+
+
+    public static Order dealSmallOrder(List<Order> o) {
+        double usdt = DoubleUtil.mul(o.get(0).getPrice(),o.get(0).getAm());
+        if(DoubleUtil.compareTo(usdt,1.5) == -1){
+            usdt = DoubleUtil.mul(o.get(0).getPrice(),o.get(0).getAm());
+            if(DoubleUtil.compareTo(usdt,1.5) == -1){
+                return new Order(o.get(2).getPrice(),o.get(2).getAm());
+            }else {
+                return new Order(o.get(1).getPrice(),o.get(1).getAm());
+            }
+        }else {
+            return new Order(o.get(0).getPrice(),o.get(0).getAm());
+        }
     }
 
 
