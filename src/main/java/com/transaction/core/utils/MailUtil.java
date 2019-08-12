@@ -1,12 +1,5 @@
 package com.transaction.core.utils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.time.LocalDateTime;
 import java.util.Properties;
@@ -14,8 +7,7 @@ import java.util.Properties;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
-import com.transaction.core.alarm.MailConfig;
-import org.springframework.beans.factory.annotation.Value;
+import com.transaction.core.config.MailConfig;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 /**

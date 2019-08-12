@@ -1,11 +1,13 @@
 package com.transaction.core.exchange.zhaobi;
 
 import com.sun.org.apache.bcel.internal.generic.GOTO;
+import com.transaction.core.constant.ZhaobiConstant;
 import com.transaction.core.entity.AmountPrice;
 import com.transaction.core.entity.Order;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
+import com.transaction.core.exchange.pub.Symbol;
 import com.transaction.core.exchange.pubinterface.Exchange;
 import com.transaction.core.utils.DoubleUtil;
 import com.transaction.core.utils.MailUtil;
@@ -94,12 +96,12 @@ public class SyncMoving1 extends Thread {
                 lock.lock();
                 in = 0;
 
-                double usdt = 4.0;
+                double usdt = ZhaobiConstant.USDT;
 
                 double accUSDT = client.getAccount("USDT").getActive();
                 int a = DoubleUtil.compareTo(accUSDT,usdt);
                 if (a == -1) {
-                    info("账户usdt 小于 4.0");
+                    info("账户usdt 小于"+ZhaobiConstant.USDT);
                     Thread.sleep(5000);
                     continue;
                 }

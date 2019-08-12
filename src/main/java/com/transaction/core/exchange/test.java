@@ -26,7 +26,6 @@ public class test {
         m1.run();*/
         try {
             LocalDateTime localDateTime = LocalDateTime.now();
-//            MailUtil.sendMail("13588208796@163.com",localDateTime.toString());
             MailUtil.sendMail("13588208796@163.com",localDateTime.toString());
         } catch (MessagingException e) {
             e.printStackTrace();

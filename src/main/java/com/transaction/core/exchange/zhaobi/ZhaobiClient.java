@@ -10,6 +10,8 @@ import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pub.Symbol;
 import com.transaction.core.exchange.pubinterface.Exchange;
+import com.transaction.core.utils.FontUtil;
+import com.transaction.core.utils.MailUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +21,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -106,6 +110,7 @@ public class ZhaobiClient implements Exchange {
 
 
     // 异步获取市场行情
+    @Override
     public SyncMarkInfo getSyncMarkInfo(String symbol1, String symbol2){
         CountDownLatch latch = new CountDownLatch(3);
         Lock lock = new ReentrantLock();
@@ -244,6 +249,11 @@ public class ZhaobiClient implements Exchange {
             String result =restTemplate.exchange(uri, HttpMethod.POST, entity, String.class).getBody();
             logger.info(result);
             JSONObject object = JSON.parseObject(result);
+            String code = object.getString("code");
+            if(!"200".equals(code)){
+                String message = FontUtil.decodeUnicode(object.getString("message"));
+                MailUtil.sendEmains("挂单操作失败"+message);
+            }
             return true;
 
         }
@@ -254,8 +264,9 @@ public class ZhaobiClient implements Exchange {
     // 异步挂单
     // type指第二步买还是卖
     // symbol1 永远都是bty
-    public boolean syncPostBill(String symbol1, String symbol2, double amount1, double amount2,double amount3,
-                         double price1, double price12,double price2, String type){
+    @Override
+    public boolean syncPostBill(String symbol1, String symbol2, double amount1, double amount2, double amount3,
+                                double price1, double price12, double price2, String type){
 
         CountDownLatch latch = new CountDownLatch(3);
 
