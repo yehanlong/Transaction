@@ -128,7 +128,7 @@ public class SyncMoving2 extends Thread {
                 double ybPrice = ybO.getPrice();
                 double ybNum = ybO.getAm();
 
-                Order btyO = Deal.dealSmallOrder(BTYMarket.getBuys())
+                Order btyO = Deal.dealSmallOrder(BTYMarket.getBuys());
                 double btyPrice = btyO.getPrice();
                 double btyNum = btyO.getAm();
 

@@ -32,10 +32,42 @@ public class Deal {
                 // 保留小数点后一位
                 result = new DecimalFormat("0.0").format(count);
                 return result;
+
             case "YCC":
                 // 保留整数位
                 result = new DecimalFormat("0").format(count);
                 return result;
+
+            case "ETH":
+                // 保留小数点后3位
+                result = new DecimalFormat("0.000").format(count);
+                return result;
+
+            case "BTC":
+                // 保留小数点后4位
+                result = new DecimalFormat("0.0000").format(count);
+                return result;
+
+            case "BCH":
+                // 保留小数点后4位
+                result = new DecimalFormat("0.0000").format(count);
+                return result;
+
+            case "ETC":
+                // 保留小数点后2位
+                result = new DecimalFormat("0.00").format(count);
+                return result;
+
+            case "ZEC":
+                // 保留小数点后3位
+                result = new DecimalFormat("0.000").format(count);
+                return result;
+
+            case "LTC":
+                // 保留小数点后2位
+                result = new DecimalFormat("0.00").format(count);
+                return result;
+
         }
         return result;
     }
@@ -49,6 +81,14 @@ public class Deal {
                 result = new DecimalFormat("0.000000").format(price);
                 return result;
             case "USDT":
+                // 保留小数点后6位
+                result = new DecimalFormat("0.000000").format(price);
+                return result;
+            case "ETH":
+                // 保留小数点后6位
+                result = new DecimalFormat("0.00000000").format(price);
+                return result;
+            case "BTC":
                 // 保留小数点后6位
                 result = new DecimalFormat("0.000000").format(price);
                 return result;
