@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.time.LocalDateTime;
 import java.util.Properties;
 
 import javax.mail.MessagingException;
@@ -77,6 +78,42 @@ public class MailUtil {
 //      messageHelper.addAttachment("", new File(""));//附件
         mailSender.send(mimeMessage);
     }
+
+    public static void sendEmains(String msg){
+        try {
+            sendMail("1536161955@qq.com",msg);
+            sendMail("13588208796@163.com",msg);
+
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static String sendResultEmains(String exch, String Sys, int count, String type, double succUsdt, double thisMoney,
+                                        double allMoney, double historyMoney){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        String msg1 = "时间："+ localDateTime.toString() +"\n";
+        String msg2 = "交易所："+ exch +"。\n";
+        String msg3 = "交易对："+ Sys +"。\n";
+        String msg4 = "交易方式："+ type +"。\n";
+        String msg5 = "交易次数："+ count +"。\n";
+        String msg6 = "成交usdt数量："+ succUsdt +"。\n";
+        String msg7 = "此次总盈利USDT："+ thisMoney +"。\n";
+        String msg8 = "此次总盈利RMB："+ thisMoney*7 +"。\n";
+        String msg9 = "平均每笔交易盈利："+ succUsdt/Double.valueOf(count) +"。\n";
+        String msg10 = "该交易对总盈利USDT："+ allMoney +"。\n";
+        String msg11 = "该交易所总盈利USDT："+ historyMoney +"。\n";
+
+        String msg = msg1+msg2+msg3+msg4+msg5+msg6+msg7+msg8+msg9+msg10;
+        sendEmains(msg);
+        return msg;
+    }
+
+
 
 }
 

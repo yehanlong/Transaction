@@ -6,6 +6,7 @@ import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
 import com.transaction.core.utils.DoubleUtil;
+import com.transaction.core.utils.MailUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
@@ -69,6 +70,12 @@ public class SyncMoving2 extends Thread {
         logger.info("moving2 start, sy1: " + sy1 +", sy2: "+ sy2);
 
         List<Double> HistoryUSDTList = new LinkedList<>();
+        double allMoney = 0.0;
+        double thisMoney = 0.0;
+        int count = 0;
+        int in = 0;
+        int emailStartMark = 0;
+        double succUsdt = 0;
 
         // 初始usdt
         double startUSDT = client.getAccount("USDT").getActive();
@@ -77,13 +84,15 @@ public class SyncMoving2 extends Thread {
 
         while (true) {
             try {
-//                lock.lock();
+                lock.lock();
+                in = 0;
 
                 double usdt = 4.0;
+
                 double accUSDT = client.getAccount("USDT").getActive();
                 int a = DoubleUtil.compareTo(accUSDT,usdt);
                 if (a == -1) {
-                    logger.info("账户usdt 小于 4.0");
+                    info("账户usdt 小于 4.0");
                     Thread.sleep(5000);
                     continue;
                 }
@@ -97,6 +106,7 @@ public class SyncMoving2 extends Thread {
                 if (syncMarkInfo.getTrade1().getSuccess() && syncMarkInfo.getTrade2().getSuccess() && syncMarkInfo.getTrade3().getSuccess()) {
                     // 都获取成功
                 } else {
+                    info("获取市场行情失败");
                     Thread.sleep(5000);
                     continue;
                 }
@@ -131,26 +141,33 @@ public class SyncMoving2 extends Thread {
                 BigDecimal usdtcountB = Deal.getUSDTcount(amountPrice,"SELL");
                 BigDecimal usdtB = new BigDecimal(5.0);
 
-                logger.info("预计一轮后的usdt：" + usdtcountB.doubleValue());
+                info("预计一轮后的usdt：" + usdtcountB.doubleValue());
 
                 // 判断一轮交易后的去掉手续费（3次=3*0.001），是否有盈利
                 int a3 = usdtcountB.compareTo(usdtB.multiply(((new BigDecimal(1)).add(new BigDecimal(0.008)))));
                 if (a3 == 1) {
-
+                    in = 1;
                     // 有盈利，开始交易
-                    double everyUSDT = 4.0;
 
                     // 获取此轮交易实际需要的USDT
                     AmountPrice ap = Deal.getAcuallyUSDT(amountPrice,  "SELL");
 
-                    logger.info("此次挂单可吃的usdt数量: " + ap.getMinUSDT());
+                    info("此次挂单可吃的usdt数量: " + ap.getMinUSDT());
+
+                    double everyUSDT = 4.0;
+                    if(sy1 == "BTY" && sy2 == "YCC"){
+                        everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),0.0);
+                    }else {
+                        everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),2.0);
+                    }
 
                     int a1 = DoubleUtil.compareTo(everyUSDT,ap.getMinUSDT());
 
                     if (a1==1) {
                         // 直接吃完整个订单
                         // 一起执行3比交易
-                        logger.info("直接吃完整个订单");
+                        succUsdt += ap.getMinUSDT();
+                        info("直接吃完整个订单");
                         boolean b = client.syncPostBill(sy1, sy2, ap.getSy1Amount(), ap.getSy12Amount(), ap.getSy2Amount(), ap.getSy1Price(),
                                 ap.getSy12Price(), ap.getSy2Price(), "SELL");
                         if(!b){
@@ -159,7 +176,8 @@ public class SyncMoving2 extends Thread {
                     } else {
                         // 如果4.0太少了，只能一步步吃
                         // 一起执行3比交易
-                        logger.info("一步步吃订单");
+                        succUsdt += everyUSDT;
+                        info("一步步吃订单");
                         //double point = everyUSDT / ap.getMinUSDT();
                         double point = DoubleUtil.div(everyUSDT,ap.getMinUSDT(),25);
                         boolean b = client.syncPostBill(sy1, sy2, ap.getSy1Amount() * point, ap.getSy12Amount() * point, ap.getSy2Amount() * point,
@@ -175,15 +193,31 @@ public class SyncMoving2 extends Thread {
 
                     int a4 = DoubleUtil.compareTo(accUSDTEnd,accUSDT);
                     int a5 = DoubleUtil.compareTo(DoubleUtil.sub(accUSDTEnd,accUSDT),-0.3);
+
+                    // 利用延迟时间， 在此处发邮件  或者数据库操作
+                    if (emailStartMark == 0) {
+                        MailUtil.sendEmains("交易对"+sy1+sy2+" SELL触发, 第一次预计的usdt为"
+                                +usdtcountB.doubleValue()+", 第一次预估此次可吃usdt为"+ap.getMinUSDT());
+                        emailStartMark = 1;
+                    }
+
+
                     // 相等说明挂单的价格延迟，既挂单的时候没扣钱  <-1  指卖出的钱没到账
                     for (int i= 0; i < 5; i++){
                         if (a4 == 1  || a5 == -1) {
                             // 此处需要保证不受延迟影响
                             Thread.sleep(500);
                             accUSDTEnd = client.getAccount("USDT").getActive();
-                            logger.info("获取余额延迟，次数： " + (i+1));
+                            info("获取余额延迟，次数： " + (i+1));
                         }
                     }
+
+                    count++;
+                    // 此次进入循环直到退出的盈利
+                    thisMoney = thisMoney + DoubleUtil.sub(accUSDTEnd,lastUSDT);
+                    // 此交易对在程序运行期间的总盈利
+                    allMoney = allMoney + DoubleUtil.sub(accUSDTEnd,lastUSDT);
+
 
                     logger.info("初始usdt： " + lastUSDT);
                     logger.info("最终usdt： " + accUSDTEnd);
@@ -199,7 +233,32 @@ public class SyncMoving2 extends Thread {
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-//                lock.unlock();
+                if (in == 0){
+                    lock.unlock();
+
+                    // 发送结果报告
+                    if (succUsdt != 0) {
+                        // 发送最终结果邮件
+                        String msg = MailUtil.sendResultEmains("找币",sy1+sy2,count,"SELL",succUsdt,thisMoney,allMoney,
+                                HistoryUSDTList.get(HistoryUSDTList.size()-1)-HistoryUSDTList.get(0));
+                        info(msg);
+                    }
+
+                    // 数据初始化
+                    thisMoney = 0.0;
+                    count = 0;
+                    succUsdt=0.0;
+                    // 重置邮件开关
+                    emailStartMark = 0;
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }else {
+                    // 有交易不释放锁
+                }
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -209,5 +268,9 @@ public class SyncMoving2 extends Thread {
         }
     }
 
+
+    public void info(String msg){
+        logger.info("交易所: 找币, 交易对: " + sy1 + sy1 + "交易方式: SELL. \n " + msg);
+    }
 
 }
