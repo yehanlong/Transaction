@@ -53,6 +53,13 @@ public class DoubleUtil {
         return bd1.multiply(bd2).doubleValue();
     }
 
+    public static double mulThree(double d1, double d2,double d3) {
+        BigDecimal bd1 = new BigDecimal(Double.toString(d1));
+        BigDecimal bd2 = new BigDecimal(Double.toString(d2));
+        BigDecimal bd3 = new BigDecimal(Double.toString(d3));
+        return bd1.multiply(bd2).multiply(bd3).doubleValue();
+    }
+
 
     /**
      * double 除法

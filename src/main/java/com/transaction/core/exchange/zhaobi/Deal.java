@@ -107,16 +107,16 @@ public class Deal {
 
         if (type=="BUY"){
             // 买bty ，bty 买 ycc， 。卖掉ycc
-            sy1 = amountPrice.getSy1Amount()*amountPrice.getSy1Price();
+            sy1 = DoubleUtil.mul(amountPrice.getSy1Amount(),amountPrice.getSy1Price());
             // ycc数量*ycc价格
-            sy12 = amountPrice.getSy12Amount()*amountPrice.getSy12Price()*amountPrice.getSy1Price();
-            sy2 = amountPrice.getSy2Amount()*amountPrice.getSy2Price();
+            sy12 = DoubleUtil.mulThree(amountPrice.getSy12Amount(),amountPrice.getSy12Price(),amountPrice.getSy1Price());
+            sy2 = DoubleUtil.mul(amountPrice.getSy2Amount(),amountPrice.getSy2Price());
         }else {
             // 买ycc ，卖ycc 得到bty。卖掉bty
-            sy1 = amountPrice.getSy1Amount()*amountPrice.getSy1Price();
+            sy1 = DoubleUtil.mul(amountPrice.getSy1Amount(),amountPrice.getSy1Price());
             // 换成bty 再乘bty价格
-            sy12 = amountPrice.getSy12Amount()*amountPrice.getSy12Price()*amountPrice.getSy1Price();
-            sy2 = amountPrice.getSy2Amount()*amountPrice.getSy2Price();
+            sy12 = DoubleUtil.mulThree(amountPrice.getSy12Amount(),amountPrice.getSy12Price(),amountPrice.getSy1Price());
+            sy2 = DoubleUtil.mul(amountPrice.getSy2Amount(),amountPrice.getSy2Price());
         }
 
 
