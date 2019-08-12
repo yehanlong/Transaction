@@ -14,12 +14,34 @@ public class ZhaobiInit {
     public Map<String,String> initSymbol1() {
         Map<String,String> symbolMap = new HashMap<>();
         symbolMap.put("BTY","YCC");
+        // btc相关
+        symbolMap.put("BTC","BTY");
+        symbolMap.put("BTC","YCC");
+        symbolMap.put("BTC","BCH");
+        symbolMap.put("BTC","ETH");
+        symbolMap.put("BTC","ETC");
+        symbolMap.put("BTC","ZEC");
+        symbolMap.put("BTC","LTC");
+        // eth
+        symbolMap.put("ETH","BTY");
+        symbolMap.put("ETH","YCC");
         return symbolMap;
     }
 
     public Map<String,String> initSymbol2() {
         Map<String,String> symbolMap = new HashMap<>();
         symbolMap.put("BTY","YCC");
+        // btc相关
+        symbolMap.put("BTC","BTY");
+        symbolMap.put("BTC","YCC");
+        symbolMap.put("BTC","BCH");
+        symbolMap.put("BTC","ETH");
+        symbolMap.put("BTC","ETC");
+        symbolMap.put("BTC","ZEC");
+        symbolMap.put("BTC","LTC");
+        // eth
+        symbolMap.put("ETH","BTY");
+        symbolMap.put("ETH","YCC");
         return symbolMap;
     }
 }

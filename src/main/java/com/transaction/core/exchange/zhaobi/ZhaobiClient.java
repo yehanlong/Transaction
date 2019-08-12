@@ -170,9 +170,9 @@ public class ZhaobiClient implements Exchange {
         }
 
         public TradeVO getMarketInfo(String symbols) {
-            if(!Symbol.YCCUSDT.equals(symbols)&&!Symbol.BTYUSDT.equals(symbols)&&!Symbol.YCCBTY.equals(symbols)){
-                logger.error("非法交易对：",symbols);
-            }
+//            if(!Symbol.YCCUSDT.equals(symbols)&&!Symbol.BTYUSDT.equals(symbols)&&!Symbol.YCCBTY.equals(symbols)){
+//                logger.error("非法交易对：",symbols);
+//            }
             String url = "https://api.biqianbao.top/api/data/market?num=" + String.valueOf(10) + "&format=&symbol=" + symbols;
             try {
                 String result = restTemplate.exchange(url, HttpMethod.GET, null, String.class).getBody();
