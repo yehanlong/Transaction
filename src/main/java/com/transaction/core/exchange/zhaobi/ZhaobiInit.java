@@ -1,6 +1,8 @@
 package com.transaction.core.exchange.zhaobi;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class ZhaobiInit {
@@ -11,37 +13,27 @@ public class ZhaobiInit {
 
 
     // 初始化需要进行交易的交易对
-    public Map<String,String> initSymbol1() {
-        Map<String,String> symbolMap = new HashMap<>();
-        symbolMap.put("BTY","YCC");
+    public Map<String,List<String>> initSymbol() {
+        Map<String,List<String>> symbolMap = new HashMap<>();
+        List<String> bty = new LinkedList<>();
+        bty.add("YCC");
+        symbolMap.put("BTY",bty);
         // btc相关
-        symbolMap.put("BTC","BTY");
-        symbolMap.put("BTC","YCC");
-        symbolMap.put("BTC","BCH");
-        symbolMap.put("BTC","ETH");
-        symbolMap.put("BTC","ETC");
-        symbolMap.put("BTC","ZEC");
-        symbolMap.put("BTC","LTC");
+        List<String> btc = new LinkedList<>();
+        btc.add("BTY");
+        btc.add("YCC");
+        btc.add("BCC");
+        btc.add("ETH");
+        btc.add("ETC");
+        btc.add("ZEC");
+        btc.add("LTC");
+        symbolMap.put("BTC",btc);
         // eth
-        symbolMap.put("ETH","BTY");
-        symbolMap.put("ETH","YCC");
+        List<String> eth = new LinkedList<>();
+        eth.add("BTY");
+        eth.add("YCC");
+        symbolMap.put("ETH",eth);
         return symbolMap;
     }
 
-    public Map<String,String> initSymbol2() {
-        Map<String,String> symbolMap = new HashMap<>();
-        symbolMap.put("BTY","YCC");
-        // btc相关
-        symbolMap.put("BTC","BTY");
-        symbolMap.put("BTC","YCC");
-        symbolMap.put("BTC","BCH");
-        symbolMap.put("BTC","ETH");
-        symbolMap.put("BTC","ETC");
-        symbolMap.put("BTC","ZEC");
-        symbolMap.put("BTC","LTC");
-        // eth
-        symbolMap.put("ETH","BTY");
-        symbolMap.put("ETH","YCC");
-        return symbolMap;
-    }
 }
