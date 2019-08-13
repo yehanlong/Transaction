@@ -300,7 +300,7 @@ public class SyncMoving2 extends Thread {
 
 
     public void info(String msg){
-        logger.info("找币,  " + sy1 + sy2 + "方式: SELL. " + msg);
+        logger.info("找币,  " + sy1 + sy2 + ", 方式: SELL. " + msg);
     }
 
 }
