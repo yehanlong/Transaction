@@ -1,0 +1,450 @@
+2019-08-13 18:55:52.864 [main] INFO  com.transaction.core.CoreApplication   - Starting CoreApplication on hz-wsj-wu with PID 18108 (D:\Transaction\target\classes started by wsj.wu in D:\Transaction)
+2019-08-13 18:55:52.869 [main] INFO  com.transaction.core.CoreApplication   - No active profile set, falling back to default profiles: default
+2019-08-13 18:56:17.197 [main] INFO  com.transaction.core.CoreApplication   - Starting CoreApplication on hz-wsj-wu with PID 9056 (D:\Transaction\target\classes started by wsj.wu in D:\Transaction)
+2019-08-13 18:56:17.208 [main] INFO  com.transaction.core.CoreApplication   - No active profile set, falling back to default profiles: default
+2019-08-13 18:56:18.542 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate   - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-13 18:56:18.574 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate   - Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2019-08-13 18:56:19.061 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker   - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$677acbe1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-13 18:56:19.459 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer   - Tomcat initialized with port(s): 18080 (http)
+2019-08-13 18:56:19.487 [main] INFO  org.apache.catalina.core.StandardService   - Starting service [Tomcat]
+2019-08-13 18:56:19.487 [main] INFO  org.apache.catalina.core.StandardEngine   - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-13 18:56:19.625 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2019-08-13 18:56:19.626 [main] INFO  org.springframework.web.context.ContextLoader   - Root WebApplicationContext: initialization completed in 2358 ms
+2019-08-13 18:56:19.753 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure   - Init DruidDataSource
+2019-08-13 18:56:20.622 [main] INFO  com.alibaba.druid.pool.DruidDataSource   - {dataSource-1} inited
+2019-08-13 18:56:20.765 [main] INFO  org.hibernate.jpa.internal.util.LogHelper   - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-13 18:56:20.855 [main] INFO  org.hibernate.Version   - HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-13 18:56:20.856 [main] INFO  org.hibernate.cfg.Environment   - HHH000206: hibernate.properties not found
+2019-08-13 18:56:21.041 [main] INFO  org.hibernate.annotations.common.Version   - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-13 18:56:21.228 [main] INFO  org.hibernate.dialect.Dialect   - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-13 18:56:21.447 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean   - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-13 18:56:21.684 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor   - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-13 18:56:21.731 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration   - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-13 18:56:22.105 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer   - Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-13 18:56:22.109 [main] INFO  com.transaction.core.CoreApplication   - Started CoreApplication in 5.681 seconds (JVM running for 7.645)
+2019-08-13 18:56:22.112 [main] ERROR com.transaction.core.CoreApplication   - 测试log
+2019-08-13 18:56:22.128 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. moving1 start, sy1: BTC, sy2: LTC
+2019-08-13 18:56:22.137 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. moving1 start, sy1: BTY, sy2: YCC
+2019-08-13 18:56:22.138 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. moving1 start, sy1: ETH, sy2: YCC
+2019-08-13 18:56:22.146 [Thread-20] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: BTY, sy2: YCC
+2019-08-13 18:56:22.147 [Thread-19] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: BTC, sy2: LTC
+2019-08-13 18:56:22.150 [Thread-21] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: ETH, sy2: YCC
+2019-08-13 18:56:25.808 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. 预计一轮后的usdt：4.944138439019587
+2019-08-13 18:56:26.420 [Thread-20] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 预计一轮后的usdt：4.900555330578513
+2019-08-13 18:56:27.630 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.98402551788754
+2019-08-13 18:56:28.139 [Thread-21] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 预计一轮后的usdt：4.947898512396694
+2019-08-13 18:56:28.701 [Thread-19] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 预计一轮后的usdt：4.984094184896439
+2019-08-13 18:56:29.284 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. 预计一轮后的usdt：4.96322774148486
+2019-08-13 18:56:30.474 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. 预计一轮后的usdt：4.944138439019587
+2019-08-13 18:56:31.054 [Thread-20] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 预计一轮后的usdt：4.900555330578513
+2019-08-13 18:56:31.631 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.9869795281093126
+2019-08-13 18:56:32.757 [Thread-21] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: ETHYCC交易方式: SELL. 预计一轮后的usdt：4.947898512396694
+2019-08-13 18:56:33.343 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. 预计一轮后的usdt：4.96322774148486
+2019-08-13 18:56:33.951 [Thread-19] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTCLTC交易方式: SELL. 预计一轮后的usdt：4.985050149522923
+2019-08-13 18:56:34.504 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. 预计一轮后的usdt：4.944138439019587
+2019-08-13 18:56:35.155 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.98763398736497
+2019-08-13 18:56:35.671 [Thread-20] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 交易所: 找币, 交易对: BTYYCC交易方式: SELL. 预计一轮后的usdt：4.900555330578513
+2019-08-13 18:56:36.883 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. 预计一轮后的usdt：4.96322774148486
+2019-08-13 18:57:11.782 [main] INFO  com.transaction.core.CoreApplication   - Starting CoreApplication on hz-wsj-wu with PID 4972 (D:\Transaction\target\classes started by wsj.wu in D:\Transaction)
+2019-08-13 18:57:11.787 [main] INFO  com.transaction.core.CoreApplication   - No active profile set, falling back to default profiles: default
+2019-08-13 18:57:13.100 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate   - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-13 18:57:13.140 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate   - Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2019-08-13 18:57:13.548 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker   - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d5cc721] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-13 18:57:13.871 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer   - Tomcat initialized with port(s): 18080 (http)
+2019-08-13 18:57:13.897 [main] INFO  org.apache.catalina.core.StandardService   - Starting service [Tomcat]
+2019-08-13 18:57:13.898 [main] INFO  org.apache.catalina.core.StandardEngine   - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-13 18:57:14.045 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2019-08-13 18:57:14.046 [main] INFO  org.springframework.web.context.ContextLoader   - Root WebApplicationContext: initialization completed in 2188 ms
+2019-08-13 18:57:14.176 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure   - Init DruidDataSource
+2019-08-13 18:57:14.927 [main] INFO  com.alibaba.druid.pool.DruidDataSource   - {dataSource-1} inited
+2019-08-13 18:57:15.054 [main] INFO  org.hibernate.jpa.internal.util.LogHelper   - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-13 18:57:15.123 [main] INFO  org.hibernate.Version   - HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-13 18:57:15.125 [main] INFO  org.hibernate.cfg.Environment   - HHH000206: hibernate.properties not found
+2019-08-13 18:57:15.290 [main] INFO  org.hibernate.annotations.common.Version   - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-13 18:57:15.432 [main] INFO  org.hibernate.dialect.Dialect   - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-13 18:57:15.617 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean   - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-13 18:57:15.845 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor   - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-13 18:57:15.888 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration   - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-13 18:57:16.233 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer   - Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-13 18:57:16.239 [main] INFO  com.transaction.core.CoreApplication   - Started CoreApplication in 5.242 seconds (JVM running for 7.351)
+2019-08-13 18:57:16.242 [main] ERROR com.transaction.core.CoreApplication   - 测试log
+2019-08-13 18:57:16.261 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. moving1 start, sy1: BTC, sy2: LTC
+2019-08-13 18:57:16.269 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. moving1 start, sy1: BTY, sy2: YCC
+2019-08-13 18:57:16.270 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. moving1 start, sy1: ETH, sy2: YCC
+2019-08-13 18:57:16.282 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: BTY, sy2: YCC
+2019-08-13 18:57:16.282 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: BTC, sy2: LTC
+2019-08-13 18:57:16.287 [Thread-19] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: ETH, sy2: YCC
+2019-08-13 18:57:19.576 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.987377241713382
+2019-08-13 18:57:20.687 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  BTYYCC方式: SELL. 预计一轮后的usdt：4.900555330578513
+2019-08-13 18:57:21.312 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  BTCLTC方式: SELL. 预计一轮后的usdt：4.985050149522923
+2019-08-13 18:57:21.866 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. 预计一轮后的usdt：4.96322774148486
+2019-08-13 18:57:22.435 [Thread-19] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  ETHYCC方式: SELL. 预计一轮后的usdt：4.947898512396694
+2019-08-13 18:57:22.989 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. 预计一轮后的usdt：4.954403086297828
+2019-08-13 18:57:23.537 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.987377241713382
+2019-08-13 18:57:25.264 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  BTYYCC方式: SELL. 预计一轮后的usdt：4.900555330578513
+2019-08-13 18:57:26.438 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. 预计一轮后的usdt：4.96322774148486
+2019-08-13 18:57:27.023 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  BTCLTC方式: SELL. 预计一轮后的usdt：4.989545348904938
+2019-08-13 18:57:27.571 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. 预计一轮后的usdt：4.954403086297828
+2019-08-13 18:57:28.161 [Thread-19] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  ETHYCC方式: SELL. 预计一轮后的usdt：4.947898512396694
+2019-08-13 18:57:29.663 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.991635239852276
+2019-08-13 18:57:30.281 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  BTYYCC方式: SELL. 预计一轮后的usdt：4.900555330578513
+2019-08-13 18:57:30.845 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. 预计一轮后的usdt：4.96322774148486
+2019-08-13 18:57:31.443 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. 预计一轮后的usdt：4.954403086297828
+2019-08-13 18:57:32.049 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  BTCLTC方式: SELL. 预计一轮后的usdt：4.988233173928238
+2019-08-13 18:57:32.758 [Thread-19] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  ETHYCC方式: SELL. 预计一轮后的usdt：4.947898512396694
+2019-08-13 18:57:33.284 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.9903244112703815
+2019-08-13 18:57:34.401 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. 预计一轮后的usdt：4.96322774148486
+2019-08-13 18:57:34.907 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  BTYYCC方式: SELL. 预计一轮后的usdt：4.900555330578513
+2019-08-13 18:57:35.425 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. 预计一轮后的usdt：4.942431798205289
+2019-08-13 18:57:36.626 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  BTCLTC方式: SELL. 预计一轮后的usdt：4.988588522250699
+2019-08-13 18:57:37.202 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.9911218176877705
+2019-08-13 18:57:37.810 [Thread-19] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  ETHYCC方式: SELL. 预计一轮后的usdt：4.947898512396694
+2019-08-13 18:57:38.394 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. 预计一轮后的usdt：4.96322774148486
+2019-08-13 18:57:39.000 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. 预计一轮后的usdt：4.942431798205289
+2019-08-13 18:57:39.579 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  BTYYCC方式: SELL. 预计一轮后的usdt：4.900555330578513
+2019-08-13 18:58:54.587 [main] INFO  com.transaction.core.CoreApplication   - Starting CoreApplication on hz-wsj-wu with PID 12724 (D:\Transaction\target\classes started by wsj.wu in D:\Transaction)
+2019-08-13 18:58:54.592 [main] INFO  com.transaction.core.CoreApplication   - No active profile set, falling back to default profiles: default
+2019-08-13 18:59:03.118 [main] INFO  com.transaction.core.CoreApplication   - Starting CoreApplication on hz-wsj-wu with PID 16216 (D:\Transaction\target\classes started by wsj.wu in D:\Transaction)
+2019-08-13 18:59:03.126 [main] INFO  com.transaction.core.CoreApplication   - No active profile set, falling back to default profiles: default
+2019-08-13 18:59:04.523 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate   - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-13 18:59:04.553 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate   - Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2019-08-13 18:59:04.990 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker   - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$10d9711b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-13 18:59:05.355 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer   - Tomcat initialized with port(s): 18080 (http)
+2019-08-13 18:59:05.392 [main] INFO  org.apache.catalina.core.StandardService   - Starting service [Tomcat]
+2019-08-13 18:59:05.392 [main] INFO  org.apache.catalina.core.StandardEngine   - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-13 18:59:05.550 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2019-08-13 18:59:05.550 [main] INFO  org.springframework.web.context.ContextLoader   - Root WebApplicationContext: initialization completed in 2359 ms
+2019-08-13 18:59:05.654 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure   - Init DruidDataSource
+2019-08-13 18:59:06.299 [main] INFO  com.alibaba.druid.pool.DruidDataSource   - {dataSource-1} inited
+2019-08-13 18:59:06.532 [main] INFO  org.hibernate.jpa.internal.util.LogHelper   - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-13 18:59:06.595 [main] INFO  org.hibernate.Version   - HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-13 18:59:06.596 [main] INFO  org.hibernate.cfg.Environment   - HHH000206: hibernate.properties not found
+2019-08-13 18:59:06.733 [main] INFO  org.hibernate.annotations.common.Version   - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-13 18:59:06.901 [main] INFO  org.hibernate.dialect.Dialect   - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-13 18:59:07.073 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean   - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-13 18:59:07.313 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor   - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-13 18:59:07.355 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration   - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-13 18:59:07.702 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer   - Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-13 18:59:07.706 [main] INFO  com.transaction.core.CoreApplication   - Started CoreApplication in 5.345 seconds (JVM running for 7.286)
+2019-08-13 18:59:07.710 [main] ERROR com.transaction.core.CoreApplication   - 测试log
+2019-08-13 18:59:07.722 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. moving1 start, sy1: BTC, sy2: LTC
+2019-08-13 18:59:07.725 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. moving1 start, sy1: BTY, sy2: YCC
+2019-08-13 18:59:07.729 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. moving1 start, sy1: ETH, sy2: YCC
+2019-08-13 18:59:07.735 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: BTC, sy2: LTC
+2019-08-13 18:59:07.744 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: BTY, sy2: YCC
+2019-08-13 18:59:07.747 [Thread-19] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: ETH, sy2: YCC
+2019-08-13 18:59:09.561 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  BTCLTC方式: SELL. 预计一轮后的usdt：4.985110980894687
+2019-08-13 18:59:09.921 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.993045068353528
+2019-08-13 18:59:09.922 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 13.7214864
+2019-08-13 18:59:09.922 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 18:59:09.924 [Thread-31] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762000
+2019-08-13 18:59:09.924 [Thread-30] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11254.500000
+2019-08-13 18:59:09.924 [Thread-32] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 18:59:10.113 [Thread-31] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:10.113 [Thread-32] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:10.136 [Thread-30] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:10.178 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 18:59:10.178 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 18:59:10.179 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 18:59:10.179 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 18:59:10.535 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.993045068353528
+2019-08-13 18:59:10.536 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 13.7214864
+2019-08-13 18:59:10.537 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 18:59:10.566 [Thread-37] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11254.500000
+2019-08-13 18:59:10.568 [Thread-39] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 18:59:10.569 [Thread-38] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762000
+2019-08-13 18:59:10.685 [Thread-37] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:10.688 [Thread-38] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:10.690 [Thread-39] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:10.804 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 18:59:10.805 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 18:59:10.805 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 18:59:10.806 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 18:59:11.170 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.993045068353528
+2019-08-13 18:59:11.171 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 13.7214864
+2019-08-13 18:59:11.171 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 18:59:11.172 [Thread-44] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762000
+2019-08-13 18:59:11.173 [Thread-45] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 18:59:11.174 [Thread-43] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11254.500000
+2019-08-13 18:59:11.297 [Thread-44] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:11.302 [Thread-45] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:11.305 [Thread-43] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:11.409 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 18:59:11.410 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 18:59:11.410 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 18:59:11.410 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 18:59:11.781 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.993045068353528
+2019-08-13 18:59:11.782 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 13.7214864
+2019-08-13 18:59:11.782 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 18:59:11.784 [Thread-49] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11254.500000
+2019-08-13 18:59:11.787 [Thread-51] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 18:59:11.787 [Thread-50] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762000
+2019-08-13 18:59:11.904 [Thread-49] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:11.916 [Thread-50] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:11.920 [Thread-51] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:12.015 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 18:59:12.015 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 18:59:12.016 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 18:59:12.016 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 18:59:12.381 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.993045068353528
+2019-08-13 18:59:12.381 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 13.7214864
+2019-08-13 18:59:12.382 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 18:59:12.383 [Thread-55] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11254.500000
+2019-08-13 18:59:12.383 [Thread-56] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762000
+2019-08-13 18:59:12.384 [Thread-57] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 18:59:12.499 [Thread-55] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:12.514 [Thread-56] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:12.517 [Thread-57] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:12.618 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 18:59:12.618 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 18:59:12.618 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 18:59:12.619 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 18:59:12.997 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.993045068353528
+2019-08-13 18:59:12.998 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 13.7214864
+2019-08-13 18:59:12.998 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 18:59:13.007 [Thread-61] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11254.500000
+2019-08-13 18:59:13.008 [Thread-63] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 18:59:13.008 [Thread-62] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762000
+2019-08-13 18:59:13.130 [Thread-63] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:13.142 [Thread-62] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:13.146 [Thread-61] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:13.233 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 18:59:13.234 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 18:59:13.234 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 18:59:13.234 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 18:59:13.587 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.993045068353528
+2019-08-13 18:59:13.588 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 13.7214864
+2019-08-13 18:59:13.588 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 18:59:13.589 [Thread-67] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11254.500000
+2019-08-13 18:59:13.589 [Thread-68] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762000
+2019-08-13 18:59:13.590 [Thread-69] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 18:59:13.706 [Thread-67] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:13.709 [Thread-68] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:13.713 [Thread-69] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:13.818 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 18:59:13.818 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 18:59:13.818 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 18:59:13.819 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 18:59:14.187 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.993045068353528
+2019-08-13 18:59:14.188 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 13.7214864
+2019-08-13 18:59:14.188 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 18:59:14.190 [Thread-73] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11254.500000
+2019-08-13 18:59:14.191 [Thread-75] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 18:59:14.191 [Thread-74] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762000
+2019-08-13 18:59:14.306 [Thread-73] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:14.315 [Thread-74] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:14.328 [Thread-75] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:14.447 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 18:59:14.447 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 18:59:14.447 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 18:59:14.447 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 18:59:14.807 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.993045068353528
+2019-08-13 18:59:14.808 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 13.7214864
+2019-08-13 18:59:14.808 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 18:59:14.809 [Thread-79] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11254.500000
+2019-08-13 18:59:14.809 [Thread-80] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762000
+2019-08-13 18:59:14.810 [Thread-81] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 18:59:14.922 [Thread-79] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:14.940 [Thread-80] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:14.946 [Thread-81] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:15.064 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 18:59:15.064 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 18:59:15.064 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 18:59:15.064 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 18:59:15.406 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.993045068353528
+2019-08-13 18:59:15.406 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 13.7214864
+2019-08-13 18:59:15.406 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 18:59:15.407 [Thread-85] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11254.500000
+2019-08-13 18:59:15.408 [Thread-86] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762000
+2019-08-13 18:59:15.408 [Thread-87] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 18:59:15.529 [Thread-86] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:15.531 [Thread-85] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:15.536 [Thread-87] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:15.644 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 18:59:15.644 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 18:59:15.644 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 18:59:15.644 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 18:59:16.024 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.993045068353528
+2019-08-13 18:59:16.024 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 13.7214864
+2019-08-13 18:59:16.024 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 18:59:16.025 [Thread-91] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11254.500000
+2019-08-13 18:59:16.025 [Thread-92] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762000
+2019-08-13 18:59:16.026 [Thread-93] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 18:59:16.145 [Thread-91] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:16.150 [Thread-92] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:16.151 [Thread-93] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 18:59:16.261 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 18:59:16.261 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 18:59:16.262 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 18:59:16.262 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 18:59:52.399 [main] INFO  com.transaction.core.CoreApplication   - Starting CoreApplication on hz-wsj-wu with PID 15948 (D:\Transaction\target\classes started by wsj.wu in D:\Transaction)
+2019-08-13 18:59:52.403 [main] INFO  com.transaction.core.CoreApplication   - No active profile set, falling back to default profiles: default
+2019-08-13 18:59:53.712 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate   - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-13 18:59:53.740 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate   - Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2019-08-13 18:59:54.188 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker   - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5b54ff24] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-13 18:59:54.550 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer   - Tomcat initialized with port(s): 18080 (http)
+2019-08-13 18:59:54.578 [main] INFO  org.apache.catalina.core.StandardService   - Starting service [Tomcat]
+2019-08-13 18:59:54.579 [main] INFO  org.apache.catalina.core.StandardEngine   - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-13 18:59:54.724 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2019-08-13 18:59:54.724 [main] INFO  org.springframework.web.context.ContextLoader   - Root WebApplicationContext: initialization completed in 2232 ms
+2019-08-13 18:59:54.825 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure   - Init DruidDataSource
+2019-08-13 18:59:55.647 [main] INFO  com.alibaba.druid.pool.DruidDataSource   - {dataSource-1} inited
+2019-08-13 18:59:55.783 [main] INFO  org.hibernate.jpa.internal.util.LogHelper   - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-13 18:59:55.848 [main] INFO  org.hibernate.Version   - HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-13 18:59:55.849 [main] INFO  org.hibernate.cfg.Environment   - HHH000206: hibernate.properties not found
+2019-08-13 18:59:55.995 [main] INFO  org.hibernate.annotations.common.Version   - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-13 18:59:56.142 [main] INFO  org.hibernate.dialect.Dialect   - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-13 18:59:56.330 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean   - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-13 18:59:56.569 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor   - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-13 18:59:56.621 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration   - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-13 18:59:57.004 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer   - Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-13 18:59:57.007 [main] INFO  com.transaction.core.CoreApplication   - Started CoreApplication in 5.438 seconds (JVM running for 7.784)
+2019-08-13 18:59:57.010 [main] ERROR com.transaction.core.CoreApplication   - 测试log
+2019-08-13 18:59:57.024 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. moving1 start, sy1: BTC, sy2: LTC
+2019-08-13 18:59:57.027 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. moving1 start, sy1: BTY, sy2: YCC
+2019-08-13 18:59:57.039 [Thread-19] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: BTC, sy2: LTC
+2019-08-13 18:59:57.039 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. moving1 start, sy1: ETH, sy2: YCC
+2019-08-13 18:59:57.041 [Thread-20] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: BTY, sy2: YCC
+2019-08-13 18:59:57.046 [Thread-21] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: ETH, sy2: YCC
+2019-08-13 18:59:59.506 [Thread-20] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - 找币,  BTYYCC方式: SELL. 预计一轮后的usdt：4.902476363636364
+2019-08-13 18:59:59.904 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. 预计一轮后的usdt：4.942431798205289
+2019-08-13 19:00:00.266 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.986595529296961
+2019-08-13 19:00:00.267 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 25.692
+2019-08-13 19:00:00.267 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 19:00:00.269 [Thread-35] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11260.190000
+2019-08-13 19:00:00.269 [Thread-36] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762600
+2019-08-13 19:00:00.269 [Thread-37] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 19:00:00.432 [Thread-35] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:00.455 [Thread-36] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:00.463 [Thread-37] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:00.521 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 19:00:00.522 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 19:00:00.522 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 19:00:00.523 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 19:00:00.912 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.986595529296961
+2019-08-13 19:00:00.913 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 25.692
+2019-08-13 19:00:00.914 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 19:00:00.915 [Thread-42] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11260.190000
+2019-08-13 19:00:00.915 [Thread-43] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762600
+2019-08-13 19:00:00.916 [Thread-44] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 19:00:01.030 [Thread-44] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:01.036 [Thread-42] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:01.039 [Thread-43] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:01.158 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 19:00:01.159 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 19:00:01.159 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 19:00:01.159 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 19:00:01.599 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.986595529296961
+2019-08-13 19:00:01.600 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 25.692
+2019-08-13 19:00:01.600 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 19:00:01.601 [Thread-48] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11260.190000
+2019-08-13 19:00:01.602 [Thread-49] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762600
+2019-08-13 19:00:01.603 [Thread-50] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 19:00:01.723 [Thread-48] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:01.737 [Thread-50] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:01.742 [Thread-49] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:01.879 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 19:00:01.879 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 19:00:01.880 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 19:00:01.880 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 19:00:02.276 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.986595529296961
+2019-08-13 19:00:02.276 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 25.692
+2019-08-13 19:00:02.277 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 19:00:02.278 [Thread-55] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762600
+2019-08-13 19:00:02.278 [Thread-54] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11260.190000
+2019-08-13 19:00:02.278 [Thread-56] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 19:00:02.394 [Thread-55] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:02.401 [Thread-54] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:02.403 [Thread-56] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:02.555 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 19:00:02.556 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 19:00:02.556 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 19:00:02.556 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 19:00:02.973 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.986595529296961
+2019-08-13 19:00:02.974 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 25.692
+2019-08-13 19:00:02.974 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 19:00:02.975 [Thread-60] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0000,  价格： 11260.190000
+2019-08-13 19:00:02.976 [Thread-61] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.00,  价格： 0.00762600
+2019-08-13 19:00:02.977 [Thread-62] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.00,  价格： 85.640000
+2019-08-13 19:00:03.101 [Thread-62] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:03.103 [Thread-61] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:03.112 [Thread-60] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":1009,"ecode":"FZM_TR1011","error":"\u4ea4\u6613\u5931\u8d25","message":"\u4ea4\u6613\u91cf\u5c0f\u4e8e\u7cfb\u7edf\u8bbe\u7f6e\u6700\u4f4e\u4ea4\u6613\u91cf","data":null}
+2019-08-13 19:00:03.281 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 19:00:03.281 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 19:00:03.281 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 19:00:03.282 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 19:00:40.530 [main] INFO  com.transaction.core.CoreApplication   - Starting CoreApplication on hz-wsj-wu with PID 11456 (D:\Transaction\target\classes started by wsj.wu in D:\Transaction)
+2019-08-13 19:00:40.540 [main] INFO  com.transaction.core.CoreApplication   - No active profile set, falling back to default profiles: default
+2019-08-13 19:00:42.390 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate   - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-13 19:00:42.415 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate   - Finished Spring Data repository scanning in 12ms. Found 0 repository interfaces.
+2019-08-13 19:00:42.819 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker   - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$80b6f938] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-13 19:00:43.157 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer   - Tomcat initialized with port(s): 18080 (http)
+2019-08-13 19:00:43.184 [main] INFO  org.apache.catalina.core.StandardService   - Starting service [Tomcat]
+2019-08-13 19:00:43.185 [main] INFO  org.apache.catalina.core.StandardEngine   - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-13 19:00:43.322 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2019-08-13 19:00:43.323 [main] INFO  org.springframework.web.context.ContextLoader   - Root WebApplicationContext: initialization completed in 2730 ms
+2019-08-13 19:00:43.423 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure   - Init DruidDataSource
+2019-08-13 19:00:44.211 [main] INFO  com.alibaba.druid.pool.DruidDataSource   - {dataSource-1} inited
+2019-08-13 19:00:44.339 [main] INFO  org.hibernate.jpa.internal.util.LogHelper   - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-13 19:00:44.404 [main] INFO  org.hibernate.Version   - HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-13 19:00:44.406 [main] INFO  org.hibernate.cfg.Environment   - HHH000206: hibernate.properties not found
+2019-08-13 19:00:44.564 [main] INFO  org.hibernate.annotations.common.Version   - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-13 19:00:44.713 [main] INFO  org.hibernate.dialect.Dialect   - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-13 19:00:44.909 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean   - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-13 19:00:45.212 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor   - Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-13 19:00:45.256 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration   - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-13 19:00:45.584 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer   - Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-13 19:00:45.587 [main] INFO  com.transaction.core.CoreApplication   - Started CoreApplication in 5.809 seconds (JVM running for 7.973)
+2019-08-13 19:00:45.590 [main] ERROR com.transaction.core.CoreApplication   - 测试log
+2019-08-13 19:00:45.603 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. moving1 start, sy1: BTC, sy2: LTC
+2019-08-13 19:00:45.607 [Thread-14] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTYYCC, 方式: BUY. moving1 start, sy1: BTY, sy2: YCC
+2019-08-13 19:00:45.611 [Thread-15] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  ETHYCC, 方式: BUY. moving1 start, sy1: ETH, sy2: YCC
+2019-08-13 19:00:45.622 [Thread-17] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: BTY, sy2: YCC
+2019-08-13 19:00:45.622 [Thread-16] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: BTC, sy2: LTC
+2019-08-13 19:00:45.626 [Thread-18] INFO  com.transaction.core.exchange.zhaobi.SyncMoving2   - moving2 start, sy1: ETH, sy2: YCC
+2019-08-13 19:00:48.003 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.986199474390906
+2019-08-13 19:00:48.003 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 25.656
+2019-08-13 19:00:48.004 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 19:00:48.007 [Thread-26] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0001,  价格： 11246.780000
+2019-08-13 19:00:48.007 [Thread-28] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.01,  价格： 85.520000
+2019-08-13 19:00:48.008 [Thread-27] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.01,  价格： 0.00762500
+2019-08-13 19:00:48.313 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 19:00:48.314 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 19:00:48.314 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 19:00:48.314 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 19:00:48.741 [Thread-28] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":200,"ecode":"200","error":"OK","message":"OK","data":{"orderid":"292215582","instructionid":"22997926371470636"}}
+2019-08-13 19:00:48.744 [Thread-26] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":200,"ecode":"200","error":"OK","message":"OK","data":{"orderid":"292215581","instructionid":"21476099192225856"}}
+2019-08-13 19:00:48.746 [Thread-27] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":200,"ecode":"200","error":"OK","message":"OK","data":{"orderid":"292215583","instructionid":"-5391347890430454"}}
+2019-08-13 19:00:48.777 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.986199474390906
+2019-08-13 19:00:48.777 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 24.8008
+2019-08-13 19:00:48.778 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 19:00:48.779 [Thread-33] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0001,  价格： 11246.780000
+2019-08-13 19:00:48.779 [Thread-34] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.01,  价格： 0.00762500
+2019-08-13 19:00:48.779 [Thread-35] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.01,  价格： 85.520000
+2019-08-13 19:00:49.054 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 初始usdt： 26.279311
+2019-08-13 19:00:49.055 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 最终usdt： 26.279311
+2019-08-13 19:00:49.055 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 此次盈利USDT: 0.0
+2019-08-13 19:00:49.056 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - USDT总盈利：0.0
+2019-08-13 19:00:49.431 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 预计一轮后的usdt：4.986199474390906
+2019-08-13 19:00:49.432 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 此次挂单可吃的usdt数量: 24.8008
+2019-08-13 19:00:49.432 [Thread-13] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 一步步吃订单
+2019-08-13 19:00:49.433 [Thread-39] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：BTCUSDT ,  数量： 0.0001,  价格： 11246.780000
+2019-08-13 19:00:49.434 [Thread-41] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCUSDT ,  数量： 0.01,  价格： 85.520000
+2019-08-13 19:00:49.434 [Thread-40] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - 挂单，  交易对：LTCBTC ,  数量： 0.01,  价格： 0.00762500
+2019-08-13 19:00:50.108 [Thread-34] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":200,"ecode":"200","error":"OK","message":"OK","data":{"orderid":"292215592","instructionid":"-17518883840492094"}}
+2019-08-13 19:00:50.108 [Thread-33] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":200,"ecode":"200","error":"OK","message":"OK","data":{"orderid":"292215594","instructionid":"34860145011826379"}}
+2019-08-13 19:00:50.110 [Thread-35] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":200,"ecode":"200","error":"OK","message":"OK","data":{"orderid":"292215593","instructionid":"11465921996485844"}}
+2019-08-13 19:00:50.202 [Thread-29] INFO  com.transaction.core.exchange.zhaobi.SyncMoving1   - 找币,  BTCLTC, 方式: BUY. 发送邮件
+2019-08-13 19:00:51.345 [Thread-40] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":200,"ecode":"200","error":"OK","message":"OK","data":{"orderid":"292215597","instructionid":"6826871988146168"}}
+2019-08-13 19:00:51.349 [Thread-39] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":200,"ecode":"200","error":"OK","message":"OK","data":{"orderid":"292215598","instructionid":"-26238685358348807"}}
+2019-08-13 19:00:51.353 [Thread-41] INFO  com.transaction.core.exchange.zhaobi.ZhaobiClient   - {"code":200,"ecode":"200","error":"OK","message":"OK","data":{"orderid":"292215599","instructionid":"-26275476048414891"}}

@@ -17,7 +17,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
  */
 
 
-public class MailUtil {
+public class MailUtil implements Runnable {
     private static final String HOST = MailConfig.host;
     private static final Integer PORT = MailConfig.port;
     private static final String USERNAME = MailConfig.userName;
@@ -28,6 +28,8 @@ public class MailUtil {
     private static final String subject = MailConfig.subject;
     private static final String html = MailConfig.html;
     private static JavaMailSenderImpl mailSender = createMailSender();
+
+    private String msg;
 
     /**
      * 邮件发送器
@@ -113,5 +115,9 @@ public class MailUtil {
         sendResultEmains("www","www",1,"www",0.0,0.0,0.0,0.0);
     }
 
+    @Override
+    public void run() {
+        sendEmains(msg);
+    }
 }
 

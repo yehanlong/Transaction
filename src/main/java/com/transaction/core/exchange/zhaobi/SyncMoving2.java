@@ -171,7 +171,7 @@ public class SyncMoving2 extends Thread {
                     if (DoubleUtil.compareTo(ap.getMinUSDT() - everyUSDT, 1.5) == -1){
                         everyUSDT = ap.getMinUSDT();
                     }
-
+                    everyUSDT = 1;
                     int a1 = DoubleUtil.compareTo(everyUSDT,ap.getMinUSDT());
 
                     if (a1==1) {
@@ -207,9 +207,15 @@ public class SyncMoving2 extends Thread {
 
                     // 利用延迟时间， 在此处发邮件  或者数据库操作
                     if (emailStartMark == 0) {
-                        MailUtil.sendEmains("交易对"+sy1+sy2+" SELL触发, 第一次预计的usdt为"
-                                +usdtcountB.doubleValue()+", 第一次预估此次可吃usdt为"+ap.getMinUSDT());
-                        info("发送邮件");
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                MailUtil.sendEmains("交易对"+sy1+sy2+" SELL触发, 第一次预计的usdt为"
+                                        +usdtcountB.doubleValue()+", 第一次预估此次可吃usdt为"+ap.getMinUSDT());
+                                info("发送邮件");
+                            }
+                        }).start();
+
                         emailStartMark = 1;
                     }
 
@@ -232,10 +238,16 @@ public class SyncMoving2 extends Thread {
 
                     // 可能程序出bug  也可能是别的问题
                     if (thisMoney < -0.2 && thisMoney > -0.5) {
-                        MailUtil.sendEmains("有可能出现亏损,请及时查看余额");
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                MailUtil.sendEmains("有可能出现亏损,请及时查看余额");
+                            }
+                        }).start();
                         break;
                     }
 
+                    logger.info("此次吃的usdt:" + everyUSDT);
                     logger.info("初始usdt： " + lastUSDT);
                     logger.info("最终usdt： " + accUSDTEnd);
                     logger.info("此次盈利USDT: " + DoubleUtil.sub(accUSDTEnd,lastUSDT));
@@ -287,7 +299,7 @@ public class SyncMoving2 extends Thread {
 
 
     public void info(String msg){
-        logger.info("交易所: 找币, 交易对: " + sy1 + sy2 + "交易方式: SELL. " + msg);
+        logger.info("找币,  " + sy1 + sy2 + "方式: SELL. " + msg);
     }
 
 }
