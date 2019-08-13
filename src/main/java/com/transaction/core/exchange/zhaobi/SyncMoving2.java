@@ -171,7 +171,6 @@ public class SyncMoving2 extends Thread {
                     if (DoubleUtil.compareTo(ap.getMinUSDT() - everyUSDT, 1.5) == -1){
                         everyUSDT = ap.getMinUSDT();
                     }
-                    everyUSDT = 1;
                     int a1 = DoubleUtil.compareTo(everyUSDT,ap.getMinUSDT());
 
                     if (a1==1) {
@@ -222,7 +221,7 @@ public class SyncMoving2 extends Thread {
 
                     // 相等说明挂单的价格延迟，既挂单的时候没扣钱  <-1  指卖出的钱没到账
                     for (int i= 0; i < 5; i++){
-                        if (a4 == 1  || a5 == -1) {
+                        if (a4 == 0  || a5 == -1) {
                             // 此处需要保证不受延迟影响
                             Thread.sleep(500);
                             accUSDTEnd = client.getAccount("USDT").getActive();
@@ -237,13 +236,15 @@ public class SyncMoving2 extends Thread {
                     allMoney = allMoney + DoubleUtil.sub(accUSDTEnd,lastUSDT);
 
                     // 可能程序出bug  也可能是别的问题
-                    if (thisMoney < -0.2 && thisMoney > -0.5) {
+                    if (thisMoney < -0.05 && thisMoney > -0.5) {
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
                                 MailUtil.sendEmains("有可能出现亏损,请及时查看余额");
                             }
                         }).start();
+                        // 注意 此处需要释放锁
+                        lock.unlock();
                         break;
                     }
 
