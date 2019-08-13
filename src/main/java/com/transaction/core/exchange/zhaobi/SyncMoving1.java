@@ -94,7 +94,10 @@ public class SyncMoving1 extends Thread {
         while (true) {
 
             try {
-                lock.lock();
+                if (in ==0 ){
+                    lock.lock();
+                }
+
                 in = 0;
 
                 double usdt = ZhaobiConstant.USDT;
@@ -218,6 +221,7 @@ public class SyncMoving1 extends Thread {
                     if (emailStartMark == 0) {
                         MailUtil.sendEmains("交易对"+sy1+sy2+" BUY触发, 第一次预计的usdt为"
                                 +usdtcountB.doubleValue()+", 第一次预估此次可吃usdt为"+ap.getMinUSDT());
+								 info("发送邮件");
                         emailStartMark = 1;
                     }
 
