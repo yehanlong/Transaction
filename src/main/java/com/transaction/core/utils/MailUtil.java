@@ -76,6 +76,8 @@ public class MailUtil {
             sendMail("1536161955@qq.com",msg);
             sendMail("13588208796@163.com",msg);
             sendMail("sqc95111@163.com",msg);
+            sendMail("1376822651@qq.com",msg);
+
 
 
         } catch (MessagingException e) {
@@ -106,7 +108,10 @@ public class MailUtil {
         return msg;
     }
 
-
+    public static void main(String[] args){
+//        sendEmains("www");
+        sendResultEmains("www","www",1,"www",0.0,0.0,0.0,0.0);
+    }
 
 }
 
