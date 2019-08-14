@@ -17,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.validation.constraints.Email;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
@@ -203,6 +204,22 @@ public class SyncMoving1 extends Thread {
                         info("一步步吃订单");
                         //double point = everyUSDT / ap.getMinUSDT();
                         double point = DoubleUtil.div(everyUSDT,ap.getMinUSDT(),25);
+
+                        // 处理btc的小数问题
+                        double am1 = DoubleUtil.mul(ap.getSy1Amount(), point);
+                        double am2 = DoubleUtil.mul(ap.getSy12Amount() * point, point);
+                        double am3 = DoubleUtil.mul(ap.getSy2Amount() * point, point);
+                        double dam1;
+                        // 根据sy1来计算
+                        if (sy1=="BTC"){
+                            dam1 = Double.valueOf(new DecimalFormat("0.0000").format(am1));
+                            point =  DoubleUtil.div(dam1,am1,25);
+                        }
+                        if (sy1=="ETH"){
+                            dam1 = Double.valueOf(new DecimalFormat("0.000").format(am1));
+                            point =  DoubleUtil.div(dam1,am1,25);
+                        }
+
                         boolean b = client.syncPostBill(sy1, sy2, ap.getSy1Amount() * point, ap.getSy12Amount() * point, ap.getSy2Amount() * point,
                                 ap.getSy1Price(), ap.getSy12Price(), ap.getSy2Price(), "BUY");
                         if(!b){

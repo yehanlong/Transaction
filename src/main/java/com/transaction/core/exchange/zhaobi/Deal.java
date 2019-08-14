@@ -385,7 +385,7 @@ public class Deal {
 
         // 这个放前面，优先级最高
         if (usdt1 > 5.1) {
-            return 8 + r.nextDouble()*3;
+            return 10 + r.nextDouble()*3;
         }
 
         if (usdt2 > 100){
