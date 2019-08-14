@@ -211,11 +211,11 @@ public class SyncMoving1 extends Thread {
                         double am3 = DoubleUtil.mul(ap.getSy2Amount() * point, point);
                         double dam1;
                         // 根据sy1来计算
-                        if (sy1=="BTC"){
+                        if (sy1=="BTC" && ap.getSy1Amount() > 0.0001){
                             dam1 = Double.valueOf(new DecimalFormat("0.0000").format(am1));
                             point =  DoubleUtil.div(dam1,am1,25);
                         }
-                        if (sy1=="ETH"){
+                        if (sy1=="ETH" && ap.getSy1Amount() > 0.001){
                             dam1 = Double.valueOf(new DecimalFormat("0.000").format(am1));
                             point =  DoubleUtil.div(dam1,am1,25);
                         }

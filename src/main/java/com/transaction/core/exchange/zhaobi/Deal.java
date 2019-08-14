@@ -377,7 +377,7 @@ public class Deal {
     // 第一个参数是预计usdt，第二个是可吃的usdt，第三个参数是最大usdt限制
     public static double getEveryUsdt(double usdt1,double usdt2, double max){
 
-        Random r = new Random(1);
+        Random r = new Random();
 
         if (max == 2.0) {
             return 1.5+r.nextDouble()*3;
@@ -413,8 +413,10 @@ public class Deal {
 
     public static void main(String[] args){
 
+        System.out.println(getEveryUsdt(10,200,0));
+
         Random r = new Random();
-        System.out.println(7+r.nextDouble()*3);
+        System.out.println( 10 + r.nextDouble()*3);
         AmountPrice a = new AmountPrice();
 
         //time="2019-08-11T05:19:20+08:00" level=warning msg="usdtCount: 5.061817"
