@@ -158,6 +158,7 @@ public class SyncMoving2 extends Thread {
                     // 有盈利，开始交易
                     info("有盈利，开始交易");
                     Map<String, PropertyVO> map = client.getAccount();
+                    logger.info("触发前USDT的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
                     logger.info("触发前"+sy1+"的余额为："+map.get(sy1).getValuation()+", 可用："+map.get(sy1).getActive()+", 冻结："+map.get(sy1).getFrozen());
                     logger.info("触发前"+sy2+"的余额为："+map.get(sy2).getValuation()+", 可用："+map.get(sy2).getActive()+", 冻结："+map.get(sy2).getFrozen());
                     // 获取此轮交易实际需要的USDT
@@ -272,6 +273,7 @@ public class SyncMoving2 extends Thread {
                     }
 
                     Map<String, PropertyVO> map1 = client.getAccount();
+                    logger.info("触发后USDT的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
                     logger.info("触发后"+sy1+"的余额为："+map1.get(sy1).getValuation()+", 可用："+map1.get(sy1).getActive()+", 冻结："+map1.get(sy1).getFrozen());
                     logger.info("触发后"+sy2+"的余额为："+map1.get(sy2).getValuation()+", 可用："+map1.get(sy2).getActive()+", 冻结："+map1.get(sy2).getFrozen());
 
