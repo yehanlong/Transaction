@@ -207,20 +207,18 @@ public class SyncMoving1 extends Thread {
 
                         // 处理btc的小数问题
                         double am1 = DoubleUtil.mul(ap.getSy1Amount(), point);
-                        double am2 = DoubleUtil.mul(ap.getSy12Amount() * point, point);
-                        double am3 = DoubleUtil.mul(ap.getSy2Amount() * point, point);
-                        double dam1;
+                        double point1 = 1.0;
                         // 根据sy1来计算
                         if (sy1=="BTC" && ap.getSy1Amount() > 0.0001){
-                            dam1 = Double.valueOf(new DecimalFormat("0.0000").format(am1));
-                            point =  DoubleUtil.div(dam1,am1,25);
+                            double dam1 = Double.valueOf(new DecimalFormat("0.0000").format(am1));
+                            point1 =  DoubleUtil.div(dam1,am1,25);
                         }
                         if (sy1=="ETH" && ap.getSy1Amount() > 0.001){
-                            dam1 = Double.valueOf(new DecimalFormat("0.000").format(am1));
-                            point =  DoubleUtil.div(dam1,am1,25);
+                            double dam1 = Double.valueOf(new DecimalFormat("0.000").format(am1));
+                            point1 =  DoubleUtil.div(dam1,am1,25);
                         }
 
-                        boolean b = client.syncPostBill(sy1, sy2, ap.getSy1Amount() * point, ap.getSy12Amount() * point, ap.getSy2Amount() * point,
+                        boolean b = client.syncPostBill(sy1, sy2, ap.getSy1Amount() * point * point1, ap.getSy12Amount() * point* point1, ap.getSy2Amount() * point* point1,
                                 ap.getSy1Price(), ap.getSy12Price(), ap.getSy2Price(), "BUY");
                         if(!b){
                             logger.error("BUY or SELL 错误");
