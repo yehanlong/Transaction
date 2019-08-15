@@ -221,7 +221,9 @@ public class SyncMoving1 extends Thread {
                             point1 =  DoubleUtil.div(dam1,am1,25);
                         }
 
-                        boolean b = client.syncPostBill(sy1, sy2, ap.getSy1Amount() * point * point1, ap.getSy12Amount() * point* point1, ap.getSy2Amount() * point* point1,
+                        boolean b = client.syncPostBill(sy1, sy2, DoubleUtil.mulThree(ap.getSy1Amount(),point,point1),
+                                DoubleUtil.mulThree(ap.getSy12Amount(), point ,point1),
+                                DoubleUtil.mulThree(ap.getSy2Amount(),point, point1),
                                 ap.getSy1Price(), ap.getSy12Price(), ap.getSy2Price(), "BUY");
                         if(!b){
                             logger.error("BUY or SELL 错误");
