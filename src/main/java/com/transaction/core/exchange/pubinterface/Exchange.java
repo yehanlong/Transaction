@@ -12,7 +12,7 @@ public interface Exchange {
 
     // 获取账户余额
     // map的key 币种 比如bty
-    PropertyVO getAccount(String a);
+    Map<String, PropertyVO> getAccount();
 
     // 挂单
     // 如postBill(1,"YCC","USDT",0.013161,"SELL");数量为1的ycc卖成usdt
@@ -29,6 +29,6 @@ public interface Exchange {
     // 异步挂单
     // type指第二步买还是卖
     boolean syncPostBill(String symbol1, String symbol2, double amount1, double amount2,double amount3,
-                         double price1, double price2,double price3, String type);
+                         double price1, double price2,double price3, String type) throws InterruptedException;
 
 }
