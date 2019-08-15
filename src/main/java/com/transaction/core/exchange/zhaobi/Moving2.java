@@ -132,7 +132,7 @@ public class Moving2 extends Thread {
                     // 有盈利，开始交易
 
                     double everyUSDT = 2.0;
-                    double accUSDT = client.getAccount("USDT").getActive();
+                    double accUSDT = client.getAccount().get("USDT").getActive();
                     if (accUSDT < 2.0) {
                         logger.info("账户usdt 小于 2.0");
                         Thread.sleep(5000);
@@ -203,7 +203,7 @@ public class Moving2 extends Thread {
                         //continue;
                     }
 
-                    double accYCC = client.getAccount(sy2).getActive();
+                    double accYCC = client.getAccount().get(sy2).getActive();
                     BigDecimal accYCCB = new BigDecimal(accYCC);
                     int a9 = accYCCB.compareTo(yccCount1B);
                     if (a9 == -1) {
@@ -244,7 +244,7 @@ public class Moving2 extends Thread {
 //                        continue;
                     }
 
-                    double accBTY = client.getAccount(sy1).getActive();
+                    double accBTY = client.getAccount().get(sy1).getActive();
                     BigDecimal accBTYB = new BigDecimal(accBTY);
                     int a13 = accBTYB.compareTo(btyCount1B);
                     if (a13 == -1)  {
@@ -257,7 +257,7 @@ public class Moving2 extends Thread {
                         break;
                     }
 
-                    double accUSDTEnd = client.getAccount("USDT").getActive();
+                    double accUSDTEnd = client.getAccount().get("USDT").getActive();
                     logger.info("最终usdt： ", accUSDTEnd);
                     logger.info("此次盈利USDT: ", accUSDTEnd - accUSDT);
                 }

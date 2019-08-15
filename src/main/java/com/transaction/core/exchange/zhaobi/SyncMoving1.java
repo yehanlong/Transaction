@@ -5,6 +5,7 @@ import com.transaction.core.constant.ZhaobiConstant;
 import com.transaction.core.entity.AmountPrice;
 import com.transaction.core.entity.Order;
 import com.transaction.core.entity.SyncMarkInfo;
+import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pub.Symbol;
@@ -20,6 +21,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.locks.Lock;
 
 // 例子：
@@ -88,7 +90,7 @@ public class SyncMoving1 extends Thread {
         double succUsdt = 0;
 
         // 初始usdt
-        double startUSDT = client.getAccount("USDT").getActive();
+        double startUSDT = client.getAccount().get("USDT").getActive();
         HistoryUSDTList.add(startUSDT);
 
 
@@ -103,7 +105,7 @@ public class SyncMoving1 extends Thread {
 
                 double usdt = ZhaobiConstant.USDT;
 
-                double accUSDT = client.getAccount("USDT").getActive();
+                double accUSDT = client.getAccount().get("USDT").getActive();
                 int a = DoubleUtil.compareTo(accUSDT,usdt);
                 if (a == -1) {
                     info("账户usdt 小于"+ZhaobiConstant.USDT);
@@ -167,7 +169,8 @@ public class SyncMoving1 extends Thread {
                 if (a3 == 1) {
                     in = 1;
                     // 有盈利，开始交易
-
+                    Map<String, PropertyVO> map = client.getAccount();
+                    logger.info("触发前"+sy1+"的余额为："+map.get(sy1)+";"+sy2+"的余额为："+map.get(sy2));
                     // 获取此轮交易实际需要的USDT
                     AmountPrice ap = Deal.getAcuallyUSDT(amountPrice,  "BUY");
 
@@ -227,7 +230,7 @@ public class SyncMoving1 extends Thread {
 
                     // 盈利统计，同时解决延迟问题
                     double lastUSDT = HistoryUSDTList.get(HistoryUSDTList.size() - 1);
-                    double accUSDTEnd = client.getAccount("USDT").getActive();
+                    double accUSDTEnd = client.getAccount().get("USDT").getActive();
                     int a4 = DoubleUtil.compareTo(accUSDTEnd,accUSDT);
                     //int a5 = DoubleUtil.compareTo(DoubleUtil.sub(accUSDTEnd,accUSDT),-0.3);
 
@@ -252,7 +255,7 @@ public class SyncMoving1 extends Thread {
                         if (a4 == 0) {
                             // 此处需要保证不受延迟影响
                             Thread.sleep(500);
-                            accUSDTEnd = client.getAccount("USDT").getActive();
+                            accUSDTEnd = client.getAccount().get("USDT").getActive();
                             info("获取余额延迟, 次数： " +  (i+1));
                         }
                     }
@@ -275,6 +278,9 @@ public class SyncMoving1 extends Thread {
                         lock.unlock();
                         break;
                     }
+
+                    Map<String, PropertyVO> map1 = client.getAccount();
+                    logger.info("触发后"+sy1+"的余额为："+map1.get(sy1)+";"+sy2+"的余额为："+map1.get(sy2));
 
                     logger.info("初始usdt： " + lastUSDT);
                     logger.info("最终usdt： " + accUSDTEnd);

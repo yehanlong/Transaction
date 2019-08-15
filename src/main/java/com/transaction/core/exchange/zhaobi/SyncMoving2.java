@@ -80,7 +80,7 @@ public class SyncMoving2 extends Thread {
         double succUsdt = 0;
 
         // 初始usdt
-        double startUSDT = client.getAccount("USDT").getActive();
+        double startUSDT = client.getAccount().get("USDT").getActive();
         HistoryUSDTList.add(startUSDT);
 
 
@@ -93,7 +93,7 @@ public class SyncMoving2 extends Thread {
 
                 double usdt = 4.0;
 
-                double accUSDT = client.getAccount("USDT").getActive();
+                double accUSDT = client.getAccount().get("USDT").getActive();
                 int a = DoubleUtil.compareTo(accUSDT,usdt);
                 if (a == -1) {
                     info("账户usdt 小于 4.0");
@@ -214,7 +214,7 @@ public class SyncMoving2 extends Thread {
 
                     // 盈利统计，同时解决延迟问题
                     double lastUSDT = HistoryUSDTList.get(HistoryUSDTList.size() - 1);
-                    double accUSDTEnd = client.getAccount("USDT").getActive();
+                    double accUSDTEnd = client.getAccount().get("USDT").getActive();
 
                     int a4 = DoubleUtil.compareTo(accUSDTEnd,accUSDT);
                     //int a5 = DoubleUtil.compareTo(DoubleUtil.sub(accUSDTEnd,accUSDT),-0.3);
@@ -239,7 +239,7 @@ public class SyncMoving2 extends Thread {
                         if (a4 == 0) {
                             // 此处需要保证不受延迟影响
                             Thread.sleep(500);
-                            accUSDTEnd = client.getAccount("USDT").getActive();
+                            accUSDTEnd = client.getAccount().get("USDT").getActive();
                             info("获取余额延迟，次数： " + (i+1));
                         }
                     }

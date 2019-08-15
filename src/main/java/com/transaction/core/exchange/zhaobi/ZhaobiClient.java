@@ -34,7 +34,7 @@ public class ZhaobiClient implements Exchange {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    public PropertyVO getAccount(String a) {
+    public Map<String, PropertyVO> getAccount() {
 //       try {
 //           for (int i = 0; i < 10; i++) {
 //               PropertyVO p =  getAcc(a);
@@ -67,10 +67,10 @@ public class ZhaobiClient implements Exchange {
 //       }
 
 
-       return getAcc(a);
+       return getAcc();
     }
 
-    private PropertyVO getAcc(String a){
+    private Map<String, PropertyVO> getAcc(){
         String uri="https://api.biqianbao.top/api/Account/Asset";
         HttpHeaders headers = new HttpHeaders();
         //定义请求参数类型
@@ -93,8 +93,8 @@ public class ZhaobiClient implements Exchange {
             PropertyVO propertyVO = JSON.parseObject(jsonBTY.toJSONString(), PropertyVO.class);
             map.put(key, propertyVO);
         }
-        PropertyVO propertyVO = map.get(a);
-        return propertyVO;
+        //PropertyVO propertyVO = map.get(a);
+        return map;
     }
 
     @Override
@@ -237,8 +237,6 @@ public class ZhaobiClient implements Exchange {
 //
             String amountStr = Deal.dealCount(amount,currency);
             String priceStr = Deal.dealPrice(price,currency2);
-            logger.info("挂单前"+currency2+"的余额是"+getAccount(currency2).getActive());
-            logger.info("挂单，  交易对：" + currency  + currency2  +" ,  数量： "+ amountStr +",  价格： "+ priceStr);
             String uri="https://api.biqianbao.top/api/trade/place";
             String requestText = //"amount=" + amount + "&" + "currency=" + currency + "&" + "currency2=" + currency2 + "&" + "price=" + price + "&" + "ty=" + ty;
                     "amount="+amountStr+"&currency="+currency+"&currency2="+currency2+"&price="+priceStr+"&ty="+ty;
@@ -255,9 +253,6 @@ public class ZhaobiClient implements Exchange {
                 String message = FontUtil.decodeUnicode(object.getString("message"));
                 MailUtil.sendEmains("挂单操作失败"+message);
             }
-            if("200".equals(code)){
-                logger.info("挂单后"+currency2+"的余额是"+getAccount(currency2).getActive());
-            }
             return true;
 
         }
@@ -270,7 +265,7 @@ public class ZhaobiClient implements Exchange {
     // symbol1 永远都是bty
     @Override
     public boolean syncPostBill(String symbol1, String symbol2, double amount1, double amount2, double amount3,
-                                double price1, double price12, double price2, String type){
+                                double price1, double price12, double price2, String type) throws InterruptedException {
 
         CountDownLatch latch = new CountDownLatch(3);
 
@@ -282,6 +277,7 @@ public class ZhaobiClient implements Exchange {
             new Thread(t1).start();
             new Thread(t2).start();
             new Thread(t3).start();
+            latch.wait();
             return true;
         }
 
@@ -293,6 +289,7 @@ public class ZhaobiClient implements Exchange {
             new Thread(t1).start();
             new Thread(t2).start();
             new Thread(t3).start();
+            latch.wait();
             return true;
         }
 
@@ -304,7 +301,7 @@ public class ZhaobiClient implements Exchange {
 
     public static void main(String[] args) throws Exception {
         ZhaobiClient zhaobiClient = new ZhaobiClient();
-        zhaobiClient.getAccount("YCC");
+        zhaobiClient.getAccount().get("YCC");
 //        zhaobiClient.postBill(1,"YCC","USDT",0.013161,"SELL");
 //        zhaobiClient.getMarketInfo("YCCUSDT");
     }
