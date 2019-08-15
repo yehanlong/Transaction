@@ -229,7 +229,7 @@ public class SyncMoving1 extends Thread {
                     double lastUSDT = HistoryUSDTList.get(HistoryUSDTList.size() - 1);
                     double accUSDTEnd = client.getAccount("USDT").getActive();
                     int a4 = DoubleUtil.compareTo(accUSDTEnd,accUSDT);
-                    int a5 = DoubleUtil.compareTo(DoubleUtil.sub(accUSDTEnd,accUSDT),-0.3);
+                    //int a5 = DoubleUtil.compareTo(DoubleUtil.sub(accUSDTEnd,accUSDT),-0.3);
 
                     // 利用延迟时间， 在此处发邮件  或者数据库操作
                     if (emailStartMark == 0) {
@@ -249,7 +249,7 @@ public class SyncMoving1 extends Thread {
 
                     // 相等说明挂单的价格延迟，既挂单的时候没扣钱  <-1  指卖出的钱没到账
                     for (int i= 0; i < 5; i++){
-                        if (a4 == 0  || a5 == -1) {
+                        if (a4 == 0) {
                             // 此处需要保证不受延迟影响
                             Thread.sleep(500);
                             accUSDTEnd = client.getAccount("USDT").getActive();
