@@ -101,7 +101,7 @@ public class MailUtil implements Runnable {
         String msg6 = "成交usdt数量："+ succUsdt +"。\n";
         String msg7 = "此次总盈利USDT："+ thisMoney +"。\n";
         String msg8 = "此次总盈利RMB："+ thisMoney*7 +"。\n";
-        String msg9 = "平均每笔交易盈利："+ succUsdt/Double.valueOf(count) +"。\n";
+        String msg9 = "平均每笔交易盈利："+ thisMoney/Double.valueOf(count) +"。\n";
         String msg10 = "该交易对总盈利USDT："+ allMoney +"。\n";
         String msg11 = "该交易所总盈利USDT："+ historyMoney +"。\n";
 
