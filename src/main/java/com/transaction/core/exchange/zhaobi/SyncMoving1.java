@@ -17,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.validation.constraints.Email;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
@@ -203,7 +204,21 @@ public class SyncMoving1 extends Thread {
                         info("一步步吃订单");
                         //double point = everyUSDT / ap.getMinUSDT();
                         double point = DoubleUtil.div(everyUSDT,ap.getMinUSDT(),25);
-                        boolean b = client.syncPostBill(sy1, sy2, ap.getSy1Amount() * point, ap.getSy12Amount() * point, ap.getSy2Amount() * point,
+
+                        // 处理btc的小数问题
+                        double am1 = DoubleUtil.mul(ap.getSy1Amount(), point);
+                        double point1 = 1.0;
+                        // 根据sy1来计算
+                        if (sy1=="BTC" && ap.getSy1Amount() > 0.0001){
+                            double dam1 = Double.valueOf(new DecimalFormat("0.0000").format(am1));
+                            point1 =  DoubleUtil.div(dam1,am1,25);
+                        }
+                        if (sy1=="ETH" && ap.getSy1Amount() > 0.001){
+                            double dam1 = Double.valueOf(new DecimalFormat("0.000").format(am1));
+                            point1 =  DoubleUtil.div(dam1,am1,25);
+                        }
+
+                        boolean b = client.syncPostBill(sy1, sy2, ap.getSy1Amount() * point * point1, ap.getSy12Amount() * point* point1, ap.getSy2Amount() * point* point1,
                                 ap.getSy1Price(), ap.getSy12Price(), ap.getSy2Price(), "BUY");
                         if(!b){
                             logger.error("BUY or SELL 错误");

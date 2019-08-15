@@ -12,5 +12,5 @@ public class ZhaobiConstant {
     //zhaobi配置文件常量
     public static final Double USDT = 4.0;
     public static final Integer SLEEPTIME = 5000;
-    public static final Double TOTALFEE = 0.006;
+    public static final Double TOTALFEE = 0.0075;
 }
