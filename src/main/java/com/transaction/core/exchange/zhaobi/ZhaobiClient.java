@@ -237,6 +237,7 @@ public class ZhaobiClient implements Exchange {
 //
             String amountStr = Deal.dealCount(amount,currency);
             String priceStr = Deal.dealPrice(price,currency2);
+            logger.info("挂单前"+currency2+"的余额是"+getAccount(currency2).getActive());
             logger.info("挂单，  交易对：" + currency  + currency2  +" ,  数量： "+ amountStr +",  价格： "+ priceStr);
             String uri="https://api.biqianbao.top/api/trade/place";
             String requestText = //"amount=" + amount + "&" + "currency=" + currency + "&" + "currency2=" + currency2 + "&" + "price=" + price + "&" + "ty=" + ty;
@@ -253,6 +254,9 @@ public class ZhaobiClient implements Exchange {
             if(!"200".equals(code)){
                 String message = FontUtil.decodeUnicode(object.getString("message"));
                 MailUtil.sendEmains("挂单操作失败"+message);
+            }
+            if("200".equals(code)){
+                logger.info("挂单后"+currency2+"的余额是"+getAccount(currency2).getActive());
             }
             return true;
 
