@@ -29,6 +29,6 @@ public interface Exchange {
     // 异步挂单
     // type指第二步买还是卖
     boolean syncPostBill(String symbol1, String symbol2, double amount1, double amount2,double amount3,
-                         double price1, double price2,double price3, String type) throws InterruptedException;
+                         double price1, double price2,double price3, String type);
 
 }

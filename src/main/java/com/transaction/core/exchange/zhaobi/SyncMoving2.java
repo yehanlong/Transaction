@@ -3,6 +3,7 @@ package com.transaction.core.exchange.zhaobi;
 import com.transaction.core.entity.AmountPrice;
 import com.transaction.core.entity.Order;
 import com.transaction.core.entity.SyncMarkInfo;
+import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
@@ -155,7 +156,10 @@ public class SyncMoving2 extends Thread {
                 if (a3 == 1) {
                     in = 1;
                     // 有盈利，开始交易
-
+                    info("有盈利，开始交易");
+                    Map<String, PropertyVO> map = client.getAccount();
+                    logger.info("触发前"+sy1+"的余额为："+map.get(sy1).getValuation()+", 可用："+map.get(sy1).getActive()+", 冻结："+map.get(sy1).getFrozen());
+                    logger.info("触发前"+sy2+"的余额为："+map.get(sy2).getValuation()+", 可用："+map.get(sy2).getActive()+", 冻结："+map.get(sy2).getFrozen());
                     // 获取此轮交易实际需要的USDT
                     AmountPrice ap = Deal.getAcuallyUSDT(amountPrice,  "SELL");
 
@@ -178,17 +182,16 @@ public class SyncMoving2 extends Thread {
                         // 直接吃完整个订单
                         // 一起执行3比交易
                         succUsdt += ap.getMinUSDT();
-                        info("直接吃完整个订单");
+                        logger.info("直接吃完整个订单，吃单usdt数："+ ap.getMinUSDT());
                         boolean b = client.syncPostBill(sy1, sy2, ap.getSy1Amount(), ap.getSy12Amount(), ap.getSy2Amount(), ap.getSy1Price(),
                                 ap.getSy12Price(), ap.getSy2Price(), "SELL");
                         if(!b){
                             logger.error("BUY or SELL 错误");
+                            return;
                         }
                     } else {
                         // 如果4.0太少了，只能一步步吃
                         // 一起执行3比交易
-                        succUsdt += everyUSDT;
-                        info("一步步吃订单");
                         //double point = everyUSDT / ap.getMinUSDT();
                         double point = DoubleUtil.div(everyUSDT,ap.getMinUSDT(),25);
 
@@ -204,6 +207,8 @@ public class SyncMoving2 extends Thread {
                             double dam1 = Double.valueOf(new DecimalFormat("0.000").format(am1));
                             point1 =  DoubleUtil.div(dam1,am1,25);
                         }
+                        logger.info("一步步吃订单,吃单usdt数："+everyUSDT*point*point1);
+                        succUsdt += everyUSDT*point*point1;
 
                         boolean b = client.syncPostBill(sy1, sy2, DoubleUtil.mulThree(ap.getSy1Amount(),point,point1),
                                 DoubleUtil.mulThree(ap.getSy12Amount(),point,point1),
@@ -211,13 +216,13 @@ public class SyncMoving2 extends Thread {
                                 ap.getSy1Price(), ap.getSy12Price(), ap.getSy2Price(), "SELL");
                         if(!b){
                             logger.error("BUY or SELL 错误");
+                            return;
                         }
                     }
 
                     // 盈利统计，同时解决延迟问题
                     double lastUSDT = HistoryUSDTList.get(HistoryUSDTList.size() - 1);
                     double accUSDTEnd = client.getAccount().get("USDT").getActive();
-
                     int a4 = DoubleUtil.compareTo(accUSDTEnd,accUSDT);
                     //int a5 = DoubleUtil.compareTo(DoubleUtil.sub(accUSDTEnd,accUSDT),-0.3);
 
@@ -226,9 +231,10 @@ public class SyncMoving2 extends Thread {
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
-                                MailUtil.sendEmains("交易对"+sy1+sy2+" SELL触发, 第一次预计的usdt为"
-                                        +usdtcountB.doubleValue()+", 第一次预估此次可吃usdt为"+ap.getMinUSDT());
-                                info("发送邮件");
+                                MailUtil.sendEmains("交易对"+sy1+sy2+" SELL触发, 预计的usdt为"
+                                        +usdtcountB.doubleValue()+", 预估此次可吃usdt为"+ap.getMinUSDT()+
+                                        "预估盈利RMB为："+(usdtcountB.doubleValue()-5.015) * ap.getMinUSDT()*7);
+                                logger.info("发送邮件");
                             }
                         }).start();
 
@@ -265,7 +271,11 @@ public class SyncMoving2 extends Thread {
                         break;
                     }
 
-                    logger.info("此次吃的usdt:" + everyUSDT);
+                    Map<String, PropertyVO> map1 = client.getAccount();
+                    logger.info("触发前"+sy1+"的余额为："+map1.get(sy1).getValuation()+", 可用："+map1.get(sy1).getActive()+", 冻结："+map1.get(sy1).getFrozen());
+                    logger.info("触发前"+sy2+"的余额为："+map1.get(sy2).getValuation()+", 可用："+map1.get(sy2).getActive()+", 冻结："+map1.get(sy2).getFrozen());
+
+
                     logger.info("初始usdt： " + lastUSDT);
                     logger.info("最终usdt： " + accUSDTEnd);
                     logger.info("此次盈利USDT: " + DoubleUtil.sub(accUSDTEnd,lastUSDT));

@@ -265,7 +265,7 @@ public class ZhaobiClient implements Exchange {
     // symbol1 永远都是bty
     @Override
     public boolean syncPostBill(String symbol1, String symbol2, double amount1, double amount2, double amount3,
-                                double price1, double price12, double price2, String type) throws InterruptedException {
+                                double price1, double price12, double price2, String type) {
 
         CountDownLatch latch = new CountDownLatch(3);
 
@@ -277,7 +277,11 @@ public class ZhaobiClient implements Exchange {
             new Thread(t1).start();
             new Thread(t2).start();
             new Thread(t3).start();
-            latch.wait();
+            try {
+                latch.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return true;
         }
 
@@ -289,7 +293,11 @@ public class ZhaobiClient implements Exchange {
             new Thread(t1).start();
             new Thread(t2).start();
             new Thread(t3).start();
-            latch.wait();
+            try {
+                latch.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return true;
         }
 
