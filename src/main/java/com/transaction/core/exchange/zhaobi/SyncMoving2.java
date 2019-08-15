@@ -272,8 +272,8 @@ public class SyncMoving2 extends Thread {
                     }
 
                     Map<String, PropertyVO> map1 = client.getAccount();
-                    logger.info("触发前"+sy1+"的余额为："+map1.get(sy1).getValuation()+", 可用："+map1.get(sy1).getActive()+", 冻结："+map1.get(sy1).getFrozen());
-                    logger.info("触发前"+sy2+"的余额为："+map1.get(sy2).getValuation()+", 可用："+map1.get(sy2).getActive()+", 冻结："+map1.get(sy2).getFrozen());
+                    logger.info("触发后"+sy1+"的余额为："+map1.get(sy1).getValuation()+", 可用："+map1.get(sy1).getActive()+", 冻结："+map1.get(sy1).getFrozen());
+                    logger.info("触发后"+sy2+"的余额为："+map1.get(sy2).getValuation()+", 可用："+map1.get(sy2).getActive()+", 冻结："+map1.get(sy2).getFrozen());
 
 
                     logger.info("初始usdt： " + lastUSDT);
