@@ -208,7 +208,7 @@ public class SyncMoving2 extends Thread {
                             point1 =  DoubleUtil.div(dam1,am1,25);
                         }
                         logger.info("一步步吃订单,吃单usdt数："+everyUSDT*point*point1);
-                        succUsdt += everyUSDT*point*point1;
+                        succUsdt += everyUSDT*point1;
 
                         boolean b = client.syncPostBill(sy1, sy2, DoubleUtil.mulThree(ap.getSy1Amount(),point,point1),
                                 DoubleUtil.mulThree(ap.getSy12Amount(),point,point1),
@@ -242,15 +242,15 @@ public class SyncMoving2 extends Thread {
                     }
 
 
-                    // 相等说明挂单的价格延迟，既挂单的时候没扣钱  <-1  指卖出的钱没到账
-                    for (int i= 0; i < 5; i++){
-                        if (a4 == 0) {
-                            // 此处需要保证不受延迟影响
-                            Thread.sleep(500);
-                            accUSDTEnd = client.getAccount().get("USDT").getActive();
-                            info("获取余额延迟，次数： " + (i+1));
-                        }
-                    }
+//                    // 相等说明挂单的价格延迟，既挂单的时候没扣钱  <-1  指卖出的钱没到账
+//                    for (int i= 0; i < 5; i++){
+//                        if (a4 == 0) {
+//                            // 此处需要保证不受延迟影响
+//                            Thread.sleep(500);
+//                            accUSDTEnd = client.getAccount().get("USDT").getActive();
+//                            info("获取余额延迟，次数： " + (i+1));
+//                        }
+//                    }
 
                     count++;
                     // 此次进入循环直到退出的盈利

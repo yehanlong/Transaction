@@ -260,14 +260,14 @@ public class SyncMoving1 extends Thread {
 
 
                     // 相等说明挂单的价格延迟，既挂单的时候没扣钱  <-1  指卖出的钱没到账
-                    for (int i= 0; i < 5; i++){
-                        if (a4 == 0) {
-                            // 此处需要保证不受延迟影响
-                            Thread.sleep(500);
-                            accUSDTEnd = client.getAccount().get("USDT").getActive();
-                            logger.info("获取余额延迟, 次数： " +  (i+1));
-                        }
-                    }
+//                    for (int i= 0; i < 5; i++){
+//                        if (a4 == 0) {
+//                            // 此处需要保证不受延迟影响
+//                            Thread.sleep(500);
+//                            accUSDTEnd = client.getAccount().get("USDT").getActive();
+//                            logger.info("获取余额延迟, 次数： " +  (i+1));
+//                        }
+//                    }
 
                     count++;
                     // 此次进入循环直到退出的盈利
@@ -289,8 +289,8 @@ public class SyncMoving1 extends Thread {
                     }
 
                     Map<String, PropertyVO> map1 = client.getAccount();
-                    logger.info("触发前"+sy1+"的余额为："+map1.get(sy1).getValuation()+", 可用："+map1.get(sy1).getActive()+", 冻结："+map1.get(sy1).getFrozen());
-                    logger.info("触发前"+sy2+"的余额为："+map1.get(sy2).getValuation()+", 可用："+map1.get(sy2).getActive()+", 冻结："+map1.get(sy2).getFrozen());
+                    logger.info("触发后"+sy1+"的余额为："+map1.get(sy1).getValuation()+", 可用："+map1.get(sy1).getActive()+", 冻结："+map1.get(sy1).getFrozen());
+                    logger.info("触发后"+sy2+"的余额为："+map1.get(sy2).getValuation()+", 可用："+map1.get(sy2).getActive()+", 冻结："+map1.get(sy2).getFrozen());
 
 
                     logger.info("初始usdt： " + lastUSDT);
