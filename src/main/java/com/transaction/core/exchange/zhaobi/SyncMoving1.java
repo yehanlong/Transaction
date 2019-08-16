@@ -88,6 +88,7 @@ public class SyncMoving1 extends Thread {
         int in = 0;
         int emailStartMark = 0;
         double succUsdt = 0;
+        double accountMoney = 0.0;
 
         // 初始usdt
         double startUSDT = client.getAccount().get("USDT").getActive();
@@ -174,6 +175,12 @@ public class SyncMoving1 extends Thread {
                     logger.info("触发前USDT的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
                     logger.info("触发前"+sy1+"的余额为："+map.get(sy1).getValuation()+", 可用："+map.get(sy1).getActive()+", 冻结："+map.get(sy1).getFrozen());
                     logger.info("触发前"+sy2+"的余额为："+map.get(sy2).getValuation()+", 可用："+map.get(sy2).getActive()+", 冻结："+map.get(sy2).getFrozen());
+                    logger.info("触发前"+"USDT"+"的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
+
+                    if (accountMoney == 0.0) {
+                        accountMoney = map.get(sy1).getValuation() + map.get(sy2).getValuation() + map.get("USDT").getValuation();
+                    }
+
                     // 获取此轮交易实际需要的USDT
                     AmountPrice ap = Deal.getAcuallyUSDT(amountPrice,  "BUY");
 
@@ -225,7 +232,7 @@ public class SyncMoving1 extends Thread {
                         }
 
                         logger.info("一步步吃订单,吃单usdt数："+everyUSDT*point*point1);
-                        succUsdt += everyUSDT*point*point1;
+                        succUsdt += everyUSDT*point1;
 
                         boolean b = client.syncPostBill(sy1, sy2, DoubleUtil.mulThree(ap.getSy1Amount(),point,point1),
                                 DoubleUtil.mulThree(ap.getSy12Amount(), point ,point1),
@@ -250,7 +257,7 @@ public class SyncMoving1 extends Thread {
                             public void run() {
                                 MailUtil.sendEmains("交易对"+sy1+sy2+" BUY触发, 预计的usdt为"
                                         +usdtcountB.doubleValue()+", 预估此次可吃usdt为"+ap.getMinUSDT()+
-                                        "预估盈利RMB为："+(usdtcountB.doubleValue()-5.015) * ap.getMinUSDT()*7);
+                                        "预估盈利RMB为："+(usdtcountB.doubleValue()-5.015) * ap.getMinUSDT()*7/5.0);
                                 logger.info("发送邮件");
                             }
                         }).start();
@@ -290,10 +297,6 @@ public class SyncMoving1 extends Thread {
                     }
 
                     Map<String, PropertyVO> map1 = client.getAccount();
-                    logger.info("触发后USDT的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
-                    logger.info("触发后"+sy1+"的余额为："+map1.get(sy1).getValuation()+", 可用："+map1.get(sy1).getActive()+", 冻结："+map1.get(sy1).getFrozen());
-                    logger.info("触发后"+sy2+"的余额为："+map1.get(sy2).getValuation()+", 可用："+map1.get(sy2).getActive()+", 冻结："+map1.get(sy2).getFrozen());
-
 
                     logger.info("初始usdt： " + lastUSDT);
                     logger.info("最终usdt： " + accUSDTEnd);
@@ -315,6 +318,23 @@ public class SyncMoving1 extends Thread {
 
                     // 发送结果报告
                     if (succUsdt != 0) {
+
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        Map<String, PropertyVO> map = client.getAccount();
+                        logger.info("最终"+sy1+"的余额为："+map.get(sy1).getValuation()+", 可用："+map.get(sy1).getActive()+", 冻结："+map.get(sy1).getFrozen());
+                        logger.info("最终"+sy2+"的余额为："+map.get(sy2).getValuation()+", 可用："+map.get(sy2).getActive()+", 冻结："+map.get(sy2).getFrozen());
+                        logger.info("最终"+"USDT"+"的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
+
+
+                        double end =  +map.get(sy1).getValuation() + map.get(sy2).getValuation() + map.get("USDT").getValuation();
+                        logger.info("初始金额：" + accountMoney + ", 最终金额：" + end + "， 盈利：" + (end-accountMoney));
+
+
                         // 发送最终结果邮件
                         String msg = MailUtil.sendResultEmains("找币",sy1+sy2,count,"BUY",succUsdt,thisMoney,allMoney,
                                 HistoryUSDTList.get(HistoryUSDTList.size()-1)-HistoryUSDTList.get(0));
@@ -323,6 +343,7 @@ public class SyncMoving1 extends Thread {
 
                     // 数据初始化
                     thisMoney = 0.0;
+                    accountMoney = 0.0;
                     count = 0;
                     succUsdt=0.0;
                     // 重置邮件开关
