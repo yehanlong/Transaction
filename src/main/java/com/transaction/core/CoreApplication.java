@@ -1,6 +1,9 @@
 package com.transaction.core;
 
 import com.transaction.core.exchange.zhaobi.*;
+import com.transaction.core.exchange.zt.MovingBuy;
+import com.transaction.core.exchange.zt.MovingSell;
+import com.transaction.core.exchange.zt.ZTClient;
 import com.transaction.core.exchange.zt.ZTInit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,8 +45,29 @@ public class CoreApplication {
 //            }
 //
 //        }
+
+
+        ZTClient ztClient = new ZTClient();
         ZTInit init = new ZTInit();
-        init.initSymbol();
+
+        Map<String, List<String>> syMap2 =  init.initSymbol();
+
+        for (Map.Entry<String, List<String>> entry : syMap2.entrySet()) {
+            for (String s: entry.getValue()) {
+                MovingBuy m1 = new MovingBuy(ztClient, entry.getKey(), s);
+                m1.start();
+            }
+
+        }
+
+        for (Map.Entry<String, List<String>> entry : syMap2.entrySet()) {
+            for (String s: entry.getValue()) {
+                MovingSell m2 = new MovingSell(ztClient, entry.getKey(), s);
+                m2.start();
+            }
+
+        }
+
 
 //;
     }
