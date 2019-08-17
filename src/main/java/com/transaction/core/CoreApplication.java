@@ -5,6 +5,8 @@ import com.transaction.core.exchange.zt.MovingBuy;
 import com.transaction.core.exchange.zt.MovingSell;
 import com.transaction.core.exchange.zt.ZTClient;
 import com.transaction.core.exchange.zt.ZTInit;
+import com.transaction.core.utils.SpringUtil;
+import com.transaction.core.ws.WebSocketClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -51,7 +54,24 @@ public class CoreApplication {
         ZTInit init = new ZTInit();
 
         Map<String, List<String>> syMap2 =  init.initSymbol();
-
+        while (true){
+            WebSocketClient webSocketClient = (WebSocketClient) SpringUtil.getBean("ztWebSocketClient");
+            if(!webSocketClient.getConnected()){
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }else{
+                break;
+            }
+        }
+        logger.info("启动ZT监控...");
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         for (Map.Entry<String, List<String>> entry : syMap2.entrySet()) {
             for (String s: entry.getValue()) {
                 MovingBuy m1 = new MovingBuy(ztClient, entry.getKey(), s);

@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 
 public class MovingSell extends Thread {
@@ -60,12 +61,25 @@ public class MovingSell extends Thread {
 
 
     public void run(){
-        PubDeal t = new PubDeal(client);
-        double usdtcount = t.getFirstCount(sy1,sy2,"BUY");
-        if (usdtcount == 0.0){
-            info("获取市场行情失败");
+        while (true){
+            try {
+                PubDeal t = new PubDeal(client);
+                double usdtcount = t.getFirstCount(sy1,sy2,"BUY");
+                if (usdtcount == 0.0){
+                    info("获取市场行情失败");
+                }
+                info("预计一轮后的usdt：" + usdtcount);
+            }catch (Exception e){
+                logger.error("{}{}计算出错",sy1,sy2);
+            }
+
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        info("预计一轮后的usdt：" + usdtcount);
+
     }
 
     public void info(String msg){
