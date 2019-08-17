@@ -30,13 +30,19 @@ public class ZTWebSocketServiceImpl implements WebSocketService {
 
     @Override
     public void onReceive(String message) {
-
+        boolean handle = false;
         JSONObject object = JSONObject.parseObject(message);
+
 //        log.info("symbol:{},message:{}",ZTCache.depthSymbolMap.get(object.getInteger("id")),message);
         for(ZTHandleMessage handleMessage : handlers){
             if (handleMessage.handleType(object)){
                 handleMessage.handle(object);
+                handle = true;
             }
+        }
+        Integer id = object.getInteger("id");
+        if(!handle){
+            log.info("{}->{}",ZTCache.depthSymbolMap.get(id),message);
         }
     }
 
@@ -82,7 +88,7 @@ public class ZTWebSocketServiceImpl implements WebSocketService {
                     }
                 }
                 try {
-                    TimeUnit.SECONDS.sleep(60);
+                    TimeUnit.SECONDS.sleep(30);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

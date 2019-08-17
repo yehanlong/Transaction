@@ -68,9 +68,12 @@ public class MovingSell extends Thread {
                 if (usdtcount == 0.0){
                     info("获取市场行情失败");
                 }
-                info("预计一轮后的usdt：" + usdtcount);
+                if(usdtcount > 5){
+                    info("预计一轮后的usdt：" + usdtcount);
+                }
+
             }catch (Exception e){
-                logger.error("{}{}计算出错",sy1,sy2);
+                logger.error("{}{}计算出错，{}",sy1,sy2,e.getMessage());
             }
 
             try {

@@ -70,7 +70,10 @@ public class MovingBuy extends Thread {
                 if (usdtcount == 0.0){
                     info("获取市场行情失败");
                 }
-                info("预计一轮后的usdt：" + usdtcount);
+                if(usdtcount > 5){
+                    info("预计一轮后的usdt：" + usdtcount);
+                }
+
             }catch (Exception e){
                 logger.error("{}{}计算交易出错",sy1,sy2);
             }
