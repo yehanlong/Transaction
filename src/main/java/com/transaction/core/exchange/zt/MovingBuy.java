@@ -76,7 +76,7 @@ public class MovingBuy extends Thread {
             }
 
             try {
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -85,6 +85,6 @@ public class MovingBuy extends Thread {
     }
 
     public void info(String msg){
-        logger.info("找币,  " + sy1 + sy2 + ", 方式: BUY. " + msg);
+        logger.info("ZT,  " + sy1 + sy2 + ", 方式: BUY. " + msg);
     }
 }
