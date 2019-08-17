@@ -1,4 +1,7 @@
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
   # Druid连接池配置，官方配置参考：https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
   datasource:
     druid:
@@ -39,3 +42,5 @@ server:
 logging:
   #file: /logs/${spring.application.name}/${spring.application.name}.log
   file: ./logs/${spring.application.name}/${spring.application.name}.log
+zt:
+  enabled: true
