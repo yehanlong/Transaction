@@ -76,6 +76,7 @@ public class CoreApplication {
             for (String s: entry.getValue()) {
                 MovingBuy m1 = new MovingBuy(ztClient, entry.getKey(), s);
                 m1.start();
+//                m1.run();
             }
 
         }

@@ -29,8 +29,8 @@ public class ZTClient implements Exchange{
     public SyncMarkInfo getSyncMarkInfo(String symbol1, String symbol2) {
         SyncMarkInfo info = new SyncMarkInfo();
         String s1USDT = symbol1 + "_" + "USDT";
-        String s2USDT = symbol2 + "_" + "USDT";
-        String s2s1 = symbol2 + "_" + symbol1;
+        String s2s1 = symbol2 + "_" + "USDT";
+        String s2USDT = symbol2 + "_" + symbol1;
         while (true){
             TradeVO s1Trade = ZTCache.orderMap.get(s1USDT);
             TradeVO s2Trade = ZTCache.orderMap.get(s2USDT);
