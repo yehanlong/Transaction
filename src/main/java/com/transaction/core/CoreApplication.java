@@ -75,8 +75,7 @@ public class CoreApplication {
         for (Map.Entry<String, List<String>> entry : syMap2.entrySet()) {
             for (String s: entry.getValue()) {
                 MovingBuy m1 = new MovingBuy(ztClient, entry.getKey(), s);
-                m1.start();
-//                m1.run();
+                new Thread(m1,"ZT_"+s+"_"+entry.getKey()).start();
             }
 
         }
@@ -84,13 +83,10 @@ public class CoreApplication {
         for (Map.Entry<String, List<String>> entry : syMap2.entrySet()) {
             for (String s: entry.getValue()) {
                 MovingSell m2 = new MovingSell(ztClient, entry.getKey(), s);
-                m2.start();
+                new Thread(m2,"ZT_"+s+"_"+entry.getKey()).start();
             }
 
         }
-
-
-//;
     }
 
 }
