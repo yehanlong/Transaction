@@ -51,6 +51,7 @@ public class EchoWebSocketListener extends WebSocketListener {
     @Override
     public void onFailure(WebSocket webSocket, Throwable t, Response response) {
         log.error("webSocket failure",t);
+        connected = false;
     }
 
     public boolean isConnected() {
