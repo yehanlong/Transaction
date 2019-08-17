@@ -75,7 +75,6 @@ public class SyncMoving2 extends Thread {
 
         List<Double> HistoryUSDTList = new LinkedList<>();
         double allMoney = 0.0;
-        double thisMoney = 0.0;
         int count = 0;
         int in = 0;
         int emailStartMark = 0;
@@ -229,23 +228,10 @@ public class SyncMoving2 extends Thread {
 //                    }
 
                     count++;
-                    // 此次进入循环直到退出的盈利
-                    thisMoney = thisMoney + DoubleUtil.sub(accUSDTEnd,lastUSDT);
+
                     // 此交易对在程序运行期间的总盈利
                     allMoney = allMoney + DoubleUtil.sub(accUSDTEnd,lastUSDT);
 
-                    // 可能程序出bug  也可能是别的问题
-                    if (thisMoney < -0.05 && thisMoney > -0.5) {
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                MailUtil.sendEmains("有可能出现亏损,请及时查看余额");
-                            }
-                        }).start();
-                        // 注意 此处需要释放锁
-                        lock.unlock();
-                        break;
-                    }
 
 
                     logger.info("初始usdt： " + lastUSDT);
@@ -291,7 +277,6 @@ public class SyncMoving2 extends Thread {
                     }
 
                     // 数据初始化
-                    thisMoney = 0.0;
                     accountMoney = 0.0;
                     count = 0;
                     succUsdt=0.0;
