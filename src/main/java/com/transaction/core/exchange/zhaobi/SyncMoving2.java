@@ -5,6 +5,7 @@ import com.transaction.core.entity.Order;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
+import com.transaction.core.exchange.pub.PubDeal;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
 import com.transaction.core.utils.DoubleUtil;
@@ -108,50 +109,16 @@ public class SyncMoving2 extends Thread {
 
                 // 异步获取市场行情 symbol1: BTY   symbol2:YCC
                 // SyncMarkInfo: trade1 bty trade2 bty-ycc trade3 ycc
-                SyncMarkInfo syncMarkInfo = client.getSyncMarkInfo(sy1, sy2);
-
-                if (syncMarkInfo.getTrade1().getSuccess() && syncMarkInfo.getTrade2().getSuccess() && syncMarkInfo.getTrade3().getSuccess()) {
-                    // 都获取成功
-                } else {
+                PubDeal t = new PubDeal(client);
+                double usdtcount = t.getFirstCount(sy1,sy2,"SELL");
+                if (usdtcount == 0.0){
                     info("获取市场行情失败");
-                    Thread.sleep(5000);
-                    continue;
                 }
+                info("预计一轮后的usdt：" + usdtcount);
+                AmountPrice amountPrice = t.getAmountPrice();
 
-
-                // 获取bty价格
-                TradeVO BTYMarket = syncMarkInfo.getTrade1();
-                // 获取bty-ycc价格
-                TradeVO BTYYCCMarket = syncMarkInfo.getTrade2();
-                // 获取ycc价格
-                TradeVO YCCMarket = syncMarkInfo.getTrade3();
-
-                Order yccO = Deal.dealSmallOrder(YCCMarket.getSells());
-                double yccPrice = yccO.getPrice();
-                double yccNum = yccO.getAm();
-
-                Order ybO = Deal.dealSmallOrder(BTYYCCMarket.getBuys());
-                double ybPrice = ybO.getPrice();
-                double ybNum = ybO.getAm();
-
-                Order btyO = Deal.dealSmallOrder(BTYMarket.getBuys());
-                double btyPrice = btyO.getPrice();
-                double btyNum = btyO.getAm();
-
-                AmountPrice amountPrice = new AmountPrice();
-                amountPrice.setSy1Amount(btyNum);
-                amountPrice.setSy1Price(btyPrice);
-
-                amountPrice.setSy12Amount(ybNum);
-                amountPrice.setSy12Price(ybPrice);
-
-                amountPrice.setSy2Amount(yccNum);
-                amountPrice.setSy2Price(yccPrice);
-
-                BigDecimal usdtcountB = Deal.getUSDTcount(amountPrice,"SELL");
+                BigDecimal usdtcountB = new BigDecimal(usdtcount);
                 BigDecimal usdtB = new BigDecimal(5.0);
-
-                info("预计一轮后的usdt：" + usdtcountB.doubleValue());
 
                 // 判断一轮交易后的去掉手续费（3次=3*0.001），是否有盈利
                 int a3 = usdtcountB.compareTo(usdtB.multiply(((new BigDecimal(1)).add(new BigDecimal(0.008)))));

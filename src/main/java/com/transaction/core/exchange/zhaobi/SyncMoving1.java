@@ -1,14 +1,10 @@
 package com.transaction.core.exchange.zhaobi;
 
-import com.sun.org.apache.bcel.internal.generic.GOTO;
 import com.transaction.core.constant.ZhaobiConstant;
 import com.transaction.core.entity.AmountPrice;
-import com.transaction.core.entity.Order;
-import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.PropertyVO;
-import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
-import com.transaction.core.exchange.pub.Symbol;
+import com.transaction.core.exchange.pub.PubDeal;
 import com.transaction.core.exchange.pubinterface.Exchange;
 import com.transaction.core.utils.DoubleUtil;
 import com.transaction.core.utils.MailUtil;
@@ -16,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
 
-import javax.validation.constraints.Email;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.LinkedList;
@@ -118,52 +113,16 @@ public class SyncMoving1 extends Thread {
 
                 // 异步获取市场行情 symbol1: BTY   symbol2:YCC
                 // SyncMarkInfo: trade1 bty trade2 bty-ycc trade3 ycc
-                SyncMarkInfo syncMarkInfo = client.getSyncMarkInfo(sy1, sy2);
-
-                if (syncMarkInfo.getTrade1().getSuccess() && syncMarkInfo.getTrade2().getSuccess() && syncMarkInfo.getTrade3().getSuccess()) {
-                    // 都获取成功
-                } else {
+                PubDeal t = new PubDeal(client);
+                double usdtcount = t.getFirstCount(sy1,sy2,"BUY");
+                if (usdtcount == 0.0){
                     info("获取市场行情失败");
-                    Thread.sleep(ZhaobiConstant.SLEEPTIME);
-                    continue;
                 }
+                info("预计一轮后的usdt：" + usdtcount);
+                AmountPrice amountPrice = t.getAmountPrice();
 
-
-                // 获取bty价格
-                TradeVO BTYMarket = syncMarkInfo.getTrade1();
-                // 获取bty-ycc价格
-                TradeVO BTYYCCMarket = syncMarkInfo.getTrade2();
-                // 获取ycc价格
-                TradeVO YCCMarket = syncMarkInfo.getTrade3();
-
-                Order btyO = Deal.dealSmallOrder(BTYMarket.getSells());
-                double btyPrice = btyO.getPrice();
-                double btyNum = btyO.getAm();
-
-                Order ybO = Deal.dealSmallOrder(BTYYCCMarket.getSells());
-                double ybPrice = ybO.getPrice();
-                double ybNum = ybO.getAm();
-
-                Order yccO = Deal.dealSmallOrder(YCCMarket.getBuys());
-                double yccPrice = yccO.getPrice();
-                double yccNum = yccO.getAm();
-
-
-                AmountPrice amountPrice = new AmountPrice();
-                amountPrice.setSy1Amount(btyNum);
-                amountPrice.setSy1Price(btyPrice);
-
-                amountPrice.setSy12Amount(ybNum);
-                amountPrice.setSy12Price(ybPrice);
-
-                amountPrice.setSy2Amount(yccNum);
-                amountPrice.setSy2Price(yccPrice);
-
-                BigDecimal usdtcountB = Deal.getUSDTcount(amountPrice,"BUY");
+                BigDecimal usdtcountB = new BigDecimal(usdtcount);
                 BigDecimal usdtB = new BigDecimal(5.0);
-
-                info("预计一轮后的usdt：" + usdtcountB.doubleValue());
-
                 Double totalFee = ZhaobiConstant.TOTALFEE;
                 // 判断一轮交易后的去掉手续费（3次=3*0.001），是否有盈利
                 int a3 = usdtcountB.compareTo(usdtB.multiply(((new BigDecimal(1)).add(new BigDecimal(totalFee)))));
