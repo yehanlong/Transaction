@@ -23,6 +23,7 @@ public class TradeVO {
     private List<Order> buys;
     private List<Order> sells;
     private Boolean success;
+    private Long time;
 
     public List<Order> getBuys() {
         return buys;
