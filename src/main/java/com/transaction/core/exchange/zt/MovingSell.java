@@ -64,12 +64,12 @@ public class MovingSell extends Thread {
         while (true){
             try {
                 PubDeal t = new PubDeal(client);
-                double usdtcount = t.getFirstCount(sy1,sy2,"BUY");
+                double usdtcount = t.getFirstCount(sy1,sy2,"SELL");
                 if (usdtcount == 0.0){
-                    info("获取市场行情失败");
+                    logger.info("获取市场行情失败");
                 }
-                if(usdtcount > 5){
-                    info("预计一轮后的usdt：" + usdtcount);
+                if(usdtcount > 4.9){
+                    logger.info("预计一轮后的usdt：" + usdtcount);
                 }
 
             }catch (Exception e){
@@ -86,7 +86,7 @@ public class MovingSell extends Thread {
     }
 
     public void info(String msg){
-        logger.info("ZT,  " + sy1 + sy2 + ", 方式: BUY. " + msg);
+        logger.info("ZT,  " + sy1 + sy2 + ", 方式: SELL. " + msg);
     }
 
 }

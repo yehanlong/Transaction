@@ -74,7 +74,7 @@ public class SyncMoving1 extends Thread {
 
     @Override
     public void run() {
-        info("moving1 start, sy1: " + sy1 +", sy2: "+ sy2);
+        logger.info("moving1 start, sy1: " + sy1 +", sy2: "+ sy2);
 
         List<Double> HistoryUSDTList = new LinkedList<>();
         double allMoney = 0.0;
@@ -103,7 +103,7 @@ public class SyncMoving1 extends Thread {
                 double accUSDT = client.getAccount().get("USDT").getActive();
                 int a = DoubleUtil.compareTo(accUSDT,usdt);
                 if (a == -1) {
-                    info("账户usdt 小于"+ZhaobiConstant.USDT);
+                    logger.info("账户usdt 小于"+ZhaobiConstant.USDT);
                     Thread.sleep(ZhaobiConstant.SLEEPTIME);
                     continue;
                 }
@@ -115,9 +115,11 @@ public class SyncMoving1 extends Thread {
                 PubDeal t = new PubDeal(client);
                 double usdtcount = t.getFirstCount(sy1,sy2,"BUY");
                 if (usdtcount == 0.0){
-                    info("获取市场行情失败");
+                    logger.info("获取市场行情失败");
                 }
-                info("预计一轮后的usdt：" + usdtcount);
+                if (usdtcount > 4.9) {
+                    logger.info("预计一轮后的usdt：" + usdtcount);
+                }
                 AmountPrice amountPrice = t.getAmountPrice();
 
                 BigDecimal usdtcountB = new BigDecimal(usdtcount);
@@ -128,7 +130,7 @@ public class SyncMoving1 extends Thread {
                 if (a3 == 1) {
                     in = 1;
                     // 有盈利，开始交易
-                    info("有盈利，开始交易");
+                    logger.info("有盈利，开始交易");
                     Map<String, PropertyVO> map = client.getAccount();
                     logger.info("触发前USDT的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
                     logger.info("触发前"+sy1+"的余额为："+map.get(sy1).getValuation()+", 可用："+map.get(sy1).getActive()+", 冻结："+map.get(sy1).getFrozen());

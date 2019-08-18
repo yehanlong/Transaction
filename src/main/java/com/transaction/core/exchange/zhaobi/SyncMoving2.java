@@ -99,7 +99,7 @@ public class SyncMoving2 extends Thread {
                 double accUSDT = client.getAccount().get("USDT").getActive();
                 int a = DoubleUtil.compareTo(accUSDT,usdt);
                 if (a == -1) {
-                    info("账户usdt 小于 4.0");
+                    logger.info("账户usdt 小于 4.0");
                     Thread.sleep(5000);
                     continue;
                 }
@@ -111,9 +111,11 @@ public class SyncMoving2 extends Thread {
                 PubDeal t = new PubDeal(client);
                 double usdtcount = t.getFirstCount(sy1,sy2,"SELL");
                 if (usdtcount == 0.0){
-                    info("获取市场行情失败");
+                    logger.info("获取市场行情失败");
                 }
-                info("预计一轮后的usdt：" + usdtcount);
+                if (usdtcount > 4.9) {
+                    logger.info("预计一轮后的usdt：" + usdtcount);
+                }
                 AmountPrice amountPrice = t.getAmountPrice();
 
                 BigDecimal usdtcountB = new BigDecimal(usdtcount);
@@ -124,7 +126,7 @@ public class SyncMoving2 extends Thread {
                 if (a3 == 1) {
                     in = 1;
                     // 有盈利，开始交易
-                    info("有盈利，开始交易");
+                    logger.info("有盈利，开始交易");
                     Map<String, PropertyVO> map = client.getAccount();
                     logger.info("触发前USDT的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
                     logger.info("触发前"+sy1+"的余额为："+map.get(sy1).getValuation()+", 可用："+map.get(sy1).getActive()+", 冻结："+map.get(sy1).getFrozen());
@@ -138,7 +140,7 @@ public class SyncMoving2 extends Thread {
                     // 获取此轮交易实际需要的USDT
                     AmountPrice ap = Deal.getAcuallyUSDT(amountPrice,  "SELL");
 
-                    info("此次挂单可吃的usdt数量: " + ap.getMinUSDT());
+                    logger.info("此次挂单可吃的usdt数量: " + ap.getMinUSDT());
 
                     double everyUSDT = 4.0;
                     if(sy1 == "BTY" && sy2 == "YCC"){
@@ -273,7 +275,7 @@ public class SyncMoving2 extends Thread {
 
                         String msg = MailUtil.sendResultEmains("找币",sy1+sy2,count,"SELL",succUsdt,(end-accountMoney),allMoney,
                                 HistoryUSDTList.get(HistoryUSDTList.size()-1)-HistoryUSDTList.get(0));
-                        info(msg);
+                        logger.info(msg);
                     }
 
                     // 数据初始化
