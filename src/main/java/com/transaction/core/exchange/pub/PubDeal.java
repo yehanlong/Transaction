@@ -173,7 +173,7 @@ public class PubDeal {
             int a = (yccPriceB.multiply(yccNumB)).compareTo(new BigDecimal(minUsdt));
             if (a == -1) {
                 // 当获取失败或者金额太少，就放弃此次循环
-                return new BigDecimal(0.0);
+                return new BigDecimal(1.0);
             }
             //double yccCount = usdt/yccPrice;
             BigDecimal usdtB = new BigDecimal(usdt);
@@ -189,7 +189,7 @@ public class PubDeal {
                     .compareTo(new BigDecimal(minUsdt));
             // bty数量*bty价格
             if (a1 == -1) {
-                return new BigDecimal(0.0);
+                return new BigDecimal(1.0);
             }
             // 最终获得的bty
             //double btyCount = yccCount*ybPrice;
@@ -206,7 +206,7 @@ public class PubDeal {
             BigDecimal usdtcountB = btyPriceB.multiply(btyCountB);
             int a2 = (btyPriceB.multiply(btyNumB)).compareTo(new BigDecimal(minUsdt));
             if (a2 == -1) {
-                return new BigDecimal(0.0);
+                return new BigDecimal(1.0);
             }
             return usdtcountB;
         }
@@ -218,7 +218,7 @@ public class PubDeal {
             int btyB = (btyPriceB.multiply(btyNumB)).compareTo(new BigDecimal(minUsdt));
             if(btyB == -1 ){
                 // 当获取失败或者金额太少，就放弃此次循环
-                return new BigDecimal(0.0);
+                return new BigDecimal(1.0);
             }
             BigDecimal btyCountB = ((new BigDecimal(usdt)).divide(btyPriceB,25,ROUND_HALF_DOWN));
             //double btyCount = usdt/btyPrice;
@@ -229,7 +229,7 @@ public class PubDeal {
             BigDecimal ybNumB = new BigDecimal(ybNum);
             int a = (ybPriceB.multiply(ybNumB)).multiply(btyPriceB).compareTo(new BigDecimal(minUsdt));
             if (a == -1) {
-                return new BigDecimal(0.0);
+                return new BigDecimal(1.0);
             }
             BigDecimal yccCountB = btyCountB.divide(ybPriceB,25,ROUND_HALF_DOWN);
             //double yccCount = btyCount/ybPrice;
@@ -241,7 +241,7 @@ public class PubDeal {
             BigDecimal usdtCountB = yccCountB.multiply(yccPriceB);
             int a1 = (yccPriceB.multiply(yccNumB)).compareTo(new BigDecimal(minUsdt));
             if(a1 == -1){
-                return new BigDecimal(0.0);
+                return new BigDecimal(1.0);
             }
             return usdtCountB;
         }
