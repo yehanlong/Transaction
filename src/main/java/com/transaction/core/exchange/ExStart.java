@@ -32,7 +32,8 @@ public class ExStart {
             for (String s: entry.getValue()) {
                 SyncMoving1 m1 = new SyncMoving1(ZBClient, entry.getKey(), s);
                 m1.setLock(lock);
-                m1.start();
+//                m1.start();
+                new Thread(m1,"找币_"+s+"_"+entry.getKey()).start();
             }
         }
 
@@ -41,7 +42,8 @@ public class ExStart {
             for (String s: entry.getValue()) {
                 SyncMoving2 m2 = new SyncMoving2(ZBClient, entry.getKey(), s);
                 m2.setLock(lock);
-                m2.start();
+//                m2.start();
+                new Thread(m2,"找币_"+s+"_"+entry.getKey()).start();
             }
 
         }
