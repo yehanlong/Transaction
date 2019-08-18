@@ -1,6 +1,8 @@
 package com.transaction.core.exchange;
 
 import com.transaction.core.CoreApplication;
+import com.transaction.core.exchange.bidan.BiDanClient;
+import com.transaction.core.exchange.bidan.BiDanInit;
 import com.transaction.core.exchange.zhaobi.SyncMoving1;
 import com.transaction.core.exchange.zhaobi.SyncMoving2;
 import com.transaction.core.exchange.zhaobi.ZhaobiClient;
@@ -131,6 +133,27 @@ public class ExStart {
                 new Thread(m2,"ZTCNT_"+s+"_"+entry.getKey()).start();
             }
 
+        }
+    }
+
+
+    // 启动币蛋
+    public static void startBiDan(){
+        BiDanClient biDanClient = new BiDanClient();
+
+        Map<String, List<String>> syMap1 = new BiDanInit().initSymbol();
+        for (Map.Entry<String, List<String>> entry : syMap1.entrySet()) {
+            for (String s: entry.getValue()) {
+                MovingBuy m1 = new MovingBuy(biDanClient, entry.getKey(), s);
+                new Thread(m1,"币蛋_"+s+"_"+entry.getKey()).start();
+            }
+        }
+
+        for (Map.Entry<String, List<String>> entry : syMap1.entrySet()) {
+            for (String s: entry.getValue()) {
+                MovingSell m1 = new MovingSell(biDanClient, entry.getKey(), s);
+                new Thread(m1,"币蛋_"+s+"_"+entry.getKey()).start();
+            }
         }
     }
 }

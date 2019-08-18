@@ -3854,3 +3854,336 @@ Consider marking one of the beans as @Primary, updating the consumer to accept m
 2019-08-18 12:28:41.581  INFO 16740 --- [找币_LTC_BTC] c.t.core.exchange.zhaobi.SyncMoving2     : 预计一轮后的usdt：4.982168821239922
 2019-08-18 12:28:41.896  INFO 16740 --- [找币_ZEC_BTC] c.t.core.exchange.zhaobi.SyncMoving2     : 预计一轮后的usdt：4.926599921088973
 2019-08-18 12:28:42.228  INFO 16740 --- [找币_ETC_BTC] c.t.core.exchange.zhaobi.SyncMoving1     : 预计一轮后的usdt：4.962634796356699
+2019-08-18 16:37:10.186  INFO 9676 --- [main] com.transaction.core.CoreApplication     : Starting CoreApplication on DESKTOP-5QIOI62 with PID 9676 (E:\Transaction\target\classes started by 北 in E:\Transaction)
+2019-08-18 16:37:10.191  INFO 9676 --- [main] com.transaction.core.CoreApplication     : No active profile set, falling back to default profiles: default
+2019-08-18 16:37:11.145  INFO 9676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-18 16:37:11.179  INFO 9676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27ms. Found 0 repository interfaces.
+2019-08-18 16:37:11.506  INFO 9676 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a091b39d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-18 16:37:11.790  INFO 9676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18080 (http)
+2019-08-18 16:37:11.813  INFO 9676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-18 16:37:11.813  INFO 9676 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-18 16:37:11.966  INFO 9676 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-18 16:37:11.966  INFO 9676 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1696 ms
+2019-08-18 16:37:12.047  INFO 9676 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-08-18 16:37:12.813  INFO 9676 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-08-18 16:37:12.923  INFO 9676 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-18 16:37:12.977  INFO 9676 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-18 16:37:12.978  INFO 9676 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-08-18 16:37:13.107  INFO 9676 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-18 16:37:13.256  INFO 9676 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-18 16:37:13.462  INFO 9676 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-18 16:37:13.718  INFO 9676 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-18 16:37:13.752  WARN 9676 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-18 16:37:14.052  INFO 9676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-18 16:37:14.055  INFO 9676 --- [main] com.transaction.core.CoreApplication     : Started CoreApplication in 4.53 seconds (JVM running for 6.59)
+2019-08-18 16:37:16.412  INFO 9676 --- [币蛋_BIUT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.558967391404922
+2019-08-18 16:37:16.412  INFO 9676 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.027560530350764
+2019-08-18 16:37:16.412  INFO 9676 --- [币蛋_AOA_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.653973245033113
+2019-08-18 16:37:16.413  INFO 9676 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.09863020755
+2019-08-18 16:37:16.414  INFO 9676 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.138339035840611
+2019-08-18 16:37:16.414  INFO 9676 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.035437424795025
+2019-08-18 16:37:16.415  INFO 9676 --- [币蛋_LTC_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.04234367637091
+2019-08-18 16:37:16.415  INFO 9676 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0638167518781305
+2019-08-18 16:37:16.416  INFO 9676 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.048301468646866
+2019-08-18 16:37:16.436  INFO 9676 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.090645334316444
+2019-08-18 16:37:16.442  INFO 9676 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.1311035945072705
+2019-08-18 16:37:16.464  INFO 9676 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0818449999999995
+2019-08-18 16:37:16.559  INFO 9676 --- [币蛋_AOA_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.71293361053771
+2019-08-18 16:37:16.568  INFO 9676 --- [币蛋_DOGE_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.190752871569535
+2019-08-18 16:37:16.593  INFO 9676 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.045564752644601
+2019-08-18 16:37:16.600  INFO 9676 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.066216687771784
+2019-08-18 16:37:16.645  INFO 9676 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.136688206785137
+2019-08-18 16:37:16.648  INFO 9676 --- [币蛋_LTC_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.040371287128713
+2019-08-18 16:37:16.652  INFO 9676 --- [币蛋_GAC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.405935093010535
+2019-08-18 16:37:16.673  INFO 9676 --- [币蛋_TGC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.617659738498644
+2019-08-18 16:37:16.677  INFO 9676 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.06739600521197
+2019-08-18 16:37:16.682  INFO 9676 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.089151796647295
+2019-08-18 16:37:16.717  INFO 9676 --- [币蛋_TGC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.614464920634921
+2019-08-18 16:37:16.747  INFO 9676 --- [币蛋_BIUT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：7.059508817733991
+2019-08-18 16:37:16.778  INFO 9676 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.064082848601913
+2019-08-18 16:37:16.839  INFO 9676 --- [币蛋_BIUT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.836054187192119
+2019-08-18 16:37:16.863  INFO 9676 --- [币蛋_BTT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.09916769061908
+2019-08-18 16:37:16.879  INFO 9676 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.152071678970955
+2019-08-18 16:37:16.880  INFO 9676 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.05144870198459
+2019-08-18 16:37:16.961  INFO 9676 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.072925170068028
+2019-08-18 16:37:16.977  INFO 9676 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.058649833055092
+2019-08-18 16:37:17.087  INFO 9676 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.064463320368596
+2019-08-18 16:37:17.208  INFO 9676 --- [币蛋_BIUT_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.858115869827082
+2019-08-18 16:37:17.245  INFO 9676 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.097209610733183
+2019-08-18 16:37:17.263  INFO 9676 --- [币蛋_GAC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.6351636603773585
+2019-08-18 16:37:17.297  INFO 9676 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.089077193072432
+2019-08-18 16:37:17.363  INFO 9676 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.06444804108026
+2019-08-18 16:37:17.374  INFO 9676 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.087120913745569
+2019-08-18 16:37:17.477  INFO 9676 --- [币蛋_DOGE_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.3265632337377165
+2019-08-18 16:37:17.721  INFO 9676 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.032707313349853
+2019-08-18 16:37:17.766  INFO 9676 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.090518228961534
+2019-08-18 16:37:18.005  INFO 9676 --- [币蛋_BTT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.148274346405229
+2019-08-18 16:37:18.025  INFO 9676 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.026846031087607
+2019-08-18 16:37:19.461  INFO 9676 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.070919540855546
+2019-08-18 16:37:22.532  INFO 9676 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.045564752644601
+2019-08-18 16:37:22.730  INFO 9676 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.027560530350764
+2019-08-18 16:37:22.736  INFO 9676 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.138339035840611
+2019-08-18 16:37:22.821  INFO 9676 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.066216687771784
+2019-08-18 16:37:22.825  INFO 9676 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.06444804108026
+2019-08-18 16:37:22.838  INFO 9676 --- [币蛋_LTC_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.040371287128713
+2019-08-18 16:37:22.882  INFO 9676 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0638167518781305
+2019-08-18 16:37:22.905  INFO 9676 --- [币蛋_GAC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.405935093010535
+2019-08-18 16:37:22.908  INFO 9676 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.136688206785137
+2019-08-18 16:37:22.931  INFO 9676 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.1311035945072705
+2019-08-18 16:37:22.966  INFO 9676 --- [币蛋_LTC_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.04234367637091
+2019-08-18 16:37:22.970  INFO 9676 --- [币蛋_AOA_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.653973245033113
+2019-08-18 16:37:23.001  INFO 9676 --- [币蛋_DOGE_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.3265632337377165
+2019-08-18 16:37:23.053  INFO 9676 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.090645334316444
+2019-08-18 16:37:23.093  INFO 9676 --- [币蛋_BIUT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.558967391404922
+2019-08-18 16:37:23.097  INFO 9676 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.035437424795025
+2019-08-18 16:37:23.113  INFO 9676 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.05144870198459
+2019-08-18 16:37:23.143  INFO 9676 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.152071678970955
+2019-08-18 16:37:23.209  INFO 9676 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.032707313349853
+2019-08-18 16:37:23.249  INFO 9676 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.064082848601913
+2019-08-18 16:37:23.272  INFO 9676 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.072925170068028
+2019-08-18 16:37:23.274  INFO 9676 --- [币蛋_TGC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.614464920634921
+2019-08-18 16:37:23.291  INFO 9676 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.09863020755
+2019-08-18 16:37:23.291  INFO 9676 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.089077193072432
+2019-08-18 16:37:23.333  INFO 9676 --- [币蛋_BTT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.09916769061908
+2019-08-18 16:37:23.354  INFO 9676 --- [币蛋_BIUT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.836054187192119
+2019-08-18 16:37:23.387  INFO 9676 --- [币蛋_BIUT_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.858115869827082
+2019-08-18 16:37:23.400  INFO 9676 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.064463320368596
+2019-08-18 16:37:23.585  INFO 9676 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.087120913745569
+2019-08-18 16:37:23.666  INFO 9676 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.048301468646866
+2019-08-18 16:37:23.706  INFO 9676 --- [币蛋_GAC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.6351636603773585
+2019-08-18 16:37:23.748  INFO 9676 --- [币蛋_BTT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.148274346405229
+2019-08-18 16:37:23.757  INFO 9676 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.026846031087607
+2019-08-18 16:37:23.802  INFO 9676 --- [币蛋_TGC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.617659738498644
+2019-08-18 16:37:23.823  INFO 9676 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.06739600521197
+2019-08-18 16:37:23.834  INFO 9676 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.089151796647295
+2019-08-18 16:37:23.892  INFO 9676 --- [币蛋_BIUT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：7.059508817733991
+2019-08-18 16:37:23.901  INFO 9676 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.058649833055092
+2019-08-18 16:37:23.953  INFO 9676 --- [币蛋_DOGE_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.190752871569535
+2019-08-18 16:37:23.954  INFO 9676 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0818449999999995
+2019-08-18 16:37:24.504  INFO 9676 --- [币蛋_AOA_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.71293361053771
+2019-08-18 16:37:24.513  INFO 9676 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.097209610733183
+2019-08-18 16:37:24.756  INFO 9676 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.090518228961534
+2019-08-18 16:46:23.449  INFO 1680 --- [main] com.transaction.core.CoreApplication     : Starting CoreApplication on DESKTOP-5QIOI62 with PID 1680 (E:\Transaction\target\classes started by 北 in E:\Transaction)
+2019-08-18 16:46:23.454  INFO 1680 --- [main] com.transaction.core.CoreApplication     : No active profile set, falling back to default profiles: default
+2019-08-18 16:46:24.344  INFO 1680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-18 16:46:24.378  INFO 1680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25ms. Found 0 repository interfaces.
+2019-08-18 16:46:24.708  INFO 1680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ff62e2f8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-18 16:46:24.984  INFO 1680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18080 (http)
+2019-08-18 16:46:25.006  INFO 1680 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-18 16:46:25.007  INFO 1680 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-18 16:46:25.162  INFO 1680 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-18 16:46:25.162  INFO 1680 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1660 ms
+2019-08-18 16:46:25.244  INFO 1680 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-08-18 16:46:25.937  INFO 1680 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-08-18 16:46:26.055  INFO 1680 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-18 16:46:26.111  INFO 1680 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-18 16:46:26.113  INFO 1680 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-08-18 16:46:26.252  INFO 1680 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-18 16:46:26.408  INFO 1680 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-18 16:46:26.614  INFO 1680 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-18 16:46:26.854  INFO 1680 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-18 16:46:26.890  WARN 1680 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-18 16:46:27.180  INFO 1680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-18 16:46:27.183  INFO 1680 --- [main] com.transaction.core.CoreApplication     : Started CoreApplication in 4.201 seconds (JVM running for 6.132)
+2019-08-18 16:46:29.526  INFO 1680 --- [币蛋_ETC_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=5.358E-4, sy12Amount=3230.672, sy2Price=5.488, sy2Amount=399.639, minUSDT=0.0}
+2019-08-18 16:46:29.527  INFO 1680 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.067271472847716
+2019-08-18 16:46:29.563  INFO 1680 --- [币蛋_TGC_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=3.6E-7, sy12Amount=27319.886, sy2Price=0.00482, sy2Amount=25223.977, minUSDT=0.0}
+2019-08-18 16:46:29.563  INFO 1680 --- [币蛋_TGC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.62380160037643
+2019-08-18 16:46:29.585  INFO 1680 --- [币蛋_BTT_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=6.0E-8, sy12Amount=336619.121, sy2Price=6.19E-4, sy2Amount=43723.029, minUSDT=0.0}
+2019-08-18 16:46:29.586  INFO 1680 --- [币蛋_BTT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.103900237302502
+2019-08-18 16:46:29.590  INFO 1680 --- [币蛋_TRX_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=1.654E-6, sy12Amount=263692.379, sy2Price=0.01703, sy2Amount=587.115, minUSDT=0.0}
+2019-08-18 16:46:29.591  INFO 1680 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.093800374746976
+2019-08-18 16:46:29.599  INFO 1680 --- [币蛋_ETH_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=0.01823836, sy12Amount=33.872, sy2Price=184.94, sy2Amount=1.2905, minUSDT=0.0}
+2019-08-18 16:46:29.600  INFO 1680 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.0165812170336785
+2019-08-18 16:46:29.610  INFO 1680 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.09716111866969
+2019-08-18 16:46:29.613  INFO 1680 --- [币蛋_GAC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.630104226415095
+2019-08-18 16:46:29.619  INFO 1680 --- [币蛋_XRP_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.605E-5, sy12Amount=39910.254, sy2Price=0.2683, sy2Amount=38150.445, minUSDT=0.0}
+2019-08-18 16:46:29.619  INFO 1680 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.09536997138569
+2019-08-18 16:46:29.622  INFO 1680 --- [币蛋_BIUT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：7.054125812807883
+2019-08-18 16:46:29.622  INFO 1680 --- [币蛋_LTC_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.3921, sy12Amount=9012.611, sy2Price=72.9, sy2Amount=0.826, minUSDT=0.0}
+2019-08-18 16:46:29.622  INFO 1680 --- [币蛋_LTC_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.035806031527876
+2019-08-18 16:46:29.627  INFO 1680 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.06058630658045
+2019-08-18 16:46:29.628  INFO 1680 --- [币蛋_LTC_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=0.007156, sy12Amount=2464.71, sy2Price=72.9, sy2Amount=0.826, minUSDT=0.0}
+2019-08-18 16:46:29.628  INFO 1680 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.039877432171913
+2019-08-18 16:46:29.629  INFO 1680 --- [币蛋_ONT_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=7.51E-5, sy12Amount=2041.594, sy2Price=0.7747, sy2Amount=3347.251, minUSDT=0.0}
+2019-08-18 16:46:29.629  INFO 1680 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.103362255394422
+2019-08-18 16:46:29.632  INFO 1680 --- [币蛋_LTC_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.038952315325248
+2019-08-18 16:46:29.694  INFO 1680 --- [币蛋_QTUM_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.01338, sy12Amount=6992.156, sy2Price=2.547, sy2Amount=1190.512, minUSDT=0.0}
+2019-08-18 16:46:29.695  INFO 1680 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.155978992270283
+2019-08-18 16:46:29.698  INFO 1680 --- [币蛋_DOGE_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.45E-7, sy12Amount=154709.479, sy2Price=0.0026403, sy2Amount=4931.5284, minUSDT=0.0}
+2019-08-18 16:46:29.699  INFO 1680 --- [币蛋_DOGE_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.3315068266327375
+2019-08-18 16:46:29.759  INFO 1680 --- [币蛋_QTUM_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.45E-4, sy12Amount=482.769, sy2Price=2.547, sy2Amount=1190.512, minUSDT=0.0}
+2019-08-18 16:46:29.760  INFO 1680 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.143107937519821
+2019-08-18 16:46:29.837  INFO 1680 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.07449914664566
+2019-08-18 16:46:29.840  INFO 1680 --- [币蛋_XRP_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.001432, sy12Amount=10319.577, sy2Price=0.2683, sy2Amount=38150.445, minUSDT=0.0}
+2019-08-18 16:46:29.840  INFO 1680 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.074765308654679
+2019-08-18 16:46:29.873  INFO 1680 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.127191033925687
+2019-08-18 16:46:29.887  INFO 1680 --- [币蛋_BTT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.144348692810458
+2019-08-18 16:46:29.902  INFO 1680 --- [币蛋_GRIN_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.6E-4, sy12Amount=322.103, sy2Price=2.665, sy2Amount=371.0, minUSDT=0.0}
+2019-08-18 16:46:29.903  INFO 1680 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.070918652570338
+2019-08-18 16:46:29.920  INFO 1680 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.02695648231311
+2019-08-18 16:46:29.935  INFO 1680 --- [币蛋_AOA_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=1.54E-6, sy12Amount=33944.178, sy2Price=0.0178, sy2Amount=217043.49, minUSDT=0.0}
+2019-08-18 16:46:29.935  INFO 1680 --- [币蛋_AOA_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.718235794472728
+2019-08-18 16:46:30.089  INFO 1680 --- [币蛋_EOS_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=3.4933E-4, sy12Amount=13.7536, sy2Price=3.5428, sy2Amount=416.783, minUSDT=0.0}
+2019-08-18 16:46:30.089  INFO 1680 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.017339981784278
+2019-08-18 16:46:30.280  INFO 1680 --- [币蛋_DOGE_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.186794827320383
+2019-08-18 16:46:30.288  INFO 1680 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.060221392568065
+2019-08-18 16:46:30.346  INFO 1680 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.065253881469116
+2019-08-18 16:46:30.346  INFO 1680 --- [币蛋_NEO_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.0518, sy12Amount=848.479, sy2Price=9.668, sy2Amount=604.031, minUSDT=0.0}
+2019-08-18 16:46:30.346  INFO 1680 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.055279703167027
+2019-08-18 16:46:30.385  INFO 1680 --- [币蛋_NEO_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=9.43E-4, sy12Amount=2164.861, sy2Price=9.668, sy2Amount=604.031, minUSDT=0.0}
+2019-08-18 16:46:30.385  INFO 1680 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.072099064537156
+2019-08-18 16:46:30.434  INFO 1680 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.070822751322751
+2019-08-18 16:46:30.555  INFO 1680 --- [币蛋_AOA_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.649661986754967
+2019-08-18 16:46:30.588  INFO 1680 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0840296300715995
+2019-08-18 16:46:30.591  INFO 1680 --- [币蛋_BIUT_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.14E-6, sy12Amount=15776.984, sy2Price=0.028, sy2Amount=989.2046, minUSDT=0.0}
+2019-08-18 16:46:30.591  INFO 1680 --- [币蛋_BIUT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.4730213025744
+2019-08-18 16:46:30.647  INFO 1680 --- [币蛋_BIUT_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=1.105E-4, sy12Amount=22224.113, sy2Price=0.028, sy2Amount=989.2046, minUSDT=0.0}
+2019-08-18 16:46:30.647  INFO 1680 --- [币蛋_BIUT_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.863317041125977
+2019-08-18 16:46:30.882  INFO 1680 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.038007490162775
+2019-08-18 16:46:31.075  INFO 1680 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.086636615465406
+2019-08-18 16:46:31.144  INFO 1680 --- [币蛋_ONT_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.00412, sy12Amount=3949.597, sy2Price=0.7747, sy2Amount=3347.251, minUSDT=0.0}
+2019-08-18 16:46:31.145  INFO 1680 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.09301139172601
+2019-08-18 16:46:31.152  INFO 1680 --- [币蛋_BIUT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.819093103448276
+2019-08-18 16:46:31.177  INFO 1680 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.046098706176962
+2019-08-18 16:46:31.358  INFO 1680 --- [币蛋_GAC_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=3.04E-6, sy12Amount=15766.382, sy2Price=0.0394, sy2Amount=25756.067, minUSDT=0.0}
+2019-08-18 16:46:31.359  INFO 1680 --- [币蛋_GAC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.411880452864932
+2019-08-18 16:46:31.476  INFO 1680 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.123943457189014
+2019-08-18 16:46:31.764  INFO 1680 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.055575424476296
+2019-08-18 16:46:31.947  INFO 1680 --- [币蛋_TGC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.60942126984127
+2019-08-18 16:46:35.583  INFO 1680 --- [币蛋_GAC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.630104226415095
+2019-08-18 16:46:35.585  INFO 1680 --- [币蛋_TRX_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=1.654E-6, sy12Amount=263692.379, sy2Price=0.01703, sy2Amount=587.115, minUSDT=0.0}
+2019-08-18 16:46:35.586  INFO 1680 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.093800374746976
+2019-08-18 16:46:35.616  INFO 1680 --- [币蛋_ETH_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=0.01823836, sy12Amount=33.872, sy2Price=184.94, sy2Amount=1.2905, minUSDT=0.0}
+2019-08-18 16:46:35.617  INFO 1680 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.0165812170336785
+2019-08-18 16:46:35.737  INFO 1680 --- [币蛋_TGC_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=3.6E-7, sy12Amount=27319.886, sy2Price=0.00482, sy2Amount=25223.977, minUSDT=0.0}
+2019-08-18 16:46:35.737  INFO 1680 --- [币蛋_TGC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.62380160037643
+2019-08-18 16:46:35.739  INFO 1680 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.09716111866969
+2019-08-18 16:46:36.027  INFO 1680 --- [币蛋_AOA_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.649661986754967
+2019-08-18 16:46:36.125  INFO 1680 --- [币蛋_BIUT_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=1.105E-4, sy12Amount=22224.113, sy2Price=0.028, sy2Amount=989.2046, minUSDT=0.0}
+2019-08-18 16:46:36.125  INFO 1680 --- [币蛋_BIUT_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.863317041125977
+2019-08-18 16:46:36.130  INFO 1680 --- [币蛋_XRP_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.001432, sy12Amount=10319.577, sy2Price=0.2683, sy2Amount=38150.445, minUSDT=0.0}
+2019-08-18 16:46:36.130  INFO 1680 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.074765308654679
+2019-08-18 16:46:36.164  INFO 1680 --- [币蛋_DOGE_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.45E-7, sy12Amount=154709.479, sy2Price=0.0026403, sy2Amount=4931.5284, minUSDT=0.0}
+2019-08-18 16:46:36.164  INFO 1680 --- [币蛋_DOGE_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.3315068266327375
+2019-08-18 16:46:36.303  INFO 1680 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0840296300715995
+2019-08-18 16:46:36.394  INFO 1680 --- [币蛋_QTUM_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.45E-4, sy12Amount=482.769, sy2Price=2.547, sy2Amount=1190.512, minUSDT=0.0}
+2019-08-18 16:46:36.394  INFO 1680 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.143107937519821
+2019-08-18 16:46:36.405  INFO 1680 --- [币蛋_EOS_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=3.4932E-4, sy12Amount=17.2335, sy2Price=3.5428, sy2Amount=416.783, minUSDT=0.0}
+2019-08-18 16:46:36.405  INFO 1680 --- [币蛋_BIUT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：7.054125812807883
+2019-08-18 16:46:36.405  INFO 1680 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.017483613410917
+2019-08-18 16:46:36.444  INFO 1680 --- [币蛋_BTT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0613753267973856
+2019-08-18 16:46:36.477  INFO 1680 --- [币蛋_LTC_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.038952315325248
+2019-08-18 16:46:36.482  INFO 1680 --- [币蛋_LTC_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=0.007156, sy12Amount=2464.71, sy2Price=72.9, sy2Amount=0.826, minUSDT=0.0}
+2019-08-18 16:46:36.483  INFO 1680 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.039877432171913
+2019-08-18 16:46:36.509  INFO 1680 --- [币蛋_ONT_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=7.51E-5, sy12Amount=2041.594, sy2Price=0.7747, sy2Amount=3347.251, minUSDT=0.0}
+2019-08-18 16:46:36.509  INFO 1680 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.103362255394422
+2019-08-18 16:46:36.538  INFO 1680 --- [币蛋_BIUT_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.14E-6, sy12Amount=15776.984, sy2Price=0.028, sy2Amount=989.2046, minUSDT=0.0}
+2019-08-18 16:46:36.539  INFO 1680 --- [币蛋_BIUT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.4730213025744
+2019-08-18 16:46:36.545  INFO 1680 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.065253881469116
+2019-08-18 16:46:36.605  INFO 1680 --- [币蛋_BTT_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=6.0E-8, sy12Amount=336619.121, sy2Price=6.19E-4, sy2Amount=43723.029, minUSDT=0.0}
+2019-08-18 16:46:36.605  INFO 1680 --- [币蛋_BTT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.103900237302502
+2019-08-18 16:46:36.609  INFO 1680 --- [币蛋_AOA_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=1.54E-6, sy12Amount=33944.178, sy2Price=0.0178, sy2Amount=217043.49, minUSDT=0.0}
+2019-08-18 16:46:36.610  INFO 1680 --- [币蛋_AOA_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.718235794472728
+2019-08-18 16:46:36.667  INFO 1680 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.071645313681028
+2019-08-18 16:46:36.747  INFO 1680 --- [币蛋_QTUM_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.01338, sy12Amount=6992.156, sy2Price=2.547, sy2Amount=1190.512, minUSDT=0.0}
+2019-08-18 16:46:36.747  INFO 1680 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.155978992270283
+2019-08-18 16:46:36.776  INFO 1680 --- [币蛋_XRP_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.605E-5, sy12Amount=39910.254, sy2Price=0.2683, sy2Amount=38150.445, minUSDT=0.0}
+2019-08-18 16:46:36.777  INFO 1680 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.09536997138569
+2019-08-18 16:46:36.795  INFO 1680 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.086636615465406
+2019-08-18 16:46:36.795  INFO 1680 --- [币蛋_GAC_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=3.04E-6, sy12Amount=15766.382, sy2Price=0.0394, sy2Amount=25756.067, minUSDT=0.0}
+2019-08-18 16:46:36.796  INFO 1680 --- [币蛋_GAC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.411880452864932
+2019-08-18 16:46:36.796  INFO 1680 --- [币蛋_DOGE_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.186794827320383
+2019-08-18 16:46:36.815  INFO 1680 --- [币蛋_NEO_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.0518, sy12Amount=848.479, sy2Price=9.668, sy2Amount=604.031, minUSDT=0.0}
+2019-08-18 16:46:36.815  INFO 1680 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.055279703167027
+2019-08-18 16:46:36.844  INFO 1680 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.038007490162775
+2019-08-18 16:46:36.978  INFO 1680 --- [币蛋_NEO_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=9.43E-4, sy12Amount=2164.861, sy2Price=9.668, sy2Amount=604.031, minUSDT=0.0}
+2019-08-18 16:46:36.979  INFO 1680 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.072099064537156
+2019-08-18 16:46:37.021  INFO 1680 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.075322305369568
+2019-08-18 16:46:37.154  INFO 1680 --- [币蛋_GRIN_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.6E-4, sy12Amount=322.103, sy2Price=2.665, sy2Amount=371.0, minUSDT=0.0}
+2019-08-18 16:46:37.154  INFO 1680 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.070918652570338
+2019-08-18 16:46:37.177  INFO 1680 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.02695648231311
+2019-08-18 16:46:37.200  INFO 1680 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.127191033925687
+2019-08-18 16:46:37.267  INFO 1680 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.060221392568065
+2019-08-18 16:46:37.285  INFO 1680 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.06058630658045
+2019-08-18 16:46:37.288  INFO 1680 --- [币蛋_ETC_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=5.364E-4, sy12Amount=744.03, sy2Price=5.488, sy2Amount=399.639, minUSDT=0.0}
+2019-08-18 16:46:37.288  INFO 1680 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.061603383951913
+2019-08-18 16:46:37.392  INFO 1680 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.055575424476296
+2019-08-18 16:46:37.394  INFO 1680 --- [币蛋_BIUT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.8201992610837445
+2019-08-18 16:46:37.467  INFO 1680 --- [币蛋_ONT_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.00412, sy12Amount=3949.597, sy2Price=0.7747, sy2Amount=3347.251, minUSDT=0.0}
+2019-08-18 16:46:37.467  INFO 1680 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.09301139172601
+2019-08-18 16:46:37.496  INFO 1680 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.124774636510501
+2019-08-18 16:46:37.688  INFO 1680 --- [币蛋_TGC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.60942126984127
+2019-08-18 16:46:37.943  INFO 1680 --- [币蛋_LTC_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.3921, sy12Amount=9012.611, sy2Price=72.9, sy2Amount=0.826, minUSDT=0.0}
+2019-08-18 16:46:37.943  INFO 1680 --- [币蛋_LTC_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.035806031527876
+2019-08-18 16:46:39.275  INFO 1680 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.046917257929883
+2019-08-18 16:46:41.023  INFO 1680 --- [币蛋_GAC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.630104226415095
+2019-08-18 16:46:41.488  INFO 1680 --- [币蛋_TRX_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=1.654E-6, sy12Amount=263692.379, sy2Price=0.01703, sy2Amount=587.115, minUSDT=0.0}
+2019-08-18 16:46:41.488  INFO 1680 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.093800374746976
+2019-08-18 16:46:41.761  INFO 1680 --- [币蛋_ETH_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=0.01823836, sy12Amount=33.872, sy2Price=184.97, sy2Amount=1.2884, minUSDT=0.0}
+2019-08-18 16:46:41.762  INFO 1680 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.017394980613819
+2019-08-18 16:46:41.771  INFO 1680 --- [币蛋_AOA_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.649661986754967
+2019-08-18 16:46:41.981  INFO 1680 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.09716111866969
+2019-08-18 16:46:41.983  INFO 1680 --- [币蛋_ONT_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=7.51E-5, sy12Amount=2041.594, sy2Price=0.7747, sy2Amount=3347.251, minUSDT=0.0}
+2019-08-18 16:46:41.983  INFO 1680 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.103362255394422
+2019-08-18 16:46:42.049  INFO 1680 --- [币蛋_BIUT_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=1.105E-4, sy12Amount=22224.113, sy2Price=0.028, sy2Amount=989.2046, minUSDT=0.0}
+2019-08-18 16:46:42.050  INFO 1680 --- [币蛋_BIUT_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.863317041125977
+2019-08-18 16:46:42.405  INFO 1680 --- [币蛋_XRP_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.001432, sy12Amount=10319.577, sy2Price=0.2683, sy2Amount=38150.445, minUSDT=0.0}
+2019-08-18 16:46:42.406  INFO 1680 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.074765308654679
+2019-08-18 16:46:42.499  INFO 1680 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.075322305369568
+2019-08-18 16:46:42.649  INFO 1680 --- [币蛋_BTT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0613753267973856
+2019-08-18 16:46:42.710  INFO 1680 --- [币蛋_TGC_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=3.6E-7, sy12Amount=27319.886, sy2Price=0.00482, sy2Amount=25223.977, minUSDT=0.0}
+2019-08-18 16:46:42.710  INFO 1680 --- [币蛋_TGC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.62380160037643
+2019-08-18 16:46:42.728  INFO 1680 --- [币蛋_QTUM_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.01338, sy12Amount=6992.156, sy2Price=2.547, sy2Amount=1190.512, minUSDT=0.0}
+2019-08-18 16:46:42.728  INFO 1680 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.155978992270283
+2019-08-18 16:46:42.778  INFO 1680 --- [币蛋_BTT_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=6.0E-8, sy12Amount=336619.121, sy2Price=6.19E-4, sy2Amount=43723.029, minUSDT=0.0}
+2019-08-18 16:46:42.778  INFO 1680 --- [币蛋_BTT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.103900237302502
+2019-08-18 16:46:42.783  INFO 1680 --- [币蛋_LTC_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=0.007156, sy12Amount=2464.71, sy2Price=72.9, sy2Amount=0.826, minUSDT=0.0}
+2019-08-18 16:46:42.784  INFO 1680 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.039877432171913
+2019-08-18 16:46:42.813  INFO 1680 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.065253881469116
+2019-08-18 16:46:42.862  INFO 1680 --- [币蛋_GRIN_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.6E-4, sy12Amount=322.103, sy2Price=2.665, sy2Amount=371.0, minUSDT=0.0}
+2019-08-18 16:46:42.862  INFO 1680 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.070918652570338
+2019-08-18 16:46:42.905  INFO 1680 --- [币蛋_NEO_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=9.43E-4, sy12Amount=2164.861, sy2Price=9.668, sy2Amount=604.031, minUSDT=0.0}
+2019-08-18 16:46:42.906  INFO 1680 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.072099064537156
+2019-08-18 16:46:42.926  INFO 1680 --- [币蛋_BIUT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：7.054125812807883
+2019-08-18 16:46:42.927  INFO 1680 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0840296300715995
+2019-08-18 16:46:42.981  INFO 1680 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.086636615465406
+2019-08-18 16:46:43.073  INFO 1680 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.038007490162775
+2019-08-18 16:46:43.151  INFO 1680 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.055575424476296
+2019-08-18 16:46:43.178  INFO 1680 --- [币蛋_XRP_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.605E-5, sy12Amount=39910.254, sy2Price=0.2683, sy2Amount=38150.445, minUSDT=0.0}
+2019-08-18 16:46:43.178  INFO 1680 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.09536997138569
+2019-08-18 16:46:43.185  INFO 1680 --- [币蛋_ONT_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.00412, sy12Amount=3949.597, sy2Price=0.7747, sy2Amount=3347.251, minUSDT=0.0}
+2019-08-18 16:46:43.185  INFO 1680 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.09301139172601
+2019-08-18 16:46:43.214  INFO 1680 --- [币蛋_BIUT_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.14E-6, sy12Amount=15776.984, sy2Price=0.028, sy2Amount=989.2046, minUSDT=0.0}
+2019-08-18 16:46:43.214  INFO 1680 --- [币蛋_BIUT_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.4730213025744
+2019-08-18 16:46:43.341  INFO 1680 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.06058630658045
+2019-08-18 16:46:43.356  INFO 1680 --- [币蛋_DOGE_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.45E-7, sy12Amount=154709.479, sy2Price=0.0026403, sy2Amount=4931.5284, minUSDT=0.0}
+2019-08-18 16:46:43.357  INFO 1680 --- [币蛋_DOGE_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.3315068266327375
+2019-08-18 16:46:43.381  INFO 1680 --- [币蛋_GAC_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=3.04E-6, sy12Amount=15766.382, sy2Price=0.0394, sy2Amount=25756.067, minUSDT=0.0}
+2019-08-18 16:46:43.381  INFO 1680 --- [币蛋_GAC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：6.411880452864932
+2019-08-18 16:46:43.393  INFO 1680 --- [币蛋_LTC_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.3921, sy12Amount=9012.611, sy2Price=72.9, sy2Amount=0.826, minUSDT=0.0}
+2019-08-18 16:46:43.393  INFO 1680 --- [币蛋_LTC_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.035806031527876
+2019-08-18 16:46:43.415  INFO 1680 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.071645313681028
+2019-08-18 16:46:43.437  INFO 1680 --- [币蛋_NEO_ETH] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=184.6, sy1Amount=1.6204, sy12Price=0.0518, sy12Amount=848.479, sy2Price=9.668, sy2Amount=604.031, minUSDT=0.0}
+2019-08-18 16:46:43.437  INFO 1680 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.055279703167027
+2019-08-18 16:46:43.489  INFO 1680 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.127191033925687
+2019-08-18 16:46:43.500  INFO 1680 --- [币蛋_AOA_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=1.54E-6, sy12Amount=33944.178, sy2Price=0.0178, sy2Amount=217043.49, minUSDT=0.0}
+2019-08-18 16:46:43.500  INFO 1680 --- [币蛋_AOA_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.718235794472728
+2019-08-18 16:46:43.566  INFO 1680 --- [币蛋_ETC_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=5.364E-4, sy12Amount=744.03, sy2Price=5.488, sy2Amount=399.639, minUSDT=0.0}
+2019-08-18 16:46:43.566  INFO 1680 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.061603383951913
+2019-08-18 16:46:43.730  INFO 1680 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.124774636510501
+2019-08-18 16:46:43.921  INFO 1680 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.060221392568065
+2019-08-18 16:46:44.016  INFO 1680 --- [币蛋_DOGE_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.186794827320383
+2019-08-18 16:46:44.107  INFO 1680 --- [币蛋_LTC_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.039769707828004
+2019-08-18 16:46:44.194  INFO 1680 --- [币蛋_TGC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.60942126984127
+2019-08-18 16:46:44.287  INFO 1680 --- [币蛋_BIUT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：6.8201992610837445
+2019-08-18 16:46:44.321  INFO 1680 --- [币蛋_QTUM_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=2.45E-4, sy12Amount=482.769, sy2Price=2.547, sy2Amount=1190.512, minUSDT=0.0}
+2019-08-18 16:46:44.321  INFO 1680 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.143107937519821
+2019-08-18 16:46:44.424  INFO 1680 --- [币蛋_EOS_BTC] c.transaction.core.exchange.pub.PubDeal  : AmountPrice{sy1Price=10106.65, sy1Amount=0.0976, sy12Price=3.4932E-4, sy12Amount=17.2335, sy2Price=3.5428, sy2Amount=416.783, minUSDT=0.0}
+2019-08-18 16:46:44.424  INFO 1680 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.017483613410917
+2019-08-18 16:46:44.725  INFO 1680 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.046917257929883
+2019-08-18 16:46:44.884  INFO 1680 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.02695648231311

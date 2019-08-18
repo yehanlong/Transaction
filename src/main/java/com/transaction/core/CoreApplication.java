@@ -43,6 +43,11 @@ public class CoreApplication {
             ExStart.startZTCNT();
         }
 
+        // 币蛋
+        if (ExStartConst.BIDAN == 1){
+            ExStart.startBiDan();
+        }
+
     }
 
 
