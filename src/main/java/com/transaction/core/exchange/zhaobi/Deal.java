@@ -380,19 +380,15 @@ public class Deal {
         Random r = new Random();
 
         if (max == 2.0) {
-            return 4+r.nextDouble()*3;
+            return 5+r.nextDouble()*2;
         }
 
         // 这个放前面，优先级最高
         if (usdt1 > 5.1) {
-            return 10 + r.nextDouble()*3;
+            return 25 + r.nextDouble()*3;
         }
 
-        if (usdt2 > 100){
-            return 7+r.nextDouble()*4;
-        }
-
-        return 6+r.nextDouble()*3;
+        return 20+r.nextDouble()*8;
     }
 
 
