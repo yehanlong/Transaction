@@ -84,27 +84,13 @@ public class BiDanClient implements Exchange {
 
             //
 
-            String url = "https://market.coinegg.im/market/trade?symbol=" + symbols;
+            String url = "https://trade.coinegg.im/web/data/depth?symbol=" + symbols+"&"+System.currentTimeMillis();
             try {
                 String result = restTemplate.exchange(url, HttpMethod.GET, null, String.class).getBody();
                 JSONObject object = JSON.parseObject(result);
-                if(!"success".equals(object.getString("msg"))){
-                    return null;
-                }
-                JSONArray jsonData = object.getJSONArray("data");
-                List<Order> sellList = new ArrayList<>();
-                List<Order> buyList = new ArrayList<>();
-                for(int i=0;i<jsonData.size();i++){
-                    JSONObject json = jsonData.getJSONObject(i);
-                    Order order = new Order();
-                    order.setAm(json.getDouble("amount"));
-                    order.setPrice(json.getDouble("price"));
-                    if("sell".equals(json.getString("direction"))){
-                        sellList.add(order);
-                    }else {
-                        buyList.add(order);
-                    }
-                }
+
+                List<Order> sellList = parseDepth(object.getJSONArray("asks"));
+                List<Order> buyList = parseDepth(object.getJSONArray("bids"));
                 Collections.sort(sellList);
                 Collections.sort(buyList);
                 List<Order> buys = new ArrayList<>();
@@ -114,6 +100,18 @@ public class BiDanClient implements Exchange {
                 logger.error(e.getMessage());
                 return null;
             }
+        }
+
+        private List<Order> parseDepth(JSONArray array){
+            List<Order> orders = new ArrayList<>();
+            for(int i=0;i<array.size();i++){
+                JSONArray ask = array.getJSONArray(i);
+                Order order = new Order();
+                order.setPrice(ask.getDouble(0));
+                order.setAm(ask.getDouble(1));
+                orders.add(order);
+            }
+            return orders;
         }
     }
 
