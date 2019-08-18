@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-public class Order {
+public class Order implements Comparable<Order>{
     private double price;
     private double am;
 
@@ -34,5 +34,16 @@ public class Order {
 
     public void setAm(double am) {
         this.am = am;
+    }
+
+    @Override
+    public int compareTo(Order o) {
+        if(this.getPrice() > o.getPrice()){
+            return 1;
+        }
+        if(this.getPrice() < o.getPrice()){
+            return -1;
+        }
+        return 0;
     }
 }

@@ -16,6 +16,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
@@ -87,28 +88,28 @@ public class BiDanClient implements Exchange {
             try {
                 String result = restTemplate.exchange(url, HttpMethod.GET, null, String.class).getBody();
                 JSONObject object = JSON.parseObject(result);
-                JSONObject jsonData = object.getJSONObject("data");
-                JSONObject marketData = jsonData.getJSONObject("marketdata");
-                JSONArray buyList = marketData.getJSONArray("buy");
-                JSONArray sellList = marketData.getJSONArray("sell");
-                Order order = new Order();
-                List<Order> byList = new ArrayList<>(), selList = new ArrayList<>();
-                for (int i = 0; ; i++) {
-                    if (i < buyList.size()) {
-                        String buyInfo = JSONObject.toJSONString(buyList.get(i));
-                        order = JSONObject.toJavaObject(JSONObject.parseObject(buyInfo), Order.class);
-                        byList.add(order);
-                    }
-                    if (i < sellList.size()) {
-                        String sellInfo = JSONObject.toJSONString(sellList.get(i));
-                        order = JSONObject.toJavaObject(JSONObject.parseObject(sellInfo), Order.class);
-                        selList.add(order);
-                    }
-                    if (i >= buyList.size() && i >= sellList.size()){
-                        break;
+                if(!"success".equals(object.getString("msg"))){
+                    return null;
+                }
+                JSONArray jsonData = object.getJSONArray("data");
+                List<Order> sellList = new ArrayList<>();
+                List<Order> buyList = new ArrayList<>();
+                for(int i=0;i<jsonData.size();i++){
+                    JSONObject json = jsonData.getJSONObject(i);
+                    Order order = new Order();
+                    order.setAm(json.getDouble("amount"));
+                    order.setPrice(json.getDouble("price"));
+                    if("sell".equals(json.getString("direction"))){
+                        sellList.add(order);
+                    }else {
+                        buyList.add(order);
                     }
                 }
-                return new TradeVO(byList,selList);
+                Collections.sort(sellList);
+                Collections.sort(buyList);
+                List<Order> buys = new ArrayList<>();
+                buyList.forEach((order)->{buys.add(0,order);});
+                return new TradeVO(buys,sellList);
             }catch(Exception e){
                 logger.error(e.getMessage());
                 return null;
