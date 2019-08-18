@@ -98,7 +98,7 @@ public class ExStart {
 
         Map<String, List<String>> syMap2 =  init.initCNTSymbol();
         while (true){
-            WebSocketClient webSocketClient = (WebSocketClient) SpringUtil.getBean("ztWebSocketClient");
+            WebSocketClient webSocketClient = (WebSocketClient) SpringUtil.getBean("ztWebSocketClientCNT");
             if(!webSocketClient.getConnected()){
                 try {
                     TimeUnit.SECONDS.sleep(1);
@@ -109,7 +109,7 @@ public class ExStart {
                 break;
             }
         }
-        logger.info("启动ZT监控...");
+        logger.info("启动ZT-CNT监控...");
         try {
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {

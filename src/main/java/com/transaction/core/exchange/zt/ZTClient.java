@@ -36,6 +36,14 @@ public class ZTClient implements Exchange{
             TradeVO s2Trade = ZTCache.orderMap.get(s2USDT);
             TradeVO s2s1Trade = ZTCache.orderMap.get(s2s1);
             long currentTime = System.currentTimeMillis();
+            if(s1Trade == null || s2Trade == null || s2s1Trade == null){
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                continue;
+            }
             if(currentTime-s1Trade.getTime() > 1000
                     || currentTime - s2Trade.getTime() > 1000
                     || currentTime-s2s1Trade.getTime() > 1000){
