@@ -113,7 +113,7 @@ public class SyncMoving2 extends Thread {
                 if (usdtcount == 0.0){
                     logger.info("获取市场行情失败");
                 }
-                if (usdtcount > 4.9) {
+                if (usdtcount > 4.97) {
                     logger.info("预计一轮后的usdt：" + usdtcount);
                 }
                 AmountPrice amountPrice = t.getAmountPrice();

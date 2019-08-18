@@ -92,7 +92,7 @@ public class PubDeal {
 
             BigDecimal usdtcountB = this.getUSDTcount(amountPrice,"BUY");
 
-            logger.info(amountPrice.toString());
+//            logger.info(amountPrice.toString());
 
             this.amountPrice = amountPrice;
 
