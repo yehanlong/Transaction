@@ -4,6 +4,7 @@ import com.transaction.core.ws.WebSocketClient;
 import com.transaction.core.ws.WebSocketService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,15 +20,13 @@ public class WebSocketConfig {
      * @return
      */
     @Bean(name = "ztWebSocketClient")
-    @Resource(name = "ztWebSocketService")
-    public WebSocketClient webSocketClient(WebSocketService webSocketService) {
+    public WebSocketClient webSocketClient(@Qualifier("ztWebSocketService") WebSocketService webSocketService) {
         return WebSocketClient.builder().webSocketService(webSocketService).build();
     }
 
 
     @Bean(name = "ztWebSocketClientCNT")
-    @Resource(name = "ztWebSocketServiceCNT")
-    public WebSocketClient webSocketClientCNT(WebSocketService webSocketService) {
+    public WebSocketClient webSocketClientCNT(@Qualifier("ztWebSocketServiceCNT") WebSocketService webSocketService) {
         return WebSocketClient.builder().webSocketService(webSocketService).build();
     }
 

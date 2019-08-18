@@ -80,6 +80,11 @@ public class ZTWebSocketServiceImpl implements WebSocketService {
         @Override
         public void run() {
             while (true){
+                try {
+                    TimeUnit.SECONDS.sleep(30);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 if(!webSocketClient.getConnected()){
                     try {
                         webSocketClient.init();
@@ -87,11 +92,7 @@ public class ZTWebSocketServiceImpl implements WebSocketService {
                         log.info("websocket重连失败");
                     }
                 }
-                try {
-                    TimeUnit.SECONDS.sleep(30);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
             }
         }
     }
@@ -102,6 +103,11 @@ public class ZTWebSocketServiceImpl implements WebSocketService {
         public void run() {
             String ping = "{\"method\":\"server.ping\",\"params\":[],\"id\":%d}";
             while (true){
+                try {
+                    TimeUnit.SECONDS.sleep(30);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 if(webSocketClient.getConnected()){
                     try {
                         webSocketClient.send(String.format(ping,System.currentTimeMillis()));
@@ -109,11 +115,7 @@ public class ZTWebSocketServiceImpl implements WebSocketService {
                         log.error("发送Ping信息失败",e);
                     }
                 }
-                try {
-                    TimeUnit.SECONDS.sleep(30);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
             }
         }
     }
