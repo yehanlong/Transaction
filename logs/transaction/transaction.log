@@ -4986,3 +4986,214 @@ Consider marking one of the beans as @Primary, updating the consumer to accept m
 2019-08-18 18:51:14.085  INFO 17100 --- [找币_ETC_BTC] c.t.core.exchange.zhaobi.SyncMoving1     : 预计一轮后的usdt：4.949984908144757
 2019-08-18 18:51:14.416  INFO 17100 --- [找币_ETH_BTC] c.t.core.exchange.zhaobi.SyncMoving2     : 预计一轮后的usdt：4.98808727526757
 2019-08-18 18:51:14.764  INFO 17100 --- [找币_ZEC_BTC] c.t.core.exchange.zhaobi.SyncMoving1     : 预计一轮后的usdt：4.942990196012541
+2019-08-18 19:12:47.073  INFO 9024 --- [main] com.transaction.core.CoreApplication     : Starting CoreApplication on DESKTOP-5QIOI62 with PID 9024 (E:\Transaction\target\classes started by 北 in E:\Transaction)
+2019-08-18 19:12:47.076  INFO 9024 --- [main] com.transaction.core.CoreApplication     : No active profile set, falling back to default profiles: default
+2019-08-18 19:12:47.665  INFO 9024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-18 19:12:47.694  INFO 9024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22ms. Found 0 repository interfaces.
+2019-08-18 19:12:47.961  INFO 9024 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fc09c237] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-18 19:12:48.262  INFO 9024 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18080 (http)
+2019-08-18 19:12:48.286  INFO 9024 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-18 19:12:48.286  INFO 9024 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-18 19:12:48.432  INFO 9024 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-18 19:12:48.432  INFO 9024 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1310 ms
+2019-08-18 19:12:48.501  INFO 9024 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-08-18 19:12:49.183  INFO 9024 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-08-18 19:12:49.307  INFO 9024 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-18 19:12:49.362  INFO 9024 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-18 19:12:49.364  INFO 9024 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-08-18 19:12:49.475  INFO 9024 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-18 19:12:49.606  INFO 9024 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-18 19:12:49.786  INFO 9024 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-18 19:12:50.002  INFO 9024 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-18 19:12:50.039  WARN 9024 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-18 19:12:50.304  INFO 9024 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-18 19:12:50.305  INFO 9024 --- [main] com.transaction.core.CoreApplication     : Started CoreApplication in 3.599 seconds (JVM running for 4.841)
+2019-08-18 19:12:51.397  WARN 9024 --- [OkHttp https://ws.zt.com/...] c.t.core.ws.EchoWebSocketListener        : webSocket open
+2019-08-18 19:12:51.910  INFO 9024 --- [main] com.transaction.core.CoreApplication     : 启动ZT监控...
+2019-08-18 19:12:57.742  WARN 9024 --- [OkHttp https://ws.zt.com/...] c.t.core.ws.EchoWebSocketListener        : webSocket open
+2019-08-18 19:12:57.959  INFO 9024 --- [main] com.transaction.core.CoreApplication     : 启动ZT-CNT监控...
+2019-08-18 19:13:03.027  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:13:03.031 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:13:03.041  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:13:04.766  INFO 9024 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.06386528712196
+2019-08-18 19:13:04.767  INFO 9024 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.996279905380349
+2019-08-18 19:13:04.798  INFO 9024 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.001376866095757
+2019-08-18 19:13:04.814  INFO 9024 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0093539399238765
+2019-08-18 19:13:04.846  INFO 9024 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：4.998217207466908
+2019-08-18 19:13:04.951  INFO 9024 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.016486265013562
+2019-08-18 19:13:04.976  INFO 9024 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.033051640777698
+2019-08-18 19:13:05.095  INFO 9024 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.986087757882445
+2019-08-18 19:13:05.149  INFO 9024 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.028602082847142
+2019-08-18 19:13:05.175  INFO 9024 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0624827948391795
+2019-08-18 19:13:05.670  INFO 9024 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.03052962264151
+2019-08-18 19:13:05.697  INFO 9024 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.02324486633088
+2019-08-18 19:13:06.184  INFO 9024 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.034596004439512
+2019-08-18 19:13:06.352  INFO 9024 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.998253542857143
+2019-08-18 19:13:08.029  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:13:08.033 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:13:08.043  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:13:11.442  INFO 9024 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.996226916788167
+2019-08-18 19:13:11.471  INFO 9024 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.001376866095757
+2019-08-18 19:13:11.471  INFO 9024 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.009300812673593
+2019-08-18 19:13:11.489  INFO 9024 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.016433062120625
+2019-08-18 19:13:11.588  INFO 9024 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.033051640777698
+2019-08-18 19:13:11.676  INFO 9024 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9860348773841965
+2019-08-18 19:13:11.691  INFO 9024 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.059981655712418
+2019-08-18 19:13:11.711  INFO 9024 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.062429104125023
+2019-08-18 19:13:11.904  INFO 9024 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.998200533333334
+2019-08-18 19:13:12.159  INFO 9024 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.034596004439512
+2019-08-18 19:13:12.163  INFO 9024 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.028548751458577
+2019-08-18 19:13:12.238  INFO 9024 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.030476270810211
+2019-08-18 19:13:12.269  INFO 9024 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.02324486633088
+2019-08-18 19:13:12.660  INFO 9024 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：4.993792797729283
+2019-08-18 19:13:13.030  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:13:13.035 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:13:13.045  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:13:17.727  INFO 9024 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.001376866095757
+2019-08-18 19:13:18.032  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:13:18.053  INFO 9024 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.034596004439512
+2019-08-18 19:13:18.057 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:13:18.057  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:13:18.087  INFO 9024 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.010141189178068
+2019-08-18 19:13:18.170  INFO 9024 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.033051640777698
+2019-08-18 19:13:18.187  INFO 9024 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：4.994917393781056
+2019-08-18 19:13:18.234  INFO 9024 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.990226858699883
+2019-08-18 19:13:18.259  INFO 9024 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.997329089888531
+2019-08-18 19:13:18.307  INFO 9024 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.06327839360349
+2019-08-18 19:13:18.424  INFO 9024 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.017274635154333
+2019-08-18 19:13:18.497  INFO 9024 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.02324486633088
+2019-08-18 19:13:18.751  INFO 9024 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.032776476079347
+2019-08-18 19:13:18.843  INFO 9024 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.034705615982242
+2019-08-18 19:13:19.736  INFO 9024 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.002402742857143
+2019-08-18 19:13:20.051  INFO 9024 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.061685186779787
+2019-08-18 19:13:20.991  INFO 9024 --- [OkHttp https://ws.zt.com/...] c.t.c.e.zt.ZTWebSocketServiceImpl        : null->{"error": null, "result": "pong", "id": 1566126800910}
+2019-08-18 19:13:23.038  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:13:23.063  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:13:23.064 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:13:23.221  INFO 9024 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.001376866095757
+2019-08-18 19:13:24.259  INFO 9024 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.029532957992999
+2019-08-18 19:13:24.353  INFO 9024 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.033051640777698
+2019-08-18 19:13:24.437  INFO 9024 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.001787719607649
+2019-08-18 19:13:24.512  INFO 9024 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.010281251928814
+2019-08-18 19:13:24.749  INFO 9024 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9860348773841965
+2019-08-18 19:13:24.784  INFO 9024 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.996226916788167
+2019-08-18 19:13:24.859  INFO 9024 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.062429104125023
+2019-08-18 19:13:24.941  INFO 9024 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.016433062120625
+2019-08-18 19:13:25.110  INFO 9024 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.034596004439512
+2019-08-18 19:13:25.462  INFO 9024 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.036543829078802
+2019-08-18 19:13:25.495  INFO 9024 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.004229161904763
+2019-08-18 19:13:25.944  INFO 9024 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.061685186779787
+2019-08-18 19:13:26.331  INFO 9024 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.02324486633088
+2019-08-18 19:13:27.029  INFO 9024 --- [OkHttp https://ws.zt.com/...] c.t.c.e.zt.ZTWebSocketServiceImplCNT     : null->{"error": null, "result": "pong", "id": 1566126806958}
+2019-08-18 19:13:28.047  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:13:28.065  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:13:28.066 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:13:28.728  INFO 9024 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.996091953678474
+2019-08-18 19:13:29.793  INFO 9024 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.02939235705951
+2019-08-18 19:13:30.626  INFO 9024 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0258718238864315
+2019-08-18 19:13:30.960  INFO 9024 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.000146010380565
+2019-08-18 19:13:31.085  INFO 9024 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.010141189178068
+2019-08-18 19:13:31.385  INFO 9024 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.986871350720125
+2019-08-18 19:13:31.406  INFO 9024 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.06327839360349
+2019-08-18 19:13:31.487  INFO 9024 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.017274635154333
+2019-08-18 19:13:31.563  INFO 9024 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.995745568655929
+2019-08-18 19:13:31.612  INFO 9024 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.02741398446171
+2019-08-18 19:13:31.868  INFO 9024 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.016079039132119
+2019-08-18 19:13:32.522  INFO 9024 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.999039047619048
+2019-08-18 19:13:33.080  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:13:33.082  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:13:33.084 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:13:33.170  INFO 9024 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.031320199778024
+2019-08-18 19:13:33.475  INFO 9024 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.066330667349562
+2019-08-18 19:13:34.278  INFO 9024 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.998734409887115
+2019-08-18 19:13:36.023  INFO 9024 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.02939235705951
+2019-08-18 19:13:36.170  INFO 9024 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0258718238864315
+2019-08-18 19:13:37.212  INFO 9024 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：4.9941195512185805
+2019-08-18 19:13:37.677  INFO 9024 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.011445221685012
+2019-08-18 19:13:37.916  INFO 9024 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.064596256587317
+2019-08-18 19:13:37.944  INFO 9024 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9860348773841965
+2019-08-18 19:13:38.095  INFO 9024 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.998200533333334
+2019-08-18 19:13:38.112  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:13:38.117  INFO 9024 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.997282866680758
+2019-08-18 19:13:38.121  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:13:38.121 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:13:38.224  INFO 9024 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.029009988901222
+2019-08-18 19:13:38.478  INFO 9024 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.017671445176289
+2019-08-18 19:13:38.523  INFO 9024 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.016433062120625
+2019-08-18 19:13:38.702  INFO 9024 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.030476270810211
+2019-08-18 19:13:39.029  INFO 9024 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.066668391098564
+2019-08-18 19:13:40.791  INFO 9024 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.994242234332424
+2019-08-18 19:13:41.557  INFO 9024 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.028548751458577
+2019-08-18 19:13:42.465  INFO 9024 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0258718238864315
+2019-08-18 19:13:43.156  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:13:43.159 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:13:43.160  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:13:43.456  INFO 9024 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.000528708840414
+2019-08-18 19:13:43.943  INFO 9024 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.009300812673593
+2019-08-18 19:13:44.120  INFO 9024 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.062429104125023
+2019-08-18 19:13:44.268  INFO 9024 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.998200533333334
+2019-08-18 19:13:44.456  INFO 9024 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.996490862422738
+2019-08-18 19:13:44.541  INFO 9024 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9860348773841965
+2019-08-18 19:13:45.121  INFO 9024 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.016433062120625
+2019-08-18 19:13:45.228  INFO 9024 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.030476270810211
+2019-08-18 19:13:45.688  INFO 9024 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.016079039132119
+2019-08-18 19:13:46.079  INFO 9024 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.064663113371216
+2019-08-18 19:13:46.705  INFO 9024 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.02741398446171
+2019-08-18 19:13:47.085  INFO 9024 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.028548751458577
+2019-08-18 19:13:47.334  INFO 9024 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.994242234332424
+2019-08-18 19:13:47.995  INFO 9024 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0258718238864315
+2019-08-18 19:13:48.192  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:13:48.193 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:13:48.193  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:13:49.932  INFO 9024 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.001685261454257
+2019-08-18 19:13:50.742  INFO 9024 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.062429104125023
+2019-08-18 19:13:50.746  INFO 9024 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.009300812673593
+2019-08-18 19:13:50.909  INFO 9024 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.998200533333334
+2019-08-18 19:13:51.019  INFO 9024 --- [OkHttp https://ws.zt.com/...] c.t.c.e.zt.ZTWebSocketServiceImpl        : null->{"error": null, "result": "pong", "id": 1566126830910}
+2019-08-18 19:13:51.060  INFO 9024 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.996490862422738
+2019-08-18 19:13:51.154  INFO 9024 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9860348773841965
+2019-08-18 19:13:51.303  INFO 9024 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.016433062120625
+2019-08-18 19:13:51.516  INFO 9024 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.017671445176289
+2019-08-18 19:13:51.612  INFO 9024 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.067840240899334
+2019-08-18 19:13:51.810  INFO 9024 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.030476270810211
+2019-08-18 19:13:52.582  INFO 9024 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.029009988901222
+2019-08-18 19:13:52.857  INFO 9024 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.99582770805761
+2019-08-18 19:13:52.972  INFO 9024 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.028548751458577
+2019-08-18 19:13:53.201  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:13:53.203 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:13:53.203  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:13:53.523  INFO 9024 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0274673387511575
+2019-08-18 19:13:55.485  INFO 9024 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.0003707862938285
+2019-08-18 19:13:57.047  INFO 9024 --- [OkHttp https://ws.zt.com/...] c.t.c.e.zt.ZTWebSocketServiceImplCNT     : null->{"error": null, "result": "pong", "id": 1566126836958}
+2019-08-18 19:13:57.302  INFO 9024 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.009300812673593
+2019-08-18 19:13:57.306  INFO 9024 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.062931844448483
+2019-08-18 19:13:57.476  INFO 9024 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.999930571428572
+2019-08-18 19:13:57.626  INFO 9024 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.999949625099054
+2019-08-18 19:13:57.744  INFO 9024 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.987760704554301
+2019-08-18 19:13:58.132  INFO 9024 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.032467998520163
+2019-08-18 19:13:58.208  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:13:58.210 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:13:58.211  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:13:58.415  INFO 9024 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.064892351223101
+2019-08-18 19:13:58.425  INFO 9024 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.032217480577137
+2019-08-18 19:13:58.461  INFO 9024 --- [币蛋_QTUM_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.994242234332424
+2019-08-18 19:13:58.863  INFO 9024 --- [币蛋_ONT_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.021121658271988
+2019-08-18 19:13:58.876  INFO 9024 --- [币蛋_TRX_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.029048127187865
+2019-08-18 19:13:58.969  INFO 9024 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.018169411080977
+2019-08-18 19:13:59.045  INFO 9024 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0258718238864315
+2019-08-18 19:14:01.349  INFO 9024 --- [币蛋_EOS_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：4.99888635989433
+2019-08-18 19:14:03.217  INFO 9024 --- [ZTCNT_XRP_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9988793622142005
+2019-08-18 19:14:03.217 ERROR 9024 --- [ZTCNT_GUBI_USDT] c.t.core.exchange.zt.MovingSell          : USDTGUBI计算出错，Index: 2, Size: 2
+2019-08-18 19:14:03.217  INFO 9024 --- [ZTCNT_ETH_USDT] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.012680500000001
+2019-08-18 19:14:03.499  INFO 9024 --- [币蛋_NEO_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.009465024174467
+2019-08-18 19:14:03.943  INFO 9024 --- [币蛋_ETC_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.062429104125023
+2019-08-18 19:14:04.327  INFO 9024 --- [币蛋_QTUM_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.9860348773841965
+2019-08-18 19:14:04.453  INFO 9024 --- [币蛋_GRIN_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.998200533333334
+2019-08-18 19:14:04.519  INFO 9024 --- [币蛋_ONT_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.016433062120625
+2019-08-18 19:14:04.588  INFO 9024 --- [币蛋_NEO_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.0258718238864315
+2019-08-18 19:14:04.620  INFO 9024 --- [币蛋_ETH_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：4.997282866680758
+2019-08-18 19:14:04.704  INFO 9024 --- [币蛋_XRP_ETH] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.02741398446171
+2019-08-18 19:14:04.939  INFO 9024 --- [币蛋_XRP_BTC] c.t.core.exchange.zt.MovingSell          : 预计一轮后的usdt：5.030476270810211
+2019-08-18 19:14:04.956  INFO 9024 --- [币蛋_LTC_BTC] c.t.core.exchange.zt.MovingBuy           : 预计一轮后的usdt：5.06366790681275

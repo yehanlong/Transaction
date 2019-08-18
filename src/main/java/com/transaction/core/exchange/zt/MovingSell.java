@@ -68,7 +68,7 @@ public class MovingSell extends Thread {
                 if (usdtcount == 0.0){
                     logger.info("获取市场行情失败");
                 }
-                if(usdtcount > 4.9){
+                if(usdtcount > 4.98){
                     logger.info("预计一轮后的usdt：" + usdtcount);
                 }
 
