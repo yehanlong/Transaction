@@ -1,5 +1,7 @@
 package com.transaction.core;
 
+import com.transaction.core.exchange.ExStart;
+import com.transaction.core.exchange.ExStartConst;
 import com.transaction.core.exchange.zhaobi.*;
 import com.transaction.core.exchange.zt.MovingBuy;
 import com.transaction.core.exchange.zt.MovingSell;
@@ -26,67 +28,24 @@ public class CoreApplication {
     public static void main(String[] args) {
         SpringApplication.run(CoreApplication.class, args);
 
-//        ZhaobiInit zbi = new ZhaobiInit();
-//        ZhaobiClient ZBClient = new ZhaobiClient();
-//        Lock lock = new ReentrantLock();
-//        //启动线程
-//        Map<String, List<String>> syMap1 = zbi.initSymbol();
-//        for (Map.Entry<String, List<String>> entry : syMap1.entrySet()) {
-//            for (String s: entry.getValue()) {
-//                SyncMoving1 m1 = new SyncMoving1(ZBClient, entry.getKey(), s);
-//                m1.setLock(lock);
-//                m1.start();
-//            }
-//        }
-//
-//        Map<String, List<String>> syMap2 = zbi.initSymbol();
-//        for (Map.Entry<String, List<String>> entry : syMap2.entrySet()) {
-//            for (String s: entry.getValue()) {
-//                SyncMoving2 m2 = new SyncMoving2(ZBClient, entry.getKey(), s);
-//                m2.setLock(lock);
-//                m2.start();
-//            }
-//
-//        }
-
-
-        ZTClient ztClient = new ZTClient();
-        ZTInit init = new ZTInit();
-
-        Map<String, List<String>> syMap2 =  init.initSymbol();
-        while (true){
-            WebSocketClient webSocketClient = (WebSocketClient) SpringUtil.getBean("ztWebSocketClient");
-            if(!webSocketClient.getConnected()){
-                try {
-                    TimeUnit.SECONDS.sleep(1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }else{
-                break;
-            }
-        }
-        logger.info("启动ZT监控...");
-        try {
-            TimeUnit.SECONDS.sleep(5);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        for (Map.Entry<String, List<String>> entry : syMap2.entrySet()) {
-            for (String s: entry.getValue()) {
-                MovingBuy m1 = new MovingBuy(ztClient, entry.getKey(), s);
-                new Thread(m1,"ZT_"+s+"_"+entry.getKey()).start();
-            }
-
+        // 启动找币
+        if (ExStartConst.ZHAOBISTART == 1){
+            ExStart.startZhaobi();
         }
 
-        for (Map.Entry<String, List<String>> entry : syMap2.entrySet()) {
-            for (String s: entry.getValue()) {
-                MovingSell m2 = new MovingSell(ztClient, entry.getKey(), s);
-                new Thread(m2,"ZT_"+s+"_"+entry.getKey()).start();
-            }
-
+        // ZT
+        if (ExStartConst.ZTSTART == 1){
+            ExStart.startZT();
         }
+
+        // ZT  CNT
+        if (ExStartConst.ZTCNTSTART == 1) {
+            ExStart.startZTCNT();
+        }
+
     }
+
+
+
 
 }
