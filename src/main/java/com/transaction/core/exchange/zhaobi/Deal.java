@@ -25,74 +25,89 @@ public class Deal {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     // 处理数量
-    public static String dealCount(double count, String sy){
+    public static String dealCount(double count, String sy, String exName){
         String result = "error";
-        switch (sy){
-            case "BTY":
-                // 保留小数点后一位
-                result = new DecimalFormat("0.0").format(count);
-                return result;
 
-            case "YCC":
-                // 保留整数位
-                result = new DecimalFormat("0").format(count);
-                return result;
+        if (exName == "找币") {
+            switch (sy){
+                case "BTY":
+                    // 保留小数点后一位
+                    result = new DecimalFormat("0.0").format(count);
+                    return result;
 
-            case "ETH":
-                // 保留小数点后3位
-                result = new DecimalFormat("0.000").format(count);
-                return result;
+                case "YCC":
+                    // 保留整数位
+                    result = new DecimalFormat("0").format(count);
+                    return result;
 
-            case "BTC":
-                // 保留小数点后4位
-                result = new DecimalFormat("0.0000").format(count);
-                return result;
+                case "ETH":
+                    // 保留小数点后3位
+                    result = new DecimalFormat("0.000").format(count);
+                    return result;
 
-            case "BCH":
-                // 保留小数点后4位
-                result = new DecimalFormat("0.0000").format(count);
-                return result;
+                case "BTC":
+                    // 保留小数点后4位
+                    result = new DecimalFormat("0.0000").format(count);
+                    return result;
 
-            case "ETC":
-                // 保留小数点后2位
-                result = new DecimalFormat("0.00").format(count);
-                return result;
+                case "BCH":
+                    // 保留小数点后4位
+                    result = new DecimalFormat("0.0000").format(count);
+                    return result;
 
-            case "ZEC":
-                // 保留小数点后3位
-                result = new DecimalFormat("0.000").format(count);
-                return result;
+                case "ETC":
+                    // 保留小数点后2位
+                    result = new DecimalFormat("0.00").format(count);
+                    return result;
 
-            case "LTC":
-                // 保留小数点后2位
-                result = new DecimalFormat("0.00").format(count);
-                return result;
+                case "ZEC":
+                    // 保留小数点后3位
+                    result = new DecimalFormat("0.000").format(count);
+                    return result;
 
+                case "LTC":
+                    // 保留小数点后2位
+                    result = new DecimalFormat("0.00").format(count);
+                    return result;
+
+            }
         }
+
+        if (exName == "ZT") {
+            return new DecimalFormat("0.0000").format(count);
+        }
+
         return result;
     }
 
     // 处理价格
-    public static String dealPrice(double price, String sy){
+    public static String dealPrice(double price, String sy, String exName){
         String result = "error";
-        switch (sy){
-            case "BTY":
-                // 保留小数点后6位
-                result = new DecimalFormat("0.000000").format(price);
-                return result;
-            case "USDT":
-                // 保留小数点后6位
-                result = new DecimalFormat("0.000000").format(price);
-                return result;
-            case "ETH":
-                // 保留小数点后8位
-                result = new DecimalFormat("0.00000000").format(price);
-                return result;
-            case "BTC":
-                // 保留小数点后8位
-                result = new DecimalFormat("0.00000000").format(price);
-                return result;
+        if (exName == "找币") {
+            switch (sy){
+                case "BTY":
+                    // 保留小数点后6位
+                    result = new DecimalFormat("0.000000").format(price);
+                    return result;
+                case "USDT":
+                    // 保留小数点后6位
+                    result = new DecimalFormat("0.000000").format(price);
+                    return result;
+                case "ETH":
+                    // 保留小数点后8位
+                    result = new DecimalFormat("0.00000000").format(price);
+                    return result;
+                case "BTC":
+                    // 保留小数点后8位
+                    result = new DecimalFormat("0.00000000").format(price);
+                    return result;
+            }
         }
+        if (exName == "找币") {
+            result = new DecimalFormat("0.0000").format(price);
+            return result;
+        }
+
         return result;
     }
 
@@ -375,20 +390,27 @@ public class Deal {
 //    }
 
     // 第一个参数是预计usdt，第二个是可吃的usdt，第三个参数是最大usdt限制
-    public static double getEveryUsdt(double usdt1,double usdt2, double max){
+    public static double getEveryUsdt(double usdt1,double usdt2, double max, String exName){
 
         Random r = new Random();
+        if (exName == "ZHAOBI") {
 
-        if (max == 2.0) {
-            return 5+r.nextDouble()*2;
+            if (max == 2.0) {
+                return 5+r.nextDouble()*2;
+            }
+
+            // 这个放前面，优先级最高
+            if (usdt1 > 5.1) {
+                return 25 + r.nextDouble()*3;
+            }
+
+            return 20+r.nextDouble()*8;
+        }
+        if (exName == "ZT") {
+            return 1.8+r.nextDouble()*1;
         }
 
-        // 这个放前面，优先级最高
-        if (usdt1 > 5.1) {
-            return 25 + r.nextDouble()*3;
-        }
-
-        return 20+r.nextDouble()*8;
+       return 0;
     }
 
 
@@ -409,7 +431,7 @@ public class Deal {
 
     public static void main(String[] args){
 
-        System.out.println(getEveryUsdt(10,200,0));
+//        System.out.println(getEveryUsdt(10,200,0));
 
         Random r = new Random();
         System.out.println( 10 + r.nextDouble()*3);

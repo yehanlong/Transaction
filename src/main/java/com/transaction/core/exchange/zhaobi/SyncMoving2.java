@@ -144,9 +144,9 @@ public class SyncMoving2 extends Thread {
 
                     double everyUSDT = 4.0;
                     if(sy1 == "BTY" && sy2 == "YCC"){
-                        everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),0.0);
+                        everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),0.0,this.getName());
                     }else {
-                        everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),2.0);
+                        everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),2.0,this.getName());
                     }
 
                     // 此处是为了保证吧小单吃完
@@ -273,7 +273,7 @@ public class SyncMoving2 extends Thread {
                         logger.info("初始金额：" + accountMoney + ", 最终金额：" + end + "， 盈利：" + (end-accountMoney));
 
 
-                        String msg = MailUtil.sendResultEmains("找币",sy1+sy2,count,"SELL",succUsdt,(end-accountMoney),allMoney,
+                        String msg = MailUtil.sendResultEmains(this.getName(),sy1+sy2,count,"SELL",succUsdt,(end-accountMoney),allMoney,
                                 HistoryUSDTList.get(HistoryUSDTList.size()-1)-HistoryUSDTList.get(0));
                         logger.info(msg);
                     }
@@ -302,9 +302,5 @@ public class SyncMoving2 extends Thread {
         }
     }
 
-
-    public void info(String msg){
-        logger.info("找币,  " + sy1 + sy2 + ", 方式: SELL. " + msg);
-    }
 
 }

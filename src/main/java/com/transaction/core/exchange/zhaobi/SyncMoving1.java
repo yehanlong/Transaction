@@ -149,9 +149,9 @@ public class SyncMoving1 extends Thread {
                     // 获取每次usdt
                     double everyUSDT = 4.0;
                     if(sy1 == "BTY" && sy2 == "YCC"){
-                        everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),0.0);
+                        everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),0.0,this.getName());
                     }else {
-                        everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),2.0);
+                        everyUSDT = Deal.getEveryUsdt(usdtcountB.doubleValue(),ap.getMinUSDT(),2.0,this.getName());
                     }
                     // 此处是为了保证吧小单吃完
                     if (DoubleUtil.compareTo(ap.getMinUSDT() - everyUSDT, 1.5) == -1){
@@ -283,7 +283,7 @@ public class SyncMoving1 extends Thread {
 
 
                         // 发送最终结果邮件
-                        String msg = MailUtil.sendResultEmains("找币",sy1+sy2,count,"BUY",succUsdt,(end-accountMoney),allMoney,
+                        String msg = MailUtil.sendResultEmains(this.getName(),sy1+sy2,count,"BUY",succUsdt,(end-accountMoney),allMoney,
                                 HistoryUSDTList.get(HistoryUSDTList.size()-1)-HistoryUSDTList.get(0));
                         logger.info(msg);
                     }

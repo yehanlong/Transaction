@@ -121,7 +121,8 @@ public class ExStart {
         }
         for (Map.Entry<String, List<String>> entry : syMap2.entrySet()) {
             for (String s: entry.getValue()) {
-                MovingBuy m1 = new MovingBuy(ztClient, entry.getKey(), s);
+//                MovingBuy m1 = new MovingBuy(ztClient, entry.getKey(), s);
+                SyncMoving1 m1 = new SyncMoving1(ztClient, entry.getKey(), s);
                 new Thread(m1,"ZTCNT_"+s+"_"+entry.getKey()).start();
             }
 
@@ -129,7 +130,8 @@ public class ExStart {
 
         for (Map.Entry<String, List<String>> entry : syMap2.entrySet()) {
             for (String s: entry.getValue()) {
-                MovingSell m2 = new MovingSell(ztClient, entry.getKey(), s);
+//                MovingSell m2 = new MovingSell(ztClient, entry.getKey(), s);
+                SyncMoving2 m2 = new SyncMoving2(ztClient, entry.getKey(), s);
                 new Thread(m2,"ZTCNT_"+s+"_"+entry.getKey()).start();
             }
 

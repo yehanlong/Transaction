@@ -235,8 +235,8 @@ public class ZhaobiClient implements Exchange {
 
         public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
 //
-            String amountStr = Deal.dealCount(amount,currency);
-            String priceStr = Deal.dealPrice(price,currency2);
+            String amountStr = Deal.dealCount(amount,currency,"找币");
+            String priceStr = Deal.dealPrice(price,currency2,"找币");
             String uri="https://api.biqianbao.top/api/trade/place";
             String requestText = //"amount=" + amount + "&" + "currency=" + currency + "&" + "currency2=" + currency2 + "&" + "price=" + price + "&" + "ty=" + ty;
                     "amount="+amountStr+"&currency="+currency+"&currency2="+currency2+"&price="+priceStr+"&ty="+ty;
@@ -305,6 +305,10 @@ public class ZhaobiClient implements Exchange {
         return false;
     }
 
+    @Override
+    public String getName() {
+        return "找币";
+    }
 
 
     public static void main(String[] args) throws Exception {
