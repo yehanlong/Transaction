@@ -85,9 +85,10 @@ public class SyncMoving1 extends Thread {
         double accountMoney = 0.0;
 
         // 初始usdt
-        double startUSDT = client.getAccount().get("USDT").getActive();
-        HistoryUSDTList.add(startUSDT);
-
+//        ===
+//        double startUSDT = client.getAccount().get("USDT").getActive();
+//        HistoryUSDTList.add(startUSDT);
+//        ===
 
         while (true) {
 
@@ -98,15 +99,17 @@ public class SyncMoving1 extends Thread {
 
                 in = 0;
 
-                double usdt = ZhaobiConstant.USDT;
+//        ===
+//                double usdt = ZhaobiConstant.USDT;
 
-                double accUSDT = client.getAccount().get("USDT").getActive();
-                int a = DoubleUtil.compareTo(accUSDT,usdt);
-                if (a == -1) {
-                    logger.info("账户usdt 小于"+ZhaobiConstant.USDT);
-                    Thread.sleep(ZhaobiConstant.SLEEPTIME);
-                    continue;
-                }
+//                double accUSDT = client.getAccount().get("USDT").getActive();
+//                int a = DoubleUtil.compareTo(accUSDT,usdt);
+//                if (a == -1) {
+//                    logger.info("账户usdt 小于"+ZhaobiConstant.USDT);
+//                    Thread.sleep(ZhaobiConstant.SLEEPTIME);
+//                    continue;
+//                }
+//        ===
 
                 //ex:  s1 BTY  s2 YCC
 
@@ -131,15 +134,17 @@ public class SyncMoving1 extends Thread {
                     in = 1;
                     // 有盈利，开始交易
                     logger.info("有盈利，开始交易");
-                    Map<String, PropertyVO> map = client.getAccount();
-                    logger.info("触发前USDT的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
-                    logger.info("触发前"+sy1+"的余额为："+map.get(sy1).getValuation()+", 可用："+map.get(sy1).getActive()+", 冻结："+map.get(sy1).getFrozen());
-                    logger.info("触发前"+sy2+"的余额为："+map.get(sy2).getValuation()+", 可用："+map.get(sy2).getActive()+", 冻结："+map.get(sy2).getFrozen());
-                    logger.info("触发前"+"USDT"+"的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
-
-                    if (accountMoney == 0.0) {
-                        accountMoney = map.get(sy1).getValuation() + map.get(sy2).getValuation() + map.get("USDT").getValuation();
-                    }
+//        ===
+//                    Map<String, PropertyVO> map = client.getAccount();
+//                    logger.info("触发前USDT的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
+//                    logger.info("触发前"+sy1+"的余额为："+map.get(sy1).getValuation()+", 可用："+map.get(sy1).getActive()+", 冻结："+map.get(sy1).getFrozen());
+//                    logger.info("触发前"+sy2+"的余额为："+map.get(sy2).getValuation()+", 可用："+map.get(sy2).getActive()+", 冻结："+map.get(sy2).getFrozen());
+//                    logger.info("触发前"+"USDT"+"的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
+//
+//                    if (accountMoney == 0.0) {
+//                        accountMoney = map.get(sy1).getValuation() + map.get(sy2).getValuation() + map.get("USDT").getValuation();
+//                    }
+//        ===
 
                     // 获取此轮交易实际需要的USDT
                     AmountPrice ap = Deal.getAcuallyUSDT(amountPrice,  "BUY");
@@ -204,10 +209,12 @@ public class SyncMoving1 extends Thread {
                         }
                     }
 
-                    // 盈利统计，同时解决延迟问题
-                    double lastUSDT = HistoryUSDTList.get(HistoryUSDTList.size() - 1);
-                    double accUSDTEnd = client.getAccount().get("USDT").getActive();
-                    int a4 = DoubleUtil.compareTo(accUSDTEnd,accUSDT);
+                    // 盈利统计，同时解决延迟问
+//        ===
+//                    double lastUSDT = HistoryUSDTList.get(HistoryUSDTList.size() - 1);
+//                    double accUSDTEnd = client.getAccount().get("USDT").getActive();
+//                    int a4 = DoubleUtil.compareTo(accUSDTEnd,accUSDT);
+//        ===
                     //int a5 = DoubleUtil.compareTo(DoubleUtil.sub(accUSDTEnd,accUSDT),-0.3);
 
                     // 利用延迟时间， 在此处发邮件  或者数据库操作
@@ -240,16 +247,18 @@ public class SyncMoving1 extends Thread {
                     count++;
                     // 此次进入循环直到退出的盈利
                     // 此交易对在程序运行期间的总盈利
-                    allMoney = allMoney + DoubleUtil.sub(accUSDTEnd,lastUSDT);
-
-
-                    Map<String, PropertyVO> map1 = client.getAccount();
-
-                    logger.info("初始usdt： " + lastUSDT);
-                    logger.info("最终usdt： " + accUSDTEnd);
-                    logger.info("此次盈利USDT: " + DoubleUtil.sub(accUSDTEnd,lastUSDT));
-                    logger.info("USDT总盈利：" + DoubleUtil.sub(accUSDTEnd,HistoryUSDTList.get(0)));
-                    HistoryUSDTList.add(accUSDTEnd);
+//        ===
+//                    allMoney = allMoney + DoubleUtil.sub(accUSDTEnd,lastUSDT);
+//
+//
+//                    Map<String, PropertyVO> map1 = client.getAccount();
+//
+//                    logger.info("初始usdt： " + lastUSDT);
+//                    logger.info("最终usdt： " + accUSDTEnd);
+//                    logger.info("此次盈利USDT: " + DoubleUtil.sub(accUSDTEnd,lastUSDT));
+//                    logger.info("USDT总盈利：" + DoubleUtil.sub(accUSDTEnd,HistoryUSDTList.get(0)));
+//                    HistoryUSDTList.add(accUSDTEnd);
+//        ===
                     // 可以打印下历史数据HistoryUSDTList
 
                 }else {
@@ -272,18 +281,19 @@ public class SyncMoving1 extends Thread {
                             e.printStackTrace();
                         }
 
-                        Map<String, PropertyVO> map = client.getAccount();
-                        logger.info("最终"+sy1+"的余额为："+map.get(sy1).getValuation()+", 可用："+map.get(sy1).getActive()+", 冻结："+map.get(sy1).getFrozen());
-                        logger.info("最终"+sy2+"的余额为："+map.get(sy2).getValuation()+", 可用："+map.get(sy2).getActive()+", 冻结："+map.get(sy2).getFrozen());
-                        logger.info("最终"+"USDT"+"的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
-
-
-                        double end =  +map.get(sy1).getValuation() + map.get(sy2).getValuation() + map.get("USDT").getValuation();
-                        logger.info("初始金额：" + accountMoney + ", 最终金额：" + end + "， 盈利：" + (end-accountMoney));
-
+//        ===
+//                        Map<String, PropertyVO> map = client.getAccount();
+//                        logger.info("最终"+sy1+"的余额为："+map.get(sy1).getValuation()+", 可用："+map.get(sy1).getActive()+", 冻结："+map.get(sy1).getFrozen());
+//                        logger.info("最终"+sy2+"的余额为："+map.get(sy2).getValuation()+", 可用："+map.get(sy2).getActive()+", 冻结："+map.get(sy2).getFrozen());
+//                        logger.info("最终"+"USDT"+"的余额为："+map.get("USDT").getValuation()+", 可用："+map.get("USDT").getActive()+", 冻结："+map.get("USDT").getFrozen());
+//
+//
+//                        double end =  +map.get(sy1).getValuation() + map.get(sy2).getValuation() + map.get("USDT").getValuation();
+//                        logger.info("初始金额：" + accountMoney + ", 最终金额：" + end + "， 盈利：" + (end-accountMoney));
+//        ===
 
                         // 发送最终结果邮件
-                        String msg = MailUtil.sendResultEmains(this.getName(),sy1+sy2,count,"BUY",succUsdt,(end-accountMoney),allMoney,
+                        String msg = MailUtil.sendResultEmains(this.getName(),sy1+sy2,count,"BUY",succUsdt,0,allMoney,
                                 HistoryUSDTList.get(HistoryUSDTList.size()-1)-HistoryUSDTList.get(0));
                         logger.info(msg);
                     }
