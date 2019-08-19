@@ -19,4 +19,6 @@ public class ZTCache {
      * websocket返回的盘口信息缓存
      */
     public static final ConcurrentHashMap<String, TradeVO> orderMap = new ConcurrentHashMap<>();
+
+    public static volatile String token = null;
 }
