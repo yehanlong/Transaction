@@ -42,7 +42,7 @@ public class ZTWebSocketServiceImpl implements WebSocketService {
         }
         Integer id = object.getInteger("id");
         if(!handle){
-            log.info("{}->{}",ZTCache.depthSymbolMap.get(id),message);
+//            log.info("{}->{}",ZTCache.depthSymbolMap.get(id),message);
         }
     }
 
