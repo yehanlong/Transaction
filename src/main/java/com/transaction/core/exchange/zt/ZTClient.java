@@ -1,10 +1,21 @@
 package com.transaction.core.exchange.zt;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
+import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -17,6 +28,32 @@ public class ZTClient implements Exchange{
     @Override
     public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
         return false;
+    }
+
+
+    public static boolean postBillZT(double amount, String market, String side, double price, String token) {
+        RestTemplate restTemplate = RestTemplateStatic.restTemplate();
+        String uri="https://www.zt.com/api/v1/user/trade/limit";
+        HttpHeaders headers = new HttpHeaders();
+        //定义请求参数类型
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+        headers.add("Authorization","Bearer "+token);
+        MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+        map.add("market",market);
+        map.add("side",side);
+        map.add("amount",String.valueOf(amount));
+        map.add("price",String.valueOf(price));
+        HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(map,headers);
+        String result =restTemplate.exchange(uri, HttpMethod.POST, entity, String.class).getBody();
+        JSONObject object = JSON.parseObject(result);
+        System.out.println(object.toJSONString());
+        return false;
+    }
+
+    public static void main(String[] args) {
+        ZTCache.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjExNTcxNDQsIkxvZ2luVmVyaWZ5IjoxLCJleHAiOjE1NjYzNDIxMTF9.MIbOqSOFCtKC97x4CayfaFWf4Pq1ID9eGpY5hTR5eyk";
+        postBillZT(0.01,"EOS_CNT","2",20.1526,
+                ZTCache.token);
     }
 
     @Override
