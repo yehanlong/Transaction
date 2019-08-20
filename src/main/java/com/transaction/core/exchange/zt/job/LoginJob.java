@@ -1,16 +1,19 @@
 package com.transaction.core.exchange.zt.job;
 
 import com.alibaba.fastjson.JSONObject;
+import com.transaction.core.dao.SMSDao;
+import com.transaction.core.entity.SMS;
 import com.transaction.core.exchange.ExStartConst;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.zt.ZTCache;
+import com.transaction.core.utils.MailUtil;
 import lombok.extern.slf4j.Slf4j;
+import okhttp3.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
-import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -25,6 +28,13 @@ public class LoginJob implements ApplicationRunner {
     private final static String userName = "15957180382";
     private final static String password = "kfm14108116";
     private final static String uri="https://www.zt.com/api/v1/login";
+
+    private final static String sendSMGMail = "ZT登录需要手机验证码，已向手机号"+userName+"发送验证码短信，请将验证码输入到数据库的sms表中，程序将会自动读取进行登录认证";
+    private final static String sendLoginSuccessMail = "ZT手机验证码登录成功";
+    private final static String sendLoginFailMail = "ZT手机验证码登录失败";
+
+    @Autowired
+    private SMSDao smsDao;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -60,9 +70,119 @@ public class LoginJob implements ApplicationRunner {
             log.error("调用ZT登录接口失败");
         }
         ZTCache.token = object.getJSONObject("result").getString("token");
+        int needSafe = object.getJSONObject("result").getInteger("need_safe");
+        if(1 == needSafe){
+            log.info("ZT登录需要手机验证码");
+            boolean success = sendSMG();
+            if(success){
+                MailUtil.sendEmains(sendLoginSuccessMail);
+            }else{
+                MailUtil.sendEmains(sendLoginFailMail);
+            }
+        }
     }
 
-//    public static void main(String[] args) {
-//        new LoginJob().doLogin();
-//    }
+    public boolean sendSMG(){
+        String url = "https://www.zt.com/api/v1/user/SMS";
+        RequestBody body = new FormBody.Builder()
+                .add("type","0")
+                .add("use_type","1")
+                .add("phone","")
+                .add("email","")
+                .add("country_id","")
+                .build();
+        String responseData = post(url,body,ZTCache.token);
+        JSONObject object = JSONObject.parseObject(responseData);
+
+        if(object == null){
+            log.error("ZT登录发送短信验证码失败，返回数据：{}",responseData);
+            return false;
+        }
+
+        Integer code = object.getInteger("code");
+        if(code == null || 0 != code){
+            log.error("ZT登录发送短信验证码失败，返回数据：{}",responseData);
+            return false;
+        }
+        log.info("发送短信验证码成功，开始邮件通知");
+        try {
+            MailUtil.sendEmains(sendSMGMail);
+        }catch (Exception e){
+            log.error("发送邮件失败",e);
+        }
+        return waitInputVerifyCode();
+    }
+
+    public boolean waitInputVerifyCode(){
+        while (true){
+            SMS sms = smsDao.getOne();
+            if(sms == null){
+                try {
+                    Thread.sleep(10000);
+                    continue;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    continue;
+                }
+            }
+            String code = sms.getCode();
+            return safeLogin(code);
+        }
+    }
+
+    public boolean safeLogin(String verifyCode){
+        String url = "https://www.zt.com/api/v1/user/safeLogin";
+        RequestBody body = new FormBody.Builder()
+                .add("sms_code",verifyCode)
+                .add("email_code","")
+                .add("two_step_code","")
+                .build();
+        String responseData = post(url,body,ZTCache.token);
+        JSONObject object = JSONObject.parseObject(responseData);
+
+        if(object == null){
+            log.error("ZT短信验证码登录失败，返回数据：{}",responseData);
+            return false;
+        }
+
+        Integer code = object.getInteger("code");
+        if(code == null || 0 != code){
+            log.error("ZT短信验证码登录失败，返回数据：{}",responseData);
+            return false;
+        }
+        return true;
+    }
+
+    public String post(String url,RequestBody body,String token) {
+
+        OkHttpClient client = new OkHttpClient();
+        try {
+            log.info("post请求，url={}，param={}，token={}",url,body,token);
+
+            Request request = new Request.Builder()
+                    .url(url)
+                    .post(body)
+                    .header("Authorization","Bearer "+token)
+                    .build();
+            Call call = client.newCall(request);
+            Response response = call.execute();
+            int code = response.code();
+            String responseData = response.body().string();
+            log.info(responseData);
+            if(code == 200){
+                return responseData;
+            }else{
+                throw new RuntimeException("error http code is "+code);
+            }
+        }catch (Exception e){
+            log.error("post请求出错，url={}，param={}，message={}",url,JSONObject.toJSONString(body),e.getMessage());
+            throw new RuntimeException("post请求出错",e);
+        }
+
+    }
+
+    public static void main(String[] args) {
+        new LoginJob().doLogin();
+        System.out.println(ZTCache.token);
+    }
 }

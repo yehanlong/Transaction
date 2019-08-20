@@ -5,8 +5,8 @@ spring:
   # Druid连接池配置，官方配置参考：https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
   datasource:
     druid:
-      url: jdbc:mysql://116.62.51.135:3306/transaction?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
-      username: root
+      url: jdbc:mysql://db.kfm666.cn:10004/transaction?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+      username: transaction
       password: 123456
       initial-size: 5
       max-active: 20
