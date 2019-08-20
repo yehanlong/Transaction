@@ -126,7 +126,10 @@ public class LoginJob implements ApplicationRunner {
                 }
             }
             String code = sms.getCode();
-            return safeLogin(code);
+
+            boolean result = safeLogin(code);
+            smsDao.delete(sms);
+            return result;
         }
     }
 
