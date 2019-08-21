@@ -1,6 +1,6 @@
 package com.transaction.core.exchange.zt;
 
-import com.transaction.core.strategy.FirstCacl;
+import com.transaction.core.exchange.pub.Test;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
 import org.slf4j.Logger;
@@ -65,7 +65,7 @@ public class MovingBuy extends Thread {
     public void run(){
         while (true){
             try {
-                FirstCacl t = new FirstCacl(client);
+                Test t = new Test(client);
                 double usdtcount = t.getFirstCount(sy1,sy2,"BUY");
                 if (usdtcount == 0.0){
                     logger.info("获取市场行情失败");
