@@ -1,7 +1,6 @@
 package com.transaction.core.strategy;
 
 import com.transaction.core.entity.AmountPrice;
-import com.transaction.core.exchange.pub.Test;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
 import com.transaction.core.exchange.zhaobi.Deal;
@@ -112,7 +111,7 @@ public class SyncMoving2 extends Thread {
 
                 // 异步获取市场行情 symbol1: BTY   symbol2:YCC
                 // SyncMarkInfo: trade1 bty trade2 bty-ycc trade3 ycc
-                Test t = new Test(client);
+                FirstCacl t = new FirstCacl(client);
                 double usdtcount = t.getFirstCount(sy1,sy2,"SELL");
                 if (usdtcount == 0.0){
                     logger.info("获取市场行情失败");

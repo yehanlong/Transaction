@@ -108,14 +108,14 @@ public class ZhaobiClient implements Exchange {
 
     // 异步获取市场行情
     @Override
-    public SyncMarkInfo getSyncMarkInfo(String symbol1, String symbol2){
+    public SyncMarkInfo getSyncMarkInfo(String symbol1, String symbol2, String SBase){
         CountDownLatch latch = new CountDownLatch(3);
         Lock lock = new ReentrantLock();
         SyncMarkInfo syncMarkInfo = new SyncMarkInfo();
         syncMarkInfo.setLock(lock);
-        MarketInnerClass marketInnerClass1 = new MarketInnerClass(symbol1+"USDT",syncMarkInfo,1,latch);
-        MarketInnerClass marketInnerClass2 = new MarketInnerClass(symbol2+symbol1,syncMarkInfo,2,latch);
-        MarketInnerClass marketInnerClass3 = new MarketInnerClass(symbol2+"USDT",syncMarkInfo,3,latch);
+        MarketInnerClass marketInnerClass1 = new MarketInnerClass(symbol1 + SBase, syncMarkInfo,1,latch);
+        MarketInnerClass marketInnerClass2 = new MarketInnerClass(symbol2 + symbol1, syncMarkInfo,2,latch);
+        MarketInnerClass marketInnerClass3 = new MarketInnerClass(symbol2 + SBase, syncMarkInfo,3,latch);
         new Thread(marketInnerClass1).start();
         new Thread(marketInnerClass2).start();
         new Thread(marketInnerClass3).start();
@@ -261,16 +261,16 @@ public class ZhaobiClient implements Exchange {
     // type指第二步买还是卖
     // symbol1 永远都是bty
     @Override
-    public boolean syncPostBill(String symbol1, String symbol2, double amount1, double amount2, double amount3,
+    public boolean syncPostBill(String symbol1, String symbol2, String SBase, double amount1, double amount2, double amount3,
                                 double price1, double price12, double price2, String type) {
 
         CountDownLatch latch = new CountDownLatch(3);
 
         if(type=="BUY"){
             // 买bty   bty买ycc  卖ycc
-            PlaceOrderInnerClass t1 = new PlaceOrderInnerClass(amount1, symbol1,"USDT", price1, "BUY", latch);
+            PlaceOrderInnerClass t1 = new PlaceOrderInnerClass(amount1, symbol1,SBase, price1, "BUY", latch);
             PlaceOrderInnerClass t2 = new PlaceOrderInnerClass(amount2, symbol2,symbol1, price12, type, latch);
-            PlaceOrderInnerClass t3 = new PlaceOrderInnerClass(amount3, symbol2,"USDT", price2, "SELL", latch);
+            PlaceOrderInnerClass t3 = new PlaceOrderInnerClass(amount3, symbol2,SBase, price2, "SELL", latch);
             new Thread(t1).start();
             new Thread(t2).start();
             new Thread(t3).start();
@@ -284,9 +284,9 @@ public class ZhaobiClient implements Exchange {
 
         if(type=="SELL"){
             //  买ycc  卖ycc换bty 卖bty
-            PlaceOrderInnerClass t1 = new PlaceOrderInnerClass(amount1, symbol1,"USDT", price1, "SELL", latch);
+            PlaceOrderInnerClass t1 = new PlaceOrderInnerClass(amount1, symbol1,SBase, price1, "SELL", latch);
             PlaceOrderInnerClass t2 = new PlaceOrderInnerClass(amount2, symbol2,symbol1, price12, type, latch);
-            PlaceOrderInnerClass t3 = new PlaceOrderInnerClass(amount3, symbol2,"USDT", price2, "BUY", latch);
+            PlaceOrderInnerClass t3 = new PlaceOrderInnerClass(amount3, symbol2,SBase, price2, "BUY", latch);
             new Thread(t1).start();
             new Thread(t2).start();
             new Thread(t3).start();

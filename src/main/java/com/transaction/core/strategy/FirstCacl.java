@@ -1,12 +1,15 @@
-package com.transaction.core.exchange.pub;
+package com.transaction.core.strategy;
 
-import com.transaction.core.constant.ZhaobiConstant;
 import com.transaction.core.entity.AmountPrice;
 import com.transaction.core.entity.Order;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.TradeVO;
+import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
 import com.transaction.core.exchange.zhaobi.Deal;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
@@ -16,43 +19,31 @@ import java.math.RoundingMode;
 
 import static java.math.BigDecimal.ROUND_HALF_DOWN;
 
-public class Test {
+
+// 用于模拟计算一轮交易后的金额
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class FirstCacl {
 
 
     private Exchange client;
 
     private AmountPrice amountPrice;
 
-    public AmountPrice getAmountPrice() {
-        return amountPrice;
-    }
-
-    public void setAmountPrice(AmountPrice amountPrice) {
-        this.amountPrice = amountPrice;
-    }
-
-    public Exchange getClient() {
-        return client;
-    }
-
-    public void setClient(Exchange client) {
+    public FirstCacl(Exchange client){
         this.client = client;
     }
 
-    public Test(Exchange client) {
-        this.client = client;
-    }
     RestTemplate restTemplate = RestTemplateStatic.restTemplate();
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
-
-
-    public double getFirstCount(String sy1, String sy2, String type){
+    public double getFirstCount(String sy1, String sy2, String sBase, String type){
 
 
         if (type == "BUY"){
-            SyncMarkInfo syncMarkInfo = client.getSyncMarkInfo(sy1, sy2);
+            SyncMarkInfo syncMarkInfo = client.getSyncMarkInfo(sy1, sy2, sBase);
             if (syncMarkInfo.getTrade1().getSuccess() && syncMarkInfo.getTrade2().getSuccess() && syncMarkInfo.getTrade3().getSuccess()) {
                 // 都获取成功
             } else {
@@ -100,7 +91,7 @@ public class Test {
         }
 
         if (type == "SELL"){
-            SyncMarkInfo syncMarkInfo = client.getSyncMarkInfo(sy1, sy2);
+            SyncMarkInfo syncMarkInfo = client.getSyncMarkInfo(sy1, sy2, sBase);
 
             if (syncMarkInfo.getTrade1().getSuccess() && syncMarkInfo.getTrade2().getSuccess() && syncMarkInfo.getTrade3().getSuccess()) {
                 // 都获取成功
@@ -154,7 +145,7 @@ public class Test {
 
     // 模拟技计算一轮后的usdt是多少  type第二步是买还是卖
     // 测试过，结果正确
-    public BigDecimal getUSDTcount(AmountPrice amountPrice, String type){
+    private BigDecimal getUSDTcount(AmountPrice amountPrice, String type){
         double btyPrice = amountPrice.getSy1Price();
         double btyNum = amountPrice.getSy1Amount();
 
