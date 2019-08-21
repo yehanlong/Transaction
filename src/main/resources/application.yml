@@ -44,3 +44,5 @@ logging:
   file: ./logs/${spring.application.name}/${spring.application.name}.log
 zt:
   enabled: true
+# 配置缓存时间，60秒
+cacheTime: 60000

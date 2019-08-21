@@ -3,6 +3,7 @@ package com.transaction.core.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
@@ -43,4 +44,6 @@ public class SymbolConfig {
     /**symbol1对symbol2的交易最小价格的小数位，整数为0*/
     @Column(columnDefinition = "int not null comment 'symbol1对symbol2的交易最小价格的小数位，整数为0'")
     private Integer symbol1Symbol2Price;
+
+    private Date cacheTime;
 }

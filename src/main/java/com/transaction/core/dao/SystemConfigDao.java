@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface SystemConfigDao extends JpaRepository<SystemConfig,Long> {
     SystemConfig getByPlatformAndEnabled(String platform,Boolean enabled);
+    SystemConfig getByPlatform(String platform);
     List<SystemConfig> getByEnabled(Boolean enabled);
 }

@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Data
@@ -25,4 +26,6 @@ public class SystemConfig {
     /**日志输出限制，当预计收益>logOutLimit时才会输出日志，*/
     @Column(columnDefinition = "decimal(10,6) not null default 5.01 comment '总的手续费'")
     private BigDecimal logOutLimit;
+
+    private Date cacheTime;
 }
