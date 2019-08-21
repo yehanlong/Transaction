@@ -1,4 +1,4 @@
-package com.transaction.core.exchange.zhaobi;
+package com.transaction.core.strategy;
 
 // 例子：
 // 用ycc换比特元

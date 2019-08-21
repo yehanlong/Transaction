@@ -1,21 +1,7 @@
 package com.transaction.core.exchange;
 
-import com.transaction.core.exchange.zhaobi.Moving1;
-import com.transaction.core.exchange.zhaobi.SyncMoving1;
-import com.transaction.core.exchange.zhaobi.SyncMoving2;
-import com.transaction.core.exchange.zhaobi.ZhaobiClient;
 import com.transaction.core.exchange.zt.MovingBuy;
 import com.transaction.core.exchange.zt.ZTClient;
-import com.transaction.core.exchange.zt.ZTInit;
-import com.transaction.core.utils.MailUtil;
-
-import javax.mail.MessagingException;
-import java.io.UnsupportedEncodingException;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class test {
 
