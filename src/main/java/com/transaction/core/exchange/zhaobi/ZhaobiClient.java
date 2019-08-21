@@ -9,6 +9,7 @@ import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
+import com.transaction.core.strategy.Deal;
 import com.transaction.core.utils.FontUtil;
 import com.transaction.core.utils.MailUtil;
 import org.slf4j.Logger;

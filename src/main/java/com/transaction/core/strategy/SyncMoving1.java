@@ -4,7 +4,6 @@ import com.transaction.core.constant.ZhaobiConstant;
 import com.transaction.core.entity.AmountPrice;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
-import com.transaction.core.exchange.zhaobi.Deal;
 import com.transaction.core.utils.DoubleUtil;
 import com.transaction.core.utils.MailUtil;
 import org.slf4j.Logger;
