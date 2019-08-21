@@ -31,6 +31,8 @@ public interface Exchange {
     boolean syncPostBill(String symbol1, String symbol2, double amount1, double amount2,double amount3,
                          double price1, double price2,double price3, String type);
 
-    public String getName();
+    String getName();
+
+
 
 }
