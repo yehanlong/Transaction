@@ -1,6 +1,6 @@
 package com.transaction.core.exchange.zt;
 
-import com.transaction.core.exchange.pub.PubDeal;
+import com.transaction.core.exchange.pub.Test;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
 import org.slf4j.Logger;
@@ -63,7 +63,7 @@ public class MovingSell extends Thread {
     public void run(){
         while (true){
             try {
-                PubDeal t = new PubDeal(client);
+                Test t = new Test(client);
                 double usdtcount = t.getFirstCount(sy1,sy2,"SELL");
                 if (usdtcount == 0.0){
                     logger.info("获取市场行情失败");

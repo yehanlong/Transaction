@@ -16,7 +16,7 @@ import java.math.RoundingMode;
 
 import static java.math.BigDecimal.ROUND_HALF_DOWN;
 
-public class PubDeal {
+public class Test {
 
 
     private Exchange client;
@@ -39,7 +39,7 @@ public class PubDeal {
         this.client = client;
     }
 
-    public PubDeal(Exchange client) {
+    public Test(Exchange client) {
         this.client = client;
     }
     RestTemplate restTemplate = RestTemplateStatic.restTemplate();

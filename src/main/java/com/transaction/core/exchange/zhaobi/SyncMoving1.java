@@ -2,9 +2,8 @@ package com.transaction.core.exchange.zhaobi;
 
 import com.transaction.core.constant.ZhaobiConstant;
 import com.transaction.core.entity.AmountPrice;
-import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
-import com.transaction.core.exchange.pub.PubDeal;
+import com.transaction.core.exchange.pub.Test;
 import com.transaction.core.exchange.pubinterface.Exchange;
 import com.transaction.core.utils.DoubleUtil;
 import com.transaction.core.utils.MailUtil;
@@ -16,7 +15,6 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.locks.Lock;
 
 // 例子：
@@ -115,7 +113,7 @@ public class SyncMoving1 extends Thread {
 
                 // 异步获取市场行情 symbol1: BTY   symbol2:YCC
                 // SyncMarkInfo: trade1 bty trade2 bty-ycc trade3 ycc
-                PubDeal t = new PubDeal(client);
+                Test t = new Test(client);
                 double usdtcount = t.getFirstCount(sy1,sy2,"BUY");
                 if (usdtcount == 0.0){
                     logger.info("获取市场行情失败");

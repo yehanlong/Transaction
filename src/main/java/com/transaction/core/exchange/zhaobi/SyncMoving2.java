@@ -1,11 +1,7 @@
 package com.transaction.core.exchange.zhaobi;
 
 import com.transaction.core.entity.AmountPrice;
-import com.transaction.core.entity.Order;
-import com.transaction.core.entity.SyncMarkInfo;
-import com.transaction.core.entity.vo.PropertyVO;
-import com.transaction.core.entity.vo.TradeVO;
-import com.transaction.core.exchange.pub.PubDeal;
+import com.transaction.core.exchange.pub.Test;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
 import com.transaction.core.utils.DoubleUtil;
@@ -15,11 +11,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.locks.Lock;
 
 public class SyncMoving2 extends Thread {
@@ -117,7 +111,7 @@ public class SyncMoving2 extends Thread {
 
                 // 异步获取市场行情 symbol1: BTY   symbol2:YCC
                 // SyncMarkInfo: trade1 bty trade2 bty-ycc trade3 ycc
-                PubDeal t = new PubDeal(client);
+                Test t = new Test(client);
                 double usdtcount = t.getFirstCount(sy1,sy2,"SELL");
                 if (usdtcount == 0.0){
                     logger.info("获取市场行情失败");
