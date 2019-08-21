@@ -41,5 +41,10 @@ public interface Exchange {
     // 当大于多少时，显示预计usdt的日志
     double showlogPrice();
 
+    // 开始交易的百分比
+    double getStartPrecentage();
+
+    // 获取每次交易的usdt
+    double getEveryUSDT();
 
 }

@@ -4,9 +4,9 @@ import com.transaction.core.entity.AmountPrice;
 import com.transaction.core.entity.Order;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.TradeVO;
+import com.transaction.core.exchange.pub.PubConst;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
-import com.transaction.core.exchange.zhaobi.Deal;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -156,7 +156,7 @@ public class FirstCacl {
         double yccNum = amountPrice.getSy2Amount();
 
         double usdt = 5.0;
-        double minUsdt = 1.5;
+        double minUsdt = PubConst.minUSDT;
 
         if (type == "SELL"){
             // 第一步

@@ -1,4 +1,4 @@
-package com.transaction.core.exchange.zhaobi;
+package com.transaction.core.strategy;
 
 
 import com.transaction.core.entity.AmountPrice;
@@ -24,92 +24,92 @@ public class Deal {
     RestTemplate restTemplate = RestTemplateStatic.restTemplate();
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    // 处理数量
-    public static String dealCount(double count, String sy, String exName){
-        String result = "error";
-
-        if (exName == "找币") {
-            switch (sy){
-                case "BTY":
-                    // 保留小数点后一位
-                    result = new DecimalFormat("0.0").format(count);
-                    return result;
-
-                case "YCC":
-                    // 保留整数位
-                    result = new DecimalFormat("0").format(count);
-                    return result;
-
-                case "ETH":
-                    // 保留小数点后3位
-                    result = new DecimalFormat("0.000").format(count);
-                    return result;
-
-                case "BTC":
-                    // 保留小数点后4位
-                    result = new DecimalFormat("0.0000").format(count);
-                    return result;
-
-                case "BCH":
-                    // 保留小数点后4位
-                    result = new DecimalFormat("0.0000").format(count);
-                    return result;
-
-                case "ETC":
-                    // 保留小数点后2位
-                    result = new DecimalFormat("0.00").format(count);
-                    return result;
-
-                case "ZEC":
-                    // 保留小数点后3位
-                    result = new DecimalFormat("0.000").format(count);
-                    return result;
-
-                case "LTC":
-                    // 保留小数点后2位
-                    result = new DecimalFormat("0.00").format(count);
-                    return result;
-
-            }
-        }
-
-        if (exName == "ZT") {
-            return new DecimalFormat("0.0000").format(count);
-        }
-
-        return result;
-    }
-
-    // 处理价格
-    public static String dealPrice(double price, String sy, String exName){
-        String result = "error";
-        if (exName == "找币") {
-            switch (sy){
-                case "BTY":
-                    // 保留小数点后6位
-                    result = new DecimalFormat("0.000000").format(price);
-                    return result;
-                case "USDT":
-                    // 保留小数点后6位
-                    result = new DecimalFormat("0.000000").format(price);
-                    return result;
-                case "ETH":
-                    // 保留小数点后8位
-                    result = new DecimalFormat("0.00000000").format(price);
-                    return result;
-                case "BTC":
-                    // 保留小数点后8位
-                    result = new DecimalFormat("0.00000000").format(price);
-                    return result;
-            }
-        }
-        if (exName == "找币") {
-            result = new DecimalFormat("0.0000").format(price);
-            return result;
-        }
-
-        return result;
-    }
+//    // 处理数量
+//    public static String dealCount(double count, String sy, String exName){
+//        String result = "error";
+//
+//        if (exName == "找币") {
+//            switch (sy){
+//                case "BTY":
+//                    // 保留小数点后一位
+//                    result = new DecimalFormat("0.0").format(count);
+//                    return result;
+//
+//                case "YCC":
+//                    // 保留整数位
+//                    result = new DecimalFormat("0").format(count);
+//                    return result;
+//
+//                case "ETH":
+//                    // 保留小数点后3位
+//                    result = new DecimalFormat("0.000").format(count);
+//                    return result;
+//
+//                case "BTC":
+//                    // 保留小数点后4位
+//                    result = new DecimalFormat("0.0000").format(count);
+//                    return result;
+//
+//                case "BCH":
+//                    // 保留小数点后4位
+//                    result = new DecimalFormat("0.0000").format(count);
+//                    return result;
+//
+//                case "ETC":
+//                    // 保留小数点后2位
+//                    result = new DecimalFormat("0.00").format(count);
+//                    return result;
+//
+//                case "ZEC":
+//                    // 保留小数点后3位
+//                    result = new DecimalFormat("0.000").format(count);
+//                    return result;
+//
+//                case "LTC":
+//                    // 保留小数点后2位
+//                    result = new DecimalFormat("0.00").format(count);
+//                    return result;
+//
+//            }
+//        }
+//
+//        if (exName == "ZT") {
+//            return new DecimalFormat("0.0000").format(count);
+//        }
+//
+//        return result;
+//    }
+//
+//    // 处理价格
+//    public static String dealPrice(double price, String sy, String exName){
+//        String result = "error";
+//        if (exName == "找币") {
+//            switch (sy){
+//                case "BTY":
+//                    // 保留小数点后6位
+//                    result = new DecimalFormat("0.000000").format(price);
+//                    return result;
+//                case "USDT":
+//                    // 保留小数点后6位
+//                    result = new DecimalFormat("0.000000").format(price);
+//                    return result;
+//                case "ETH":
+//                    // 保留小数点后8位
+//                    result = new DecimalFormat("0.00000000").format(price);
+//                    return result;
+//                case "BTC":
+//                    // 保留小数点后8位
+//                    result = new DecimalFormat("0.00000000").format(price);
+//                    return result;
+//            }
+//        }
+//        if (exName == "找币") {
+//            result = new DecimalFormat("0.0000").format(price);
+//            return result;
+//        }
+//
+//        return result;
+//    }
 
     // p1 p2 p3 分别是第一二三步具体的usdt  type第二步是买还是卖
     // sy1永远都是bty 代表usdt
@@ -390,28 +390,28 @@ public class Deal {
 //    }
 
     // 第一个参数是预计usdt，第二个是可吃的usdt，第三个参数是最大usdt限制
-    public static double getEveryUsdt(double usdt1,double usdt2, double max, String exName){
-
-        Random r = new Random();
-        if (exName == "ZHAOBI") {
-
-            if (max == 2.0) {
-                return 5+r.nextDouble()*2;
-            }
-
-            // 这个放前面，优先级最高
-            if (usdt1 > 5.1) {
-                return 25 + r.nextDouble()*3;
-            }
-
-            return 20+r.nextDouble()*8;
-        }
-        if (exName == "ZT") {
-            return 1.8+r.nextDouble()*1;
-        }
-
-       return 0;
-    }
+//    public static double getEveryUsdt(double usdt1,double usdt2, double max, String exName){
+//
+//        Random r = new Random();
+//        if (exName == "ZHAOBI") {
+//
+//            if (max == 2.0) {
+//                return 5+r.nextDouble()*2;
+//            }
+//
+//            // 这个放前面，优先级最高
+//            if (usdt1 > 5.1) {
+//                return 25 + r.nextDouble()*3;
+//            }
+//
+//            return 20+r.nextDouble()*8;
+//        }
+//        if (exName == "ZT") {
+//            return 1.8+r.nextDouble()*1;
+//        }
+//
+//       return 0;
+//    }
 
 
     public static Order dealSmallOrder(List<Order> o) {
