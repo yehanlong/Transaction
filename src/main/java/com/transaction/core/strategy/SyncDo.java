@@ -107,6 +107,7 @@ public class SyncDo {
                         //double point = everyUSDT / ap.getMinUSDT();
                         double point = DoubleUtil.div(everyUSDT,ap.getMinUSDT(),25);
 
+                        // 此处需要优化
                         // 处理btc的小数问题
                         double am1 = DoubleUtil.mul(ap.getSy1Amount(), point);
                         double point1 = 1.0;
@@ -118,6 +119,11 @@ public class SyncDo {
                         if (sy1=="ETH" && ap.getSy1Amount() > 0.001){
                             double dam1 = Double.valueOf(new DecimalFormat("0.000").format(am1));
                             point1 =  DoubleUtil.div(dam1,am1,25);
+                        }
+
+                        if (everyUSDT < 1.5){
+                            logger.info("usdt太少:"+ everyUSDT);
+                            continue;
                         }
 
                         logger.info("一步步吃订单,吃单usdt数："+everyUSDT*point*point1);
@@ -165,9 +171,8 @@ public class SyncDo {
                     // 发送结果报告
                     if (succUsdt != 0) {
                         // 发送最终结果邮件
-                        String msg = MailUtil.sendResultEmains(this.getName(),sy1+sy2,count,"BUY",succUsdt,0,allMoney,
-                                HistoryUSDTList.get(HistoryUSDTList.size()-1)-HistoryUSDTList.get(0));
-                        logger.info(msg);
+                        //String msg = MailUtil.sendResultEmains(client.getName(),sy1+sy2,count,"BUY",succUsdt,);
+                        //logger.info(msg);
                     }
 
                     // 数据初始化
@@ -190,5 +195,4 @@ public class SyncDo {
         }
     }
 
-    }
 }
