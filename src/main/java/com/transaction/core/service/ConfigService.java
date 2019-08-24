@@ -43,7 +43,7 @@ public class ConfigService {
         String key = getKey(platform,baseCoin,symbol1,symbol2);
         SymbolConfig symbolConfig = symbolConfigs.get(key);
         // 双重校验锁更新缓存
-        if(symbolConfig == null || System.currentTimeMillis() - symbolConfig.getCacheTime().getTime() < cacheTime){
+        if(symbolConfig == null || System.currentTimeMillis() - symbolConfig.getCacheTime().getTime() > cacheTime){
             synchronized (symbol){
                 symbolConfig = symbolConfigs.get(key);
                 if(symbolConfig == null || System.currentTimeMillis() - symbolConfig.getCacheTime().getTime() < cacheTime){
@@ -73,7 +73,7 @@ public class ConfigService {
     public SystemConfig getSystemConfig(String platform){
         SystemConfig systemConfig = systemConfigs.get(platform);
         // 双重校验锁更新缓存
-        if(systemConfig == null || System.currentTimeMillis() - systemConfig.getCacheTime().getTime() < cacheTime){
+        if(systemConfig == null || System.currentTimeMillis() - systemConfig.getCacheTime().getTime() > cacheTime){
             synchronized (system){
                 systemConfig = systemConfigs.get(platform);
                 if(systemConfig == null || System.currentTimeMillis() - systemConfig.getCacheTime().getTime() < cacheTime){
