@@ -80,65 +80,24 @@ public class SyncDo {
                     logger.info("此次挂单可吃的usdt数量: " + ap.getMinUSDT());
 
                     // 获取每次usdt
-                    double everyUSDT = client.getEveryUSDT();
+                    double everyUSDT = client.getEveryUSDT(ap);
 
                     // 此处是为了保证吧小单吃完
                     if (DoubleUtil.compareTo(ap.getMinUSDT() - everyUSDT, PubConst.minUSDT) == -1){
                         everyUSDT = ap.getMinUSDT();
                     }
 
-                    int a1 = DoubleUtil.compareTo(everyUSDT,ap.getMinUSDT());
 
-                    if (a1==1) {
-                        // 直接吃完整个订单
-                        // 一起执行3比交易
-                        succUsdt += ap.getMinUSDT();
-                        logger.info("直接吃完整个订单，吃单usdt数："+ ap.getMinUSDT());
-                        boolean b = client.syncPostBill(sy1, sy2,sBase, ap.getSy1Amount(), ap.getSy12Amount(), ap.getSy2Amount(), ap.getSy1Price(),
-                                ap.getSy12Price(), ap.getSy2Price(), "BUY");
-                        if(!b){
-                            logger.error("BUY or SELL 错误");
-                            return;
-                        }
-                    } else {
-                        // 如果4.0太少了，只能一步步吃
-                        // 一起执行3比交易
-
-                        //double point = everyUSDT / ap.getMinUSDT();
-                        double point = DoubleUtil.div(everyUSDT,ap.getMinUSDT(),25);
-
-                        // 此处需要优化
-                        // 处理btc的小数问题
-                        double am1 = DoubleUtil.mul(ap.getSy1Amount(), point);
-                        double point1 = 1.0;
-                        // 根据sy1来计算
-                        if (sy1=="BTC" && ap.getSy1Amount() > 0.0001){
-                            double dam1 = Double.valueOf(new DecimalFormat("0.0000").format(am1));
-                            point1 =  DoubleUtil.div(dam1,am1,25);
-                        }
-                        if (sy1=="ETH" && ap.getSy1Amount() > 0.001){
-                            double dam1 = Double.valueOf(new DecimalFormat("0.000").format(am1));
-                            point1 =  DoubleUtil.div(dam1,am1,25);
-                        }
-
-                        if (everyUSDT < 1.5){
-                            logger.info("usdt太少:"+ everyUSDT);
-                            continue;
-                        }
-
-                        logger.info("一步步吃订单,吃单usdt数："+everyUSDT*point*point1);
-                        succUsdt += everyUSDT*point1;
-
-                        boolean b = client.syncPostBill(sy1, sy2,sBase, DoubleUtil.mulThree(ap.getSy1Amount(),point,point1),
-                                DoubleUtil.mulThree(ap.getSy12Amount(), point ,point1),
-                                DoubleUtil.mulThree(ap.getSy2Amount(),point, point1),
-                                ap.getSy1Price(), ap.getSy12Price(), ap.getSy2Price(), "BUY");
-                        if(!b){
-                            logger.error("BUY or SELL 错误");
-                            return;
-                        }
+                    // 直接吃完整个订单
+                    // 一起执行3比交易
+                    succUsdt += ap.getMinUSDT();
+                    logger.info("吃单usdt数："+ ap.getMinUSDT());
+                    boolean b = client.syncPostBill(sy1, sy2,sBase, ap.getSy1Amount(), ap.getSy12Amount(), ap.getSy2Amount(), ap.getSy1Price(),
+                            ap.getSy12Price(), ap.getSy2Price(), "BUY");
+                    if(!b){
+                        logger.error("BUY or SELL 错误");
+                        return;
                     }
-
 
                     // 利用延迟时间， 在此处发邮件  或者数据库操作
                     if (emailStartMark == 0) {
@@ -154,8 +113,6 @@ public class SyncDo {
 
                         emailStartMark = 1;
                     }
-
-
                     count++;
 
                 }else {
@@ -171,12 +128,11 @@ public class SyncDo {
                     // 发送结果报告
                     if (succUsdt != 0) {
                         // 发送最终结果邮件
-                        //String msg = MailUtil.sendResultEmains(client.getName(),sy1+sy2,count,"BUY",succUsdt,);
-                        //logger.info(msg);
+                        String msg = MailUtil.sendResultEmains(client.getName(),sy1+sy2+sBase,count,"BUY",succUsdt);
+                        logger.info(msg);
                     }
 
                     // 数据初始化
-
                     count = 0;
                     succUsdt=0.0;
                     // 重置邮件开关
@@ -193,6 +149,12 @@ public class SyncDo {
 
             }
         }
+    }
+
+
+
+    public void sell(){
+
     }
 
 }

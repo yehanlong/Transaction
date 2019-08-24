@@ -1,6 +1,7 @@
 package com.transaction.core.exchange.pubinterface;
 
 import com.transaction.core.entity.Account;
+import com.transaction.core.entity.AmountPrice;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.entity.vo.PropertyVO;
@@ -44,7 +45,7 @@ public interface Exchange {
     // 开始交易的百分比
     double getStartPrecentage();
 
-    // 获取每次交易的usdt
-    double getEveryUSDT();
+    // 获取每次交易的usdt  入参，此次可以吃的最小USDT
+    double getEveryUSDT(AmountPrice amountPrice);
 
 }

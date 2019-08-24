@@ -90,8 +90,7 @@ public class MailUtil implements Runnable {
     }
 
 
-    public static String sendResultEmains(String exch, String Sys, int count, String type, double succUsdt, double thisMoney,
-                                        double allMoney, double historyMoney){
+    public static String sendResultEmains(String exch, String Sys, int count, String type, double succUsdt){
         LocalDateTime localDateTime = LocalDateTime.now();
         String msg1 = "时间："+ localDateTime.toString() +"\n";
         String msg2 = "交易所："+ exch +"。\n";
@@ -99,21 +98,17 @@ public class MailUtil implements Runnable {
         String msg4 = "交易方式："+ type +"。\n";
         String msg5 = "交易次数："+ count +"。\n";
         String msg6 = "成交usdt数量："+ succUsdt +"。\n";
-        String msg7 = "此次总盈利USDT："+ thisMoney/7.0 +"。\n";
-        String msg8 = "此次总盈利RMB："+ thisMoney +"。\n";
-        String msg9 = "平均每笔交易盈利："+ thisMoney/Double.valueOf(count) +"。\n";
-        String msg10 = "该交易对总盈利USDT："+ allMoney +"。\n";
-        String msg11 = "该交易所总盈利USDT："+ historyMoney +"。\n";
+//        String msg7 = "此次总盈利USDT："+ thisMoney/7.0 +"。\n";
+//        String msg8 = "此次总盈利RMB："+ thisMoney +"。\n";
+//        String msg9 = "平均每笔交易盈利："+ thisMoney/Double.valueOf(count) +"。\n";
+//        String msg10 = "该交易对总盈利USDT："+ allMoney +"。\n";
+//        String msg11 = "该交易所总盈利USDT："+ historyMoney +"。\n";
 
-        String msg = msg1+msg2+msg3+msg4+msg5+msg6+msg7+msg8+msg9+msg10;
+        String msg = msg1+msg2+msg3+msg4+msg5+msg6;
         sendEmains(msg);
         return msg;
     }
 
-    public static void main(String[] args){
-//        sendEmains("www");
-        sendResultEmains("www","www",1,"www",0.0,0.0,0.0,0.0);
-    }
 
     @Override
     public void run() {
