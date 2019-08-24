@@ -127,19 +127,19 @@ public class DoubleUtil {
     /**
      * 一些固定公式的封装
      */
-    public static double getAnotherSyAmount2Expression(double amount, double price){
+    public static double getAnotherSyAmount2Expression(double amount, double price, double sxf){
         //amount*price/(1-0.001)
         BigDecimal amountB = new BigDecimal(amount);
         BigDecimal priceB = new BigDecimal(price);
-        BigDecimal express = new BigDecimal(sub(1,0.001));
+        BigDecimal express = new BigDecimal(sub(1,sxf));
         double expression = amountB.multiply(priceB).divide(express,25, BigDecimal.ROUND_HALF_UP).doubleValue();
         return  expression;
     }
 
-    public static double getAnotherSyAmount1Expression(double amount, double price){
+    public static double getAnotherSyAmount1Expression(double amount, double price, double sxf){
         BigDecimal amountB = new BigDecimal(amount);
         BigDecimal priceB = new BigDecimal(price);
-        BigDecimal express = new BigDecimal(sub(1,0.001));
+        BigDecimal express = new BigDecimal(sub(1,sxf));
         double expression = amountB.multiply(express).divide(priceB,25, BigDecimal.ROUND_HALF_UP).doubleValue();
         return expression;
     }

@@ -32,6 +32,8 @@ public interface Exchange {
     boolean syncPostBill(String symbol1, String symbol2, String SBase, double amount1, double amount2,double amount3,
                          double price1, double price2,double price3, String type);
 
+
+
     // 交易所名字
     String getName();
 
@@ -51,4 +53,7 @@ public interface Exchange {
     // 获取保留小数位 返回0.00  0.0000之类的格式 sy1 btc  sy2 usdt  返回0.0000
     String getSmallCount(String sy1, String sy2);
 
+
+    // 获取手续费
+    double getSxf();
 }

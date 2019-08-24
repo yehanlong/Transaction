@@ -101,7 +101,6 @@ public class ZhaobiClient implements Exchange {
         return new PlaceOrderInnerClass().postBill(amount, currency, currency2, price, ty);
     }
 
-    @Override
     public TradeVO getMarketInfo(String symbols) {
         return new MarketInnerClass(symbols).getMarketInfo(symbols);
     }
@@ -233,6 +232,7 @@ public class ZhaobiClient implements Exchange {
 
         public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
 //
+            // todo 此次改成交易所自己维护价格处理
             String amountStr = Deal.dealCount(amount,currency,"找币");
             String priceStr = Deal.dealPrice(price,currency2,"找币");
             String uri="https://api.biqianbao.top/api/trade/place";

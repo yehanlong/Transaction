@@ -1,6 +1,7 @@
 package com.transaction.core.strategy;
 
 import com.transaction.core.entity.AmountPrice;
+import com.transaction.core.exchange.pub.PostBill;
 import com.transaction.core.exchange.pub.PubConst;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
@@ -27,6 +28,9 @@ public class SyncDo {
     private String sBase;
     private Lock lock;
     private String type;
+    // 交易策略  2代表一次次吃， 3代表同时吃单
+    private int sType;
+
 
     public SyncDo(Exchange client, String sy1, String sy2, String sBase, Lock lock, String type) {
         this.client = client;
@@ -41,7 +45,7 @@ public class SyncDo {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public void doIt(){
-        logger.info("start, sy1: " + sy1 +", sy2: "+ sy2 + ", sBase: " + sBase);
+        logger.info("start SyncDo, sy1: " + sy1 +", sy2: "+ sy2 + ", sBase: " + sBase);
         int count = 0;
         int in = 0;
         int emailStartMark = 0;
@@ -51,6 +55,7 @@ public class SyncDo {
             logger.error("type err");
             return;
         }
+
 
         while (true) {
 
@@ -84,7 +89,10 @@ public class SyncDo {
                     logger.info("有盈利，开始交易...");
 
                     // 获取此轮交易实际需要的USDT
-                    AmountPrice ap = Deal.getAcuallyUSDT(amountPrice,  type);
+                    AmountPrice ap = Deal.getAcuallyUSDT(amountPrice,  type, client.getSxf());
+                    if (ap.getMinUSDT() < PubConst.getMin(sBase)){
+                        continue;
+                    }
 
                     logger.info("此次挂单可吃的usdt数量: " + ap.getMinUSDT());
 
@@ -95,8 +103,8 @@ public class SyncDo {
                     double point = 1.0;
                     double point1 = 1.0;
                     if (a1 == 1) {
-                        // 不一定能吃完
-                        // logger.info("直接吃完整个订单");
+                        // 小数位的问题  不一定能吃完
+                         logger.info("直接吃完整个订单");
                     }else {
                         logger.info("一步步吃订单");
                         point = DoubleUtil.div(point,ap.getMinUSDT(),10);
@@ -107,7 +115,7 @@ public class SyncDo {
                     while (true) {
                         double top = Double.valueOf(new DecimalFormat(smallCount).format( ap.getSy1Amount()));
                         point1 = DoubleUtil.div(top,ap.getSy1Amount(),10);
-                        if (everyUSDT * point1 < 1.5){
+                        if (everyUSDT * point1 < PubConst.getMin(sBase)){
                             everyUSDT = everyUSDT + 1;
                             continue;
                         }
@@ -117,12 +125,23 @@ public class SyncDo {
                     // 一起执行3比交易
                     succUsdt += ap.getMinUSDT();
                     logger.info("此次吃单usdt数："+ ap.getMinUSDT());
-                    boolean b = client.syncPostBill(sy1, sy2,sBase, ap.getSy1Amount()*point, ap.getSy12Amount()*point, ap.getSy2Amount()*point, ap.getSy1Price(),
-                            ap.getSy12Price(), ap.getSy2Price(), type);
-                    if(!b){
-                        logger.error("BUY or SELL 错误");
-                        return;
+                    if (sType == 2) {
+                        boolean b = new PostBill().postBill(client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
+                                ap.getSy12Price(), ap.getSy2Price(), type);
+                        if(!b){
+                            logger.error("BUY or SELL 错误");
+                            return;
+                        }
                     }
+                    if (sType == 3){
+                        boolean b = new PostBill().symcPostBill(client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
+                                ap.getSy12Price(), ap.getSy2Price(), type);
+                        if(!b){
+                            logger.error("BUY or SELL 错误");
+                            return;
+                        }
+                    }
+
 
                     // 利用延迟时间， 在此处发邮件  或者数据库操作
                     if (emailStartMark == 0) {

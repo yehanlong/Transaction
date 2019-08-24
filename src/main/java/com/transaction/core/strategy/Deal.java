@@ -113,7 +113,7 @@ public class Deal {
 
     // p1 p2 p3 分别是第一二三步具体的usdt  type第二步是买还是卖
     // sy1永远都是bty 代表usdt
-    public static AmountPrice getAcuallyUSDT(AmountPrice amountPrice, String type){
+    public static AmountPrice getAcuallyUSDT(AmountPrice amountPrice, String type, double sxf){
 
 
         double sy1;
@@ -157,7 +157,7 @@ public class Deal {
                 double bty = amountPrice.getSy1Amount();
                 a.setSy1Amount(bty);
                 // 第二步的数量 根据第一步的bty来获取
-                double ycc = getAnotherSyAmount1(bty,amountPrice.getSy12Price(),type);
+                double ycc = getAnotherSyAmount1(bty,amountPrice.getSy12Price(),type,sxf);
                 // 第二步买入多少ycc  第三步就卖出多少ycc
                 a.setSy12Amount(ycc);
                 a.setSy2Amount(ycc);
@@ -168,7 +168,7 @@ public class Deal {
                 // 以第二步为基准  能知道第二步买入多少ycc
                 double ycc = amountPrice.getSy12Amount();
                 // 获取第一步所需要的bty数量
-                double bty = getAnotherSyAmount2(ycc,amountPrice.getSy12Price(),type);
+                double bty = getAnotherSyAmount2(ycc,amountPrice.getSy12Price(),type,sxf);
                 a.setSy1Amount(bty);
                 a.setSy12Amount(ycc);
                 a.setSy2Amount(ycc);
@@ -179,7 +179,7 @@ public class Deal {
                 // 以第三步为基准 卖出多少ycc
                 double ycc = amountPrice.getSy2Amount();
                 // 第一步根据ycc 获取bty
-                double bty = getAnotherSyAmount2(ycc,amountPrice.getSy12Price(),type);
+                double bty = getAnotherSyAmount2(ycc,amountPrice.getSy12Price(),type,sxf);
 
                 a.setSy1Amount(bty);
                 // 第二步买入多少ycc
@@ -197,7 +197,7 @@ public class Deal {
                 double bty = amountPrice.getSy1Amount();
 
                 // 第二步的数量 根据第3步的bty来获取  // 需要知道卖掉多少ycc才能买到第三步的bty
-                double ycc = getAnotherSyAmount1(bty,amountPrice.getSy12Price(),type);
+                double ycc = getAnotherSyAmount1(bty,amountPrice.getSy12Price(),type,sxf);
 
                 // 第2步卖出多少ycc  第1步就卖出多少ycc
 
@@ -215,7 +215,7 @@ public class Deal {
                 // 以第二步为基准  能知道第二步卖出多少ycc
                 double ycc = amountPrice.getSy12Amount();
                 // 获取第2步所得到的bty数量
-                double bty = getAnotherSyAmount2(ycc,amountPrice.getSy12Price(),type);
+                double bty = getAnotherSyAmount2(ycc,amountPrice.getSy12Price(),type,sxf);
 
                 //第一步买入多少ycc
                 a.setSy2Amount(ycc);
@@ -230,7 +230,7 @@ public class Deal {
                 // 以第1步为基准 买入多少ycc
                 double ycc = amountPrice.getSy2Amount();
                 // ycc 第二步卖出ycc能获取多少bty获取bty
-                double bty = getAnotherSyAmount2(ycc,amountPrice.getSy12Price(),type);
+                double bty = getAnotherSyAmount2(ycc,amountPrice.getSy12Price(),type,sxf);
 
                 //第一步买入多少ycc
                 a.setSy2Amount(ycc);
@@ -254,12 +254,12 @@ public class Deal {
 
     //  第3步卖出比特元，有bty的数量，需要知道第二步卖多少ycc能得到bty ycc为手续费
     // amount bty  price bty-ycc    ycc*(1-0.001)*price = bty   ycc = bty/(1-0.001)/price
-    public static double getAnotherSyAmount1(double amount, double price, String type){
+    public static double getAnotherSyAmount1(double amount, double price, String type,double sxf){
         if (type == "BUY"){
-            return  DoubleUtil.getAnotherSyAmount1Expression(amount, price);
+            return  DoubleUtil.getAnotherSyAmount1Expression(amount, price, sxf);
         }
         if (type == "SELL"){
-            return  DoubleUtil.getAnotherSyAmount1Expression(amount, price);
+            return  DoubleUtil.getAnotherSyAmount1Expression(amount, price, sxf);
         }
 
         return 0;
@@ -272,15 +272,16 @@ public class Deal {
     //  第三步只需要卖掉第二步ycc数量就行  bty做手续费 所有bty稍微多点
     // ycc 卖掉获取bty  amount = ycc 需要知道我要在第三步卖掉多少bty  第一步只要买同样ycc就行 ycc*(1-0.001) = bty/price    bty =  ycc*(1-0.001)*price
     // bty做手续费 所有bty稍微少点
-    public static double getAnotherSyAmount2(double amount, double price, String type){
+    // sxf 手续费
+    public static double getAnotherSyAmount2(double amount, double price, String type, double sxf){
         if (type == "BUY"){
             //return amount*price/(1-0.001);
-            return DoubleUtil.getAnotherSyAmount2Expression(amount,price);
+            return DoubleUtil.getAnotherSyAmount2Expression(amount,price, sxf);
         }
 
         if (type == "SELL"){
             //return amount*price*(1-0.001);
-            return DoubleUtil.getAnotherSyAmount2Expression(amount, price);
+            return DoubleUtil.getAnotherSyAmount2Expression(amount, price, sxf);
         }
 
         return 0;
@@ -432,66 +433,66 @@ public class Deal {
     public static void main(String[] args){
 
 //        System.out.println(getEveryUsdt(10,200,0));
-
-        Random r = new Random();
-        System.out.println( 10 + r.nextDouble()*3);
-        AmountPrice a = new AmountPrice();
-
-        //time="2019-08-11T05:19:20+08:00" level=warning msg="usdtCount: 5.061817"
-        //time="2019-08-11T05:19:20+08:00" level=warning msg="amout: 338.385977, currency： YCC, currency2:  USDT, price: 0.011955, ty: SELL"
-        //价格:  0.011955
-        //数量： 338
-        //time="2019-08-11T05:19:20+08:00" level=warning msg="amout: 16.597510, currency： BTY, currency2:  USDT, price: 0.241000, ty: BUY"
-        //价格:  0.2410
-        //数量： 16.9
-        //time="2019-08-11T05:19:20+08:00" level=warning msg="amout: 338.385977, currency： YCC, currency2:  BTY, price: 0.049000, ty: BUY"
-        //价格:  0.049000
-        //数量： 338
-        // bty买ycc
-        a.setSy1Price(0.2410);
-        a.setSy1Amount(1000);
-        a.setSy12Price(0.0490000);
-        a.setSy12Amount(1000);
-        a.setSy2Price(0.011955);
-        a.setSy2Amount(1000);
-//        System.out.println(getUSDTcount1(a,"BUY"));
-
-
-        // 卖ycc换bty  正确
-        a.setSy1Price(0.2431);
-        a.setSy1Amount(1000);
-        a.setSy12Price(0.049800);
-        a.setSy12Amount(1000);
-        a.setSy2Price(0.012309);
-        a.setSy2Amount(1000);
-//        System.out.println(getUSDTcount1(a,"SELL"));
-
-        // 测试getAcuallyUSDT
-        a.setSy1Price(0.2431);
-        a.setSy1Amount(1000);
-        a.setSy12Price(0.049800);
-        a.setSy12Amount(500);
-        a.setSy2Price(0.012309);
-        a.setSy2Amount(1000);
-        System.out.println(getAcuallyUSDT(a,"SELL"));
-        System.out.println(getAcuallyUSDT(a,"BUY"));
-        a.setSy1Price(0.2431);
-        a.setSy1Amount(5);
-        a.setSy12Price(0.049800);
-        a.setSy12Amount(1000);
-        a.setSy2Price(0.019309);
-        a.setSy2Amount(1000);
-        System.out.println(getAcuallyUSDT(a,"SELL"));
-        System.out.println(getAcuallyUSDT(a,"BUY"));
-
-        a.setSy1Price(0.2431);
-        a.setSy1Amount(1000);
-        a.setSy12Price(0.049800);
-        a.setSy12Amount(1000);
-        a.setSy2Price(0.012309);
-        a.setSy2Amount(200);
-        System.out.println(getAcuallyUSDT(a,"SELL"));
-        System.out.println(getAcuallyUSDT(a,"BUY"));
+//
+//        Random r = new Random();
+//        System.out.println( 10 + r.nextDouble()*3);
+//        AmountPrice a = new AmountPrice();
+//
+//        //time="2019-08-11T05:19:20+08:00" level=warning msg="usdtCount: 5.061817"
+//        //time="2019-08-11T05:19:20+08:00" level=warning msg="amout: 338.385977, currency： YCC, currency2:  USDT, price: 0.011955, ty: SELL"
+//        //价格:  0.011955
+//        //数量： 338
+//        //time="2019-08-11T05:19:20+08:00" level=warning msg="amout: 16.597510, currency： BTY, currency2:  USDT, price: 0.241000, ty: BUY"
+//        //价格:  0.2410
+//        //数量： 16.9
+//        //time="2019-08-11T05:19:20+08:00" level=warning msg="amout: 338.385977, currency： YCC, currency2:  BTY, price: 0.049000, ty: BUY"
+//        //价格:  0.049000
+//        //数量： 338
+//        // bty买ycc
+//        a.setSy1Price(0.2410);
+//        a.setSy1Amount(1000);
+//        a.setSy12Price(0.0490000);
+//        a.setSy12Amount(1000);
+//        a.setSy2Price(0.011955);
+//        a.setSy2Amount(1000);
+////        System.out.println(getUSDTcount1(a,"BUY"));
+//
+//
+//        // 卖ycc换bty  正确
+//        a.setSy1Price(0.2431);
+//        a.setSy1Amount(1000);
+//        a.setSy12Price(0.049800);
+//        a.setSy12Amount(1000);
+//        a.setSy2Price(0.012309);
+//        a.setSy2Amount(1000);
+////        System.out.println(getUSDTcount1(a,"SELL"));
+//
+//        // 测试getAcuallyUSDT
+//        a.setSy1Price(0.2431);
+//        a.setSy1Amount(1000);
+//        a.setSy12Price(0.049800);
+//        a.setSy12Amount(500);
+//        a.setSy2Price(0.012309);
+//        a.setSy2Amount(1000);
+//        System.out.println(getAcuallyUSDT(a,"SELL"));
+//        System.out.println(getAcuallyUSDT(a,"BUY"));
+//        a.setSy1Price(0.2431);
+//        a.setSy1Amount(5);
+//        a.setSy12Price(0.049800);
+//        a.setSy12Amount(1000);
+//        a.setSy2Price(0.019309);
+//        a.setSy2Amount(1000);
+//        System.out.println(getAcuallyUSDT(a,"SELL"));
+//        System.out.println(getAcuallyUSDT(a,"BUY"));
+//
+//        a.setSy1Price(0.2431);
+//        a.setSy1Amount(1000);
+//        a.setSy12Price(0.049800);
+//        a.setSy12Amount(1000);
+//        a.setSy2Price(0.012309);
+//        a.setSy2Amount(200);
+//        System.out.println(getAcuallyUSDT(a,"SELL"));
+//        System.out.println(getAcuallyUSDT(a,"BUY"));
 
     }
 
