@@ -1,12 +1,12 @@
 package com.transaction.core.exchange.zt;
 
 import com.alibaba.fastjson.JSONObject;
+import com.transaction.core.entity.SymbolConfig;
 import com.transaction.core.exchange.zt.handle.ZTHandleMessage;
 import com.transaction.core.ws.WebSocketClient;
 import com.transaction.core.ws.WebSocketService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +16,11 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Service("ztWebSocketService")
-@ConditionalOnExpression("${zt.enabled:true}")
 public class ZTWebSocketServiceImpl implements WebSocketService {
 
     private final String url = "wss://ws.zt.com/ws";
+
+    private volatile static Set<String> symbolSet = Collections.synchronizedSet(new HashSet<>());
 
     @Resource(name = "ztWebSocketClient")
     @Lazy
@@ -52,20 +53,17 @@ public class ZTWebSocketServiceImpl implements WebSocketService {
     }
 
     @Override
-    public void init(Map<String,List<String>> symbolMap) {
+    public void init(List<SymbolConfig> symbolConfigs) {
         webSocketClient.setUrl(url);
         webSocketClient.init();
-        Set<String> symbols = new HashSet<>();
-        for(Map.Entry<String,List<String>> entry : symbolMap.entrySet()){
-            for(String s : entry.getValue()){
-                symbols.add(s + "_" + entry.getKey());
-                symbols.add(s + "_" + "USDT");
-                symbols.add(entry.getKey() + "_" + "USDT");
-            }
+        for(SymbolConfig symbolConfig : symbolConfigs){
+            symbolSet.add(symbolConfig.getSymbol2() + "_" + symbolConfig.getSymbol1());
+            symbolSet.add(symbolConfig.getSymbol1() + "_" + symbolConfig.getBaseCoin());
+            symbolSet.add(symbolConfig.getSymbol2() + "_" + symbolConfig.getBaseCoin());
         }
         // 启动主题订阅线程
         String subject = "{\"method\":\"depth.query\",\"params\":[\"%s\",10,\"0.00000001\"],\"id\":%d}";
-        ZTWebSocketSubscribeThread thread = new ZTWebSocketSubscribeThread(symbols,subject,webSocketClient);
+        ZTWebSocketSubscribeThread thread = new ZTWebSocketSubscribeThread(symbolSet,subject,webSocketClient);
         new Thread(thread,"ZtMonitor").start();
 
         // 启动ping远程服务器线程

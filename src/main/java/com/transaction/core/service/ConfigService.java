@@ -15,6 +15,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ConfigService {
     private static final ConcurrentHashMap<String, SystemConfig> systemConfigs = new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<String, SymbolConfig> symbolConfigs = new ConcurrentHashMap<>();
+    // 根据平台名+交易品种+交易对名称为缓存的key，方便根据交易对找到配置，如ZT_USDT_CNT,ZT_LTC_USDT,ZT_ETH_BTC,ZT_EOS_ETH
+    private static final ConcurrentHashMap<String, Integer> smallCountConfigs = new ConcurrentHashMap<>();
 
     @Value("${cacheTime}")
     private Integer cacheTime;
@@ -49,6 +51,12 @@ public class ConfigService {
                         throw new RuntimeException("数据库交易对配置"+key+"不存在");
                     }
                     symbolConfigs.put(key,symbolConfig);
+                    smallCountConfigs.put(symbolConfig.getPlatform()+"_"+symbolConfig.getSymbol1()+"_"+symbolConfig.getBaseCoin(),
+                            symbolConfig.getBaseSymbol1Amount());
+                    smallCountConfigs.put(symbolConfig.getPlatform()+"_"+symbolConfig.getSymbol2()+"_"+symbolConfig.getBaseCoin(),
+                            symbolConfig.getBaseSymbol2Amount());
+                    smallCountConfigs.put(symbolConfig.getPlatform()+"_"+symbolConfig.getSymbol2()+"_"+symbolConfig.getSymbol1(),
+                            symbolConfig.getBaseSymbol1Amount());
                 }
             }
         }
@@ -79,11 +87,22 @@ public class ConfigService {
     }
 
     /**
+     * 获取交易对的最小交易数量限制
+     * @param platform 平台名称
+     * @param sy1 主交易对名称，如BTC/USDT的主交易对是USDT，ETH/BTC的主交易对是BTC
+     * @param sy2 交易品种的名称
+     * @return
+     */
+    public Integer getSmallAmount(String platform, String sy1,String sy2){
+        return smallCountConfigs.get(platform + "_" + sy2 +"_" + sy1);
+    }
+
+    /**
      * 获取平台所有启用的交易对
      * @param platform
      * @return
      */
-    List<SymbolConfig> getAllEnabledSymbol(String platform){
+    public List<SymbolConfig> getAllEnabledSymbol(String platform){
         return symbolConfigDao.getByPlatformAndEnabled(platform,true);
     }
 
@@ -91,7 +110,7 @@ public class ConfigService {
      * 获取所有启用的平台
      * @return
      */
-    List<SystemConfig> getAllEnabledPlatform(){
+    public List<SystemConfig> getAllEnabledPlatform(){
         return systemConfigDao.getByEnabled(true);
     }
 

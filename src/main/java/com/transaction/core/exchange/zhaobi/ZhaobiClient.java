@@ -4,12 +4,12 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.transaction.core.entity.Order;
+import com.transaction.core.entity.SymbolConfig;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
+import com.transaction.core.exchange.pubinterface.AbstractExchange;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
-import com.transaction.core.exchange.pubinterface.Exchange;
-import com.transaction.core.strategy.Deal;
 import com.transaction.core.utils.FontUtil;
 import com.transaction.core.utils.MailUtil;
 import org.slf4j.Logger;
@@ -18,15 +18,18 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ZhaobiClient implements Exchange {
+@Service("找币Client")
+public class ZhaobiClient extends AbstractExchange {
 
     RestTemplate restTemplate = RestTemplateStatic.restTemplate();
     Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -99,6 +102,11 @@ public class ZhaobiClient implements Exchange {
     public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
 //
         return new PlaceOrderInnerClass().postBill(amount, currency, currency2, price, ty);
+    }
+
+    @Override
+    public TradeVO getMarketInfo(String sy1, String sy2) {
+        return null;
     }
 
     public TradeVO getMarketInfo(String symbols) {
@@ -233,8 +241,8 @@ public class ZhaobiClient implements Exchange {
         public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
 //
             // todo 此次改成交易所自己维护价格处理
-            String amountStr = Deal.dealCount(amount,currency,"找币");
-            String priceStr = Deal.dealPrice(price,currency2,"找币");
+            String amountStr = new DecimalFormat(getSmallCount(currency2,currency)).format(amount);
+            String priceStr = String.valueOf(price);
             String uri="https://api.biqianbao.top/api/trade/place";
             String requestText = //"amount=" + amount + "&" + "currency=" + currency + "&" + "currency2=" + currency2 + "&" + "price=" + price + "&" + "ty=" + ty;
                     "amount="+amountStr+"&currency="+currency+"&currency2="+currency2+"&price="+priceStr+"&ty="+ty;
@@ -308,6 +316,16 @@ public class ZhaobiClient implements Exchange {
         return "找币";
     }
 
+    @Override
+    public double getSxf() {
+        return 0.001;
+    }
+
+    @Override
+    public void init(String platform, List<SymbolConfig> symbolConfigs) {
+
+    }
+
 
     public static void main(String[] args) throws Exception {
         ZhaobiClient zhaobiClient = new ZhaobiClient();
@@ -315,4 +333,6 @@ public class ZhaobiClient implements Exchange {
 //        zhaobiClient.postBill(1,"YCC","USDT",0.013161,"SELL");
 //        zhaobiClient.getMarketInfo("YCCUSDT");
     }
+
+
 }

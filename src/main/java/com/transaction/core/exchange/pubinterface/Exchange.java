@@ -1,12 +1,11 @@
 package com.transaction.core.exchange.pubinterface;
 
-import com.transaction.core.entity.Account;
-import com.transaction.core.entity.AmountPrice;
+import com.transaction.core.entity.SymbolConfig;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.entity.vo.PropertyVO;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public interface Exchange {
@@ -45,15 +44,21 @@ public interface Exchange {
     double showlogPrice();
 
     // 开始交易的百分比
-    double getStartPrecentage();
+    double getStartPercentage();
 
-    // 获取每次交易的usdt
+    // 获取每次交易的基础币的数量
     double getEveryUSDT(String sy1,String sy2,String sBase);
 
-    // 获取保留小数位 返回0.00  0.0000之类的格式 sy1 btc  sy2 usdt  返回0.0000
+    // 获取数量保留小数位 返回0.00  0.0000之类的格式 sy1 btc  sy2 usdt  返回0.0000
     String getSmallCount(String sy1, String sy2);
-
 
     // 获取手续费
     double getSxf();
+
+    /**
+     * 初始化交易客户端
+     * @param platform
+     * @param symbolConfigs
+     */
+    void init(String platform, List<SymbolConfig> symbolConfigs);
 }

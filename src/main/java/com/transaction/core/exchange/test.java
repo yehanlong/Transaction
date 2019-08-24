@@ -17,10 +17,10 @@ public class test {
 //        m1.run();
 
 
-        ZTClient ztClient = new ZTClient();
-
-
-        MovingBuy m1 = new MovingBuy(ztClient, "BTC" , "EOS");
-        m1.run();
+//        ZTClient ztClient = new ZTClient();
+//
+//
+//        MovingBuy m1 = new MovingBuy(ztClient, "BTC" , "EOS");
+//        m1.run();
     }
 }

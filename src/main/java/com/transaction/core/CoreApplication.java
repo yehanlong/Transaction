@@ -1,24 +1,19 @@
 package com.transaction.core;
 
-import com.transaction.core.exchange.ExStart;
-import com.transaction.core.exchange.ExStartConst;
-import com.transaction.core.exchange.zhaobi.*;
+import com.transaction.core.entity.SymbolConfig;
+import com.transaction.core.entity.SystemConfig;
+import com.transaction.core.exchange.pubinterface.Exchange;
 import com.transaction.core.exchange.zt.MovingBuy;
 import com.transaction.core.exchange.zt.MovingSell;
-import com.transaction.core.exchange.zt.ZTClient;
-import com.transaction.core.exchange.zt.ZTInit;
+import com.transaction.core.service.ConfigService;
 import com.transaction.core.utils.SpringUtil;
-import com.transaction.core.ws.WebSocketClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 @SpringBootApplication
 public class CoreApplication {
@@ -28,26 +23,38 @@ public class CoreApplication {
     public static void main(String[] args) {
         SpringApplication.run(CoreApplication.class, args);
 
-        // 启动找币
-        if (ExStartConst.ZHAOBISTART == 1){
-            ExStart.startZhaobi();
+        ConfigService configService = (ConfigService) SpringUtil.getBean("configService");
+        List<SystemConfig> systemConfigs = configService.getAllEnabledPlatform();
+        if(CollectionUtils.isEmpty(systemConfigs)){
+            logger.info("未在数据库中配置启用的交易所，程序自动终止");
+            System.exit(0);
         }
-
-        // ZT
-        if (ExStartConst.ZTSTART == 1){
-            ExStart.startZT();
+        for(SystemConfig systemConfig : systemConfigs){
+            List<SymbolConfig> symbolConfigs = configService.getAllEnabledSymbol(systemConfig.getPlatform());
+            if(CollectionUtils.isEmpty(symbolConfigs)){
+                logger.info("交易所{}未配置启用的交易对");
+                continue;
+            }
+            Exchange client = (Exchange) SpringUtil.getBean(systemConfig.getPlatform()+"Client");
+            client.init(systemConfig.getPlatform(), symbolConfigs);
+            for(SymbolConfig symbolConfig : symbolConfigs){
+                // 同步交易策略
+                if("moving".equals(symbolConfig.getStrategy())){
+                    logger.info("启动{}交易所的{}_{}_{}交易对，交易策略：同步",
+                            systemConfig.getPlatform(),symbolConfig.getBaseCoin(),symbolConfig.getSymbol2(),symbolConfig.getSymbol1());
+                    MovingBuy m1 = new MovingBuy(client, symbolConfig.getSymbol1(),symbolConfig.getSymbol2(),symbolConfig.getBaseCoin());
+                    String threadName = systemConfig.getPlatform()+"_BUY_"+symbolConfig.getBaseCoin()+"_"+symbolConfig.getSymbol1()+"_"+symbolConfig.getSymbol2();
+                    new Thread(m1, threadName).start();
+                    MovingSell m2 = new MovingSell(client, symbolConfig.getSymbol1(),symbolConfig.getSymbol2(),symbolConfig.getBaseCoin());
+                    threadName = systemConfig.getPlatform()+"_SELL_"+symbolConfig.getBaseCoin()+"_"+symbolConfig.getSymbol1()+"_"+symbolConfig.getSymbol2();
+                    new Thread(m2,threadName).start();
+                } else if("syncMoving".equals(symbolConfig.getStrategy())){
+                    logger.info("启动{}交易所的{}_{}_{}交易对，交易策略：异步",
+                            systemConfig.getPlatform(),symbolConfig.getBaseCoin(),symbolConfig.getSymbol2(),symbolConfig.getSymbol1());
+                    // todo 启动异步线程的逻辑
+                }
+            }
         }
-
-        // ZT  CNT
-        if (ExStartConst.ZTCNTSTART == 1) {
-            ExStart.startZTCNT();
-        }
-
-        // 币蛋
-        if (ExStartConst.BIDAN == 1){
-            ExStart.startBiDan();
-        }
-
     }
 
 

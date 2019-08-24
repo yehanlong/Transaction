@@ -80,7 +80,7 @@ public class SyncDo {
                 AmountPrice amountPrice = t.getAmountPrice();
                 BigDecimal usdtcountB = new BigDecimal(usdtcount);
                 BigDecimal usdtB = new BigDecimal(5.0);
-                Double totalFee = client.getStartPrecentage();
+                Double totalFee = client.getStartPercentage();
                 // 判断一轮交易后的去掉手续费（3次=3*0.001），是否有盈利
                 int a3 = usdtcountB.compareTo(usdtB.multiply(((new BigDecimal(1)).add(new BigDecimal(totalFee)))));
                 if (a3 == 1) {

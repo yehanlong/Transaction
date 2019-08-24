@@ -16,6 +16,7 @@ public class MovingBuy extends Thread {
     private String sy1;
     private String sy2;
     private Lock lock;
+    private String sBase;
 
     public Lock getLock() {
         return lock;
@@ -49,10 +50,19 @@ public class MovingBuy extends Thread {
         this.sy2 = sy2;
     }
 
-    public MovingBuy(Exchange client, String sy1, String sy2) {
+    public String getsBase() {
+        return sBase;
+    }
+
+    public void setsBase(String sBase) {
+        this.sBase = sBase;
+    }
+
+    public MovingBuy(Exchange client, String sy1, String sy2,String sBase) {
         this.client = client;
         this.sy1 = sy1;
         this.sy2 = sy2;
+        this.sBase = sBase;
     }
 
 
@@ -66,7 +76,7 @@ public class MovingBuy extends Thread {
         while (true){
             try {
                 FirstCacl t = new FirstCacl(client);
-                double usdtcount = t.getFirstCount(sy1,sy2,"BUY");
+                double usdtcount = t.getFirstCount(sy1,sy2,sBase,"BUY");
                 if (usdtcount == 0.0){
                     logger.info("获取市场行情失败");
                 }
@@ -88,6 +98,6 @@ public class MovingBuy extends Thread {
     }
 
     public void info(String msg){
-        logger.info("ZT,  " + sy1 + sy2 + ", 方式: BUY. " + msg);
+        logger.info(client.getName()+"，" + sy1 + sy2 + ", 方式: BUY. " + msg);
     }
 }

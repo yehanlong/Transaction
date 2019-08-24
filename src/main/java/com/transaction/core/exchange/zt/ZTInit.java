@@ -48,7 +48,7 @@ public class ZTInit {
 //        symbolMap.put("CNT",cnt);
         // spring初始化webSocket
         WebSocketService webSocketService = (WebSocketService) SpringUtil.getBean("ztWebSocketService");
-        webSocketService.init(symbolMap);
+//        webSocketService.init(symbolMap);
         return symbolMap;
 
     }
@@ -93,7 +93,7 @@ public class ZTInit {
 //        symbolMap.put("ETH",eth);
         // spring初始化webSocket
         WebSocketService webSocketService = (WebSocketService) SpringUtil.getBean("ztWebSocketServiceCNT");
-        webSocketService.init(symbolMap);
+//        webSocketService.init(symbolMap);
         return symbolMap;
 
     }

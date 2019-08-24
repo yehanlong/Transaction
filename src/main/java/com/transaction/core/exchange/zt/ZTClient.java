@@ -2,24 +2,29 @@ package com.transaction.core.exchange.zt;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.transaction.core.entity.SymbolConfig;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
+import com.transaction.core.exchange.pubinterface.AbstractExchange;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
-import com.transaction.core.exchange.pubinterface.Exchange;
+import com.transaction.core.utils.SpringUtil;
+import com.transaction.core.ws.WebSocketService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class ZTClient implements Exchange{
+@Service("ZTClient")
+public class ZTClient extends AbstractExchange {
     @Override
     public Map<String, PropertyVO> getAccount() {
         return null;
@@ -27,6 +32,53 @@ public class ZTClient implements Exchange{
 
     @Override
     public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
+        return false;
+    }
+
+    @Override
+    public TradeVO getMarketInfo(String sy1, String sy2) {
+        TradeVO vo = ZTCache.orderMap.get(sy2+"_"+sy1);
+        return vo;
+    }
+
+    @Override
+    public SyncMarkInfo getSyncMarkInfo(String symbol1, String symbol2, String SBase) {
+        SyncMarkInfo info = new SyncMarkInfo();
+        String s1USDT = symbol1 + "_" + SBase;
+        String s2s1 = symbol2 + "_" + SBase;
+        String s2USDT = symbol2 + "_" + symbol1;
+        while (true){
+            TradeVO s1Trade = ZTCache.orderMap.get(s1USDT);
+            TradeVO s2Trade = ZTCache.orderMap.get(s2USDT);
+            TradeVO s2s1Trade = ZTCache.orderMap.get(s2s1);
+            long currentTime = System.currentTimeMillis();
+            if(s1Trade == null || s2Trade == null || s2s1Trade == null){
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                continue;
+            }
+            if(currentTime-s1Trade.getTime() > 1000
+                    || currentTime - s2Trade.getTime() > 1000
+                    || currentTime-s2s1Trade.getTime() > 1000){
+                try {
+                    TimeUnit.MILLISECONDS.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                continue;
+            }
+            info.setTrade1(s1Trade);
+            info.setTrade2(s2Trade);
+            info.setTrade3(s2s1Trade);
+            return info;
+        }
+    }
+
+    @Override
+    public boolean syncPostBill(String symbol1, String symbol2, String SBase, double amount1, double amount2, double amount3, double price1, double price2, double price3, String type) {
         return false;
     }
 
@@ -57,55 +109,18 @@ public class ZTClient implements Exchange{
     }
 
     @Override
-    public TradeVO getMarketInfo(String symbol) {
-        TradeVO vo = ZTCache.orderMap.get(symbol);
-        return vo;
-    }
-
-    @Override
-    public SyncMarkInfo getSyncMarkInfo(String symbol1, String symbol2) {
-        SyncMarkInfo info = new SyncMarkInfo();
-        String s1USDT = symbol1 + "_" + "USDT";
-        String s2s1 = symbol2 + "_" + "USDT";
-        String s2USDT = symbol2 + "_" + symbol1;
-        while (true){
-            TradeVO s1Trade = ZTCache.orderMap.get(s1USDT);
-            TradeVO s2Trade = ZTCache.orderMap.get(s2USDT);
-            TradeVO s2s1Trade = ZTCache.orderMap.get(s2s1);
-            long currentTime = System.currentTimeMillis();
-            if(s1Trade == null || s2Trade == null || s2s1Trade == null){
-                try {
-                    TimeUnit.SECONDS.sleep(1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                continue;
-            }
-            if(currentTime-s1Trade.getTime() > 1000
-                    || currentTime - s2Trade.getTime() > 1000
-                    || currentTime-s2s1Trade.getTime() > 1000){
-                try {
-                    TimeUnit.MILLISECONDS.sleep(200);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                continue;
-            }
-            info.setTrade1(s1Trade);
-            info.setTrade2(s2Trade);
-            info.setTrade3(s2s1Trade);
-            return info;
-        }
-
-    }
-
-    @Override
-    public boolean syncPostBill(String symbol1, String symbol2, double amount1, double amount2, double amount3, double price1, double price2, double price3, String type) {
-        return false;
-    }
-
-    @Override
     public String getName() {
         return "ZT";
+    }
+
+    @Override
+    public double getSxf() {
+        return 0;
+    }
+
+    @Override
+    public void init(String platform, List<SymbolConfig> symbolConfigs) {
+        WebSocketService webSocketService = (WebSocketService) SpringUtil.getBean("ztWebSocketService");
+        webSocketService.init(symbolConfigs);
     }
 }

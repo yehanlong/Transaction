@@ -74,10 +74,14 @@ public class LoginJob implements ApplicationRunner {
         if(1 == needSafe){
             log.info("ZT登录需要手机验证码");
             boolean success = sendSMG();
-            if(success){
-                MailUtil.sendEmains(sendLoginSuccessMail);
-            }else{
-                MailUtil.sendEmains(sendLoginFailMail);
+            try {
+                if(success){
+                    MailUtil.sendEmains(sendLoginSuccessMail);
+                }else{
+                    MailUtil.sendEmains(sendLoginFailMail);
+                }
+            }catch (Exception e){
+                log.error("发送登录成功邮件发生异常",e);
             }
         }
     }

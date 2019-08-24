@@ -24,10 +24,4 @@ public class WebSocketConfig {
         return WebSocketClient.builder().webSocketService(webSocketService).build();
     }
 
-
-    @Bean(name = "ztWebSocketClientCNT")
-    public WebSocketClient webSocketClientCNT(@Qualifier("ztWebSocketServiceCNT") WebSocketService webSocketService) {
-        return WebSocketClient.builder().webSocketService(webSocketService).build();
-    }
-
 }

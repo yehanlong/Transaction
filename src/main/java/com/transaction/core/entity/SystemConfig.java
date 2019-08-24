@@ -27,5 +27,13 @@ public class SystemConfig {
     @Column(columnDefinition = "decimal(10,6) not null default 5.01 comment '总的手续费'")
     private BigDecimal logOutLimit;
 
+    /**盈利百分比，预计盈利大于这个值才会开始交易*/
+    @Column(columnDefinition = "decimal(10,6) not null default 0.008 comment '盈利百分比'")
+    private BigDecimal startPercentage;
+
+    /**单笔交易手续费*/
+    @Column(columnDefinition = "decimal(10,6) not null default 0.001 comment '单笔交易手续费'")
+    private BigDecimal fee;
+
     private Date cacheTime;
 }

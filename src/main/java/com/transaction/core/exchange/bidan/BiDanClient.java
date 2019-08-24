@@ -4,15 +4,16 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.transaction.core.entity.Order;
+import com.transaction.core.entity.SymbolConfig;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
+import com.transaction.core.exchange.pubinterface.AbstractExchange;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
-import com.transaction.core.exchange.pubinterface.Exchange;
-import com.transaction.core.exchange.zhaobi.ZhaobiClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -23,7 +24,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class BiDanClient implements Exchange {
+@Service("币蛋Client")
+public class BiDanClient extends AbstractExchange {
 
     RestTemplate restTemplate = RestTemplateStatic.restTemplate();
     Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -37,9 +39,36 @@ public class BiDanClient implements Exchange {
     public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
         return false;
     }
+
     @Override
-    public TradeVO getMarketInfo(String symbols) {
-        return new BiDanClient.MarketInnerClass(symbols).getMarketInfo(symbols);
+    public TradeVO getMarketInfo(String sy1, String sy2) {
+        String symbol = sy2+"_"+sy1;
+        return new BiDanClient.MarketInnerClass(symbol).getMarketInfo(symbol);
+    }
+
+    @Override
+    public SyncMarkInfo getSyncMarkInfo(String symbol1, String symbol2, String SBase) {
+        CountDownLatch latch = new CountDownLatch(3);
+        Lock lock = new ReentrantLock();
+        SyncMarkInfo syncMarkInfo = new SyncMarkInfo();
+        syncMarkInfo.setLock(lock);
+        BiDanClient.MarketInnerClass marketInnerClass1 = new BiDanClient.MarketInnerClass(symbol1.toLowerCase() + SBase, syncMarkInfo, 1, latch);
+        BiDanClient.MarketInnerClass marketInnerClass2 = new BiDanClient.MarketInnerClass(symbol2.toLowerCase() + "_" + symbol1.toLowerCase(), syncMarkInfo, 2, latch);
+        BiDanClient.MarketInnerClass marketInnerClass3 = new BiDanClient.MarketInnerClass(symbol2.toLowerCase() + SBase, syncMarkInfo, 3, latch);
+        new Thread(marketInnerClass1).start();
+        new Thread(marketInnerClass2).start();
+        new Thread(marketInnerClass3).start();
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return syncMarkInfo;
+    }
+
+    @Override
+    public boolean syncPostBill(String symbol1, String symbol2, String SBase, double amount1, double amount2, double amount3, double price1, double price2, double price3, String type) {
+        return false;
     }
 
     // 获取订单信息的内部类
@@ -115,33 +144,18 @@ public class BiDanClient implements Exchange {
         }
     }
 
-
-    public SyncMarkInfo getSyncMarkInfo(String symbol1, String symbol2) {
-        CountDownLatch latch = new CountDownLatch(3);
-        Lock lock = new ReentrantLock();
-        SyncMarkInfo syncMarkInfo = new SyncMarkInfo();
-        syncMarkInfo.setLock(lock);
-        BiDanClient.MarketInnerClass marketInnerClass1 = new BiDanClient.MarketInnerClass(symbol1.toLowerCase() + "_usdt", syncMarkInfo, 1, latch);
-        BiDanClient.MarketInnerClass marketInnerClass2 = new BiDanClient.MarketInnerClass(symbol2.toLowerCase() + "_" + symbol1.toLowerCase(), syncMarkInfo, 2, latch);
-        BiDanClient.MarketInnerClass marketInnerClass3 = new BiDanClient.MarketInnerClass(symbol2.toLowerCase() + "_usdt", syncMarkInfo, 3, latch);
-        new Thread(marketInnerClass1).start();
-        new Thread(marketInnerClass2).start();
-        new Thread(marketInnerClass3).start();
-        try {
-            latch.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return syncMarkInfo;
-    }
-
-    @Override
-    public boolean syncPostBill(String symbol1, String symbol2, double amount1, double amount2, double amount3, double price1, double price2, double price3, String type) {
-        return false;
-    }
-
     @Override
     public String getName() {
         return "币蛋";
+    }
+
+    @Override
+    public double getSxf() {
+        return 0.001;
+    }
+
+    @Override
+    public void init(String platform, List<SymbolConfig> symbolConfigs) {
+
     }
 }

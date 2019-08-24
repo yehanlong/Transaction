@@ -3,6 +3,7 @@ package com.transaction.core.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -26,6 +27,9 @@ public class SymbolConfig {
     /**要采用哪种策略交易*/
     @Column(columnDefinition = "varchar(10) not null comment '策略'")
     private String strategy;
+    /**每次交易时基础币的数量*/
+    @Column(columnDefinition = "decimal(20,10) not null comment '每次交易时基础币的数量'")
+    private BigDecimal baseCoinEveryAmount;
     /**基础法币对symbol1的交易最小数量的小数位，整数为0*/
     @Column(columnDefinition = "int not null comment '基础法币对symbol1的交易最小数量的小数位，整数为0'")
     private Integer baseSymbol1Amount;
@@ -35,15 +39,6 @@ public class SymbolConfig {
     /**symbol1对symbol2的交易最小数量的小数位，整数为0*/
     @Column(columnDefinition = "int not null comment 'symbol1对symbol2的交易最小数量的小数位，整数为0'")
     private Integer symbol1Symbol2Amount;
-    /**symbol1对symbol2的交易最小价格的小数位，整数为0*/
-    @Column(columnDefinition = "int not null comment 'symbol1对symbol2的交易最小价格的小数位，整数为0'")
-    private Integer baseSymbol1Price;
-    /**symbol1对symbol2的交易最小价格的小数位，整数为0*/
-    @Column(columnDefinition = "int not null comment 'symbol1对symbol2的交易最小价格的小数位，整数为0'")
-    private Integer baseSymbol2Price;
-    /**symbol1对symbol2的交易最小价格的小数位，整数为0*/
-    @Column(columnDefinition = "int not null comment 'symbol1对symbol2的交易最小价格的小数位，整数为0'")
-    private Integer symbol1Symbol2Price;
 
     private Date cacheTime;
 }
