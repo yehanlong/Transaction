@@ -72,6 +72,7 @@ public class LoginJob implements ApplicationRunner {
         int needSafe = object.getJSONObject("result").getInteger("need_safe");
         if(1 == needSafe){
             log.info("ZT登录需要手机验证码");
+            ZTCache.token = object.getJSONObject("result").getString("token");
             boolean success = sendSMG();
             try {
                 if(success){
