@@ -19,20 +19,61 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Service("ZTClient")
 public class ZTClient extends AbstractExchange {
     @Override
     public Map<String, PropertyVO> getAccount() {
-        return null;
+        RestTemplate restTemplate = RestTemplateStatic.restTemplate();
+        String uri="https://www.zt.com/api/v1/user/assets";
+        HttpHeaders headers = new HttpHeaders();
+        //定义请求参数类型
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        if(ZTCache.token==null){
+            try {
+                throw new Exception("token异常");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        headers.add("Authorization","Bearer "+ZTCache.token);
+        HttpEntity entity = new HttpEntity<>(headers);
+        String json =restTemplate.exchange(uri, HttpMethod.GET, entity, String.class).getBody();
+        JSONObject object = JSON.parseObject(json);
+        JSONObject result = object.getJSONObject("result");
+        Map<String, PropertyVO> map = new HashMap<>();
+        Set<String> keySet = result.keySet();
+        for(String key:keySet){
+            // 获得key
+            JSONObject jsonCurrency = result.getJSONObject(key);
+            PropertyVO propertyVO = PropertyVO.builder()
+                    .active(Double.valueOf(jsonCurrency.getString("available")))
+                    .frozen(Double.valueOf(jsonCurrency.getString("freeze")))
+                    .name(key)
+                    .build();
+            map.put(key, propertyVO);
+        }
+        return map;
     }
 
     @Override
     public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
-        return false;
+        String side = "";
+        if (ty == "BUY"){
+            side = "2";
+        }else if(ty == "SELL"){
+            side = "1";
+        }else {
+            System.out.println(currency + currency2 + "ty false");
+            return false;
+        }
+
+        return postBillZT(amount, currency+"_"+currency2,side,price,ZTCache.token);
     }
 
     @Override
@@ -103,9 +144,11 @@ public class ZTClient extends AbstractExchange {
     }
 
     public static void main(String[] args) {
-        ZTCache.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjExNTcxNDQsIkxvZ2luVmVyaWZ5IjoxLCJleHAiOjE1NjYzNDIxMTF9.MIbOqSOFCtKC97x4CayfaFWf4Pq1ID9eGpY5hTR5eyk";
-        postBillZT(0.01,"EOS_CNT","2",20.1526,
-                ZTCache.token);
+//        ZTCache.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjExNTcxNDQsIkxvZ2luVmVyaWZ5IjoxLCJleHAiOjE1NjYzNDIxMTF9.MIbOqSOFCtKC97x4CayfaFWf4Pq1ID9eGpY5hTR5eyk";
+//        postBillZT(0.01,"EOS_CNT","2",20.1526,
+//                ZTCache.token);
+        ZTClient ztClient = new ZTClient();
+        ztClient.getAccount();
     }
 
     @Override
