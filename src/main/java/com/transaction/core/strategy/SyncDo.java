@@ -111,7 +111,7 @@ public class SyncDo {
                     }
                     // todo 处理舍弃小数位的问题
                     // 一般价格高的是sy1  此次需要注意，可能有的交易所不是这样的
-                    String smallCount = client.getSmallCount(sy1,sBase);
+                    String smallCount = client.getSmallCount(sBase,sy1);
                     while (true) {
                         double top = Double.valueOf(new DecimalFormat(smallCount).format( ap.getSy1Amount()));
                         point1 = DoubleUtil.div(top,ap.getSy1Amount(),10);
@@ -158,6 +158,7 @@ public class SyncDo {
                         emailStartMark = 1;
                     }
                     count++;
+                    Thread.sleep(10000);
 
                 }
             } catch (Exception e) {

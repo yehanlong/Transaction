@@ -134,14 +134,14 @@ public class PostBill {
 
             client.postBill(amount3, symbol2,SBase, price2, "BUY");
 
-            if (amount2 > acc.get(symbol2).getActive()){
-                amount2 = acc.get(symbol2).getActive();
-            }
+//            if (amount2 > acc.get(symbol2).getActive()){
+//                amount2 = acc.get(symbol2).getActive();
+//            }
             client.postBill(amount2, symbol2,symbol1, price12, type);
 
-            if (amount1 > acc.get(symbol1).getActive()){
-                amount1 = acc.get(symbol1).getActive();
-            }
+//            if (amount1 > acc.get(symbol1).getActive()){
+//                amount1 = acc.get(symbol1).getActive();
+//            }
             client.postBill(amount1, symbol1,SBase, price1, "SELL");
 
 
