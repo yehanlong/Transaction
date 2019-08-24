@@ -26,6 +26,7 @@ public class SyncDo {
     private String sy2;
     private String sBase;
     private Lock lock;
+    private String type;
 
     public SyncDo(Exchange client, String sy1, String sy2) {
         this.client = client;
@@ -35,13 +36,17 @@ public class SyncDo {
     RestTemplate restTemplate = RestTemplateStatic.restTemplate();
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public void buy(){
-        logger.info("start, sy1: " + sy1 +", sy2: "+ sy2);
+    public void doIt(){
+        logger.info("start, sy1: " + sy1 +", sy2: "+ sy2 + ", sBase: " + sBase);
         int count = 0;
         int in = 0;
         int emailStartMark = 0;
         double succUsdt = 0;
 
+        if(type != "BUY" && type != "SELL"){
+            logger.error("type err");
+            return;
+        }
 
         while (true) {
 
@@ -55,15 +60,15 @@ public class SyncDo {
                 // 异步获取市场行情 symbol1: BTY   symbol2:YCC   sBase:USDT
                 // SyncMarkInfo: trade1 bty trade2 bty-ycc trade3 ycc
                 FirstCacl t = new FirstCacl(client);
-                double usdtcount = t.getFirstCount(sy1,sy2,sBase,"BUY");
+                double usdtcount = t.getFirstCount(sy1,sy2,sBase,type);
                 if (usdtcount == 0.0){
                     logger.info("获取市场行情失败");
+                    Thread.sleep(5000);
                 }
                 if (usdtcount > client.showlogPrice()) {
                     logger.info("预计一轮后的usdt：" + usdtcount);
                 }
                 AmountPrice amountPrice = t.getAmountPrice();
-
                 BigDecimal usdtcountB = new BigDecimal(usdtcount);
                 BigDecimal usdtB = new BigDecimal(5.0);
                 Double totalFee = client.getStartPrecentage();
@@ -75,25 +80,41 @@ public class SyncDo {
                     logger.info("有盈利，开始交易...");
 
                     // 获取此轮交易实际需要的USDT
-                    AmountPrice ap = Deal.getAcuallyUSDT(amountPrice,  "BUY");
+                    AmountPrice ap = Deal.getAcuallyUSDT(amountPrice,  type);
 
                     logger.info("此次挂单可吃的usdt数量: " + ap.getMinUSDT());
 
                     // 获取每次usdt
-                    double everyUSDT = client.getEveryUSDT(ap);
+                    double everyUSDT = client.getEveryUSDT(sy1,sy2,sBase);
 
-                    // 此处是为了保证吧小单吃完
-                    if (DoubleUtil.compareTo(ap.getMinUSDT() - everyUSDT, PubConst.minUSDT) == -1){
-                        everyUSDT = ap.getMinUSDT();
+                    int a1 = DoubleUtil.compareTo(everyUSDT,ap.getMinUSDT());
+                    double point = 1.0;
+                    double point1 = 1.0;
+                    if (a1 == 1) {
+                        // 不一定能吃完
+                        // logger.info("直接吃完整个订单");
+                    }else {
+                        logger.info("一步步吃订单");
+                        point = DoubleUtil.div(point,ap.getMinUSDT(),10);
+                    }
+                    // todo 处理舍弃小数位的问题
+                    // 一般价格高的是sy1  此次需要注意，可能有的交易所不是这样的
+                    String smallCount = client.getSmallCount(sy1,sBase);
+                    while (true) {
+                        double top = Double.valueOf(new DecimalFormat(smallCount).format( ap.getSy1Amount()));
+                        point1 = DoubleUtil.div(top,ap.getSy1Amount(),10);
+                        if (everyUSDT * point1 < 1.5){
+                            everyUSDT = everyUSDT + 1;
+                            continue;
+                        }
+                        break;
                     }
 
-
-                    // 直接吃完整个订单
                     // 一起执行3比交易
                     succUsdt += ap.getMinUSDT();
-                    logger.info("吃单usdt数："+ ap.getMinUSDT());
-                    boolean b = client.syncPostBill(sy1, sy2,sBase, ap.getSy1Amount(), ap.getSy12Amount(), ap.getSy2Amount(), ap.getSy1Price(),
-                            ap.getSy12Price(), ap.getSy2Price(), "BUY");
+                    logger.info("此次吃单usdt数："+ ap.getMinUSDT());
+                    boolean b = client.syncPostBill(sy1, sy2,sBase, ap.getSy1Amount()*point, ap.getSy12Amount()*point, ap.getSy2Amount()*point, ap.getSy1Price(),
+                            ap.getSy12Price(), ap.getSy2Price(), type);
                     if(!b){
                         logger.error("BUY or SELL 错误");
                         return;
@@ -104,7 +125,7 @@ public class SyncDo {
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
-                                MailUtil.sendEmains("交易对"+sy1 + sy2 + sBase +" BUY触发, 预计的usdt为"
+                                MailUtil.sendEmains("交易对"+sy1 + sy2 + sBase + type + " 触发, 预计的usdt为"
                                         +usdtcountB.doubleValue()+", 预估此次可吃usdt为:"+ap.getMinUSDT()+
                                         "预估盈利RMB为："+(usdtcountB.doubleValue()-5.015) * ap.getMinUSDT()*7/5.0);
                                 logger.info("发送邮件");
@@ -115,10 +136,7 @@ public class SyncDo {
                     }
                     count++;
 
-                }else {
                 }
-
-
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -128,7 +146,7 @@ public class SyncDo {
                     // 发送结果报告
                     if (succUsdt != 0) {
                         // 发送最终结果邮件
-                        String msg = MailUtil.sendResultEmains(client.getName(),sy1+sy2+sBase,count,"BUY",succUsdt);
+                        String msg = MailUtil.sendResultEmains(client.getName(),sy1+sy2+sBase,count,type,succUsdt);
                         logger.info(msg);
                     }
 
@@ -149,12 +167,6 @@ public class SyncDo {
 
             }
         }
-    }
-
-
-
-    public void sell(){
-
     }
 
 }

@@ -45,7 +45,10 @@ public interface Exchange {
     // 开始交易的百分比
     double getStartPrecentage();
 
-    // 获取每次交易的usdt  入参，此次可以吃的最小USDT
-    double getEveryUSDT(AmountPrice amountPrice);
+    // 获取每次交易的usdt
+    double getEveryUSDT(String sy1,String sy2,String sBase);
+
+    // 获取保留小数位 返回0.00  0.0000之类的格式 sy1 btc  sy2 usdt  返回0.0000
+    String getSmallCount(String sy1, String sy2);
 
 }
