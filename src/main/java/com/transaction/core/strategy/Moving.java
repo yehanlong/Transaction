@@ -13,7 +13,7 @@ public class Moving implements Strategy{
             doBuy.doIt();
         },sBase+"_"+sy1+"_"+sy2+"_BUY/MOVING").start();
         new Thread(()->{
-            SyncDo doSell = new SyncDo(client,sy1,sy2,sBase,lock,"Sell");
+            SyncDo doSell = new SyncDo(client,sy1,sy2,sBase,lock,"SELL");
             doSell.setSType(2);
             doSell.doIt();
         },sBase+"_"+sy1+"_"+sy2+"_SELL/MOVING").start();

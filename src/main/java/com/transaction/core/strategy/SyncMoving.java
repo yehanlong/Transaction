@@ -16,7 +16,7 @@ public class SyncMoving implements Strategy {
             syncDoBuy.doIt();
         },sBase+"_"+sy1+"_"+sy2+"_BUY/SYNCMOVING").start();
         new Thread(()->{
-            SyncDo syncDoSell = new SyncDo(client,sy1,sy2,sBase,lock,"Sell");
+            SyncDo syncDoSell = new SyncDo(client,sy1,sy2,sBase,lock,"SELL");
             syncDoSell.setSType(3);
             syncDoSell.doIt();
         },sBase+"_"+sy1+"_"+sy2+"_SELL/SYNCMOVING").start();
