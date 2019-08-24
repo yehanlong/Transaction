@@ -69,13 +69,13 @@ public class LoginJob implements ApplicationRunner {
         if(!Integer.valueOf(0).equals(object.getInteger("code"))){
             log.error("调用ZT登录接口失败");
         }
-        ZTCache.token = object.getJSONObject("result").getString("token");
         int needSafe = object.getJSONObject("result").getInteger("need_safe");
         if(1 == needSafe){
             log.info("ZT登录需要手机验证码");
             boolean success = sendSMG();
             try {
                 if(success){
+                    ZTCache.token = object.getJSONObject("result").getString("token");
                     MailUtil.sendEmains(sendLoginSuccessMail);
                 }else{
                     MailUtil.sendEmains(sendLoginFailMail);
@@ -83,6 +83,8 @@ public class LoginJob implements ApplicationRunner {
             }catch (Exception e){
                 log.error("发送登录成功邮件发生异常",e);
             }
+        }else{
+            ZTCache.token = object.getJSONObject("result").getString("token");
         }
     }
 
