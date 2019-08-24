@@ -36,12 +36,17 @@ public class ZTClient extends AbstractExchange {
         headers.setContentType(MediaType.APPLICATION_JSON);
         if(ZTCache.token==null){
             try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            try {
                 throw new Exception("token异常");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        headers.add("Authorization","Bearer "+ZTCache.token);
+        headers.add("Authorization",ZTCache.token);
         HttpEntity entity = new HttpEntity<>(headers);
         String json =restTemplate.exchange(uri, HttpMethod.GET, entity, String.class).getBody();
         JSONObject object = JSON.parseObject(json);
@@ -64,6 +69,11 @@ public class ZTClient extends AbstractExchange {
     @Override
     public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
         String side = "";
+
+        if (ZTCache.token == null){
+            return false;
+        }
+
         if (ty == "BUY"){
             side = "2";
         }else if(ty == "SELL"){
@@ -130,7 +140,7 @@ public class ZTClient extends AbstractExchange {
         HttpHeaders headers = new HttpHeaders();
         //定义请求参数类型
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
-        headers.add("Authorization","Bearer "+token);
+        headers.add("Authorization",token);
         MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
         map.add("market",market);
         map.add("side",side);

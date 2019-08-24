@@ -20707,3 +20707,1212 @@ Caused by: java.lang.RuntimeException: error http code is 401
 	at com.transaction.core.exchange.zt.job.LoginJob.post(LoginJob.java:184)
 	... 4 common frames omitted
 
+2019-08-25 01:32:24.248  INFO 5260 --- [main] com.transaction.core.CoreApplication     : Starting CoreApplication on DESKTOP-5QIOI62 with PID 5260 (E:\Transaction\target\classes started by 北 in E:\Transaction)
+2019-08-25 01:32:24.256  INFO 5260 --- [main] com.transaction.core.CoreApplication     : No active profile set, falling back to default profiles: default
+2019-08-25 01:32:25.390  INFO 5260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-25 01:32:25.509  INFO 5260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108ms. Found 3 repository interfaces.
+2019-08-25 01:32:26.059  INFO 5260 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b39447ec] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-25 01:32:26.473  INFO 5260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18080 (http)
+2019-08-25 01:32:26.498  INFO 5260 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-25 01:32:26.499  INFO 5260 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-25 01:32:26.693  INFO 5260 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-25 01:32:26.694  INFO 5260 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2358 ms
+2019-08-25 01:32:26.777  INFO 5260 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-08-25 01:32:28.875  INFO 5260 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-08-25 01:32:28.994  INFO 5260 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-25 01:32:29.053  INFO 5260 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-25 01:32:29.055  INFO 5260 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-08-25 01:32:29.197  INFO 5260 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-25 01:32:29.403  INFO 5260 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-25 01:32:30.317  INFO 5260 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-25 01:32:31.111  INFO 5260 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-25 01:32:31.148  WARN 5260 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-25 01:32:31.519  INFO 5260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-25 01:32:31.521  INFO 5260 --- [main] com.transaction.core.CoreApplication     : Started CoreApplication in 7.978 seconds (JVM running for 10.049)
+2019-08-25 01:32:31.547  INFO 5260 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-08-25 01:32:32.783  INFO 5260 --- [main] com.transaction.core.CoreApplication     : 启动ZT交易所的CNT_LTC_USDT交易对，交易策略：同步
+2019-08-25 01:32:32.791  INFO 5260 --- [CNT_USDT_LTC_BUY/MOVING] com.transaction.core.strategy.SyncDo     : start SyncDo, sy1: USDT, sy2: LTC, sBase: CNT
+2019-08-25 01:32:32.792  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : start SyncDo, sy1: USDT, sy2: LTC, sBase: CNT
+2019-08-25 01:32:34.050  WARN 5260 --- [OkHttp https://ws.zt.com/...] c.t.core.ws.EchoWebSocketListener        : webSocket open
+2019-08-25 01:32:34.837  INFO 5260 --- [CNT_USDT_LTC_BUY/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：4.750783523951533
+2019-08-25 01:32:34.840  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:34.841  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:34.841  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:34.922  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:34.924  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:35.590  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:35.590  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:35.590  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:35.591  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:35.591  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:35.679  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:35.679  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:35.680  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:35.680  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:35.680  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:35.768  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:35.768  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:35.768  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:35.768  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:35.768  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:35.859  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:35.859  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:35.859  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:35.859  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:35.863  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:35.959  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:35.959  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:35.960  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:35.960  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:35.960  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:36.061  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:36.061  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:36.062  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:36.062  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:36.062  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:36.167  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:36.168  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:36.168  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:36.168  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:36.168  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:36.311  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:36.311  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:36.312  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:36.312  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:36.312  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:36.484  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:36.484  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:36.485  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:36.485  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:36.485  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:36.636  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:36.636  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:36.636  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:36.636  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:36.637  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:36.772  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:36.773  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:36.773  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:36.773  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:36.777  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:36.862  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:36.862  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:36.862  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:36.862  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:36.862  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:36.972  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:36.973  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:36.973  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:36.973  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:36.973  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:37.067  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:37.067  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:37.068  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:37.068  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:37.068  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:37.191  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:37.191  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:37.192  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:37.192  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:37.192  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:37.318  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:37.318  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:37.318  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:37.318  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:37.319  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:37.431  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:37.432  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:37.432  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:37.432  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:37.432  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:37.532  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:37.532  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:37.533  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:37.533  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:37.533  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:37.654  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:37.654  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:37.654  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:37.654  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:37.655  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:38.034  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:38.034  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:38.034  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:38.034  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:38.034  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:38.156  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:38.156  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:38.157  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:38.157  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:38.157  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:38.243  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:38.243  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:38.243  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:38.243  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:38.243  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:38.609  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:38.609  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:38.610  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:38.610  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:38.610  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:38.745  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:38.745  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:38.746  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:38.746  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:38.746  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:32:38.867  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:32:38.868  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:32:38.868  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:32:38.868  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:32:38.868  INFO 5260 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:35.060  INFO 2920 --- [main] com.transaction.core.CoreApplication     : Starting CoreApplication on DESKTOP-5QIOI62 with PID 2920 (E:\Transaction\target\classes started by 北 in E:\Transaction)
+2019-08-25 01:36:35.065  INFO 2920 --- [main] com.transaction.core.CoreApplication     : No active profile set, falling back to default profiles: default
+2019-08-25 01:36:36.057  INFO 2920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-25 01:36:36.174  INFO 2920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 105ms. Found 3 repository interfaces.
+2019-08-25 01:36:36.579  INFO 2920 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c3b791b4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-25 01:36:36.903  INFO 2920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18080 (http)
+2019-08-25 01:36:36.927  INFO 2920 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-25 01:36:36.927  INFO 2920 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-25 01:36:37.110  INFO 2920 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-25 01:36:37.111  INFO 2920 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1983 ms
+2019-08-25 01:36:37.207  INFO 2920 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-08-25 01:36:39.349  INFO 2920 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-08-25 01:36:39.474  INFO 2920 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-25 01:36:39.533  INFO 2920 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-25 01:36:39.534  INFO 2920 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-08-25 01:36:39.693  INFO 2920 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-25 01:36:39.853  INFO 2920 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-25 01:36:40.784  INFO 2920 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-25 01:36:41.456  INFO 2920 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-25 01:36:41.495  WARN 2920 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-25 01:36:41.834  INFO 2920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-25 01:36:41.837  INFO 2920 --- [main] com.transaction.core.CoreApplication     : Started CoreApplication in 7.486 seconds (JVM running for 9.63)
+2019-08-25 01:36:41.876  INFO 2920 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-08-25 01:36:42.941  INFO 2920 --- [main] com.transaction.core.CoreApplication     : 启动ZT交易所的CNT_LTC_USDT交易对，交易策略：同步
+2019-08-25 01:36:42.949  INFO 2920 --- [CNT_USDT_LTC_BUY/MOVING] com.transaction.core.strategy.SyncDo     : start SyncDo, sy1: USDT, sy2: LTC, sBase: CNT
+2019-08-25 01:36:42.949  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : start SyncDo, sy1: USDT, sy2: LTC, sBase: CNT
+2019-08-25 01:36:43.531  WARN 2920 --- [OkHttp https://ws.zt.com/...] c.t.core.ws.EchoWebSocketListener        : webSocket open
+2019-08-25 01:36:44.428  INFO 2920 --- [Thread-20] c.t.core.exchange.zt.job.LoginJob        : 调用ZT登录接口返回结果：{"code":0,"message":"操作成功","result":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjExNTcxNDQsIkxvZ2luVmVyaWZ5IjowLCJleHAiOjE1NjY3MTE0MDZ9.jYkh_4yF6HVZ-WGJGxF2wQ6IjKtR5o3VEEXyG-O-51M","token_expire":1566711406,"email":"","phone":"159****0382","user_securities":[{"ID":172071,"CreatedAt":"2019-06-27T16:06:01+08:00","UpdatedAt":"2019-06-27T16:06:01+08:00","DeletedAt":null,"user_id":1157144,"type":1}],"need_safe":1}}
+2019-08-25 01:36:44.428  INFO 2920 --- [Thread-20] c.t.core.exchange.zt.job.LoginJob        : ZT登录需要手机验证码
+2019-08-25 01:36:44.431  INFO 2920 --- [Thread-20] c.t.core.exchange.zt.job.LoginJob        : post请求，url=https://www.zt.com/api/v1/user/SMS，param=okhttp3.FormBody@385d3d55，token=null
+2019-08-25 01:36:44.997  INFO 2920 --- [CNT_USDT_LTC_BUY/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：4.756227944766494
+2019-08-25 01:36:45.000  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:45.000  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:45.001  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:45.027  INFO 2920 --- [Thread-20] c.t.core.exchange.zt.job.LoginJob        : {"message":"code=401, message=invalid or expired jwt, token contains an invalid number of segments"}
+2019-08-25 01:36:45.040 ERROR 2920 --- [Thread-20] c.t.core.exchange.zt.job.LoginJob        : post请求出错，url=https://www.zt.com/api/v1/user/SMS，param={}，message=error http code is 401
+2019-08-25 01:36:45.043 ERROR 2920 --- [Thread-20] c.t.core.exchange.zt.job.LoginJob        : 调用ZT登录接口发生异常
+
+java.lang.RuntimeException: post请求出错
+	at com.transaction.core.exchange.zt.job.LoginJob.post(LoginJob.java:188)
+	at com.transaction.core.exchange.zt.job.LoginJob.sendSMG(LoginJob.java:100)
+	at com.transaction.core.exchange.zt.job.LoginJob.doLogin(LoginJob.java:75)
+	at com.transaction.core.exchange.zt.job.LoginJob.lambda$run$0(LoginJob.java:45)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: error http code is 401
+	at com.transaction.core.exchange.zt.job.LoginJob.post(LoginJob.java:184)
+	... 4 common frames omitted
+
+2019-08-25 01:36:45.084  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:45.084  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:45.182  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:45.183  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:45.183  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:45.183  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:45.183  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:45.335  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:45.335  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:45.335  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:45.335  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:45.340  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:45.478  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:45.479  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:45.479  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:45.479  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:45.479  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:45.585  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:45.586  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:45.586  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:45.586  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:45.587  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:46.248  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:46.248  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:46.248  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:46.248  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:46.249  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:46.399  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:46.400  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:46.400  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:46.400  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:46.400  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:46.553  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:46.553  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:46.554  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:46.554  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:46.554  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:46.670  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:46.671  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:46.671  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:46.671  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:46.671  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:46.793  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:46.793  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:46.793  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:46.793  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:46.794  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:46.944  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:46.944  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:46.944  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:46.944  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:46.945  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:47.069  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:47.069  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:47.069  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:47.070  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:47.070  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:47.214  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:47.214  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:47.215  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:47.215  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:47.215  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:47.302  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:47.302  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:47.302  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:47.302  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:47.302  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:47.387  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:47.387  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:47.387  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:47.387  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:47.387  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:47.531  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:47.532  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:47.532  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:47.532  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:47.532  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:47.615  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:47.615  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:47.615  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:47.615  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:47.615  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:47.767  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:47.767  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:47.770  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:47.770  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:47.770  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:47.885  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:47.885  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:47.885  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:47.885  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:47.886  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:47.967  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:47.968  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:47.968  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:47.968  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:47.968  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:48.147  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:48.148  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:48.148  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:48.148  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:48.148  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:48.238  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:48.238  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:48.238  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:48.238  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:48.238  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:48.327  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:48.327  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:48.327  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:48.327  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:48.327  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:48.421  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:48.421  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:48.421  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:48.422  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:48.422  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:48.519  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:48.519  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:48.519  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:48.519  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:48.519  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:48.683  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:48.683  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:48.683  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:48.683  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:48.683  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:48.827  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:48.827  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:48.827  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:48.827  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:48.827  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:48.963  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:48.963  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:48.964  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:48.964  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:48.964  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:49.091  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:49.092  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:49.092  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:49.092  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:49.092  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:49.274  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:49.274  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:49.274  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:49.274  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:49.274  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:49.417  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:49.417  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:49.417  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:49.417  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:49.417  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:49.564  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:49.564  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:49.564  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:49.564  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:49.564  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:49.692  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:49.693  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:49.693  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:49.693  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:49.693  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:49.792  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:49.792  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:49.792  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:49.792  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:49.792  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:49.947  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:49.947  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:49.947  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:49.947  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:49.948  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:50.119  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:50.119  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:50.119  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:50.119  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:50.119  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:50.271  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:50.271  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:50.272  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:50.272  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:50.272  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:50.413  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:50.413  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:50.413  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:50.413  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:50.413  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:51.644  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:51.644  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:51.644  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:51.644  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:51.644  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:52.358  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:52.358  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:52.358  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:52.358  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:52.358  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:52.840  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:52.840  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:52.840  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:52.840  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:52.840  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:52.979  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:52.980  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:52.980  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:52.980  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:52.980  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:53.093  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:53.093  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:53.094  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:53.094  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:53.094  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:53.288  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:53.289  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:53.289  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:53.289  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:53.289  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:53.427  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:53.427  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:53.427  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:53.427  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:53.428  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:53.580  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:53.581  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:53.581  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:53.581  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:53.581  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:53.695  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:53.695  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:53.695  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:53.695  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:53.695  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:53.854  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:53.854  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:53.855  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:53.855  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:53.855  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:54.021  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:54.022  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:54.022  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:54.022  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:54.022  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:54.469  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:54.469  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:54.470  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:54.470  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:54.470  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:54.873  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:54.873  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:54.873  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:54.873  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:54.874  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:55.053  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:55.053  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:55.053  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:55.053  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:55.053  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:55.198  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:55.199  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:55.199  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:55.199  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:55.199  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:55.315  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:55.315  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:55.315  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:55.315  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:55.315  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:55.426  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:55.426  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:55.426  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:55.426  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:55.426  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:55.545  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:55.545  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:55.545  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:55.545  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:55.545  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:55.662  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:55.662  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:55.662  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:55.662  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:55.662  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:55.821  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:55.821  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:55.822  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:55.822  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:55.822  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:55.929  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:55.929  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:55.930  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:55.930  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:55.930  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:56.069  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:56.069  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:56.069  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:56.069  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:56.069  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:56.520  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:56.520  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:56.520  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:56.521  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:56.521  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:56.953  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:56.953  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:56.954  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:56.954  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:56.954  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:57.092  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:57.092  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:57.093  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:57.093  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:57.093  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:57.288  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:57.288  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:57.288  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:57.288  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:57.289  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:57.435  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:57.435  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:57.435  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:57.435  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:57.435  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:57.850  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:57.851  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:57.851  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:57.851  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:57.851  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:58.060  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:58.060  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:58.060  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:58.060  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:58.061  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:58.171  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:58.171  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:58.171  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:58.171  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:58.171  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:58.281  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:58.281  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:58.282  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:58.282  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:58.282  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:58.410  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:58.410  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:58.410  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:58.410  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:58.410  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:58.665  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:58.665  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:58.665  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:58.665  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:58.665  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:59.084  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:59.085  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:59.085  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:59.085  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:59.085  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:59.223  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:59.223  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:59.223  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:59.223  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:59.224  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:59.617  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:59.617  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:59.617  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:59.617  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:59.617  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:36:59.843  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:36:59.843  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:36:59.843  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:36:59.843  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:36:59.843  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:00.009  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:00.009  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:00.009  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:00.009  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:00.009  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:00.163  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:00.163  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:00.163  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:00.163  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:00.163  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:00.267  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:00.267  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:00.267  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:00.267  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:00.267  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:00.380  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:00.380  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:00.380  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:00.380  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:00.380  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:00.599  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:00.600  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:00.600  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:00.600  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:00.600  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:00.752  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:00.752  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:00.752  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:00.753  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:00.753  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:00.963  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:00.964  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:00.964  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:00.964  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:00.964  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:01.406  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:01.406  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:01.406  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:01.406  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:01.406  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:01.579  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:01.580  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:01.580  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:01.580  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:01.580  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:01.755  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:01.755  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:01.756  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:01.756  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:01.756  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:01.870  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:01.870  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:01.870  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:01.870  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:01.870  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:02.051  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:02.052  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:02.052  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:02.052  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:02.052  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:02.195  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:02.195  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:02.195  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:02.195  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:02.195  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:02.334  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:02.334  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:02.334  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:02.334  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:02.334  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:02.498  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:02.498  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:02.498  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:02.498  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:02.498  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:02.958  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:02.958  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:02.958  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:02.958  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:02.958  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:03.424  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:03.424  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:03.424  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:03.424  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:03.424  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:03.539  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:03.539  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:03.540  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:03.540  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:03.540  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:03.648  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:03.648  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:03.648  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:03.648  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:03.648  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:03.768  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:03.768  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:03.768  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:03.768  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:03.768  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:03.917  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:03.917  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:03.917  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:03.917  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:03.917  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:04.031  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:04.031  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:04.031  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:04.031  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:04.031  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:04.171  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:04.172  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:04.172  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:04.172  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:04.172  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:04.273  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:04.274  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:04.274  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:04.274  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:04.274  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:04.419  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:04.419  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:04.420  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:04.420  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:04.420  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:04.900  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:04.900  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:04.900  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:04.900  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:04.900  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:05.015  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:05.015  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:05.015  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:05.015  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:05.015  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:05.126  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:05.126  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:05.127  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:05.127  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:05.127  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:05.342  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:05.342  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:05.342  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:05.342  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:05.342  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:05.452  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:05.452  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:05.452  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:05.452  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:05.452  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:05.561  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:05.562  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:05.562  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:05.562  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:05.562  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:05.670  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:05.670  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:05.670  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:05.670  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:05.670  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:05.784  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:05.785  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:05.785  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:05.785  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:05.785  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:05.932  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:05.933  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:05.933  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:05.933  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:05.933  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:06.074  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:06.075  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:06.075  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:06.075  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:06.075  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:06.191  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:06.191  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:06.191  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:06.191  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:06.191  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:06.355  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:06.355  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:06.355  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:06.355  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:06.355  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:06.497  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:06.497  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:06.497  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:06.497  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:06.497  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:06.606  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:06.607  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:06.607  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:06.607  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:06.607  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:06.842  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:06.842  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:06.842  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:06.842  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:06.843  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:06.987  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:06.988  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:06.988  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:06.988  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:06.988  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:07.123  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:07.123  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:07.124  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:07.124  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:07.124  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:07.233  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:07.234  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:07.234  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:07.234  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:07.234  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:07.377  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:07.377  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:07.377  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:07.377  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:07.378  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:07.496  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:07.496  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:07.496  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:07.496  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:07.496  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:07.892  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:07.892  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:07.892  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:07.892  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:07.892  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:08.009  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:08.009  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:08.009  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:08.009  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:08.009  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:08.271  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:08.271  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:08.271  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:08.271  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:08.271  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:08.402  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:08.403  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:08.403  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:08.403  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:08.403  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:08.516  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:08.516  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:08.517  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:08.517  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:08.517  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:08.664  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:08.664  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:08.664  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:08.664  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:08.664  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:08.807  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:08.807  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:08.807  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:08.807  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:08.808  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:08.913  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:08.913  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:08.913  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:08.914  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:08.914  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:09.025  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:09.025  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:09.025  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:09.025  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:09.025  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:09.166  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:09.166  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:09.166  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:09.166  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:09.167  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:09.281  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:09.281  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:09.281  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:09.281  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:09.282  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:09.379  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:09.379  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:09.379  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:09.379  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:09.379  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:09.522  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:09.522  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:09.522  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:09.522  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:09.522  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:09.864  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:09.864  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:09.864  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:09.864  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:09.864  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:10.001  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:10.001  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:10.001  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:10.001  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:10.001  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:10.144  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:10.144  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:10.144  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:10.145  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:10.145  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:10.261  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:10.261  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:10.261  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:10.262  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:10.262  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:10.398  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:10.398  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:10.398  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:10.398  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:10.398  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:10.820  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:10.820  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:10.821  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:10.821  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:10.821  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:10.960  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:10.961  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:10.961  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:10.961  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:10.961  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:11.463  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:11.463  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:11.463  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:11.463  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:11.463  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:11.577  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:11.577  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:11.577  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:11.577  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:11.577  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:11.732  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:11.732  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:11.732  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:11.732  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:11.732  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:11.894  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:11.894  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:11.894  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:11.894  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:11.894  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:12.036  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:12.036  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:12.036  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:12.036  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:12.036  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:12.218  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:12.219  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:12.219  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:12.219  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:12.219  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:12.322  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:12.322  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:12.322  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:12.322  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:12.322  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:12.425  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:12.425  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:12.425  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:12.425  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:12.426  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:12.564  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:12.564  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:12.564  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:12.564  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:12.564  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:12.997  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:12.997  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:12.997  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:12.997  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:12.997  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:13.114  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:13.114  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:13.114  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:13.114  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:13.114  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:13.230  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:13.230  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:13.230  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:13.230  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:13.230  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:13.331  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:13.331  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:13.331  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:13.331  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:13.331  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:13.740  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:13.741  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:13.741  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:13.741  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:13.741  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:13.922  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:13.922  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:13.922  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:13.923  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:13.923  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:14.031  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:14.031  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:14.032  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:14.032  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:14.032  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:14.174  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:14.174  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:14.175  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:14.175  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:14.175  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:14.317  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:14.317  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:14.317  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:14.317  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:14.317  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:14.456  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:14.456  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:14.456  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:14.456  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:14.456  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:14.594  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:14.594  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:14.594  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:14.595  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:14.595  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:14.735  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:14.735  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:14.735  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:14.735  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:14.735  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:14.917  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:14.917  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:14.917  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:14.917  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:14.917  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:15.111  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:15.111  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:15.111  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:15.111  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:15.112  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:15.235  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:15.235  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:15.235  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:15.235  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:15.235  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:15.677  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:15.677  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:15.677  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:15.677  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:15.677  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:15.795  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:15.795  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:15.796  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:15.796  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:15.796  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:15.941  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:15.941  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:15.941  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:15.941  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:15.941  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:16.084  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:16.084  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:16.084  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:16.084  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:16.084  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:16.278  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:16.278  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:16.278  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:16.278  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:16.278  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:16.432  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:16.433  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:16.433  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:16.433  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:16.433  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:16.615  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:16.615  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:16.615  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:16.615  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:16.616  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:16.724  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:16.724  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:16.724  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:16.724  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:16.724  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:16.875  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:16.875  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:16.875  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:16.875  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:16.875  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:17.015  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:17.015  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:17.015  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:17.015  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:17.015  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:17.209  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:17.209  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:17.209  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:17.209  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:17.209  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:17.455  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:17.455  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:17.455  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:17.455  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:17.455  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:17.790  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:17.790  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:17.790  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:17.790  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:17.790  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:17.901  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:37:17.901  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:37:17.901  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:37:17.902  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:37:17.902  INFO 2920 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:37:51.638  INFO 7280 --- [main] com.transaction.core.CoreApplication     : Starting CoreApplication on DESKTOP-5QIOI62 with PID 7280 (E:\Transaction\target\classes started by 北 in E:\Transaction)
+2019-08-25 01:37:51.645  INFO 7280 --- [main] com.transaction.core.CoreApplication     : No active profile set, falling back to default profiles: default
+2019-08-25 01:37:52.742  INFO 7280 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-25 01:37:52.847  INFO 7280 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96ms. Found 3 repository interfaces.
+2019-08-25 01:37:53.228  INFO 7280 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9c23726a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-25 01:37:53.598  INFO 7280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18080 (http)
+2019-08-25 01:37:53.631  INFO 7280 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-25 01:37:53.632  INFO 7280 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-25 01:37:53.826  INFO 7280 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-25 01:37:53.826  INFO 7280 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2103 ms
+2019-08-25 01:37:53.914  INFO 7280 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-08-25 01:37:55.979  INFO 7280 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-08-25 01:37:56.099  INFO 7280 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-25 01:37:56.162  INFO 7280 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-25 01:37:56.163  INFO 7280 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-08-25 01:37:56.326  INFO 7280 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-25 01:37:56.498  INFO 7280 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-25 01:37:57.495  INFO 7280 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-25 01:37:58.201  INFO 7280 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-25 01:37:58.247  WARN 7280 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-25 01:37:58.581  INFO 7280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-25 01:37:58.583  INFO 7280 --- [main] com.transaction.core.CoreApplication     : Started CoreApplication in 7.689 seconds (JVM running for 9.849)
+2019-08-25 01:37:58.617  INFO 7280 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-08-25 01:37:59.602  INFO 7280 --- [main] com.transaction.core.CoreApplication     : 启动ZT交易所的CNT_LTC_USDT交易对，交易策略：同步
+2019-08-25 01:37:59.610  INFO 7280 --- [CNT_USDT_LTC_BUY/MOVING] com.transaction.core.strategy.SyncDo     : start SyncDo, sy1: USDT, sy2: LTC, sBase: CNT
+2019-08-25 01:37:59.610  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : start SyncDo, sy1: USDT, sy2: LTC, sBase: CNT
+2019-08-25 01:38:00.203  WARN 7280 --- [OkHttp https://ws.zt.com/...] c.t.core.ws.EchoWebSocketListener        : webSocket open
+2019-08-25 01:38:00.395  INFO 7280 --- [Thread-20] c.t.core.exchange.zt.job.LoginJob        : 调用ZT登录接口返回结果：{"code":0,"message":"操作成功","result":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjExNTcxNDQsIkxvZ2luVmVyaWZ5IjowLCJleHAiOjE1NjY3MTE0ODJ9.2iqe3oOt-X5jMcdMp3YvzvV-9lppgE9usbyl3Xx9qeo","token_expire":1566711482,"email":"","phone":"159****0382","user_securities":[{"ID":172071,"CreatedAt":"2019-06-27T16:06:01+08:00","UpdatedAt":"2019-06-27T16:06:01+08:00","DeletedAt":null,"user_id":1157144,"type":1}],"need_safe":1}}
+2019-08-25 01:38:00.450  INFO 7280 --- [Thread-20] c.t.core.exchange.zt.job.LoginJob        : ZT登录需要手机验证码
+2019-08-25 01:38:00.454  INFO 7280 --- [Thread-20] c.t.core.exchange.zt.job.LoginJob        : post请求，url=https://www.zt.com/api/v1/user/SMS，param=okhttp3.FormBody@6f5abb08，token=null
+2019-08-25 01:38:01.657  INFO 7280 --- [CNT_USDT_LTC_BUY/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：4.755576138826414
+2019-08-25 01:38:01.659  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:38:01.660  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:38:01.660  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:38:01.742  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:38:01.743  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:38:02.054  INFO 7280 --- [Thread-20] c.t.core.exchange.zt.job.LoginJob        : {"message":"code=401, message=invalid or expired jwt, token contains an invalid number of segments"}
+2019-08-25 01:38:02.065 ERROR 7280 --- [Thread-20] c.t.core.exchange.zt.job.LoginJob        : post请求出错，url=https://www.zt.com/api/v1/user/SMS，param={}，message=error http code is 401
+2019-08-25 01:38:02.067 ERROR 7280 --- [Thread-20] c.t.core.exchange.zt.job.LoginJob        : 调用ZT登录接口发生异常
+
+java.lang.RuntimeException: post请求出错
+	at com.transaction.core.exchange.zt.job.LoginJob.post(LoginJob.java:188)
+	at com.transaction.core.exchange.zt.job.LoginJob.sendSMG(LoginJob.java:100)
+	at com.transaction.core.exchange.zt.job.LoginJob.doLogin(LoginJob.java:75)
+	at com.transaction.core.exchange.zt.job.LoginJob.lambda$run$0(LoginJob.java:45)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: error http code is 401
+	at com.transaction.core.exchange.zt.job.LoginJob.post(LoginJob.java:184)
+	... 4 common frames omitted
+
+2019-08-25 01:38:07.310  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:38:07.311  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:38:07.311  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:38:07.312  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:38:07.312  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:38:12.633  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:38:12.633  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:38:12.634  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:38:12.634  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:38:12.634  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:38:18.012  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:38:18.013  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:38:18.013  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:38:18.013  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:38:18.013  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:38:23.303  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:38:23.303  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:38:23.304  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:38:23.304  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:38:23.304  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:38:30.282  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:38:30.283  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:38:30.283  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:38:30.283  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:38:30.283  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:38:35.597  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:38:35.597  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:38:35.598  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:38:35.598  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:38:35.599  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:38:40.917  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:38:40.917  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:38:40.918  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:38:40.918  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:38:40.918  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:38:46.705  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.0456380974221835
+2019-08-25 01:38:46.706  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:38:46.706  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:38:46.706  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:38:46.707  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:38:52.326  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.045708910413881
+2019-08-25 01:38:52.326  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:38:52.327  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:38:52.327  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:38:52.327  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:38:57.646  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.045708910413881
+2019-08-25 01:38:57.647  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:38:57.647  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:38:57.647  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:38:57.647  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:39:03.037  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.045708910413881
+2019-08-25 01:39:03.037  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:39:03.038  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:39:03.038  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:39:03.038  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:39:08.300  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.045708910413881
+2019-08-25 01:39:08.301  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:39:08.301  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:39:08.301  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:39:08.302  INFO 7280 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408

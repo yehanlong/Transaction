@@ -100,8 +100,15 @@ public class PostBill {
             // 买bty   bty买ycc  卖ycc
 
 
-            client.postBill(amount1, symbol1,SBase, price1, "BUY");
-
+            boolean b = client.postBill(amount1, symbol1,SBase, price1, "BUY");
+            if (b) {
+                try {
+                    Thread.sleep(5100);
+                    return false;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
 
 /*
             double btyCount = amount2 * price12 / (1 - client.getSxf());
@@ -117,14 +124,28 @@ public class PostBill {
                 amount2 = DoubleUtil.div(tmp1,price12,15);
             }
 
-            client.postBill(amount2, symbol2,symbol1, price12, type);
-
+            b = client.postBill(amount2, symbol2,symbol1, price12, type);
+            if (b) {
+                try {
+                    Thread.sleep(5200);
+                    return false;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
 
             if (amount3 > acc.get(symbol2).getActive()){
                 amount3 = acc.get(symbol2).getActive();
             }
-            client.postBill(amount3, symbol2,SBase, price2, "SELL");
-
+            b = client.postBill(amount3, symbol2,SBase, price2, "SELL");
+            if (b) {
+                try {
+                    Thread.sleep(5300);
+                    return false;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
             return true;
         }
 
@@ -142,9 +163,9 @@ public class PostBill {
                 }
             }
 
-//            if (amount2 > acc.get(symbol2).getActive()){
-//                amount2 = acc.get(symbol2).getActive();
-//            }
+            if (amount2 > acc.get(symbol2).getActive()){
+                amount2 = acc.get(symbol2).getActive();
+            }
             b = client.postBill(amount2, symbol2,symbol1, price12, type);
             if (b) {
                 try {
@@ -154,9 +175,9 @@ public class PostBill {
                     e.printStackTrace();
                 }
             }
-//            if (amount1 > acc.get(symbol1).getActive()){
-//                amount1 = acc.get(symbol1).getActive();
-//            }
+            if (amount1 > acc.get(symbol1).getActive()){
+                amount1 = acc.get(symbol1).getActive();
+            }
             b = client.postBill(amount1, symbol1,SBase, price1, "SELL");
             if (b) {
                 try {
