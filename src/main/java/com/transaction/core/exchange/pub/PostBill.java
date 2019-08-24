@@ -6,6 +6,7 @@ package com.transaction.core.exchange.pub;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.exchange.pubinterface.Exchange;
 import com.transaction.core.exchange.zhaobi.ZhaobiClient;
+import com.transaction.core.utils.DoubleUtil;
 
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
@@ -103,10 +104,18 @@ public class PostBill {
             client.postBill(amount1, symbol1,SBase, price1, "BUY");
 
 
-            // todo double 处理
+/*            // todo double 处理
             double btyCount = amount2 * price12 / (1 - client.getSxf());
             if (btyCount >  acc.get(symbol1).getActive()){
                 amount2 = acc.get(symbol1).getActive() * (1 - client.getSxf()) / price12;
+            }*/
+
+            double tmp = DoubleUtil.mul(amount2,price12);
+            double btyCount = DoubleUtil.div(tmp,(1-client.getSxf()),15);
+            int compareTo1 = DoubleUtil.compareTo(btyCount,acc.get(symbol1).getActive());
+            if(compareTo1 == 1){
+                double tmp1 = DoubleUtil.mul(acc.get(symbol1).getActive(),(1-client.getSxf()));
+                amount2 = DoubleUtil.div(tmp1,price12,15);
             }
 
             client.postBill(amount2, symbol2,symbol1, price12, type);
