@@ -3,9 +3,9 @@ package com.transaction.core;
 import com.transaction.core.entity.SymbolConfig;
 import com.transaction.core.entity.SystemConfig;
 import com.transaction.core.exchange.pubinterface.Exchange;
-import com.transaction.core.exchange.zt.MovingBuy;
-import com.transaction.core.exchange.zt.MovingSell;
 import com.transaction.core.service.ConfigService;
+import com.transaction.core.strategy.Moving;
+import com.transaction.core.strategy.SyncMoving;
 import com.transaction.core.utils.SpringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 
 @SpringBootApplication
 public class CoreApplication {
@@ -37,21 +38,27 @@ public class CoreApplication {
             }
             Exchange client = (Exchange) SpringUtil.getBean(systemConfig.getPlatform()+"Client");
             client.init(systemConfig.getPlatform(), symbolConfigs);
+            ReentrantLock lock = new ReentrantLock();
             for(SymbolConfig symbolConfig : symbolConfigs){
                 // 同步交易策略
                 if("moving".equals(symbolConfig.getStrategy())){
                     logger.info("启动{}交易所的{}_{}_{}交易对，交易策略：同步",
                             systemConfig.getPlatform(),symbolConfig.getBaseCoin(),symbolConfig.getSymbol2(),symbolConfig.getSymbol1());
-                    MovingBuy m1 = new MovingBuy(client, symbolConfig.getSymbol1(),symbolConfig.getSymbol2(),symbolConfig.getBaseCoin());
-                    String threadName = systemConfig.getPlatform()+"_BUY_"+symbolConfig.getBaseCoin()+"_"+symbolConfig.getSymbol1()+"_"+symbolConfig.getSymbol2();
-                    new Thread(m1, threadName).start();
-                    MovingSell m2 = new MovingSell(client, symbolConfig.getSymbol1(),symbolConfig.getSymbol2(),symbolConfig.getBaseCoin());
-                    threadName = systemConfig.getPlatform()+"_SELL_"+symbolConfig.getBaseCoin()+"_"+symbolConfig.getSymbol1()+"_"+symbolConfig.getSymbol2();
-                    new Thread(m2,threadName).start();
+                    Moving moving = new Moving();
+                    moving.start(lock,
+                            client,
+                            symbolConfig.getSymbol1(),
+                            symbolConfig.getSymbol2(),
+                            symbolConfig.getBaseCoin());
                 } else if("syncMoving".equals(symbolConfig.getStrategy())){
                     logger.info("启动{}交易所的{}_{}_{}交易对，交易策略：异步",
                             systemConfig.getPlatform(),symbolConfig.getBaseCoin(),symbolConfig.getSymbol2(),symbolConfig.getSymbol1());
-                    // todo 启动异步线程的逻辑
+                    SyncMoving moving = new SyncMoving();
+                    moving.start(lock,
+                            client,
+                            symbolConfig.getSymbol1(),
+                            symbolConfig.getSymbol2(),
+                            symbolConfig.getBaseCoin());
                 }
             }
         }

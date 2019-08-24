@@ -1,8 +1,5 @@
 package com.transaction.core.exchange;
 
-import com.transaction.core.exchange.zt.MovingBuy;
-import com.transaction.core.exchange.zt.ZTClient;
-
 public class test {
 
     public static void main(String[] args) {

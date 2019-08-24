@@ -5,7 +5,6 @@ package com.transaction.core.exchange.pub;
 
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.exchange.pubinterface.Exchange;
-import com.transaction.core.exchange.zhaobi.ZhaobiClient;
 import com.transaction.core.utils.DoubleUtil;
 
 import java.util.Map;
@@ -13,12 +12,12 @@ import java.util.concurrent.CountDownLatch;
 
 public class PostBill {
 
-    public static boolean symcPostBill(Exchange client, String symbol1, String symbol2, String SBase, double amount1,
-                                   double amount2, double amount3, double price1, double price12,
-                                   double price2, String type){
+    public static boolean syncPostBill(Exchange client, String symbol1, String symbol2, String SBase, double amount1,
+                                       double amount2, double amount3, double price1, double price12,
+                                       double price2, String type){
         CountDownLatch latch = new CountDownLatch(3);
 
-        if(type=="BUY"){
+        if("BUY".equals(type)){
             // 买bty   bty买ycc  卖ycc
             new Thread(()->{
                 try {
@@ -52,7 +51,7 @@ public class PostBill {
             return true;
         }
 
-        if(type=="SELL"){
+        if("SELL".equals(type)){
             //  买ycc  卖ycc换bty 卖bty
 
             new Thread(()->{
@@ -97,7 +96,7 @@ public class PostBill {
 
         Map<String, PropertyVO> acc = client.getAccount();
 
-        if(type=="BUY"){
+        if("BUY".equals(type)){
             // 买bty   bty买ycc  卖ycc
 
 
@@ -129,7 +128,7 @@ public class PostBill {
             return true;
         }
 
-        if(type=="SELL"){
+        if("SELL".equals(type)){
             //  买ycc  卖ycc换bty 卖bty
 
 

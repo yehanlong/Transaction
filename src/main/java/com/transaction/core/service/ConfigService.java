@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -50,6 +51,7 @@ public class ConfigService {
                     if(symbolConfig == null){
                         throw new RuntimeException("数据库交易对配置"+key+"不存在");
                     }
+                    symbolConfig.setCacheTime(new Date());
                     symbolConfigs.put(key,symbolConfig);
                     smallCountConfigs.put(symbolConfig.getPlatform()+"_"+symbolConfig.getSymbol1()+"_"+symbolConfig.getBaseCoin(),
                             symbolConfig.getBaseSymbol1Amount());
@@ -79,6 +81,7 @@ public class ConfigService {
                     if(systemConfig == null){
                         throw new RuntimeException("数据库交易对平台配置"+platform+"不存在");
                     }
+                    systemConfig.setCacheTime(new Date());
                     systemConfigs.put(platform,systemConfig);
                 }
             }

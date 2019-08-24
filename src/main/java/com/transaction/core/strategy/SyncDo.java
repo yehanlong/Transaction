@@ -126,7 +126,7 @@ public class SyncDo {
                     succUsdt += ap.getMinUSDT();
                     logger.info("此次吃单usdt数："+ ap.getMinUSDT());
                     if (sType == 2) {
-                        boolean b = new PostBill().postBill(client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
+                        boolean b = PostBill.postBill(client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
                                 ap.getSy12Price(), ap.getSy2Price(), type);
                         if(!b){
                             logger.error("BUY or SELL 错误");
@@ -134,7 +134,7 @@ public class SyncDo {
                         }
                     }
                     if (sType == 3){
-                        boolean b = new PostBill().symcPostBill(client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
+                        boolean b = PostBill.syncPostBill(client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
                                 ap.getSy12Price(), ap.getSy2Price(), type);
                         if(!b){
                             logger.error("BUY or SELL 错误");
