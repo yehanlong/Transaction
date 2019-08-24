@@ -1,7 +1,9 @@
 package com.transaction.core.strategy;
 
 import com.transaction.core.exchange.pubinterface.Exchange;
-import org.springframework.data.jpa.repository.Lock;
+
+import java.util.concurrent.locks.Lock;
+
 
 public interface Strategy {
 

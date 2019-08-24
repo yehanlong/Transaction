@@ -28,11 +28,15 @@ public class SyncDo {
     private Lock lock;
     private String type;
 
-    public SyncDo(Exchange client, String sy1, String sy2) {
+    public SyncDo(Exchange client, String sy1, String sy2, String sBase, Lock lock, String type) {
         this.client = client;
         this.sy1 = sy1;
         this.sy2 = sy2;
+        this.sBase = sBase;
+        this.lock = lock;
+        this.type = type;
     }
+
     RestTemplate restTemplate = RestTemplateStatic.restTemplate();
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
