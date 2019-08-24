@@ -129,7 +129,7 @@ public class SyncDo {
                         boolean b = PostBill.postBill(client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
                                 ap.getSy12Price(), ap.getSy2Price(), type);
                         if(!b){
-                            logger.error("BUY or SELL 错误");
+                            logger.error("挂单 错误");
                             return;
                         }
                     }
@@ -137,7 +137,7 @@ public class SyncDo {
                         boolean b = PostBill.syncPostBill(client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
                                 ap.getSy12Price(), ap.getSy2Price(), type);
                         if(!b){
-                            logger.error("BUY or SELL 错误");
+                            logger.error("挂单 错误");
                             return;
                         }
                     }

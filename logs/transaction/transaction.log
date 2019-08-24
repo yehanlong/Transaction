@@ -20655,3 +20655,55 @@ Caused by: java.net.SocketTimeoutException: Read timed out
 2019-08-25 00:36:02.784  INFO 8132 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
 2019-08-25 00:36:02.784  INFO 8132 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
 2019-08-25 00:36:02.784  INFO 8132 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:06:46.615  INFO 10336 --- [main] com.transaction.core.CoreApplication     : Starting CoreApplication on DESKTOP-5QIOI62 with PID 10336 (E:\Transaction\target\classes started by 北 in E:\Transaction)
+2019-08-25 01:06:46.619  INFO 10336 --- [main] com.transaction.core.CoreApplication     : No active profile set, falling back to default profiles: default
+2019-08-25 01:06:47.895  INFO 10336 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-25 01:06:48.015  INFO 10336 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111ms. Found 3 repository interfaces.
+2019-08-25 01:06:48.398  INFO 10336 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$723ba36c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-25 01:06:48.749  INFO 10336 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18080 (http)
+2019-08-25 01:06:48.775  INFO 10336 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-25 01:06:48.775  INFO 10336 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-25 01:06:48.963  INFO 10336 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-25 01:06:48.964  INFO 10336 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2285 ms
+2019-08-25 01:06:49.069  INFO 10336 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-08-25 01:06:51.230  INFO 10336 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-08-25 01:06:51.351  INFO 10336 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-08-25 01:06:51.415  INFO 10336 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-25 01:06:51.416  INFO 10336 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-08-25 01:06:51.578  INFO 10336 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-25 01:06:51.743  INFO 10336 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-08-25 01:06:52.789  INFO 10336 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-25 01:06:53.513  INFO 10336 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-25 01:06:53.554  WARN 10336 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-25 01:06:53.878  INFO 10336 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 18080 (http) with context path ''
+2019-08-25 01:06:53.880  INFO 10336 --- [main] com.transaction.core.CoreApplication     : Started CoreApplication in 8.075 seconds (JVM running for 10.189)
+2019-08-25 01:06:53.911  INFO 10336 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-08-25 01:06:54.862  INFO 10336 --- [main] com.transaction.core.CoreApplication     : 启动ZT交易所的CNT_LTC_USDT交易对，交易策略：同步
+2019-08-25 01:06:54.868  INFO 10336 --- [CNT_USDT_LTC_BUY/MOVING] com.transaction.core.strategy.SyncDo     : start SyncDo, sy1: USDT, sy2: LTC, sBase: CNT
+2019-08-25 01:06:54.869  INFO 10336 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : start SyncDo, sy1: USDT, sy2: LTC, sBase: CNT
+2019-08-25 01:06:55.409  INFO 10336 --- [Thread-21] c.t.core.exchange.zt.job.LoginJob        : 调用ZT登录接口返回结果：{"code":0,"message":"操作成功","result":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjExNTcxNDQsIkxvZ2luVmVyaWZ5IjowLCJleHAiOjE1NjY3MDk2MTd9.KuyOchrJDxWUHO96ldTPxa9JcNlCOF96IXRnFCCECGA","token_expire":1566709617,"email":"","phone":"159****0382","user_securities":[{"ID":172071,"CreatedAt":"2019-06-27T16:06:01+08:00","UpdatedAt":"2019-06-27T16:06:01+08:00","DeletedAt":null,"user_id":1157144,"type":1}],"need_safe":1}}
+2019-08-25 01:06:55.464  INFO 10336 --- [Thread-21] c.t.core.exchange.zt.job.LoginJob        : ZT登录需要手机验证码
+2019-08-25 01:06:55.469  INFO 10336 --- [Thread-21] c.t.core.exchange.zt.job.LoginJob        : post请求，url=https://www.zt.com/api/v1/user/SMS，param=okhttp3.FormBody@7b415410，token=null
+2019-08-25 01:06:55.482  WARN 10336 --- [OkHttp https://ws.zt.com/...] c.t.core.ws.EchoWebSocketListener        : webSocket open
+2019-08-25 01:06:56.917  INFO 10336 --- [CNT_USDT_LTC_BUY/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：4.7444706603416344
+2019-08-25 01:06:56.920  INFO 10336 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 预计一轮后的usdt：5.043513707671258
+2019-08-25 01:06:56.921  INFO 10336 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 有盈利，开始交易...
+2019-08-25 01:06:56.921  INFO 10336 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次挂单可吃的usdt数量: 8.0783408
+2019-08-25 01:06:57.000  INFO 10336 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 直接吃完整个订单
+2019-08-25 01:06:57.000  INFO 10336 --- [CNT_USDT_LTC_SELL/MOVING] com.transaction.core.strategy.SyncDo     : 此次吃单usdt数：8.0783408
+2019-08-25 01:06:57.040  INFO 10336 --- [Thread-21] c.t.core.exchange.zt.job.LoginJob        : {"message":"code=401, message=invalid or expired jwt, token contains an invalid number of segments"}
+2019-08-25 01:06:57.056 ERROR 10336 --- [Thread-21] c.t.core.exchange.zt.job.LoginJob        : post请求出错，url=https://www.zt.com/api/v1/user/SMS，param={}，message=error http code is 401
+2019-08-25 01:06:57.059 ERROR 10336 --- [Thread-21] c.t.core.exchange.zt.job.LoginJob        : 调用ZT登录接口发生异常
+
+java.lang.RuntimeException: post请求出错
+	at com.transaction.core.exchange.zt.job.LoginJob.post(LoginJob.java:188)
+	at com.transaction.core.exchange.zt.job.LoginJob.sendSMG(LoginJob.java:100)
+	at com.transaction.core.exchange.zt.job.LoginJob.doLogin(LoginJob.java:75)
+	at com.transaction.core.exchange.zt.job.LoginJob.lambda$run$0(LoginJob.java:45)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: error http code is 401
+	at com.transaction.core.exchange.zt.job.LoginJob.post(LoginJob.java:184)
+	... 4 common frames omitted
+

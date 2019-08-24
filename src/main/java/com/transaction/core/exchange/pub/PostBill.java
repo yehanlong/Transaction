@@ -103,7 +103,7 @@ public class PostBill {
             client.postBill(amount1, symbol1,SBase, price1, "BUY");
 
 
-/*            // todo double 处理
+/*
             double btyCount = amount2 * price12 / (1 - client.getSxf());
             if (btyCount >  acc.get(symbol1).getActive()){
                 amount2 = acc.get(symbol1).getActive() * (1 - client.getSxf()) / price12;
@@ -132,18 +132,40 @@ public class PostBill {
             //  买ycc  卖ycc换bty 卖bty
 
 
-            client.postBill(amount3, symbol2,SBase, price2, "BUY");
+            boolean b = client.postBill(amount3, symbol2,SBase, price2, "BUY");
+            if (b) {
+                try {
+                    Thread.sleep(5000);
+                    return false;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
 
 //            if (amount2 > acc.get(symbol2).getActive()){
 //                amount2 = acc.get(symbol2).getActive();
 //            }
-            client.postBill(amount2, symbol2,symbol1, price12, type);
-
+            b = client.postBill(amount2, symbol2,symbol1, price12, type);
+            if (b) {
+                try {
+                    Thread.sleep(6000);
+                    return false;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
 //            if (amount1 > acc.get(symbol1).getActive()){
 //                amount1 = acc.get(symbol1).getActive();
 //            }
-            client.postBill(amount1, symbol1,SBase, price1, "SELL");
-
+            b = client.postBill(amount1, symbol1,SBase, price1, "SELL");
+            if (b) {
+                try {
+                    Thread.sleep(4000);
+                    return false;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
 
             return true;
         }
