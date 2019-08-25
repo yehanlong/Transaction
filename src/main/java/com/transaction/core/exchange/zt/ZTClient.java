@@ -10,6 +10,7 @@ import com.transaction.core.exchange.pubinterface.AbstractExchange;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.utils.SpringUtil;
 import com.transaction.core.ws.WebSocketService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -19,6 +20,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +28,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Service("ZTClient")
+@Slf4j
 public class ZTClient extends AbstractExchange {
     @Override
     public Map<String, PropertyVO> getAccount() {
@@ -134,7 +137,7 @@ public class ZTClient extends AbstractExchange {
     }
 
 
-    public static boolean postBillZT(double amount, String market, String side, double price, String token) {
+    public boolean postBillZT(double amount, String market, String side, double price, String token) {
         RestTemplate restTemplate = RestTemplateStatic.restTemplate();
         String uri="https://www.zt.com/api/v1/user/trade/limit";
         HttpHeaders headers = new HttpHeaders();
@@ -144,17 +147,18 @@ public class ZTClient extends AbstractExchange {
         MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
         map.add("market",market);
         map.add("side",side);
-        map.add("amount",String.valueOf(amount));
+        String amountStr = new DecimalFormat(getSmallCount(market.split("_")[1],market.split("_")[0])).format(amount);
+        map.add("amount",amountStr);
         map.add("price",String.valueOf(price));
         HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(map,headers);
         String result =restTemplate.exchange(uri, HttpMethod.POST, entity, String.class).getBody();
         JSONObject object = JSON.parseObject(result);
-        System.out.println(object.toJSONString());
+        log.info(object.toJSONString()+"------");
         return false;
     }
 
     public static void main(String[] args) {
-//        ZTCache.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjExNTcxNDQsIkxvZ2luVmVyaWZ5IjoxLCJleHAiOjE1NjYzNDIxMTF9.MIbOqSOFCtKC97x4CayfaFWf4Pq1ID9eGpY5hTR5eyk";
+        ZTCache.token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjExNTcxNDQsIkxvZ2luVmVyaWZ5IjoxLCJleHAiOjE1NjY3MDgzMTN9.ygDhtvGGprEmIZFwNSqd2X_MufP09TrBHYfdh_ZONgE";
 //        postBillZT(0.01,"EOS_CNT","2",20.1526,
 //                ZTCache.token);
         ZTClient ztClient = new ZTClient();
