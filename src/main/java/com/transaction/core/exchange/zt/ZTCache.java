@@ -20,5 +20,5 @@ public class ZTCache {
      */
     public static final ConcurrentHashMap<String, TradeVO> orderMap = new ConcurrentHashMap<>();
 
-    public static volatile String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjExNTcxNDQsIkxvZ2luVmVyaWZ5IjoxLCJleHAiOjE1NjY3NDExMDV9.ibrN0ol4Xk19zJ9LjWN3F82q-0ikn_8CnVgFtXn7bcQ";
+    public static volatile String token = null;
 }

@@ -158,6 +158,7 @@ public class SyncDo {
                         emailStartMark = 1;
                     }
                     count++;
+                    // todo  没问题之后去掉这个
                     Thread.sleep(10000);
 
                 }

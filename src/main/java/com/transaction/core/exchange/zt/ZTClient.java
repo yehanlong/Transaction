@@ -74,7 +74,10 @@ public class ZTClient extends AbstractExchange {
         String side = "";
 
         if (ZTCache.token == null){
+            System.out.println(ZTCache.token);
             return false;
+        }else {
+            System.out.println(ZTCache.token);
         }
 
         if (ty == "BUY"){
@@ -138,6 +141,7 @@ public class ZTClient extends AbstractExchange {
 
 
     public boolean postBillZT(double amount, String market, String side, double price, String token) {
+        System.out.println(market + " ：amount：" + amount + ", price: " + price +", side:"+ side);
         RestTemplate restTemplate = RestTemplateStatic.restTemplate();
         String uri="https://www.zt.com/api/v1/user/trade/limit";
         HttpHeaders headers = new HttpHeaders();
