@@ -172,7 +172,7 @@ public class LoginJob implements ApplicationRunner {
             Request request = new Request.Builder()
                     .url(url)
                     .post(body)
-                    .header("Authorization","Bearer "+token)
+                    .header("Authorization",token)
                     .build();
             Call call = client.newCall(request);
             Response response = call.execute();
