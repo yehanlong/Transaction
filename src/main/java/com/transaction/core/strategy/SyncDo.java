@@ -107,7 +107,7 @@ public class SyncDo {
                          logger.info("直接吃完整个订单");
                     }else {
                         logger.info("一步步吃订单");
-                        point = DoubleUtil.div(point,ap.getMinUSDT(),10);
+                        point = DoubleUtil.div(everyUSDT,ap.getMinUSDT(),10);
                     }
                     // todo 处理舍弃小数位的问题
                     // 一般价格高的是sy1  此次需要注意，可能有的交易所不是这样的
@@ -124,7 +124,7 @@ public class SyncDo {
 
                     // 一起执行3比交易
                     succUsdt += ap.getMinUSDT();
-                    logger.info("此次吃单usdt数："+ ap.getMinUSDT());
+                    logger.info("此次吃单"+sBase+"数："+ ap.getMinUSDT() *point*point1 );
                     if (sType == 2) {
                         boolean b = PostBill.postBill(client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
                                 ap.getSy12Price(), ap.getSy2Price(), type);
