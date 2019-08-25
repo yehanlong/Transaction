@@ -116,6 +116,18 @@ public class PostBill {
                 amount2 = acc.get(symbol1).getActive() * (1 - client.getSxf()) / price12;
             }*/
 
+            for (int i = 0; i < 10; i++) {
+                if (acc.get(symbol1).getActive() * price1 < PubConst.getAccMin(SBase)){
+                    try {
+                        System.out.println("获取余额延迟："+ i);
+                        Thread.sleep(500);
+                        acc = client.getAccount();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
             double tmp = DoubleUtil.mul(amount2,price12);
             double btyCount = DoubleUtil.div(tmp,(1-client.getSxf()),15);
             int compareTo1 = DoubleUtil.compareTo(btyCount,acc.get(symbol1).getActive());
@@ -134,6 +146,17 @@ public class PostBill {
                 }
             }
 
+            for (int i = 0; i < 10; i++) {
+                if (acc.get(symbol2).getActive() * price2  < PubConst.getAccMin(SBase)){
+                    try {
+                        System.out.println("获取余额延迟："+ i);
+                        Thread.sleep(501);
+                        acc = client.getAccount();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
             if (amount3 > acc.get(symbol2).getActive()){
                 amount3 = acc.get(symbol2).getActive();
             }
@@ -163,6 +186,17 @@ public class PostBill {
                 }
             }
 
+            for (int i = 0; i < 10; i++) {
+                if (acc.get(symbol2).getActive() * price2  < PubConst.getAccMin(SBase)){
+                    try {
+                        System.out.println("获取余额延迟："+ i);
+                        Thread.sleep(502);
+                        acc = client.getAccount();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
             if (amount2 > acc.get(symbol2).getActive()){
                 amount2 = acc.get(symbol2).getActive();
             }
@@ -173,6 +207,17 @@ public class PostBill {
                     return false;
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                }
+            }
+            for (int i = 0; i < 10; i++) {
+                if (acc.get(symbol1).getActive() * price1  < PubConst.getAccMin(SBase)){
+                    try {
+                        System.out.println("获取余额延迟："+ i);
+                        Thread.sleep(503);
+                        acc = client.getAccount();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
             if (amount1 > acc.get(symbol1).getActive()){

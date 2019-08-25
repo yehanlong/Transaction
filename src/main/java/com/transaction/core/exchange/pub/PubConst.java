@@ -15,4 +15,16 @@ public class PubConst {
         }
         return 1.5;
     }
+
+
+    // 获取余额当小于多少时，等待会，重新获取
+    public static double getAccMin(String sBase){
+        if (sBase == "USDT"){
+            return 1;
+        }
+        if (sBase == "CNT"){
+            return 5;
+        }
+        return 1;
+    }
 }
