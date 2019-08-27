@@ -44,11 +44,11 @@ public class Test implements Strategy{
                     }
 
                 }catch (Exception e){
-                    logger.error("计算交易出错",sy1,sy2);
+                    logger.error("计算交易出错，{}_{}，{}",sy1,sy2,e);
                 }
 
                 try {
-                    TimeUnit.SECONDS.sleep(client.getSleepTime());
+                    TimeUnit.MILLISECONDS.sleep(client.getSleepTime());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -71,11 +71,11 @@ public class Test implements Strategy{
                     }
 
                 }catch (Exception e){
-                    logger.error("计算交易出错",sy1,sy2);
+                    logger.error("计算交易出错，{}_{},{}",sy1,sy2,e);
                 }
 
                 try {
-                    TimeUnit.SECONDS.sleep(client.getSleepTime());
+                    TimeUnit.MILLISECONDS.sleep(client.getSleepTime());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

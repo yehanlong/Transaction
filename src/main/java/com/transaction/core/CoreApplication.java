@@ -2,16 +2,20 @@ package com.transaction.core;
 
 import com.transaction.core.entity.SymbolConfig;
 import com.transaction.core.entity.SystemConfig;
+import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
 import com.transaction.core.service.ConfigService;
+import com.transaction.core.strategy.FirstCacl;
 import com.transaction.core.strategy.Moving;
 import com.transaction.core.strategy.SyncMoving;
+import com.transaction.core.strategy.Test;
 import com.transaction.core.utils.SpringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
@@ -59,6 +63,12 @@ public class CoreApplication {
                             symbolConfig.getSymbol1(),
                             symbolConfig.getSymbol2(),
                             symbolConfig.getBaseCoin());
+                }else if("test".equals(symbolConfig.getStrategy())){
+                    logger.info("启动{}交易所的{}_{}_{}交易对，交易策略：测试",
+                            systemConfig.getPlatform(),symbolConfig.getBaseCoin(),symbolConfig.getSymbol2(),symbolConfig.getSymbol1());
+                    RestTemplate restTemplate = RestTemplateStatic.restTemplate();
+                    new Test(client,symbolConfig.getSymbol1(),symbolConfig.getSymbol2(),symbolConfig.getBaseCoin(),restTemplate,logger)
+                            .start(null,client,symbolConfig.getSymbol1(),symbolConfig.getSymbol2(),symbolConfig.getBaseCoin());
                 }
             }
         }

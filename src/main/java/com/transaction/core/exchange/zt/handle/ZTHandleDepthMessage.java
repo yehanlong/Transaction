@@ -34,6 +34,7 @@ public class ZTHandleDepthMessage implements ZTHandleMessage {
         tradeVO.setSuccess(true);
         tradeVO.setTime(System.currentTimeMillis());
         ZTCache.orderMap.put(symbol,tradeVO);
+        ZTCache.depthTradeMap.put(id,tradeVO);
     }
 
     @Override
