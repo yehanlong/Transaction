@@ -87,7 +87,6 @@ public class SyncDo {
                     in = 1;
                     // 有盈利，开始交易
                     logger.info("有盈利，开始交易...");
-
                     // 获取此轮交易实际需要的USDT
                     AmountPrice ap = Deal.getAcuallyUSDT(amountPrice,  type, client.getSxf());
                     if (ap.getMinUSDT() < PubConst.getMin(sBase)){
@@ -121,6 +120,13 @@ public class SyncDo {
                         }
                         break;
                     }
+
+                    // 判断账户余额  当账户余额太小，不进行交易
+                    if (client.getAccount().get(sBase).getActive() < everyUSDT){
+                        Thread.sleep(5000);
+                        continue;
+                    }
+
 
                     // 一起执行3比交易
                     succUsdt += ap.getMinUSDT();
