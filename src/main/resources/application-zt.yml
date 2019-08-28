@@ -1,0 +1,4 @@
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://db.kfm666.cn:10004/transaction_zt?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
