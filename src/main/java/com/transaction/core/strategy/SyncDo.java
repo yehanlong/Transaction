@@ -1,5 +1,6 @@
 package com.transaction.core.strategy;
 
+import com.alibaba.fastjson.JSONObject;
 import com.transaction.core.entity.AmountPrice;
 import com.transaction.core.exchange.pub.PostBill;
 import com.transaction.core.exchange.pub.PubConst;
@@ -140,6 +141,7 @@ public class SyncDo {
                         }
                     }
                     if (sType == 3){
+                        logger.info("市场行情：{}", JSONObject.toJSONString(amountPrice));
                         boolean b = PostBill.syncPostBill(client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
                                 ap.getSy12Price(), ap.getSy2Price(), type);
                         if(!b){

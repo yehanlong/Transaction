@@ -12,6 +12,7 @@ import okhttp3.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
@@ -23,6 +24,7 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 @Slf4j
+@ConditionalOnExpression("'${spring.profiles.active}'.equals('zt')")
 public class LoginJob implements ApplicationRunner {
 
     private final static String userName = "15957180382";
