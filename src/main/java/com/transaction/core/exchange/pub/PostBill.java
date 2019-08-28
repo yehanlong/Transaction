@@ -27,6 +27,7 @@ public class PostBill {
                 }
             }).start();
 
+            System.out.println("买入, 交易对: "+ symbol2+symbol1+", 数量: "+ amount2 + ", 价格: "+price12);
             new Thread(()->{
                 try {
                     client.postBill(amount2, symbol2,symbol1, price12, type);
@@ -54,6 +55,7 @@ public class PostBill {
         if("SELL".equals(type)){
             //  买ycc  卖ycc换bty 卖bty
 
+            System.out.println("卖出, 交易对: "+ symbol1+SBase+", 数量: "+ amount1 + ", 价格: "+price1);
             new Thread(()->{
                 try {
                     client.postBill(amount1, symbol1,SBase, price1, "SELL");
@@ -62,6 +64,7 @@ public class PostBill {
                 }
             }).start();
 
+            System.out.println("卖出, 交易对: "+ symbol2+symbol1+", 数量: "+ amount2 + ", 价格: "+price12);
             new Thread(()->{
                 try {
                     client.postBill(amount2, symbol2,symbol1, price12, type);
@@ -70,6 +73,7 @@ public class PostBill {
                 }
             }).start();
 
+            System.out.println("买入, 交易对: "+ symbol2+SBase+", 数量: "+ amount3 + ", 价格: "+price2);
             new Thread(()->{
                 try {
                     client.postBill(amount3, symbol2,SBase, price2, "BUY");
