@@ -4,15 +4,16 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+    show-sql: true
   # Druid连接池配置，官方配置参考：https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
   datasource:
     druid:
       username: transaction
       password: 123456
       initial-size: 5
-      max-active: 20
+      max-active: 200
       min-idle: 10
-      max-wait: 10
+      max-wait: 10000
       filters: stat
       filter:
         stat:
@@ -33,6 +34,7 @@ spring:
         login-password: user
         allow:
         deny:
+      validation-query: select 1 from dual
   application:
     name: transaction
 
