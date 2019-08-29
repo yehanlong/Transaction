@@ -58,7 +58,7 @@ public class ConfigService {
                     smallCountConfigs.put(symbolConfig.getPlatform()+"_"+symbolConfig.getSymbol2()+"_"+symbolConfig.getBaseCoin(),
                             symbolConfig.getBaseSymbol2Amount());
                     smallCountConfigs.put(symbolConfig.getPlatform()+"_"+symbolConfig.getSymbol2()+"_"+symbolConfig.getSymbol1(),
-                            symbolConfig.getBaseSymbol1Amount());
+                            symbolConfig.getSymbol1Symbol2Amount());
                 }
             }
         }

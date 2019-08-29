@@ -241,7 +241,8 @@ public class ZhaobiClient extends AbstractExchange {
         public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
 //
             // todo 此次改成交易所自己维护价格处理
-            String amountStr = new DecimalFormat(getSmallCount(currency2,currency)).format(amount);
+            String zero = getSmallCount(currency2,currency);
+            String amountStr = new DecimalFormat(zero).format(amount);
             String priceStr = String.valueOf(price);
             String uri="https://api.biqianbao.top/api/trade/place";
             String requestText = //"amount=" + amount + "&" + "currency=" + currency + "&" + "currency2=" + currency2 + "&" + "price=" + price + "&" + "ty=" + ty;
