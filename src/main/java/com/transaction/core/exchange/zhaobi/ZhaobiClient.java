@@ -77,7 +77,7 @@ public class ZhaobiClient extends AbstractExchange {
         //定义请求参数类型
         headers.setContentType(MediaType.valueOf(MediaType.APPLICATION_FORM_URLENCODED_VALUE));
         headers.add("FZM-REQUEST-OS", "FZM-REQUEST-OS");
-        headers.setBearerAuth("e243dff6f8132ef254fae4e1f628e6d7966f8645");
+        headers.setBearerAuth("45cd573ab12ea9b5051b6929cac7650ec224bcc5");
         //headers.add("Authorization ", "Bearer e243dff6f8132ef254fae4e1f628e6d7966f8645");
         HttpEntity entity = new HttpEntity<>(headers);
         String result =restTemplate.exchange(uri, HttpMethod.POST, entity, String.class).getBody();
@@ -250,7 +250,7 @@ public class ZhaobiClient extends AbstractExchange {
             HttpHeaders headers = new HttpHeaders();
             //定义请求参数类型
             headers.setContentType(MediaType.valueOf(MediaType.APPLICATION_FORM_URLENCODED_VALUE));
-            headers.setBearerAuth("e243dff6f8132ef254fae4e1f628e6d7966f8645");
+            headers.setBearerAuth("45cd573ab12ea9b5051b6929cac7650ec224bcc5");
             HttpEntity entity = new HttpEntity<>(requestText,headers);
             String result =restTemplate.exchange(uri, HttpMethod.POST, entity, String.class).getBody();
             logger.info(result);

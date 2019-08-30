@@ -116,7 +116,7 @@ public class SyncDo {
                         double top = Double.valueOf(new DecimalFormat(smallCount).format( ap.getSy1Amount()));
                         point1 = DoubleUtil.div(top,ap.getSy1Amount(),10);
                         if (everyUSDT * point1 < PubConst.getMin(sBase)){
-                            everyUSDT = everyUSDT + 1;
+                            everyUSDT = everyUSDT + 2;
                             continue;
                         }
                         break;
