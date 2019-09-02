@@ -139,7 +139,7 @@ public class SyncDo {
                             sBase,acc.get(sBase).getActive()+acc.get(sBase).getFrozen(),usdtcount,count);
 
                     // 一起执行3比交易
-                    succUsdt += ap.getMinUSDT();
+                    succUsdt += ap.getMinUSDT()*point*point1;
                     logger.info("此次吃单"+sBase+"数："+ ap.getMinUSDT() *point*point1 );
                     if (sType == 2) {
                         boolean b = PostBill.postBill(accId,count,client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
@@ -222,8 +222,8 @@ public class SyncDo {
                 .cacl(usdtcount)
                 .count(count).build();
         AccountService accountService = (AccountService) SpringUtil.getBean("accountService");
-        accountEntity = accountService.save(accountEntity);
+        accountEntity = accountService.(accountEntity);
         return accountEntity.getId();
     }
-
+    save
 }
