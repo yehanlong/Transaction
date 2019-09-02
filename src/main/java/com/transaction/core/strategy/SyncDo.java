@@ -134,7 +134,6 @@ public class SyncDo {
                         continue;
                     }
 
-                    // todo  记录余额
                     int accId = addAcc(sy1,acc.get(sy1).getActive() + acc.get(sy1).getFrozen(),sy2, acc.get(sy2).getActive()+acc.get(sy2).getFrozen(),
                             sBase,acc.get(sBase).getActive()+acc.get(sBase).getFrozen(),usdtcount,count);
 
@@ -192,6 +191,11 @@ public class SyncDo {
                         logger.info(msg);
                     }
 
+                    // 最后记录余额数据
+                    Map<String, PropertyVO> acc = client.getAccount();
+                    addAcc(sy1,acc.get(sy1).getActive() + acc.get(sy1).getFrozen(),sy2, acc.get(sy2).getActive()+acc.get(sy2).getFrozen(),
+                            sBase,acc.get(sBase).getActive()+acc.get(sBase).getFrozen(),0,-1);
+
                     // 数据初始化
                     count = 0;
                     succUsdt=0.0;
@@ -222,8 +226,8 @@ public class SyncDo {
                 .cacl(usdtcount)
                 .count(count).build();
         AccountService accountService = (AccountService) SpringUtil.getBean("accountService");
-        accountEntity = accountService.(accountEntity);
+        accountEntity = accountService.save(accountEntity);
         return accountEntity.getId();
     }
-    save
+
 }
