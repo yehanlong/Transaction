@@ -1,14 +1,17 @@
 package com.transaction.core.strategy;
 
 import com.alibaba.fastjson.JSONObject;
+import com.transaction.core.entity.AccountEntity;
 import com.transaction.core.entity.AmountPrice;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.exchange.pub.PostBill;
 import com.transaction.core.exchange.pub.PubConst;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
+import com.transaction.core.service.AccountService;
 import com.transaction.core.utils.DoubleUtil;
 import com.transaction.core.utils.MailUtil;
+import com.transaction.core.utils.SpringUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -206,6 +209,21 @@ public class SyncDo {
 
             }
         }
+    }
+
+    private int addAcc(String sy1, double v, String sy2, double v1, String sBase, double v2, double usdtcount, int count) {
+        AccountEntity accountEntity = AccountEntity.builder()
+                .sy1(sy1)
+                .sy1Amount(v)
+                .sy2(sy2)
+                .sy2Amount(v1)
+                .sbase(sBase)
+                .sbaseAmount(v2)
+                .cacl(usdtcount)
+                .count(count).build();
+        AccountService accountService = (AccountService) SpringUtil.getBean("accountService");
+        accountEntity = accountService.save(accountEntity);
+        return accountEntity.getId();
     }
 
 }

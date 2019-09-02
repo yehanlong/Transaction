@@ -14,6 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,6 +23,8 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 @SpringBootApplication
+@EnableAsync
+@EnableJpaAuditing
 public class CoreApplication {
 
     final static Logger logger = LoggerFactory.getLogger(CoreApplication.class);

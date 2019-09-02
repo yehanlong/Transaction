@@ -3,9 +3,12 @@ package com.transaction.core.exchange.pub;
 // 挂单类
 // 同步挂单和异步挂单，在此次实现，不再去每个交易所实现一次
 
+import com.transaction.core.entity.OrderEntity;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.exchange.pubinterface.Exchange;
+import com.transaction.core.service.OrderService;
 import com.transaction.core.utils.DoubleUtil;
+import com.transaction.core.utils.SpringUtil;
 
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
@@ -100,6 +103,21 @@ public class PostBill {
 
         return false;
     }
+
+    private static void addOrder(int accId, int count, String s, double price, double amount, String type) {
+        OrderService orderService = (OrderService) SpringUtil.getBean("orderService");
+        OrderEntity entity = OrderEntity.builder()
+                .accountId(accId)
+                .count(count)
+                .sy(s)
+                .price(price)
+                .amount(amount)
+                .type(type)
+                .build();
+        orderService.save(entity);
+
+    }
+
 
     public static boolean postBill(int accId,int count,Exchange client, String symbol1, String symbol2, String SBase, double amount1,
                                        double amount2, double amount3, double price1, double price12,
