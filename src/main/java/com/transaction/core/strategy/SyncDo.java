@@ -189,13 +189,12 @@ public class SyncDo {
                         // 发送最终结果邮件
                         String msg = MailUtil.sendResultEmains(client.getName(),sy1+sy2+sBase,count,type,succUsdt);
                         logger.info(msg);
+                        // 最后记录余额数据
+                        Map<String, PropertyVO> acc = client.getAccount();
+                        addAcc(sy1,acc.get(sy1).getActive() + acc.get(sy1).getFrozen(),sy2, acc.get(sy2).getActive()+acc.get(sy2).getFrozen(),
+                                sBase,acc.get(sBase).getActive()+acc.get(sBase).getFrozen(),0,-1);
+
                     }
-
-                    // 最后记录余额数据
-                    Map<String, PropertyVO> acc = client.getAccount();
-                    addAcc(sy1,acc.get(sy1).getActive() + acc.get(sy1).getFrozen(),sy2, acc.get(sy2).getActive()+acc.get(sy2).getFrozen(),
-                            sBase,acc.get(sBase).getActive()+acc.get(sBase).getFrozen(),0,-1);
-
                     // 数据初始化
                     count = 0;
                     succUsdt=0.0;
