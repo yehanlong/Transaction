@@ -12,16 +12,18 @@ import java.util.concurrent.CountDownLatch;
 
 public class PostBill {
 
-    public static boolean syncPostBill(Exchange client, String symbol1, String symbol2, String SBase, double amount1,
+    public static boolean syncPostBill(int accId,int count,Exchange client, String symbol1, String symbol2, String SBase, double amount1,
                                        double amount2, double amount3, double price1, double price12,
                                        double price2, String type){
         CountDownLatch latch = new CountDownLatch(3);
+        // todo 增加数据库记录
 
         if("BUY".equals(type)){
             // 买bty   bty买ycc  卖ycc
             new Thread(()->{
                 try {
                     client.postBill(amount1, symbol1,SBase, price1, "BUY");
+                    addOrder(accId,count,symbol1+SBase,price1,amount1,"BUY");
                 }finally {
                     latch.countDown();
                 }
@@ -31,6 +33,7 @@ public class PostBill {
             new Thread(()->{
                 try {
                     client.postBill(amount2, symbol2,symbol1, price12, type);
+                    addOrder(accId,count,symbol2+symbol1,price12,amount2,type);
                 }finally {
                     latch.countDown();
                 }
@@ -39,6 +42,7 @@ public class PostBill {
             new Thread(()->{
                 try {
                     client.postBill(amount3, symbol2,SBase, price2, "SELL");
+                    addOrder(accId,count,symbol2+SBase,price12,amount2,"SELL");
                 }finally {
                     latch.countDown();
                 }
@@ -59,6 +63,7 @@ public class PostBill {
             new Thread(()->{
                 try {
                     client.postBill(amount1, symbol1,SBase, price1, "SELL");
+                    addOrder(accId,count,symbol1+SBase,price1,amount1,"SELL");
                 }finally {
                     latch.countDown();
                 }
@@ -68,6 +73,7 @@ public class PostBill {
             new Thread(()->{
                 try {
                     client.postBill(amount2, symbol2,symbol1, price12, type);
+                    addOrder(accId,count,symbol2+symbol1,price12,amount2,type);
                 }finally {
                     latch.countDown();
                 }
@@ -77,6 +83,7 @@ public class PostBill {
             new Thread(()->{
                 try {
                     client.postBill(amount3, symbol2,SBase, price2, "BUY");
+                    addOrder(accId,count,symbol2+SBase,price2,amount3,"BUY");
                 }finally {
                     latch.countDown();
                 }
@@ -94,9 +101,11 @@ public class PostBill {
         return false;
     }
 
-    public static boolean postBill(Exchange client, String symbol1, String symbol2, String SBase, double amount1,
+    public static boolean postBill(int accId,int count,Exchange client, String symbol1, String symbol2, String SBase, double amount1,
                                        double amount2, double amount3, double price1, double price12,
                                        double price2, String type){
+
+        // todo 增加数据库记录
 
         Map<String, PropertyVO> acc = client.getAccount();
 

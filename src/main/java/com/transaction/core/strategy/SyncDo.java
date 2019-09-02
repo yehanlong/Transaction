@@ -2,6 +2,7 @@ package com.transaction.core.strategy;
 
 import com.alibaba.fastjson.JSONObject;
 import com.transaction.core.entity.AmountPrice;
+import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.exchange.pub.PostBill;
 import com.transaction.core.exchange.pub.PubConst;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
@@ -17,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.Map;
 import java.util.concurrent.locks.Lock;
 
 @Data
@@ -123,17 +125,21 @@ public class SyncDo {
                     }
 
                     // 判断账户余额  当账户余额太小，不进行交易
-                    if (client.getAccount().get(sBase).getActive() < everyUSDT){
+                    Map<String, PropertyVO> acc = client.getAccount();
+                    if (acc.get(sBase).getActive() < everyUSDT){
                         Thread.sleep(5000);
                         continue;
                     }
 
+                    // todo  记录余额
+                    int accId = addAcc(sy1,acc.get(sy1).getActive() + acc.get(sy1).getFrozen(),sy2, acc.get(sy2).getActive()+acc.get(sy2).getFrozen(),
+                            sBase,acc.get(sBase).getActive()+acc.get(sBase).getFrozen(),usdtcount,count);
 
                     // 一起执行3比交易
                     succUsdt += ap.getMinUSDT();
                     logger.info("此次吃单"+sBase+"数："+ ap.getMinUSDT() *point*point1 );
                     if (sType == 2) {
-                        boolean b = PostBill.postBill(client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
+                        boolean b = PostBill.postBill(accId,count,client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
                                 ap.getSy12Price(), ap.getSy2Price(), type);
                         if(!b){
                             logger.error("挂单 错误");
@@ -142,7 +148,7 @@ public class SyncDo {
                     }
                     if (sType == 3){
                         logger.info("市场行情：{}", JSONObject.toJSONString(amountPrice));
-                        boolean b = PostBill.syncPostBill(client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
+                        boolean b = PostBill.syncPostBill(accId,count,client,sy1, sy2,sBase, ap.getSy1Amount()*point*point1, ap.getSy12Amount()*point*point1, ap.getSy2Amount()*point*point1, ap.getSy1Price(),
                                 ap.getSy12Price(), ap.getSy2Price(), type);
                         if(!b){
                             logger.error("挂单 错误");
