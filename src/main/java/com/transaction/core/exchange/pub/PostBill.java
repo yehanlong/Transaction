@@ -19,7 +19,6 @@ public class PostBill {
                                        double amount2, double amount3, double price1, double price12,
                                        double price2, String type){
         CountDownLatch latch = new CountDownLatch(3);
-        // todo 增加数据库记录
 
         if("BUY".equals(type)){
             // 买bty   bty买ycc  卖ycc

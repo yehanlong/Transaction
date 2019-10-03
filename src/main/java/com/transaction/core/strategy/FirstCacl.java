@@ -4,6 +4,7 @@ import com.transaction.core.entity.AmountPrice;
 import com.transaction.core.entity.Order;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.TradeVO;
+import com.transaction.core.exchange.pub.MarketInfo;
 import com.transaction.core.exchange.pub.PubConst;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.Exchange;
@@ -43,7 +44,8 @@ public class FirstCacl {
 
 
         if (type == "BUY"){
-            SyncMarkInfo syncMarkInfo = client.getSyncMarkInfo(sy1, sy2, sBase);
+            SyncMarkInfo syncMarkInfo = MarketInfo.syncGetMarketInfo(client,sy1,sy2,sBase);
+//            SyncMarkInfo syncMarkInfo = client.getSyncMarkInfo(sy1, sy2, sBase);
             if (syncMarkInfo.getTrade1().getSuccess() && syncMarkInfo.getTrade2().getSuccess() && syncMarkInfo.getTrade3().getSuccess()) {
                 // 都获取成功
             } else {
@@ -91,7 +93,8 @@ public class FirstCacl {
         }
 
         if (type == "SELL"){
-            SyncMarkInfo syncMarkInfo = client.getSyncMarkInfo(sy1, sy2, sBase);
+//            SyncMarkInfo syncMarkInfo = client.getSyncMarkInfo(sy1, sy2, sBase);
+            SyncMarkInfo syncMarkInfo = MarketInfo.syncGetMarketInfo(client,sy1,sy2,sBase);
 
             if (syncMarkInfo.getTrade1().getSuccess() && syncMarkInfo.getTrade2().getSuccess() && syncMarkInfo.getTrade3().getSuccess()) {
                 // 都获取成功
