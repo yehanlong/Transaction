@@ -45,7 +45,6 @@ public class CoreApplication {
                 continue;
             }
             Exchange client = (Exchange) SpringUtil.getBean(systemConfig.getPlatform()+"Client");
-            client.init(systemConfig.getPlatform(), symbolConfigs);
             ReentrantLock lock = new ReentrantLock();
             for(SymbolConfig symbolConfig : symbolConfigs){
                 // 同步交易策略

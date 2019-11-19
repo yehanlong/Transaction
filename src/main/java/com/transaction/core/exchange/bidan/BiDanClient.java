@@ -46,30 +46,7 @@ public class BiDanClient extends AbstractExchange {
         return new BiDanClient.MarketInnerClass(symbol).getMarketInfo(symbol);
     }
 
-    @Override
-    public SyncMarkInfo getSyncMarkInfo(String symbol1, String symbol2, String SBase) {
-        CountDownLatch latch = new CountDownLatch(3);
-        Lock lock = new ReentrantLock();
-        SyncMarkInfo syncMarkInfo = new SyncMarkInfo();
-        syncMarkInfo.setLock(lock);
-        BiDanClient.MarketInnerClass marketInnerClass1 = new BiDanClient.MarketInnerClass(symbol1.toLowerCase() + SBase, syncMarkInfo, 1, latch);
-        BiDanClient.MarketInnerClass marketInnerClass2 = new BiDanClient.MarketInnerClass(symbol2.toLowerCase() + "_" + symbol1.toLowerCase(), syncMarkInfo, 2, latch);
-        BiDanClient.MarketInnerClass marketInnerClass3 = new BiDanClient.MarketInnerClass(symbol2.toLowerCase() + SBase, syncMarkInfo, 3, latch);
-        new Thread(marketInnerClass1).start();
-        new Thread(marketInnerClass2).start();
-        new Thread(marketInnerClass3).start();
-        try {
-            latch.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return syncMarkInfo;
-    }
 
-    @Override
-    public boolean syncPostBill(String symbol1, String symbol2, String SBase, double amount1, double amount2, double amount3, double price1, double price2, double price3, String type) {
-        return false;
-    }
 
     // 获取订单信息的内部类
     class MarketInnerClass implements Runnable{
@@ -154,8 +131,4 @@ public class BiDanClient extends AbstractExchange {
         return 0.001;
     }
 
-    @Override
-    public void init(String platform, List<SymbolConfig> symbolConfigs) {
-
-    }
 }

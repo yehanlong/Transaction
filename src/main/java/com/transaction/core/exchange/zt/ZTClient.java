@@ -118,51 +118,6 @@ public class ZTClient extends AbstractExchange {
         return vo;
     }
 
-    @Override
-    public SyncMarkInfo getSyncMarkInfo(String symbol1, String symbol2, String SBase) {
-        SyncMarkInfo info = new SyncMarkInfo();
-        String s1USDT = symbol1 + "_" + SBase;
-        String s2USDT = symbol2 + "_" + SBase;
-        String s2s1 = symbol2 + "_" + symbol1;
-
-        WebSocketClient webSocketClient = (WebSocketClient) SpringUtil.getBean("ztWebSocketClient");
-        while (!webSocketClient.getConnected()) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        String subject = "{\"method\":\"depth.query\",\"params\":[\"%s\",10,\"0.00000001\"],\"id\":%d}";
-        int s1Id = UUID.randomUUID().toString().hashCode();
-        int s2Id = UUID.randomUUID().toString().hashCode();
-        int s1s2Id = UUID.randomUUID().toString().hashCode();
-        ZTCache.depthSymbolMap.put(s1Id,s1USDT);
-        ZTCache.depthSymbolMap.put(s2Id,s2USDT);
-        ZTCache.depthSymbolMap.put(s1s2Id,s2s1);
-        webSocketClient.send(String.format(subject,s1USDT,s1Id));
-        webSocketClient.send(String.format(subject,s2USDT,s2Id));
-        webSocketClient.send(String.format(subject,s2s1,s1s2Id));
-        CountDownLatch latch = new CountDownLatch(3);
-        ZTCache.service.execute(new InnerTradeThread(latch,info,1,s1Id));
-        ZTCache.service.execute(new InnerTradeThread(latch,info,2,s1s2Id));
-        ZTCache.service.execute(new InnerTradeThread(latch,info,3,s2Id));
-
-        try {
-            latch.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return info;
-
-    }
-
-    @Override
-    public boolean syncPostBill(String symbol1, String symbol2, String SBase, double amount1, double amount2, double amount3, double price1, double price2, double price3, String type) {
-        return false;
-    }
-
-
     public boolean postBillZT(double amount, String market, String side, double price, String token) {
         System.out.println(market + " ：amount：" + amount + ", price: " + price + ", side:" + side);
         RestTemplate restTemplate = RestTemplateStatic.restTemplate();
@@ -202,7 +157,6 @@ public class ZTClient extends AbstractExchange {
         return 0;
     }
 
-    @Override
     public void init(String platform, List<SymbolConfig> symbolConfigs) {
         WebSocketService webSocketService = (WebSocketService) SpringUtil.getBean("ztWebSocketService");
         webSocketService.init(symbolConfigs);

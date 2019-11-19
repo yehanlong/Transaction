@@ -116,7 +116,7 @@ public class ZhaobiClient extends AbstractExchange {
         String code = object.getString("code");
         if(!"200".equals(code)){
             String message = FontUtil.decodeUnicode(object.getString("message"));
-            MailUtil.sendEmains("挂单操作失败"+message);
+            MailUtil.sendEmains("挂单操作失败，"+message+"，url："+requestText);
         }
         return true;
 
