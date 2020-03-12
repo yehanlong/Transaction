@@ -8,6 +8,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 import com.transaction.core.config.MailConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 /**
@@ -16,7 +17,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
  * @create: 2019-08-12
  */
 
-
+@Slf4j
 public class MailUtil implements Runnable {
     private static final String HOST = MailConfig.host;
     private static final Integer PORT = MailConfig.port;
@@ -74,19 +75,20 @@ public class MailUtil implements Runnable {
     }
 
     public static void sendEmains(String msg){
-        try {
-            sendMail("1536161955@qq.com",msg);
-            sendMail("13588208796@163.com",msg);
-            sendMail("sqc95111@163.com",msg);
-            sendMail("1376822651@qq.com",msg);
-
-
-
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            sendMail("1536161955@qq.com",msg);
+//            sendMail("13588208796@163.com",msg);
+//            sendMail("sqc95111@163.com",msg);
+//            sendMail("1376822651@qq.com",msg);
+//
+//
+//
+//        } catch (MessagingException e) {
+//            e.printStackTrace();
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+        log.warn("发送邮件：{}",msg);
     }
 
 
