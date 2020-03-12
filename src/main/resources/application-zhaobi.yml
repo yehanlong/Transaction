@@ -2,5 +2,5 @@ spring:
   datasource:
     druid:
       url: jdbc:mysql://db.kfm666.cn:10004/transaction_zhaobi?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
-  zhaobi:
-    token: ae0eb6aa57b4503a86f0ef861073ef55de9a5129
+zhaobi:
+  token: ae0eb6aa57b4503a86f0ef861073ef55de9a5129
