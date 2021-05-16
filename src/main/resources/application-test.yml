@@ -1,4 +1,8 @@
-spring:
-  datasource:
-    druid:
-      url: jdbc:mysql://db.kfm666.cn:10004/transaction?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+#spring:
+#  datasource:
+#    druid:
+#      url: jdbc:mysql://db.kfm666.cn:10004/transaction?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+
+mocha:
+  access-key: mx0igzU8Zruhheo3Of
+  secret-key: 96cdc69ea1c84eef90b7320f9c6ec8ac

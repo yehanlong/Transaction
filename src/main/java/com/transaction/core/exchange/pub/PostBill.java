@@ -10,6 +10,8 @@ import com.transaction.core.service.OrderService;
 import com.transaction.core.utils.DoubleUtil;
 import com.transaction.core.utils.SpringUtil;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
@@ -120,7 +122,7 @@ public class PostBill {
 
     public static boolean postBill(int accId,int count,Exchange client, String symbol1, String symbol2, String SBase, double amount1,
                                        double amount2, double amount3, double price1, double price12,
-                                       double price2, String type){
+                                       double price2, String type) throws InvalidKeyException, NoSuchAlgorithmException {
 
         // todo 增加数据库记录
 
@@ -152,7 +154,7 @@ public class PostBill {
                         System.out.println("获取余额延迟："+ i);
                         Thread.sleep(500);
                         acc = client.getAccount();
-                    } catch (InterruptedException e) {
+                    } catch (InterruptedException | NoSuchAlgorithmException | InvalidKeyException e) {
                         e.printStackTrace();
                     }
                 }

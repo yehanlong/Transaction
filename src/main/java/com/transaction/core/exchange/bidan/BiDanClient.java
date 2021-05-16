@@ -3,15 +3,15 @@ package com.transaction.core.exchange.bidan;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
 import com.transaction.core.entity.Order;
-import com.transaction.core.entity.SymbolConfig;
 import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
-import com.transaction.core.exchange.pubinterface.AbstractExchange;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.transaction.core.exchange.pubinterface.AbstractExchange;
+
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -21,8 +21,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 @Service("币蛋Client")
 public class BiDanClient extends AbstractExchange {

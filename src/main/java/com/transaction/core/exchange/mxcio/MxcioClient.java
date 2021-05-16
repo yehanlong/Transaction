@@ -8,20 +8,17 @@ import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
 import com.transaction.core.exchange.pubinterface.AbstractExchange;
-import com.transaction.core.utils.FontUtil;
-import com.transaction.core.utils.MailUtil;
+import com.transaction.core.utils.RestClientWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.text.DecimalFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Service("抹茶Client")
 public class MxcioClient extends AbstractExchange {
@@ -29,6 +26,12 @@ public class MxcioClient extends AbstractExchange {
     RestTemplate restTemplate = RestTemplateStatic.restTemplate();
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @Value("${mocha.accessKey}")
+    private String accessKey;
+    @Value("${mocha.secretKey}")
+    private String secretKey;
+
+    RestClientWrapper clientWrapper = new RestClientWrapper(secretKey, accessKey);
 
     @Override
     public Map<String, PropertyVO> getAccount() {
@@ -37,7 +40,26 @@ public class MxcioClient extends AbstractExchange {
 
     @Override
     public boolean postBill(double amount, String currency, String currency2, double price, String ty) {
-        return false;
+        PlaceOrderReq req = new PlaceOrderReq();
+        //LIMIT_ORDER 限价订单 POST_ONLY 限价做市单 IMMEDIATE_OR_CANCEL 下单即撤销
+        req.setOrderType("LIMIT_ORDER");
+        String trade_type = ty.equals("BUY")?"BID":"ASK";
+        req.setTradeType(trade_type);
+//        req.setSymbol("ETH_USDT");
+        req.setSymbol(currency+"_"+currency2);
+        req.setPrice(String.valueOf(price));
+        req.setQuantity(String.valueOf(amount));
+        try {
+            Result<String> result = clientWrapper.placeOrder(req);
+            if(200 == result.getCode()) return true;
+            else{
+                logger.error("下单失败，result:{},req:{}",JSONObject.toJSONString(result),req);
+                return false;
+            }
+        }catch(Exception e){
+            logger.error("下单失败，error:{},req:{}",e,req);
+            return false;
+        }
     }
 
     @Override

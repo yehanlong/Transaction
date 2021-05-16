@@ -2,6 +2,8 @@ package com.transaction.core.strategy;
 
 import com.transaction.core.exchange.pubinterface.Exchange;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.locks.Lock;
 
 
@@ -13,12 +15,24 @@ public class SyncMoving implements Strategy {
         new Thread(()->{
             SyncDo syncDoBuy = new SyncDo(client,sy1,sy2,sBase,lock,"BUY");
             syncDoBuy.setSType(3);
-            syncDoBuy.doIt();
+            try {
+                syncDoBuy.doIt();
+            } catch (InvalidKeyException e) {
+                e.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
         },sBase+"_"+sy1+"_"+sy2+"_BUY/SYNCMOVING").start();
         new Thread(()->{
             SyncDo syncDoSell = new SyncDo(client,sy1,sy2,sBase,lock,"SELL");
             syncDoSell.setSType(3);
-            syncDoSell.doIt();
+            try {
+                syncDoSell.doIt();
+            } catch (InvalidKeyException e) {
+                e.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
         },sBase+"_"+sy1+"_"+sy2+"_SELL/SYNCMOVING").start();
 
     }

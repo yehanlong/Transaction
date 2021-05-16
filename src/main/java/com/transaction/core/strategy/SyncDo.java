@@ -20,6 +20,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
@@ -50,7 +52,7 @@ public class SyncDo {
     RestTemplate restTemplate = RestTemplateStatic.restTemplate();
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public void doIt(){
+    public void doIt() throws InvalidKeyException, NoSuchAlgorithmException {
         logger.info("start SyncDo, sy1: " + sy1 +", sy2: "+ sy2 + ", sBase: " + sBase);
         int count = 0;
         int in = 0;

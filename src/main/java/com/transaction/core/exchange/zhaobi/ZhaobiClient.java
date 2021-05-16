@@ -4,12 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.transaction.core.entity.Order;
-import com.transaction.core.entity.SymbolConfig;
-import com.transaction.core.entity.SyncMarkInfo;
 import com.transaction.core.entity.vo.PropertyVO;
 import com.transaction.core.entity.vo.TradeVO;
-import com.transaction.core.exchange.pubinterface.AbstractExchange;
 import com.transaction.core.exchange.pub.RestTemplateStatic;
+import com.transaction.core.exchange.pubinterface.AbstractExchange;
 import com.transaction.core.utils.FontUtil;
 import com.transaction.core.utils.MailUtil;
 import org.slf4j.Logger;
@@ -24,10 +22,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.text.DecimalFormat;
 import java.util.*;
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 @Service("找币Client")
 public class ZhaobiClient extends AbstractExchange {
